@@ -1,10 +1,12 @@
+## Links
+- Link demo Netlify: https://coldchain-monitoring.netlify.app
+- Link dataset Kaggle: https://www.kaggle.com/datasets/lumino07/simulated-pharmaceutical-cold-chain-dataset
+
 # ColdChain IQ và kiểm thử hồi quy bộ chọn ngưỡng
 
 Kho nộp đồ án gồm ứng dụng ColdChain IQ, dữ liệu dùng trong đồ án và mã tái lập bài nghiên cứu *Exact Policy-Aware Regression Diagnosis for Precision-Constrained Threshold Selectors*.
 
 ## Chạy ứng dụng ColdChain IQ
-
-- Link demo Netlify: https://coldchain-monitoring.netlify.app
 
 Dùng Python 3.13.18. Từ thư mục gốc của repository, chạy:
 
