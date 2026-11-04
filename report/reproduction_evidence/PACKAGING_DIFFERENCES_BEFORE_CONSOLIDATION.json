@@ -1,9 +1,0 @@
-{
-  "scope": "GitHub-only packaging metadata; frozen submission artifact is unchanged",
-  "modified_files": [
-    "vendor/wheels/.gitignore",
-    "ARTIFACT_MANIFEST.json"
-  ],
-  "reason": "Remove inherited wildcard ignore that would omit the required pinned wheel during git add",
-  "scientific_code_changes_relative_to_submission_zip": false
-}

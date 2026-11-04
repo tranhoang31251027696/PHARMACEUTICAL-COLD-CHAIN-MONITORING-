@@ -1,8 +1,0 @@
-{
-  "status": "PASS",
-  "program_certificates_replayed": 210,
-  "program_policy_probes": 25386,
-  "real_version_certificates_reverified": 11,
-  "ablation_records_reconciled": 60,
-  "new_spec_provided": false
-}
