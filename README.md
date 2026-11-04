@@ -4,6 +4,8 @@ Kho nộp đồ án gồm ứng dụng ColdChain IQ, dữ liệu dùng trong đ�
 
 ## Chạy ứng dụng ColdChain IQ
 
+- Link demo Netlify: https://coldchain-monitoring.netlify.app
+
 Dùng Python 3.13.18. Từ thư mục gốc của repository, chạy:
 
 ```powershell
@@ -14,6 +16,8 @@ python app/start_ui.py
 Mở địa chỉ được in trên terminal (thường là http://127.0.0.1:8000). Chọn **Enter system → Use demo user → Sign in → Simulation**. Chọn một bộ dữ liệu mẫu hoặc tải lên tệp CSV/TSV theo [hướng dẫn sử dụng](app/HUONG_DAN_SU_DUNG.md).
 
 Trình kiểm tra hồi quy chạy trên máy. Dự báo Model 1 và dữ liệu lịch sử của dashboard dùng backend từ cấu hình app, có thể đặt qua biến môi trường `COLDCHAIN_MODEL_API`. Các chức năng này cần kết nối mạng và backend hoạt động. Tắt **auto-inference** nếu muốn phân tích tệp tải lên trên máy mà không gửi lịch sử cảm biến sang backend.
+
+
 
 ## Dữ liệu
 
@@ -40,4 +44,4 @@ Lệnh chạy quy trình 33 bước với đầu vào tại `code/reproduction/i
 
 - [Paper và Supplement](report/paper) có bản LaTeX, gói nguồn LaTeX và các bản Word. Hai PDF có hậu tố `_LaTeX` tương ứng bản LaTeX.
 - [Artifact và Evidence V11](report/release) gồm bộ tái lập đóng băng và hồ sơ kiểm chứng.
-- [Hướng dẫn đưa kho lên GitHub](BAT_DAU_TAI_DAY.md) ghi các bước nộp từ thư mục này.
+
