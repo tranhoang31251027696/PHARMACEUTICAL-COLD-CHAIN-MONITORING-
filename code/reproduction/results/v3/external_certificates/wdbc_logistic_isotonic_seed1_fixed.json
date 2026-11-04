@@ -1,0 +1,145 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed1",
+  "variant": "fixed",
+  "source_sha256": "f5eda405c09f57a094707c41524e48bb83c46722565495f5e33713d02466b9a5",
+  "upstream_commit": "32c53bc69cc0d1f142700dd6c02281a000b855b9",
+  "input_sha256": "bc32c2be4e3eab4c3dcd5e2927e62499a863595e18817f3cf185a5ee8f2d822c",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "52/69",
+    "13/17",
+    "52/67",
+    "26/33",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "53/143",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "11093/19734",
+      "equal": true,
+      "expected_n": 69,
+      "actual_n": 69,
+      "witness_id": null,
+      "expected_bits": "0x6a06144b35b64cc4e7307a15b9639f0d364e",
+      "actual_bits": "0x6a06144b35b64cc4e7307a15b9639f0d364e"
+    },
+    {
+      "alpha": "52/69",
+      "equal": true,
+      "expected_n": 69,
+      "actual_n": 69,
+      "witness_id": null,
+      "expected_bits": "0x6a06144b35b64cc4e7307a15b9639f0d364e",
+      "actual_bits": "0x6a06144b35b64cc4e7307a15b9639f0d364e"
+    },
+    {
+      "alpha": "1781/2346",
+      "equal": true,
+      "expected_n": 68,
+      "actual_n": 68,
+      "witness_id": null,
+      "expected_bits": "0x6a06144b35b64cc4e7307a15b9639e0d364e",
+      "actual_bits": "0x6a06144b35b64cc4e7307a15b9639e0d364e"
+    },
+    {
+      "alpha": "13/17",
+      "equal": true,
+      "expected_n": 68,
+      "actual_n": 68,
+      "witness_id": null,
+      "expected_bits": "0x6a06144b35b64cc4e7307a15b9639e0d364e",
+      "actual_bits": "0x6a06144b35b64cc4e7307a15b9639e0d364e"
+    },
+    {
+      "alpha": "1755/2278",
+      "equal": true,
+      "expected_n": 67,
+      "actual_n": 67,
+      "witness_id": null,
+      "expected_bits": "0x6a06144935b64cc4e7307a15b9639e0d364e",
+      "actual_bits": "0x6a06144935b64cc4e7307a15b9639e0d364e"
+    },
+    {
+      "alpha": "52/67",
+      "equal": true,
+      "expected_n": 67,
+      "actual_n": 67,
+      "witness_id": null,
+      "expected_bits": "0x6a06144935b64cc4e7307a15b9639e0d364e",
+      "actual_bits": "0x6a06144935b64cc4e7307a15b9639e0d364e"
+    },
+    {
+      "alpha": "1729/2211",
+      "equal": true,
+      "expected_n": 66,
+      "actual_n": 66,
+      "witness_id": null,
+      "expected_bits": "0x6a06144935b64cc4e6307a15b9639e0d364e",
+      "actual_bits": "0x6a06144935b64cc4e6307a15b9639e0d364e"
+    },
+    {
+      "alpha": "26/33",
+      "equal": true,
+      "expected_n": 66,
+      "actual_n": 66,
+      "witness_id": null,
+      "expected_bits": "0x6a06144935b64cc4e6307a15b9639e0d364e",
+      "actual_bits": "0x6a06144935b64cc4e6307a15b9639e0d364e"
+    },
+    {
+      "alpha": "557/660",
+      "equal": true,
+      "expected_n": 55,
+      "actual_n": 55,
+      "witness_id": null,
+      "expected_bits": "0x6006104935b44c04e6307a0139639e0d344a",
+      "actual_bits": "0x6006104935b44c04e6307a0139639e0d344a"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 55,
+      "actual_n": 55,
+      "witness_id": null,
+      "expected_bits": "0x6006104935b44c04e6307a0139639e0d344a",
+      "actual_bits": "0x6006104935b44c04e6307a0139639e0d344a"
+    }
+  ],
+  "equivalent": true,
+  "psc_exact": "0",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

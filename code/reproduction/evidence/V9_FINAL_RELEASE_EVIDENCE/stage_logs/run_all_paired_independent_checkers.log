@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "certificates_independently_reverified": 428,
+  "critical_and_open_cell_probes": 41348,
+  "input_cases_hash_verified": 98,
+  "mutant_runs_reconciled": 360,
+  "timing_records_reconciled": 120,
+  "pytest_tests": 41,
+  "exhaustive_combinations": 10854,
+  "randomized_cases": 1000
+}
+paired_checkers 1000 invariant
+paired_checkers 1000 divergent
+paired_checkers 10000 invariant
+paired_checkers 10000 divergent
+paired_checkers 100000 invariant
+paired_checkers 100000 divergent
+{
+  "status": "PASS",
+  "timing_records": 60,
+  "separate_memory_records": 12,
+  "groups": 12,
+  "paired_fixture_groups": 6,
+  "repetitions": 5,
+  "randomized_within_replicate_order": true,
+  "production_outside_timing": true,
+  "source_sha256": {
+    "src/independent_oracle.py": "71902f156dea33ce1346e9f6966550b27a040ea6a8f423f6b0aae67303bfb4a3",
+    "src/streaming_checker.py": "0eb10995362d04bd7191c250921a04c8fffcc61bb31ee31c1ad83647d171be44",
+    "streaming_checker_study.py": "690767a73e1e17329158a76a8b48918e746779319e7e80529742b367620ae18d"
+  },
+  "scope": "Matched fixtures, payload and hashing/coverage/witness obligations; JSON parsing separate. Untraced times never pooled with traced memory. One host, no universal CI latency claim."
+}

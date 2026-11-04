@@ -1,0 +1,47 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "969c41bf18bb5c17034ca56842c513016d7eb5acccc55eaf3ece69e238e060e3",
+  "domain": [
+    "3/10",
+    "4/5"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "4/5"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "4/5",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 56,
+      "new_n": 56,
+      "equal": true,
+      "witness": null
+    }
+  ],
+  "equivalent": true,
+  "divergent_length": "0",
+  "psc_exact": "0",
+  "psc": 0.0,
+  "candidate_counts": [
+    87,
+    75
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 1
+}

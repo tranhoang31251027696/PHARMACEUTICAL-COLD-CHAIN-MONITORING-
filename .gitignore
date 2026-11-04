@@ -1,0 +1,14 @@
+.venv/
+env/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db
+code/reproduction/results/authoring_cache/
+
+**/RESPONSE_TO_REVIEW*.md
+code/reproduction/KET_QUA_Q1.md

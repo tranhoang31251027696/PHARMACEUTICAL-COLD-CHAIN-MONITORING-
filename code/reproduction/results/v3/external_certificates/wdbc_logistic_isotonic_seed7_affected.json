@@ -1,0 +1,69 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed7",
+  "variant": "affected",
+  "source_sha256": "6fec0d88fe0e40ff8624d6c240b7f656ba0a84a408db52e52cf6b4b312617658",
+  "upstream_commit": "7e1e6d09bcc2eaeba98f7e737aac2ac782f0e5f1",
+  "input_sha256": "19825dd2f9c5628baa6683c39902cec5bb3963f4955e52c2f5abde8676aedfd0",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": false,
+      "expected_n": 143,
+      "actual_n": 56,
+      "witness_id": "0",
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": false,
+      "expected_n": 143,
+      "actual_n": 56,
+      "witness_id": "0",
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    },
+    {
+      "alpha": "53/143",
+      "equal": false,
+      "expected_n": 143,
+      "actual_n": 56,
+      "witness_id": "0",
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    },
+    {
+      "alpha": "1817/2860",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x20015003acc9c406fa0283fa5a243943529e",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x20015003acc9c406fa0283fa5a243943529e",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    }
+  ],
+  "equivalent": false,
+  "psc_exact": "101/858",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

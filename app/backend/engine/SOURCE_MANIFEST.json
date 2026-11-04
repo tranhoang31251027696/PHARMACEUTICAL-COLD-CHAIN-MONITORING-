@@ -1,0 +1,9 @@
+{
+  "origin": "Research artifact V11; computational module bytes copied unchanged",
+  "sha256": {
+    "src/policy_exact.py": "f4c682d80026c08a9a236e453faba606893e09b7941c2ffe21ee0a551aa3dc6c",
+    "src/streaming_checker.py": "0eb10995362d04bd7191c250921a04c8fffcc61bb31ee31c1ad83647d171be44",
+    "policy_domain_query.py": "1f7d0da3955de18efcb8ee3d57e9630ffe00c4685c7e23a908385c0313c1feb2",
+    "verified_boolean_query.py": "3debd85ea5291e93b6903986ea1c75b58bfbc39e65c786a867600806cd942d68"
+  }
+}

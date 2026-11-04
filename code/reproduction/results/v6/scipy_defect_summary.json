@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "documented_defect": "scipy/scipy#6318",
+  "merged_fix": "scipy/scipy#6351",
+  "affected_commit": "3565a801587a699d2f320a6406d0f38f86c0c4b0",
+  "fixed_commit": "7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636",
+  "upstream_regression_test": {
+    "affected": "FAIL_EXPECTED_REGRESSION",
+    "fixed": "PASS",
+    "current": "PASS"
+  },
+  "workloads": 36,
+  "variant_workload_pairs": 108,
+  "affected_score_changed": 34,
+  "affected_policy_divergent": 31,
+  "snapshot_detected": 26,
+  "grid_detected": 31,
+  "complete_detected": 31,
+  "fixed_or_current_false_alarms": 0,
+  "positive_divergent_psc_min": 0.05555555555555555,
+  "positive_divergent_psc_max": 1.0,
+  "confirmed_defects_added": 1,
+  "confirmed_defects_across_studies": 2,
+  "external_projects_across_studies": 3,
+  "scipy_runtime": "1.18.1",
+  "compatibility_base_sha256": "54b8bb7db16b6351d49728345157535452bbcb269f8e10f958ca2be25aea7bbe",
+  "upstream_source_edits": 0,
+  "source_sha256": "833b268e7ccc6b43439f438dbe7c22ce40a379802ec000c1d9a2a913b55d69bb",
+  "scope": "Unmodified historical nearest-interpolator class/helpers with modern base helper and np.float_ alias bridge. Original upstream regression test reproduced; not an old binary or original full reporter dataset. Six axis fixtures and thirty fixed pipeline prefixes with synthetic integer-time carriers. One additional documented defect, not thirty-four independent bugs/deployments. Fixed/current identity at observed knots checked directly."
+}

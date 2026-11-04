@@ -1,0 +1,492 @@
+{
+  "case_id": "n100000_g90_alternating",
+  "n": 100000,
+  "g": 90,
+  "pattern": "alternating",
+  "input_sha256": "f9b41b08a47a18b662b4b246815cda459c414b35f5e317cf53a7bb9a86948be9",
+  "method": "partition",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "30001/50000",
+        "left_closed": true,
+        "right_closed": true
+      },
+      {
+        "lo": "2844/4709",
+        "hi": "29719/48889",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "59143/96667",
+        "hi": "19613/31852",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4502/7265",
+        "hi": "58205/93334",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "57875/92223",
+        "hi": "7192/11389",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "57188/90001",
+        "hi": "9472/14815",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "56467/87779",
+        "hi": "56093/86668",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "18570/28519",
+        "hi": "55319/84446",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "54919/83335",
+        "hi": "9085/13704",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "54092/81113",
+        "hi": "26833/40001",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "53231/78891",
+        "hi": "52787/77780",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "52334/76669",
+        "hi": "17291/25186",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "51403/74447",
+        "hi": "12731/18334",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "50437/72225",
+        "hi": "1611/2294",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "49436/70003",
+        "hi": "24461/34446",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "48400/67781",
+        "hi": "47869/66670",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "47329/65559",
+        "hi": "11695/16112",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "46223/63337",
+        "hi": "5073/6914",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "45082/61115",
+        "hi": "22249/30002",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "43906/58893",
+        "hi": "43305/57782",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "42695/56671",
+        "hi": "10519/13890",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "41449/54449",
+        "hi": "40813/53338",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "40168/52227",
+        "hi": "39515/51116",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "38853/50005",
+        "hi": "19091/24447",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "37502/47783",
+        "hi": "18407/23336",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "12039/15187",
+        "hi": "35411/44450",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "34696/43339",
+        "hi": "33973/42228",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "33241/41117",
+        "hi": "16250/20003",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "6350/7779",
+        "hi": "3874/4723",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "75/91",
+        "hi": "29449/35562",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "28664/34451",
+        "hi": "27871/33340",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "9023/10743",
+        "hi": "13129/15559",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "25438/30007",
+        "hi": "12305/14448",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "23773/27785",
+        "hi": "22927/26674",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "22073/25563",
+        "hi": "10605/12226",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "20338/23341",
+        "hi": "19457/22230",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "18568/21119",
+        "hi": "8835/10004",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "16763/18897",
+        "hi": "15847/17786",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "14923/16675",
+        "hi": "6995/7782",
+        "left_closed": false,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "3092367763216882640980186765377362893410154649146949070910141016964333455103976319930172709410188187798531386003662824412197330117147413869712272640470101898753595077324128245912985570052455328068902597949752385135470962938939748172188778810279522439127889304510899537/4128250428393516895395753603469068520125743909823356205333024503982653793639466862280124813669916607940061910803164917845060339377073208816112403155360454390735016444820789983468440503093910863817432116363233636613010050300680371742227364066590591035651877075311110000",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 185,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "278987087/460436602",
+        "row_index": 8,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "3779752707/6158074568",
+        "row_index": 70,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "843048993/1356143020",
+        "row_index": 64,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1322406191/2100655494",
+        "row_index": 69,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "849864846/1333364815",
+        "row_index": 63,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "9817669403/15215260744",
+        "row_index": 134,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "3145804781/4816630948",
+        "row_index": 4,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1509708451/2284045680",
+        "row_index": 35,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "4340239221/6489202226",
+        "row_index": 128,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "8304726397/12272283960",
+        "row_index": 132,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2643767803/3861970868",
+        "row_index": 1,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1890207359/2729822596",
+        "row_index": 33,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "232056953/331368300",
+        "row_index": 129,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "3415215839/4822646676",
+        "row_index": 34,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "6471436689/9037918540",
+        "row_index": 11,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1529277353/2112573216",
+        "row_index": 106,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "640894423/875824036",
+        "row_index": 156,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2712297799/3667144460",
+        "row_index": 100,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "5087337857/6805910652",
+        "row_index": 9,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1189155799/1574320380",
+        "row_index": 95,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "4433033799/5808401524",
+        "row_index": 44,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "4116977393/5339270664",
+        "row_index": 142,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "952242373/1222472235",
+        "row_index": 18,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1754688353/2230128176",
+        "row_index": 24,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1072920407/1350124300",
+        "row_index": 25,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2937498535/3660238584",
+        "row_index": 23,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1333070973/1644926702",
+        "row_index": 73,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "30063448/36740217",
+        "row_index": 125,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "5347009/6472284",
+        "row_index": 60,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1915841581/2297192680",
+        "row_index": 194,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "140716852/167150337",
+        "row_index": 157,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "736764359/867082272",
+        "row_index": 42,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1271147697/1482274180",
+        "row_index": 82,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "540960113/625066476",
+        "row_index": 87,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "906259577/1037740860",
+        "row_index": 58,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "372340637/422548952",
+        "row_index": 28,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "597607477/672204084",
+        "row_index": 12,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "232772411/259529700",
+        "row_index": 107,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "critical_points": 79
+  }
+}

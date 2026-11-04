@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "certificate_timing_rows": 120,
+  "reconstructed_workloads": 6,
+  "workload_hashes": [
+    {
+      "n": 1000,
+      "g": 20,
+      "workload": "invariant",
+      "input_sha256": "28f6ecdf57da6f9ba3c045cc088f524d1ab232b4ddc51c689c19678d0bca2238",
+      "oracle_probes": 45
+    },
+    {
+      "n": 1000,
+      "g": 20,
+      "workload": "divergent",
+      "input_sha256": "87f513c9cd6e062b64d9fbec3d75e0454ffb9d5f74ff36d02adbc07777c85174",
+      "oracle_probes": 120
+    },
+    {
+      "n": 10000,
+      "g": 100,
+      "workload": "invariant",
+      "input_sha256": "7667fa752b59ebe89d83517e41b44a2a8c156a01635d1b986e1c4eed16723a44",
+      "oracle_probes": 214
+    },
+    {
+      "n": 10000,
+      "g": 100,
+      "workload": "divergent",
+      "input_sha256": "85b4e664c6fb372e55f91bbe75ed694d4cfccc3c76be84bb5ad636dfbcf7a1dd",
+      "oracle_probes": 628
+    },
+    {
+      "n": 100000,
+      "g": 500,
+      "workload": "invariant",
+      "input_sha256": "01640d9681080f41a18c6b01d51a2166d29bc4097c60bf853a0aee42f28747c1",
+      "oracle_probes": 1062
+    },
+    {
+      "n": 100000,
+      "g": 500,
+      "workload": "divergent",
+      "input_sha256": "1a3b21bd639b6626a0adb5f6e7e997eda2ced74f072fb94c1c4c87b61d9889ce",
+      "oracle_probes": 3142
+    }
+  ],
+  "matched_method_rows": 270,
+  "matched_method_groups": 45,
+  "measurement_source_sha256": {
+    "results/execution_source_snapshot/run_experiments.py": "e9bfc7c90eb879308ba348c8bed95a61f931b18e03a66cb8d9ce813e86e11339",
+    "results/execution_source_snapshot/policy_exact.py": "4f7f2477d81a48572d32885b18fb330d6c4b1f0623ce3ad5eb7cce6d7147dc48"
+  },
+  "raw_record_sha256": {
+    "certificate_timings.csv": "a57beb71646912dbf1dc8647dd0843d69326c426cca972e7ce6e7af68e7630ab",
+    "certificate_timing_summary.csv": "c4317ae6a732dcd1a74481964a0ddf60a39a705fef45c2d9a2cc1c3f0aa6b368",
+    "matched_method_timings.csv": "3b0674fc01b124ce210a0bd46309776ebcdb23122b7229cae25bff0b41a04c32",
+    "matched_method_summary.csv": "a275f814f9cf9bfc7b480a65f5b82499bb1b5891a7d9e38761ee068a42906c29"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.tex": {
+      "sha256": "08003373cc1e924aefd08f48957da28d66f451f600fdf57528135f061264a6f0",
+      "original_submission_relative_path": "04_LaTeX_Source/main.tex"
+    },
+    "decision_regression.py": {
+      "sha256": "d8156b3c9508d54f960dbb40beefe7390ec06fc7933fd08b616e3558b9d907dd",
+      "original_submission_relative_path": "decision_regression.py"
+    },
+    "COMPANION_MANIFEST.json": {
+      "sha256": "75b374f5ab4d6baec4be0e5d70f84227537162164bd472a1bc22b88c92ceee39",
+      "original_submission_relative_path": "COMPANION_MANIFEST.json"
+    }
+  },
+  "scope": "Historical workspace snapshots retained for traceability. The author states that there is no separate inherited Q2 paper; these labels do not establish a separate manuscript or bibliographic source."
+}

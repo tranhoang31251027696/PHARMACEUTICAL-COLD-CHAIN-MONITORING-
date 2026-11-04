@@ -1,0 +1,35 @@
+{
+  "case_id": "wdbc_logistic_isotonic_seed0",
+  "variant": "affected",
+  "method": "smt_all_regions",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "53/75",
+        "left_closed": true,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "61/90",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 0,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "solver_calls": 5,
+    "predicate_cells": 4,
+    "residual_result": "unsat"
+  }
+}

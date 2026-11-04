@@ -1,0 +1,207 @@
+{
+  "status": "PASS",
+  "archive_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1\\Q1_RESEARCH_REVISION_V8_20261030.zip",
+  "archive_sha256_before": "c196b5f591c9ee48e9e7d8fa6e72431204e05195b7ee7ed5365ed7742d6735ab",
+  "archive_sha256_after": "c196b5f591c9ee48e9e7d8fa6e72431204e05195b7ee7ed5365ed7742d6735ab",
+  "archive_unchanged": true,
+  "manifest_files_verified": 2459,
+  "clean_extraction_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1_revision_v8\\v8_final_run\\artifact",
+  "neighboring_submission_absent": true,
+  "started_utc": "2026-10-30T05:44:20.685273+00:00",
+  "ended_utc": "2026-10-30T06:03:19.436954+00:00",
+  "elapsed_seconds": 1118.4557913999888,
+  "environment": {
+    "python": "3.13.18 (main, Oct 26 2026, 14:10:48) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1_revision_v5\\env\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "pytest": "9.2.0",
+    "z3": "5.3.3",
+    "eval_toolkit": "1.12.0",
+    "packages": {
+      "attrs": "26.1.0",
+      "cloudpickle": "3.1.2",
+      "colorama": "0.4.6",
+      "eval-toolkit": "1.12.0",
+      "iniconfig": "2.3.1",
+      "joblib": "1.6.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "narwhals": "2.28.0",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pluggy": "1.7.0",
+      "Pygments": "2.21.0",
+      "pytest": "9.2.0",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.9.1",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0",
+      "z3-solver": "5.3.3.0"
+    }
+  },
+  "exit_code": 0,
+  "stages": [
+    {
+      "stage": "pytest",
+      "exit_code": 0,
+      "seconds": 37.238079000031576
+    },
+    {
+      "stage": "policy_mutation_certificate_benchmarks",
+      "exit_code": 0,
+      "seconds": 144.31417279999005
+    },
+    {
+      "stage": "matched_method_benchmark",
+      "exit_code": 0,
+      "seconds": 2.380338200018741
+    },
+    {
+      "stage": "independent_certificate_audit",
+      "exit_code": 0,
+      "seconds": 85.05765600001905
+    },
+    {
+      "stage": "benchmark_audit",
+      "exit_code": 0,
+      "seconds": 22.338805299950764
+    },
+    {
+      "stage": "cli_integration",
+      "exit_code": 0,
+      "seconds": 2.1863349999766797
+    },
+    {
+      "stage": "program_evaluation",
+      "exit_code": 0,
+      "seconds": 43.74529549997533
+    },
+    {
+      "stage": "version_output_evaluation",
+      "exit_code": 0,
+      "seconds": 1.735036400030367
+    },
+    {
+      "stage": "phase_ablation",
+      "exit_code": 0,
+      "seconds": 3.89730429998599
+    },
+    {
+      "stage": "revision_audit",
+      "exit_code": 0,
+      "seconds": 46.7543373000226
+    },
+    {
+      "stage": "external_upstream_case",
+      "exit_code": 0,
+      "seconds": 17.7869883000385
+    },
+    {
+      "stage": "fail_closed_and_ci",
+      "exit_code": 0,
+      "seconds": 112.15613519999897
+    },
+    {
+      "stage": "smt_same_contract_baseline",
+      "exit_code": 0,
+      "seconds": 22.404402999964077
+    },
+    {
+      "stage": "revision_v3_audit",
+      "exit_code": 0,
+      "seconds": 20.363604800018948
+    },
+    {
+      "stage": "external_selector_onboarding",
+      "exit_code": 0,
+      "seconds": 4.629474500019569
+    },
+    {
+      "stage": "complete_region_comparison",
+      "exit_code": 0,
+      "seconds": 75.04744530003518
+    },
+    {
+      "stage": "revision_v4_audit",
+      "exit_code": 0,
+      "seconds": 19.7994606999564
+    },
+    {
+      "stage": "upstream_selector_tests",
+      "exit_code": 0,
+      "seconds": 7.4689536999794655
+    },
+    {
+      "stage": "second_external_project",
+      "exit_code": 0,
+      "seconds": 8.626214799995068
+    },
+    {
+      "stage": "expanded_complete_regions",
+      "exit_code": 0,
+      "seconds": 26.67466160003096
+    },
+    {
+      "stage": "paired_independent_checkers",
+      "exit_code": 0,
+      "seconds": 231.72788189997664
+    },
+    {
+      "stage": "revision_v5_audit",
+      "exit_code": 0,
+      "seconds": 10.173182400001679
+    },
+    {
+      "stage": "second_documented_defect",
+      "exit_code": 0,
+      "seconds": 6.587667000014335
+    },
+    {
+      "stage": "policy_significance",
+      "exit_code": 0,
+      "seconds": 2.3695683000260033
+    },
+    {
+      "stage": "larger_candidate_regions",
+      "exit_code": 0,
+      "seconds": 97.7084157000063
+    },
+    {
+      "stage": "revision_v6_audit",
+      "exit_code": 0,
+      "seconds": 20.24230699997861
+    },
+    {
+      "stage": "declared_policy_domain_queries",
+      "exit_code": 0,
+      "seconds": 6.932320300024003
+    },
+    {
+      "stage": "revision_v7_audit",
+      "exit_code": 0,
+      "seconds": 3.131898900028318
+    },
+    {
+      "stage": "measured_certificate_reuse",
+      "exit_code": 0,
+      "seconds": 25.581979400012642
+    },
+    {
+      "stage": "revision_v8_audit",
+      "exit_code": 0,
+      "seconds": 5.72552119998727
+    },
+    {
+      "stage": "manuscript",
+      "exit_code": 0,
+      "seconds": 1.1609569999855012
+    }
+  ],
+  "output_files_hashed": 2008,
+  "output_digest_manifest_sha256": "9bd5baedccf1fea482c5c9c2fbda9f5d740d22357977600991e09de7caf2f74e",
+  "scope": "Execution of the exact frozen archive, not a candidate-source comparison. Evidence is intentionally outside the archive to avoid self-reference and changing its hash."
+}

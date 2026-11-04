@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "archive_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1\\Q1_RESEARCH_REVISION_V4_20261030.zip",
+  "archive_sha256_before": "f45403ce8011adc3d084af2b432953286072fd8b6302e134ab1e087d4075b835",
+  "archive_sha256_after": "f45403ce8011adc3d084af2b432953286072fd8b6302e134ab1e087d4075b835",
+  "archive_unchanged": true,
+  "manifest_files_verified": 1269,
+  "clean_extraction_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1_revision_v4\\v4_final_run\\artifact",
+  "neighboring_submission_absent": true,
+  "started_utc": "2026-10-29T18:13:25.408714+00:00",
+  "ended_utc": "2026-10-29T18:36:45.076595+00:00",
+  "elapsed_seconds": 1389.6185981000308,
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\revision_20261029\\envs\\main\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "pytest": "9.2.0",
+    "z3": "5.3.3"
+  },
+  "exit_code": 0,
+  "stages": [
+    {
+      "stage": "pytest",
+      "exit_code": 0,
+      "seconds": 25.92337120004231
+    },
+    {
+      "stage": "policy_mutation_certificate_benchmarks",
+      "exit_code": 0,
+      "seconds": 242.5761406000238
+    },
+    {
+      "stage": "matched_method_benchmark",
+      "exit_code": 0,
+      "seconds": 1.9179864000179805
+    },
+    {
+      "stage": "independent_certificate_audit",
+      "exit_code": 0,
+      "seconds": 158.50136699998984
+    },
+    {
+      "stage": "benchmark_audit",
+      "exit_code": 0,
+      "seconds": 36.92690529994434
+    },
+    {
+      "stage": "cli_integration",
+      "exit_code": 0,
+      "seconds": 1.486608500010334
+    },
+    {
+      "stage": "program_evaluation",
+      "exit_code": 0,
+      "seconds": 84.7479914999567
+    },
+    {
+      "stage": "version_output_evaluation",
+      "exit_code": 0,
+      "seconds": 1.8763600999955088
+    },
+    {
+      "stage": "phase_ablation",
+      "exit_code": 0,
+      "seconds": 5.602830699994229
+    },
+    {
+      "stage": "revision_audit",
+      "exit_code": 0,
+      "seconds": 80.93467849999433
+    },
+    {
+      "stage": "external_upstream_case",
+      "exit_code": 0,
+      "seconds": 37.94709170004353
+    },
+    {
+      "stage": "fail_closed_and_ci",
+      "exit_code": 0,
+      "seconds": 96.45604820002336
+    },
+    {
+      "stage": "smt_same_contract_baseline",
+      "exit_code": 0,
+      "seconds": 36.490203799970914
+    },
+    {
+      "stage": "revision_v3_audit",
+      "exit_code": 0,
+      "seconds": 37.781972599972505
+    },
+    {
+      "stage": "external_selector_onboarding",
+      "exit_code": 0,
+      "seconds": 7.247479200013913
+    },
+    {
+      "stage": "complete_region_comparison",
+      "exit_code": 0,
+      "seconds": 131.75655189994723
+    },
+    {
+      "stage": "independent_checker_cost",
+      "exit_code": 0,
+      "seconds": 363.9472604999901
+    },
+    {
+      "stage": "revision_v4_audit",
+      "exit_code": 0,
+      "seconds": 34.04438109998591
+    },
+    {
+      "stage": "manuscript",
+      "exit_code": 0,
+      "seconds": 0.7058857000083663
+    }
+  ],
+  "output_files_hashed": 1037,
+  "output_digest_manifest_sha256": "21325ae95894ce4925098525cc4cdeeee0abba34c46cf5865cbb9772e6de6ec9",
+  "scope": "Execution of the exact frozen archive, not a candidate-source comparison. Evidence is intentionally outside the archive to avoid self-reference and changing its hash."
+}

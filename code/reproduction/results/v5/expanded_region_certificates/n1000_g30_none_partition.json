@@ -1,0 +1,22 @@
+{
+  "case_id": "n1000_g30_none",
+  "n": 1000,
+  "g": 30,
+  "pattern": "none",
+  "input_sha256": "73666e5aec942ff0a4664a8fde6ea1f38bdccc8a2c59504f07d1a23af807404f",
+  "method": "partition",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": true,
+    "divergent_regions": [],
+    "psc_exact": "0",
+    "representative_witnesses": [],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "critical_points": 27
+  }
+}

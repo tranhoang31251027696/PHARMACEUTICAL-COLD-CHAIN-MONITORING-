@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-10-29T15:21:04.186805+00:00",
+  "ended_utc": "2026-10-29T15:22:47.581252+00:00",
+  "elapsed_seconds": 103.39479320001556,
+  "policy_cases": 98,
+  "historical_grid_checks": 255,
+  "policy_sensitive_cases": 53,
+  "cohorts": {
+    "Independent_pipeline": {
+      "cases": 30,
+      "sensitive": 1
+    },
+    "Public_WDBC": {
+      "cases": 1,
+      "sensitive": 1
+    },
+    "Retained": {
+      "cases": 50,
+      "sensitive": 40
+    },
+    "Synthetic": {
+      "cases": 17,
+      "sensitive": 11
+    }
+  },
+  "mutation_runs": 360,
+  "contract_failures_detected": 30,
+  "policy_divergent_mutants": 183,
+  "observed_equivalent_mutants": 57,
+  "valid_controls": 90,
+  "policy_false_alarms_on_controls": 0,
+  "detections_on_policy_divergent": {
+    "snapshot_detected": 112,
+    "grid_detected": 157,
+    "score_b4_flag": 47,
+    "current_guard_flag": 47,
+    "exact_detected": 183
+  },
+  "structural_flags_without_policy_divergence": {
+    "score_b4_flag": 9,
+    "current_guard_flag": 42
+  },
+  "benchmark_rows": 120,
+  "limitations": [
+    "Single host; descriptive latency under tracemalloc includes certificate serialization",
+    "Hand-designed mutants and synthetic perturbations, not naturally occurring releases",
+    "Repeated splits of three datasets are not independent external deployments",
+    "B4/current guard observe scores, not arbitrary changes inside selector code",
+    "Finite local evidence does not establish novelty, universal correctness, or journal acceptance"
+  ],
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.3.5",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "queries": {
+    "grid13": {
+      "semantics": "rational",
+      "kind": "finite",
+      "values": [
+        "3/10",
+        "7/20",
+        "2/5",
+        "9/20",
+        "1/2",
+        "11/20",
+        "3/5",
+        "13/20",
+        "7/10",
+        "3/4",
+        "4/5",
+        "17/20",
+        "9/10"
+      ]
+    },
+    "declared_three": {
+      "semantics": "rational",
+      "kind": "finite",
+      "values": [
+        "1/2",
+        "4/5",
+        "9/10"
+      ]
+    },
+    "decimal2": {
+      "semantics": "rational",
+      "lo": "3/10",
+      "hi": "9/10",
+      "left_closed": true,
+      "right_closed": true,
+      "kind": "lattice",
+      "decimal_places": 2
+    },
+    "decimal3": {
+      "semantics": "rational",
+      "lo": "3/10",
+      "hi": "9/10",
+      "left_closed": true,
+      "right_closed": true,
+      "kind": "lattice",
+      "decimal_places": 3
+    },
+    "decimal4": {
+      "semantics": "rational",
+      "lo": "3/10",
+      "hi": "9/10",
+      "left_closed": true,
+      "right_closed": true,
+      "kind": "lattice",
+      "decimal_places": 4
+    },
+    "decimal6": {
+      "semantics": "rational",
+      "lo": "3/10",
+      "hi": "9/10",
+      "left_closed": true,
+      "right_closed": true,
+      "kind": "lattice",
+      "decimal_places": 6
+    },
+    "whole_interval": {
+      "semantics": "rational",
+      "lo": "3/10",
+      "hi": "9/10",
+      "left_closed": true,
+      "right_closed": true,
+      "kind": "interval"
+    },
+    "high_interval": {
+      "semantics": "rational",
+      "lo": "4/5",
+      "hi": "9/10",
+      "left_closed": true,
+      "right_closed": true,
+      "kind": "interval"
+    }
+  },
+  "cohort": "All 36 existing SciPy affected-source workloads, no outcome filtering",
+  "contract": "Exact rational precision and selected observation IDs; policy sets are declared study scenarios, not observed deployment policies",
+  "direct_enumeration": "Executed interpolation scores are cached once; masks are independently prepared; only finite sets and decimal2/3 are exhaustively enumerated",
+  "timing": "Single descriptive invocation per case/query; no runtime ranking or amortization threshold inferred"
+}

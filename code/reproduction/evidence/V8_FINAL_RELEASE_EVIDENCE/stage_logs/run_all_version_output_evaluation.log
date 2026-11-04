@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "fresh_version_comparisons": 11,
+  "score_different_cases": 11,
+  "policy_divergent_cases": 9,
+  "confirmed_real_bugs": 0,
+  "scope": "Actual dependency binaries executed locally on inherited fixed inputs; differential behavior, not ground truth of a library defect or an independent deployment."
+}

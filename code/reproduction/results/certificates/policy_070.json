@@ -1,0 +1,69 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "816346f21ab3e39efc6f7765d0c40e180e865e5a5ee6754e69917ee536a06ff5",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "13/16",
+    "9/10"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "53/143",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 143,
+      "new_n": 143,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/143",
+      "hi": "13/16",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 64,
+      "new_n": 64,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "13/16",
+      "hi": "9/10",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 52,
+      "new_n": 52,
+      "equal": true,
+      "witness": null
+    }
+  ],
+  "equivalent": true,
+  "divergent_length": "0",
+  "psc_exact": "0",
+  "psc": 0.0,
+  "candidate_counts": [
+    7,
+    7
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 3
+}

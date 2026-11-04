@@ -1,0 +1,33 @@
+{
+  "case_id": "issue23213_protocol",
+  "variant": "affected",
+  "method": "partition",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "499/977",
+        "left_closed": true,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "2059/5862",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 19,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "critical_points": 596
+  }
+}

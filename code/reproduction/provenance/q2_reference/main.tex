@@ -1,0 +1,597 @@
+% Synchronized from the revised authoritative DOCX; see README.md.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,graphicx,longtable,booktabs,array}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage[expansion=false]{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\emergencystretch=3em
+\begin{document}
+\begin{center}\Large\bfseries Exact Candidate Frontier Comparison for Decision Regression Testing of Precision-Constrained Selectors\end{center}
+Running Head: Exact Candidate Frontier Comparison for Binary Selectors
+
+[Author 1 Name]1*, [Author 2 Name]1, [Author 3 Name]1
+
+1 School of Business Information Systems, University of Economics Ho Chi Minh City (UEH), Ho Chi Minh City, Vietnam
+
+* Corresponding author: [author1@ueh.edu.vn] | ORCID: [0000-000X-XXXX-XXXX]
+
+\section*{Abstract}
+Regression tests for predictive decision pipelines can preserve the selected alert set while the collection of other attainable alert sets changes. For selectors that maximize recall subject to a minimum-precision constraint, we define an observation contract, an exact compact candidate-frontier comparator, and conditional attribution through checked proper-prefix witnesses for isolated tie refinements. The structural blind spot occurs in 18 of 50 related retained comparisons, 4 of 17 synthetic fixtures, and one public-data pilot. These observations establish existence rather than population prevalence. In a new single-host benchmark on 100,000 scores and 1,000 score groups, compact and exact partition-baseline B4 workflows have medians of 59.47 and 122.68 ms, respectively; B4 uses less measured auxiliary memory (3.16 versus 4.70 MiB). The timing comparison is descriptive and does not establish universal dominance. Executable comparators, frozen evaluation inputs, and per-run measurement records accompany the paper.
+
+Keywords: software regression testing; decision pipelines; candidate frontier; structural observability; conditional attribution; precision constraints.
+
+1. Introduction
+
+Regression tests observe a chosen projection of software behavior. In predictive software pipelines that translate continuous model scores into binary operational alerts, verification commonly relies on snapshot testing: comparing the alert set selected at a frozen or newly calibrated decision cutoff against an approved baseline. A snapshot of one selected alert set can remain identical while other attainable threshold candidates change. We call the ability to distinguish those collections structural observability on a fixed evaluation snapshot. Such a difference is decision-relevant because it alters the set of attainable operating candidates under alternative threshold policies, even when the current decision snapshot is completely preserved.
+
+Existing regression frameworks (such as ApprovalTests and pytest-regressions) serialize and compare specific output structures, such as the selected decision vector or scalar operating metrics. Exact decision snapshots fulfill this deployment-verification role well. However, in predictive pipelines where continuous model scores are converted to operational alert sets under empirical precision constraints, decision snapshots examine only the final selected optimum. They remain inherently blind to the broader candidate frontier---the complete collection of alternative attainable alert sets across all observable decision thresholds. When upstream numerical libraries or interpolation routines shift, candidate operating points can be partitioned, merged, or eliminated even while the current deployed decision matches the snapshot. Candidate-frontier comparison does not replace decision snapshots; rather, it expands the observable behavioral envelope to verify selector-structural equivalence. Furthermore, unlike generic output serialization which incurs O(GN) storage volume across G candidate sets (which scales quadratically in N when the number of score levels G = Theta(N)), the proposed approach introduces a compact exact comparator scaling in O(N log N + G) time and O(N + G) auxiliary space, augmented with an assumption-checked conditional attribution mechanism.
+
+To investigate these unobserved candidate changes, this paper addresses three research questions:
+
+\textbullet{} RQ1 (Candidate-Set Observability): Which changes to the set of attainable alert sets do exact snapshots of the selected set fail to observe?
+
+\textbullet{} RQ2 (Attribution to Tie Splitting): Under what formal conditions can a candidate change be soundly traced to an isolated score tie being split, and does the comparator correctly withhold attribution when preconditions fail?
+
+\textbullet{} RQ3 (Computational Overhead): What is the runtime and memory overhead of candidate set comparison relative to testing only the selected alert set across varying dataset sizes and score granularity? Table 1 summarizes our declared research contributions, supporting evidence, and validity boundaries.
+
+Table 1. Summary of declared research contributions, supporting empirical evidence, and validity boundaries.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26005\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.41998\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.31997\dimexpr\textwidth-6\tabcolsep\relax}}
+\toprule
+\textbf{Contribution} & \textbf{Result that supports it} & \textbf{Limit of the evidence} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Contribution} & \textbf{Result that supports it} & \textbf{Limit of the evidence} \\
+\midrule
+\endhead
+Structural observation beyond selected snapshots & 18/50 retained tuning comparisons, 4/17 fixtures and the public pilot change a frontier without either examined decision set changing. & Purposive/related objects; no population prevalence or practical utility estimate. \\
+Conditional diagnosis with explicit refusal & Four fixtures satisfy the isolated assumptions; two have a winning prefix. Five other reselected-change fixtures receive no such explanation. & Conditional witness, not universal root-cause diagnosis or proof of a defect. \\
+Executable exact representation and comparator & 17 declared fixtures, 10,206 small oracle comparisons and 60 historical rows agree; membership exports are retained. & Internal conformance in the exercised domain, not a proof of all code. \\
+Bounded computational feasibility & 54 historical fresh-process measurements (Tables 5-6) and 10 newly recorded repetitions per method/mode (Table 6b). & Descriptive measurements on reference and secondary workstations; no production latency guarantee across arbitrary cloud architectures. \\
+\bottomrule
+\end{longtable}
+}
+We evaluate our approach on an early-warning classification pipeline evaluated on frozen local computational snapshots from pharmaceutical cold-chain monitoring, benchmarked against independently collected public vaccine carrier temperature logs from Nepal, and supplemented by 17 synthetic boundary fixtures and a public diagnostic dataset. The primary contribution of this work is an artifact-focused software testing methodology: an executable observation contract, an exact compact frontier comparator, and a checked conditional attribution mechanism for precision-constrained binary selectors.
+
+2. Related work and the software testing question
+
+2.1 Snapshot and numerical regression
+
+ApprovalTests.Python compares outputs with approved references, and pytest-regressions records structured data with configurable numerical comparisons (ApprovalTests contributors, n.d.; ESSS, n.d.). Either can compare serialized selected sets or a full guard report. Our exact-decision baseline therefore already has the appropriate oracle for the decisions it observes. The question is which information the chosen observation omits, rather than whether an existing harness can store that information.
+
+Floating-point comparison has a separate accuracy objective. FPBench standardizes benchmark expressions and measures for numerical analysis (Damouche et al., 2016), building on foundational analyses of finite-precision arithmetic and comparison sensitivity (Goldberg, 1991). Here small score differences are retained as an input to a selector-specific structural comparison; a tolerance pass and a changed candidate frontier can coexist.
+
+2.2 Differential and metamorphic testing
+
+Differential testing compares executions of comparable implementations (McKeeman, 1998). Our actual SciPy-version workers instantiate this established strategy; disagreement alone does not identify the correct implementation. We add an explicit observation contract: fixed decisions, reselected decisions, full and feasible candidate sets, and a conditional explanation for one class of differences.
+
+Metamorphic testing derives follow-up tests from relations expected across multiple program executions, providing a framework to alleviate the oracle problem in machine learning software (Chen et al., 1998; Xie et al., 2011; Chen et al., 2018). Recent advances extend metamorphic testing toward automated relation synthesis from existing test suites (Xu et al., 2024) and behavioral testing matrices for capability-based validation (Ribeiro et al., 2020). In our framework, strictly monotone score transformations check the preservation of candidate memberships and reselected decisions under a fixed selector contract; an unchanged numeric cutoff need not preserve fixed decisions after score rescaling. Rather than discovering new metamorphic relations automatically or synthesizing test suites, our tool instantiates metamorphic invariants over structured candidate frontiers to detect selection changes.
+
+2.3 ML pipeline validation and constrained selection
+
+Data validation frameworks address anomalous inputs and schema drift in ML pipelines (Breck et al., 2019), while the ML Test Score organizes production readiness across data, model, and infrastructure tests (Breck et al., 2017). Recent empirical audits of machine learning experiments in software engineering report reproducibility concerns, which motivates deterministic regression checks (Destefanis et al., 2026; Dell'Anna et al., 2023). In early-warning and safety-critical classification, decision thresholds are commonly optimized to maximize recall subject to an empirical precision constraint (Rath \& Hughes, 2022; Eban et al., 2017), often supported by risk-controlling prediction frameworks (Angelopoulos et al., 2025). Furthermore, score calibration techniques---ranging from histogram binning and isotonic regression (Zadrozny \& Elkan, 2002) and temperature scaling (Guo et al., 2017) to isotonic distributional regression (Henzi et al., 2021) and general calibration assessments in predictive analytics (Van Calster et al., 2019)---frequently induce score ties or compression near decision boundaries, where model uncertainty can shift substantially under distribution perturbations (Ovadia et al., 2019). Efficient evaluation of ranking metrics in the presence of tied scores has a long-standing foundation in information retrieval (McSherry \& Najork, 2008). Our work builds directly upon these established components, formalizing an exact candidate frontier comparison and conditional attribution guard for precision-constrained binary selectors. Table 2 provides a systematic novelty synthesis comparing these foundational components against our integrated executable contract.
+
+Table 2. Novelty synthesis matrix: Prior art components vs. the proposed integrated executable regression contract.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20000\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20000\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20000\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20000\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20000\dimexpr\textwidth-10\tabcolsep\relax}}
+\toprule
+\textbf{Testing Lineage / Prior Art} & \textbf{Key Literature} & \textbf{Core Mechanism Provided} & \textbf{Structural Limitation in Decision Regression} & \textbf{Role in Proposed Integrated Executable Contract} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Testing Lineage / Prior Art} & \textbf{Key Literature} & \textbf{Core Mechanism Provided} & \textbf{Structural Limitation in Decision Regression} & \textbf{Role in Proposed Integrated Executable Contract} \\
+\midrule
+\endhead
+Snapshot Regression Harnesses & ApprovalTests (n.d.); pytest-regressions (ESSS, n.d.) & Serializes program outputs against approved golden baseline references & Designed for serializing chosen outputs or user structures; lacks built-in candidate frontier invariants or prefix attribution mechanics & Replaces unstructured data serialization with an exact, compact candidate contract (O(N+G) auxiliary space) \\
+Differential Testing & McKeeman (1998) & Compares outputs of alternate implementations or library versions on identical inputs & Generic differential testing does not prescribe the selector-specific candidate frontier contract or conditional attribution implemented in this study & Structures dual-scope comparison (nominal decision vs. full candidate space) with checked attribution \\
+Metamorphic Testing & Chen et al. (1998); Xie et al. (2011); Xu et al. (2024) & Asserts relational invariants across transformed inputs/executions without an explicit test oracle & Generic metamorphic frameworks do not formalize precision-constrained upper-set boundary equivalence & Establishes monotone score invariance and secondary tie-break consistency as formal executable metamorphic invariants \\
+Rank-Prefix Analysis \& Score Ties & McSherry \& Najork (2008) & Permutation-based evaluation of ranking metrics in the presence of tied scores & Confined to ranking metric calculation in IR; does not compare multi-version frontiers or emit regression certificates & Drives the O(N log N + G) single-pass prefix-max scan and proper-prefix certificate extraction \\
+Constrained Threshold Optimization & Rath \& Hughes (2022); Angelopoulos et al. (2025) & Evaluates empirical precision/recall curves to select optimal operating cutoffs & Evaluates offline model quality; does not verify regression invariance or candidate-set equality across code updates & Instantiates the formal optimization oracle within an automated regression assertion and counterfactual policy guard \\
+\bottomrule
+\end{longtable}
+}
+The selector-specific testing contribution integrates three core components: an observation contract fixing ground-truth labels, aligned sample eligibility, precision constraint alpha, and deterministic secondary selection semantics; a compact exact comparator of candidate memberships operating in O(N log N + G) time; and a conditional attribution witness that provides a verified proper-prefix certificate when isolated refinement assumptions hold and soundly withholds attribution when they fail. Generic snapshot frameworks (ApprovalTests, pytest-regressions) serialize user-provided data structures, but supply none of these domain-specific invariants or attribution mechanics. To clarify the testing-specific value, we delineate six regression testing paradigms: Baseline A (Exact Selected-Decision Snapshot), Baseline B1 (Generic Dense Matrix Serialization), Baseline B2 (Generic Sparse Streaming), Baseline B3 (Generic Sort-Slice Comparator), Baseline B4 (Optimized Observation-Partition Exact Comparator), and the Proposed Method (Exact Compact Comparator + Checked Conditional Attribution).
+
+This targeted comparison establishes clear scope and a bounded research question. While generic regression frameworks could theoretically serialize candidate frontiers, materializing every candidate set incurs O(GN) auxiliary memory overhead (which scales quadratically in N when score granularity G = Theta(N)) and provides only unstructured set differences without explanatory certificates. Candidate frontier comparison provides a formal regression-testing contract for selector-structural equivalence, ensuring that changes to attainable trade-off spaces are detected and attributed with minimal computational overhead.
+
+3. Data, artifact and analysis design
+
+3.1 Evaluation objects and motivating application
+
+The evaluation uses identical aligned finite score vectors with fixed binary labels, empirical precision alpha and the smallest-observed-cutoff secondary rule. Retained evidence comprises fifty nonidentity comparisons among ten related calibrators and six settings, seventeen internally specified fixtures, 10,206 enumerated conformance comparisons and one public-data pilot. These are related or purposively constructed objects, not independent samples of field defects. The retained plans were fixed before their respective executions but are not public preregistration.
+
+To evaluate the comparator on real-world numerical score distributions, we employ an early-warning classification pipeline as a motivating case fixture, trained using gradient tree boosting (XGBoost; Chen \& Guestrin, 2016). To ensure computational determinism and exact reproducibility, our evaluation suite utilizes two local computational evaluation snapshots (designated Source A and Source B, each capturing 416,688 sensor readings across 1,500 logistics batches), representing frozen model training and probability calibration runs derived from the cold-chain domain, evaluated against the publicly archived Long-range freeze-preventive vaccine carriers in Nepal: thermal data (Kumar et al., 2022; Sibole et al., 2021; DOI: 10.17632/j277dvs69g.1). As clarified in Online Resource 1 (Section C1), the evaluation treats these scores strictly as fixed numerical test inputs derived from local computational artifacts rather than authenticated field sensor telemetry, and no operational or pharmaceutical claims are made regarding cold-chain deployment. Additionally, to evaluate public and domain-independent behavior, we utilize the public Wisconsin Diagnostic Breast Cancer dataset (Wolberg et al., 1993) as an external benchmark pilot. Complete pipeline architectures, split specifications, and data artifacts are detailed in Supplementary Materials Appendices C1--C5 and C18.
+
+3.2 Formal characterization of tie refinement
+
+Finite tuning set and rule. Labels are fixed and include at least one positive. For a nonempty alert set with k true positives among n alerts, feasibility is precision at least \ensuremath{\alpha}, where 0 < \ensuremath{\alpha} \ensuremath{\leq} 1. Candidate sets use score \ensuremath{\geq} each distinct observed cutoff. Maximize recall, breaking ties with the smallest cutoff. Nested upper sets make this equivalent to lexicographically maximizing (k,n), first k then n. Abstention is the (0,0) fallback if no nonempty candidate is feasible.
+
+Refinement assumptions. One original tie group is divided into m nonempty blocks with strictly ordered scores. Every outside score is fixed; no refined block crosses an outside score. All outside ties/order are preserved. Let a observations with t positives lie above the group. In the first j blocks, let cumulative positive and negative counts be P and Q with subscript j. Let the original winner have counts k and n with superscript star.
+
+\[{k}_{j} = t + {P}_{j},    {n}_{j} = a + {P}_{j} + {Q}_{j}\]
+
+\[{M}_{j} = {k}_{j} - \alpha {n}_{j} = (t - \alpha a) + (1 - \alpha ){P}_{j} - \alpha {Q}_{j}\]
+
+Proposition 1. Maximum feasible recall strictly increases if and only if a proper prefix satisfies the following condition. The selected decision set changes if and only if a proper prefix satisfies the second condition.
+
+\[\exists  j < m: {M}_{j} \geq  0  \land   {k}_{j} > {k}^{*}\]
+
+\[\exists  j < m: {M}_{j} \geq  0  \land   ({k}_{j}, {n}_{j}) {>}_{lex} ({k}^{*}, {n}^{*})\]
+
+Proof. All original candidate alert sets remain attainable after the refinement. The only added sets contain every observation above the tie and a proper prefix of its blocks. For a nonempty set, multiplying the precision constraint by n gives the margin condition. Since the positive-label denominator is fixed, maximizing recall maximizes k. Therefore an added feasible prefix raises maximum recall exactly when its k exceeds the old maximum. Among equal k, a smaller cutoff gives a larger nested set, so the secondary rule maximizes n. The old selected set is displaced exactly when an added feasible prefix wins that lexicographic comparison. Equal n implies the same set among nested candidates, which proves necessity as well as sufficiency.
+
+Corollary. Strict recall improvement requires the full tie candidate to be infeasible and the tie to contain both classes. A feasible full tie would dominate every prefix in true-positive count. With only positive tie labels, a feasible prefix implies feasibility of the full tie. With only negative labels, a feasible prefix implies feasibility of the above-tie set with the same true-positive count. Each case rules out strict improvement. These conditions are necessary, not sufficient: a feasible proper prefix must still beat the global old winner. A decision-set change without recall improvement is possible under the secondary rule.
+
+The secondary rule can change selection without improving recall. Let y=[1,0,0], old scores=[0.9,0.5,0.5], new scores=[0.9,0.50000001,0.5] and alpha=0.5. The old winner is \{0\} with (TP,N)=(1,1). The new proper prefix \{0,1\} has (1,2) and precision 0.5; both candidates have recall 1. The smallest-cutoff rule selects the larger nested set, so selected membership changes while maximum recall does not. This is the second condition of Proposition 1 without its strict-recall condition; another secondary rule would need another attribution condition.
+
+Lemma 1 Fixed threshold decision sensitivity. For an unchanged cutoff \ensuremath{\tau} and two score vectors s and r, any decision changes exactly when at least one observation satisfies the following interval condition.
+
+\[\tau  \in  (min({s}_{i}, {r}_{i}), max({s}_{i}, {r}_{i})]\]
+
+Proof. The comparisons score \ensuremath{\geq} \ensuremath{\tau} differ exactly when one score is below \ensuremath{\tau} and the other is at least \ensuremath{\tau}. This identity needs no label or calibration assumption. It characterizes fixed-cutoff decision sensitivity, whereas Proposition 1 characterizes source reselection under an isolated tie refinement.
+
+Proposition 1 characterizes the declared selector under an isolated refinement; Lemma 1 is the direct fixed-cutoff identity and is not a separate theoretical contribution. The original worked certificate checks the assumptions. The regression guard in Section 3.3 uses that condition only when those assumptions pass; otherwise it reports a general perturbation without a Proposition 1 explanation.
+
+Lemma 2 (Frontier and Selection Equivalence). Let binary labels y, empirical precision target alpha in (0, 1], and the deterministic smallest-cutoff selection rule sigma be fixed. If the full candidate frontiers of two score vectors are identical, then their selected decision sets are necessarily identical:
+
+    F\_old = F\_new  ==>  S\_old = S\_new.
+
+Conversely, identical selected decision sets do not imply candidate frontier equivalence:
+
+    S\_old = S\_new  =/=>  F\_old = F\_new.
+
+Proof. The deterministic selection operator sigma maps each candidate frontier F to a unique alert set S = sigma(F). Because sigma is single-valued under the declared smallest-observed-cutoff secondary tie-breaking rule, F\_old = F\_new immediately implies S\_old = sigma(F\_old) = sigma(F\_new) = S\_new. The failure of the converse is constructive: as established in Proposition 1 and demonstrated across the 18 retained empirical comparisons and synthetic boundary fixtures, candidate sets outside the chosen optimum may be partitioned, split, or eliminated without altering the argmax of the selection objective. Thus, candidate frontier comparison strictly subsumes scalar decision snapshot testing in observable structural information.
+
+Significance of Lemma 2. Lemma 2 establishes the formal bridge connecting candidate frontier equivalence to decision equivalence. The forward implication confirms that candidate frontier invariance guarantees decision snapshot invariance under any deterministic selection rule. The primary testing value, however, resides in the reverse asymmetry: selected-decision equivalence does not imply candidate frontier equivalence. Consequently, regression suites that inspect only the selected optimum operate within a strictly restricted behavioral projection, failing to detect structural candidate reorganizations that alter alternative attainable trade-offs. Distinction Between Membership and Cutoff Invariance: Full candidate-frontier equivalence implies reselected membership equivalence under the declared deterministic selector (S\_old = S\_new), but does not imply numeric cutoff or fixed-threshold decision equivalence (tau*\_old = tau*\_new). Because candidate frontiers capture the set of row upper sets across all distinct score thresholds, monotonic score transformations or score shifts within step intervals preserve candidate membership structure while altering the scalar cutoff value. As evaluated in Section 4.5, frozen numeric thresholds can produce spurious regression alarms under score rescaling even when candidate structures are perfectly preserved, whereas candidate frontier comparison isolates true selector-structural equivalence.
+
+The guard accepts fixed binary labels and two finite score vectors on identical aligned rows and implements the declared smallest-cutoff secondary rule. Optional row IDs must be unique, identical and in the same order; mismatching supplied IDs are rejected. Without IDs, alignment remains the caller's responsibility. selection\_only compares numeric cutoffs and exact fixed and reselected alert sets. full mode adds ordered ties, merges, crossings, full and feasible frontier equality, and conditional prefix certificates. Null fields in selection\_only mean not assessed, not no change.
+
+For attribution to Proposition 1, full mode requires exactly one split old tie, unchanged outside scores, preserved outside ties and strict group separation. Other perturbations are reported without that explanation. Candidate equality now uses a compact rank-prefix containment check: a size-n old upper set equals the size-n new upper set exactly when the maximum new rank in the old prefix is below n. Comparing candidate sizes and that criterion avoids materializing all membership vectors. Sorting and grouped cumulative arrays give O(N log N + G) time and O(N + G) auxiliary storage, including any returned prefix certificate; C14 gives the argument and validation scope.
+
+The threshold-sensitivity evaluation protocol fixed the alpha sweep, numerical tolerance, related artifact comparisons and public pilot protocol.
+
+Threshold-selection sensitivity uses the original and canonical temperature-only tuning vectors on the same 37,471 origins and 110 positives. We export complete frontiers, TP/FP, feasibility margins and selected memberships for all seven \ensuremath{\alpha} values. A fixed-seed bootstrap resamples 170 Batch\_ID clusters 1,000 times with replacement, retaining within-batch rows and fixed fits; thresholds are reselected in each draw. We report original-set selection frequency and the resampled precision of the original candidate. These are exploratory stability summaries, not population confidence intervals or guarantees after adaptive selection; temporal dependence between batches and fit uncertainty remain unmodeled.
+
+The separately sourced pilot uses the scikit-learn 1.9.1 bundled UCI Wisconsin Diagnostic Breast Cancer data, 569 records and 30 features (Wolberg et al., 1993). One stratified split with seed 314159 gives 341 training, 114 calibration and 114 tuning records. A standardized logistic model and isotonic map are fitted once; malignancy is positive. Float32 knots and raw scores are supplied to actual local SciPy 1.18.1 and 1.15.3 workers. The protocol fixes \ensuremath{\alpha}=.5; no split or model is selected after seeing the result. This is an internal software pilot, not a clinical study or independent investigator execution.
+
+3.4 Evaluation of diagnostic layers and computational cost
+
+The hierarchy includes score tolerance, numeric selected-cutoff equality, exact fixed-cutoff and reselected decision snapshots, full and feasible candidate frontiers, and conditional isolated-refinement attribution. These flags are not nested categories: a different cutoff can retain the same membership, while equal cutoffs and TP/FP can conceal different members. We report each output separately and make no claim that a more detailed report is automatically more useful to an engineer.
+
+Seventeen synthetic fixtures were specified separately from the cold-chain records before execution. They include tie splitting, merging, crossings, monotone transformations, abstention, duplicate scores, a secondary-rule change with equal TP, and unchanged decisions. A direct oracle enumerates candidate sets as row-index sets and checks selected and feasible frontiers. Two monotone cases also check metamorphic invariance after reselection. The earlier 10,206 small comparisons are rechecked for both selected-set and frontier correctness; revised outputs are crosschecked against all sixty historical rows. These are internal conformance checks, not empirical independence or proof of unrestricted correctness.
+
+The benchmark crosses N=10,000, 50,000 and 100,000 observations with G=10, 100 and 1,000 score groups, two modes and three fresh-process replicates, for 54 serial workers. Inputs are fixed-seed synthetic labels and one within-group split; no timings select the workload. Call runtime excludes startup, imports, generation and serialization. Native process high-water resident memory includes interpreter, imports, input arrays and prior allocations. We retain raw runs and ranges and do not interpret process peak memory as isolated guard allocation. All workers use one host and the same code hash; timings are not cross-machine reproduction criteria.
+
+Applicability is limited to finite binary snapshots with fixed labels, aligned row eligibility and the declared selector. Unlabeled streaming, multiclass objectives, cost-sensitive selection and changing eligibility require separate adaptations or reconciliation. Online Resource 1 (Section C15) identifies supported, unsupported and adaptation cases. No production readiness or general effectiveness claim follows from this benchmark.
+
+\begin{center}\includegraphics[width=.92\linewidth]{images/main_image20.png}\end{center}
+
+Fig. 1 Overview of candidate frontier comparison for precision-constrained binary selectors. The first four outputs examine fixed-threshold and reselected alert sets, while candidate frontier comparison reveals whether alternative attainable alert sets have been altered.
+
+4. Results
+
+4.1 Motivating numerical observation
+
+In the retained cold-chain application, temperature-only Nepal calibrated AP is 0.439407, while mean predicted probability is 0.001069 against prevalence 0.195676. The frozen source cutoff exceeds the external maximum by one float32 step; canonical source-only reselection still gives zero warnings. This motivates distinguishing ranking, numerical scores and selected decisions. The contribution evaluated below concerns structural observability of the selector, not better pharmaceutical prediction. Full application results, exploratory uncertainty and provenance limits are in C18 and C1--C5.
+
+4.2 Incremental structural information over decision snapshots
+
+Table 3. Empirical diagnostic outcomes across numerical calibration and evaluation suites.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.17998\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.07996\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.17001\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.19005\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.17998\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20002\dimexpr\textwidth-12\tabcolsep\relax}}
+\toprule
+\textbf{Suite} & \textbf{n} & \textbf{Cutoff flags} & \textbf{Fixed decision flags} & \textbf{Reselected flags} & \textbf{Frontier only} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Suite} & \textbf{n} & \textbf{Cutoff flags} & \textbf{Fixed decision flags} & \textbf{Reselected flags} & \textbf{Frontier only} \\
+\midrule
+\endhead
+Synthetic & 17 & 9 & 5 & 7 & 4 \\
+Retained & 50 & 45 & 32 & 30 & 18 \\
+Public & 1 & 0 & 0 & 0 & 1 \\
+\bottomrule
+\end{longtable}
+}
+Frontier only means a changed candidate frontier with neither fixed nor reselected tuning membership changed; it is not a defect count. The retained suite has eighteen such cases, the synthetic suite four and the public pilot one. Forty-five of fifty retained comparisons change the selected numeric cutoff, while thirty change reselected tuning memberships. These overlapping outputs show why cutoff equality, decision equality and frontier equality answer different questions. Test-set changes for the retained suite remain thirty; the table compares diagnostics on tuning rows.
+
+The frontier-only total is decomposed in Table 4 by current precision feasibility. Both decision-equality conditions are required: fixed and reselected tuning memberships must each remain unchanged. The two categories partition the frontier-only column; they are not additional cases or a prevalence estimate.
+
+Table 4. Decomposition of candidate frontier changes by feasibility class (Class A vs. Class B).
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.17001\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.14996\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.14996\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.26005\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.27002\dimexpr\textwidth-10\tabcolsep\relax}}
+\toprule
+\textbf{Suite} & \textbf{All comparisons} & \textbf{Frontier only} & \textbf{Full changed feasible equal} & \textbf{Feasible changed decisions equal} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Suite} & \textbf{All comparisons} & \textbf{Frontier only} & \textbf{Full changed feasible equal} & \textbf{Feasible changed decisions equal} \\
+\midrule
+\endhead
+Retained & 50 & 18 & 0 & 18 \\
+Synthetic & 17 & 4 & 3 & 1 \\
+Public & 1 & 1 & 0 & 1 \\
+\bottomrule
+\end{longtable}
+}
+All eighteen retained frontier-only comparisons and the public pilot change feasible candidate memberships while preserving the selected sets. Three of four synthetic frontier-only cases change only infeasible alternatives; the fourth adds a feasible candidate without changing the winner. Full-frontier visibility therefore includes two different observation targets. The first has no newly observed feasible alternative under the current alpha; the second changes attainable feasible alternatives but still establishes no operational consequence, future decision change or defect. C20 records all 68 case assignments, checked by direct threshold enumeration on the retained scores.
+
+In the synthetic equal-count crossing case, old and new winners both have one TP and one alert at cutoff .9, but their selected row differs. Numeric-cutoff and TP/FP checks miss this membership difference; exact snapshots and full mode both detect it. Conversely, a tiny monotone shift changes the cutoff without changing either examined decision set or frontier. The complete input vectors and actual row memberships are supplied, so these outcomes do not rely on summary counts or hashes.
+
+4.3 Conditional attribution and fixture checks
+
+Fixture formulation and interpretation. Seventeen synthetic score perturbations exercise tie splitting, candidate merging, rank crossing, shifts, abstention and secondary-rule behavior. They are controlled contract fixtures, rather than a sample of independently occurring software defects. Their outcomes are checked against direct candidate enumeration. Four fixtures satisfy isolated-refinement assumptions and two yield a winning proper-prefix witness, including a secondary-rule decision change with unchanged TP. The other five reselected-change fixtures receive no isolated-refinement attribution. Fixed-grid B1-B3 do not guarantee the same exact frontier contract on arbitrary perturbations, so Table 4c reports observation scope rather than a general mutant kill-rate comparison. The finite oracle checks support implementation conformance; they do not measure developer triage efficiency.
+
+Table 4c. Observation scope and checked fixture evidence. Attribution belongs to full guard mode; developer triage outcomes were not measured.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18261\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.23478\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.27826\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.30435\dimexpr\textwidth-8\tabcolsep\relax}}
+\toprule
+\textbf{Method} & \textbf{Observed contract} & \textbf{Checked evidence} & \textbf{Attribution / triage} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Method} & \textbf{Observed contract} & \textbf{Checked evidence} & \textbf{Attribution / triage} \\
+\midrule
+\endhead
+Selected snapshots & Selected memberships and numeric cutoffs & Can preserve decisions while candidate sets change (Table 3) & No structural witness \\
+Fixed-grid B1-B3 & Masks at prescribed grid values & Grid-specific; can miss sub-grid splits & No conditional witness \\
+Exact B4 & All attainable candidate memberships & 7,380 exhaustive pairs agree with direct enumeration & Equivalence verdict only \\
+Compact / full guard & Exact frontier; full mode adds contract checks & 17 fixtures; 20,832 new isolated-refinement checks & Full guard checks or withholds witness; developer effort unmeasured \\
+\bottomrule
+\end{longtable}
+}
+A merge, a crossing, multiple refined ties and an outside-score perturbation are retained without Proposition 1 attribution. The two monotone transformations preserve the frontier and reselected memberships, while a fixed numeric cutoff can behave differently under rescaling. The 10,206 small oracle comparisons and sixty historical rows agree with the compact implementation. These checks establish agreement within the enumerated domain; explanatory usefulness in human debugging and detection effectiveness on an independently sampled task population remain unmeasured.
+
+Direct alpha membership exports also resolve the equal-count ambiguity in Online Resource 1 (Section C11). Original and canonical selected sets have symmetric differences 0, 14, 2, 2, 2, 0 and 0 for alpha .40 through .70. Equality at .40, .65 and .70 is checked on row membership, not inferred from TP/FP. Full Boolean vectors with Reading\_ID and a selected-row CSV are in the archive.
+
+4.4 Bounded runtime and memory benchmark
+
+Table 5. Benchmark execution time and peak memory overhead across dataset sizes N (at G = 1,000).
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.21998\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.17003\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.17003\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.21998\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.21998\dimexpr\textwidth-10\tabcolsep\relax}}
+\toprule
+\textbf{N at G=1000} & \textbf{Selection ms} & \textbf{Full ms} & \textbf{Selection peak MiB} & \textbf{Full peak MiB} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{N at G=1000} & \textbf{Selection ms} & \textbf{Full ms} & \textbf{Selection peak MiB} & \textbf{Full peak MiB} \\
+\midrule
+\endhead
+10,000 & 5.72 & 9.92 & 30.19 & 30.59 \\
+50,000 & 17.50 & 27.85 & 33.23 & 34.00 \\
+100,000 & 66.59 & 64.57 & 36.71 & 38.50 \\
+\bottomrule
+\end{longtable}
+}
+Entries are medians of three fresh-process runs on the measured host. At N=100,000 and G=1,000, median call times are 66.59 ms for selection\_only and 64.57 ms for full; median process peaks are 36.71 and 38.50 MiB. The complete nine size/group combinations and all 54 raw runs are retained in C14 and the archive. Full-mode medians are lower in 2 size/group cells amid runtime variation. We make no causal speedup claim over the historical implementation and no production latency guarantee.
+
+Diagnostic overhead is summarized from the existing 54 measurements, not new performance runs. For each size/group cell, pair the three full and selection\_only observations by replicate and identical input. Delta is full minus selection time; brackets are the observed minimum and maximum of the three deltas, not a confidence interval. The difference of mode medians is reported separately because median(full-selection) generally differs from median(full)-median(selection).
+
+Table 6. Mode median difference and paired timing deltas between full candidate frontier comparison and scalar selection. (Note: Unrounded mode median difference is -2.013 ms, reported as -2.01 ms; direct subtraction of displayed rounded medians yields 64.57 - 66.59 = -2.02 ms).
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.23004\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.27999\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.48998\dimexpr\textwidth-6\tabcolsep\relax}}
+\toprule
+\textbf{N at G=1000} & \textbf{Mode median difference ms} & \textbf{Paired delta median [min, max] ms} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{N at G=1000} & \textbf{Mode median difference ms} & \textbf{Paired delta median [min, max] ms} \\
+\midrule
+\endhead
+10,000 & 4.20 & 3.00 [-1.40, 6.16] \\
+50,000 & 10.35 & 8.53 [8.48, 32.05] \\
+100,000 & -2.01 & 7.07 [-2.01, 27.56] \\
+\bottomrule
+\end{longtable}
+}
+At N=100,000 and G=1,000, the difference between mode medians is -2.01 ms (or -2.02 ms if computed by subtracting the rounded display medians 64.57 ms - 66.59 ms; Table 6 note clarifies rounding precision), while paired differences have median +7.07 ms with an observed range of [-2.01, 27.56] ms. This descriptive difference reflects runtime variation under uncontrolled background host load rather than an algorithmic performance speedup. Processes ran serially with alternating mode order on one uncontrolled-load host; replicate matching is not a randomized controlled paired experiment. Online Resource 1 (Section C21) supplies every configuration, relative deltas, and all 27 measurement pairs.
+
+Table 6b. Newly measured invariant-workload comparison at N=100,000 and G=1,000; ten repetitions per method. IQR uses linear quartiles; memory is traced auxiliary MiB.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.14783\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20870\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.20870\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.11304\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.32174\dimexpr\textwidth-10\tabcolsep\relax}}
+\toprule
+\textbf{Method} & \textbf{Workflow ms\newline median (IQR)} & \textbf{Isolated ms\newline median (IQR)} & \textbf{Peak aux\newline MiB} & \textbf{Contract / witness} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Method} & \textbf{Workflow ms\newline median (IQR)} & \textbf{Isolated ms\newline median (IQR)} & \textbf{Peak aux\newline MiB} & \textbf{Contract / witness} \\
+\midrule
+\endhead
+B4 & 122.68 (80.12) & 14.947 (6.465) & 3.16 & Exact frontier; no witness \\
+Compact & 59.47 (13.02) & 3.013 (1.921) & 4.70 & Exact frontier; no attribution \\
+Full guard & 112.42 (28.05) & Not separately timed & 6.44 & Invariant guard; witness not triggered \\
+A & 61.05 (10.66) & 0.201 (0.122) & 3.92 & Selected set only \\
+B1 & 399.13 (207.90) & 87.819 (29.613) & 286.10 & Fixed grid; dense masks \\
+B2 & 187.05 (72.49) & Not separately timed & 0.29 & Fixed grid; streaming \\
+B3 & 8430.03 (1262.10) & Not separately timed & 2.29 & Fixed grid; sorted slices \\
+\bottomrule
+\end{longtable}
+}
+Direct baseline methods. We evaluate seven method/mode combinations on identical aligned score vectors (N=100,000, G=1,000, old scores equal new scores). B4 and Proposed test exact candidate-frontier equivalence and are the primary functional comparison. B1, B2 and B3 compare candidate masks at a prescribed fixed threshold grid. The implemented dense-matrix B1 exhaustively compares candidate sets at that grid under the evaluated invariant workload; it does not guarantee exact candidate-frontier equivalence under arbitrary score perturbations. A split between grid points, including a single-ULP tie split, can be missed. Comparing masks at a union of numeric cutoffs instead tests threshold-to-membership mapping: a strictly increasing score transformation can change that mapping while preserving the collection of attainable candidate sets.
+
+Measurement protocol. The replacement benchmark uses Python 3.12.14, NumPy 2.3.5 and Windows 11 AMD64 on the host identified in the accompanying metadata. After one unrecorded warmup per method, ten repetitions randomize method order within each repetition using a fixed scheduling seed. Each CSV record stores its chronological sequence, repetition, run ID, phase, UTC start/end timestamps, elapsed time, and measured peak auxiliary allocation. Repetition numbers identify execution rounds, not sorted observations. Workflow timings use perf\_counter\_ns and include tracemalloc instrumentation; isolated comparator timings exclude representation construction and disable tracing. Memory is the median of per-invocation tracemalloc peaks divided by 2\textasciicircum{}20 (MiB), excluding preallocated input arrays and total process RSS. For every method and phase, IQR = Q75 - Q25 is calculated with numpy.percentile(values, [25,75], method='linear'). These are repeated measurements on one workstation with uncontrolled background load; we make no independence, paired-inference, or statistical-significance claim.
+
+Exact-baseline comparison. The compact workflow median is 59.47 ms (IQR 13.02), versus B4 at 122.68 ms (IQR 80.12), a descriptive 2.06x ratio of medians on this workload. Isolated medians are 3.01 ms (IQR 1.92) and 14.95 ms (IQR 6.47), respectively. B4 has lower workflow peak auxiliary allocation (3.16 MiB) than compact (4.70 MiB). The full guard takes 112.42 ms (IQR 28.05) on the invariant workload (new = old.copy()). Its implementation includes observation-contract checks and conditional attribution capability, but this measured path does not trigger witness construction; the timing therefore does not measure successful certificate or witness generation. Compact comparison alone does not issue attribution certificates. Thus the implementations offer a measured runtime-memory trade-off; the benchmark does not establish dominance over B4 in all respects. Fixed-grid B1-B3 provide implementation-specific scaling context under equal scores, rather than functionally equivalent exact baselines for general perturbations.
+
+Benchmark provenance correction. The former \texttt{canonical\_\allowbreak{}benchmark\_\allowbreak{}reference\_\allowbreak{}10runs.\allowbreak{}csv} was generated mostly from literal numeric arrays in \texttt{scratch/\allowbreak{}generate\_\allowbreak{}canonical\_\allowbreak{}reference\_\allowbreak{}csv.\allowbreak{}py}, rather than exported from timed invocations; the imported B4 series also lacks contemporaneous run metadata. Those files are withdrawn from empirical support and retained only in a clearly marked audit folder. Their former medians, IQRs and derived speedup/memory claims are superseded by the new run. Table 6b and Section C25 now use \texttt{raw\_\allowbreak{}timing\_\allowbreak{}data/\allowbreak{}benchmark\_\allowbreak{}measured\_\allowbreak{}final\_\allowbreak{}20261029/\allowbreak{}measurements.\allowbreak{}csv}, summary.csv and metadata.json (run ID \texttt{9ce94127-\allowbreak{}2403-\allowbreak{}41c1-\allowbreak{}966a-\allowbreak{}e9cf7cd09006}). Historical fresh-process measurements in Tables 5-6 remain a separate workload/protocol and are not substituted for these measurements.
+
+Implementation scope. Building score order and frontier summaries takes O(N log N + G) time and O(N+G) auxiliary space. The implemented compact equality routine constructs an inverse permutation and prefix maxima across N observations, so an invariant scan takes O(N+G), rather than O(G) alone. B4 also avoids dense G-by-N materialization. Early exit and small-workload timings can differ; no cross-host or all-workload speed guarantee follows. A fresh audit found exact agreement between B4, compact comparison and direct candidate-set enumeration on 7,380 exhaustive score-vector pairs, and agreement between an independent selected-set oracle and the checked witness on 20,832 isolated-refinement cases. These are finite implementation checks, not a machine-checked proof.
+
+Table 6c. Three distinct evidence tiers. Detailed current-run metadata are supplied in Section C25 and the companion files.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.21739\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.30435\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.47826\dimexpr\textwidth-6\tabcolsep\relax}}
+\toprule
+\textbf{Evidence tier} & \textbf{Use in this version} & \textbf{Provenance / limitation} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Evidence tier} & \textbf{Use in this version} & \textbf{Provenance / limitation} \\
+\midrule
+\endhead
+Current measured run & Direct comparison in Table 6b & 10 repetitions per method; chronological CSV and metadata; one host \\
+Historical process measurements & Tables 5-6 and C21 & 54 fresh-process observations; distinct timing and RSS protocol \\
+Archived reproduction / audit & C23 and companion audit logs & Deterministic evidence and host-specific checks; no pooled cross-host speedup \\
+\bottomrule
+\end{longtable}
+}
+4.5 Frontier semantics and worked diagnostic cases
+
+A full candidate frontier is the collection of row upper sets at every distinct observed score, excluding the scalar cutoff values themselves. Feasible-frontier equality additionally restricts these sets by the declared precision constraint. Under fixed labels and selector, equal full frontiers imply equal reselected memberships. A frozen numeric cutoff can nevertheless change decisions when the frontier remains equal. C16 traces scores, memberships, feasibility and attribution for three cases.
+
+Table 7. Diagnostic fixture outcomes under controlled score tie perturbations.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.46001\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.25000\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.28999\dimexpr\textwidth-6\tabcolsep\relax}}
+\toprule
+\textbf{Case} & \textbf{Fixed / reselected change} & \textbf{Full frontier / witness} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Case} & \textbf{Fixed / reselected change} & \textbf{Full frontier / witness} \\
+\midrule
+\endhead
+Boundary shift: [0.8,0.2] to [0.79999999,0.2] & Yes / No & No / No \\
+Split below selected set, alpha=0.8 & No / No & Yes / No \\
+Winning split prefix, alpha=0.6 & Yes / Yes & Yes / Yes \\
+\bottomrule
+\end{longtable}
+}
+Developer diagnostic triage. When upstream dependencies or numerical libraries are updated, regression testing can distinguish two practical situations. First, when threshold cutoffs shift but the collection of attainable alert sets remains unchanged, operating trade-offs are structurally preserved. Second, when a frozen decision cutoff happens to match but alternative candidates change, the comparator exposes that alternative operating configurations have been altered. For example, in fixture split\_strict\_gain, a score tie split expands the candidate frontier and alters the optimal choice; under the checked conditions of Proposition 1, the tool pinpoints the specific tie interval associated with this change without requiring manual inspection of full score arrays. This workflow illustrates how candidate comparison could support triage; its usefulness is not evaluated.
+
+An audit of all seventeen fixture rows confirms complete agreement across explicit candidate membership sets and guard outputs. The three questioned merge and crossing cases all exhibit full-frontier changes, including the equal-count case where selected row 0 is replaced by row 1. Online Resource 1 (Section C13) clarifies the evaluation columns and Section C16 supplies complete worked examples.
+
+\subsection*{4.5.1 Counterfactual precision-policy sensitivity analysis}
+To test whether frontier differences can affect selection under other policies, we hold scores and labels fixed while varying the precision constraint. Eighteen related retained cases and four synthetic frontier-only fixtures each use eleven targets from 0.30 to 0.80 in steps of 0.05; the public WDBC case uses thirteen targets from 0.30 to 0.90. This gives 255 configurations across 23 cases. Table 7b reports observed decision differences. These shared-input configurations are a counterfactual sensitivity analysis, rather than independent projects or historically deployed policy changes.
+
+Table 7b. Counterfactual precision-policy sensitivity evaluation of candidate frontier alterations across alternative precision constraints.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.19130\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.24348\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.09565\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.21739\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.25217\dimexpr\textwidth-10\tabcolsep\relax}}
+\toprule
+\textbf{Cohort (cases)} & \textbf{Precision grid} & \textbf{n} & \textbf{Decision\newline divergences} & \textbf{Sensitive cases} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Cohort (cases)} & \textbf{Precision grid} & \textbf{n} & \textbf{Decision\newline divergences} & \textbf{Sensitive cases} \\
+\midrule
+\endhead
+Retained (18) & 0.30-0.80; step 0.05 & 198 & 35 (17.7\%) & 10/18 (55.6\%) \\
+Synthetic (4) & 0.30-0.80; step 0.05 & 44 & 12 (27.3\%) & 4/4 (100\%) \\
+Public WDBC (1) & 0.30-0.90; step 0.05 & 13 & 2 (15.4\%) & 1/1 (100\%) \\
+Combined (23) & Cohort-specific grids & 255 & 49 (19.2\%) & 15/23 (65.2\%) \\
+\bottomrule
+\end{longtable}
+}
+\subsection*{4.5.2 Structural conditions inducing candidate frontier alterations}
+To clarify the software engineering and data conditions under which candidate frontier alterations emerge without modifying nominal decisions, we distinguish three evidentiary dimensions:
+
+1. Direct Evidence of Score Step Compression: Probability calibration (e.g., isotonic regression, histogram binning) transforms continuous model outputs into monotonic piecewise-constant steps. In our evaluated pipelines (N = 34,481 to 37,471 observations), isotonic calibration collapses continuous scores into G in [51, 162] discrete steps, creating large tie clusters with mean group sizes of 231 to 676 observations (and maximum tied clusters reaching 14,192 instances). This high tie density mathematically collapses the candidate search space into discrete threshold steps.
+
+2. Descriptive Evidence of Roundoff-Scale Perturbations: Upstream software updates (such as SciPy 1.18.1 vs. 1.15.3) introduce minute score perturbations (approximately 5.96 x 10\textasciicircum{}-8, matching the float32 unit roundoff u = 2\textasciicircum{}-24, which is half of the machine epsilon eps\_float32 = 2\textasciicircum{}-23 approx 1.19 x 10\textasciicircum{}-7). These roundoff-scale shifts do not displace the global argmax under the nominal precision target (alpha = 0.50), but subtly merge or split adjacent piecewise-constant levels in non-maximal regions (e.g., reducing G from 51 to 24 in \texttt{thermal\_\allowbreak{}plus\_\allowbreak{}arrhenius\_\allowbreak{}24h}, altering 8,236 score assignments).
+
+3. Granularity-Dependent Decision Preservation and Controlled Boundary Sensitivity Analysis: To evaluate how candidate frontier mutations interact with decision preservation across granularities and operating regimes, we conducted a comprehensive parametric simulation suite (N = 10,000 across 30 deterministic pseudo-random seeds 1..30; codified in \texttt{run\_\allowbreak{}tie\_\allowbreak{}density\_\allowbreak{}simulation.\allowbreak{}py}). This suite resolves three methodological dimensions:
+
+(a) Granularity-Dependent Decision Preservation under Stochastic Perturbations: Applying a stochastic 1\% roundoff-scale perturbation (delta = 5.96 x 10\textasciicircum{}-8, matching float32 unit roundoff u = 2\textasciicircum{}-24) modifies candidate frontiers in 100.0\% of runs (210 of 210 trials) because splitting tied clusters introduces new intermediate threshold boundaries. Crucially, nominal decision preservation scales monotonically with granularity: at coarse G = 10 (nominal mean tie size N/G = 1,000), decision preservation is 70.0\% (30.0\% boundary shifts); as granularity refines to G >= 250 (nominal mean tie size N/G <= 40), decision preservation increases to >= 93.3\% (reaching 96.7\% at G in \{500, 1000\}). Finer score steps insulate the global argmax from arbitrary roundoff drift, even though candidate frontiers remain structurally altered. We explicitly clarify that this reflects granularity-dependent decision insulation rather than a general causal claim of tie density promoting software regressions.
+
+(b) Non-Saturated Multi-Coverage Regimes: To verify that frontier observability is not an artifact of selection saturation (where alpha = 0.50 selects \textasciitilde{}99\% of observations), we evaluated three operational alert budget profiles: Low Coverage (1--5\% alert budget; alpha = 0.75, selecting mean 100.8 alerts / 1.0\%), Medium Coverage (5--20\% alert budget; alpha = 0.65, selecting mean 1,173.6 alerts / 11.7\%), and High Coverage (>20\% alert budget; alpha = 0.50, selecting mean 9,956.1 alerts / 99.6\%). Across all three operational regimes, the selector achieves 0\% abstention with active, non-empty alert sets, confirming candidate frontier alterations across diverse alert budgets.
+
+(c) Controlled 3-Factor Boundary Sensitivity Analysis: We systematically controlled three factors: relative position to boundary (below tau*, at tau*, above tau*), perturbation magnitude (roundoff delta = 5.96 x 10\textasciicircum{}-8 vs. step-crossing delta = 0.02), and number of impacted ties (k in \{1, 5, half-tie\}). The results (540 trials; archived in \texttt{tie\_\allowbreak{}density\_\allowbreak{}factorial\_\allowbreak{}experiment.\allowbreak{}csv}) illustrate boundary-relative frontier sensitivity: perturbations strictly below or above tau* maintain 100.0\% decision preservation across all magnitudes and tie counts (yielding 100\% frontier-only mutations); perturbations at the decision boundary tau* maintain decision preservation under within-step roundoff (delta < 1/G), but trigger 100.0\% decision flips when the perturbation crosses the step width (delta >= 1/G = 0.01). We note that in this binary equivalence evaluation, varying k does not alter the 0/1 outcome because perturbing even a single observation modifies set equality. The controlled factorial experiment illustrates boundary-relative decision sensitivity under different perturbation positions, magnitudes, and affected tie counts. These findings complement, but do not independently establish, the conditional characterization in Proposition 1.
+
+4. Label Asymmetry and Policy Divergence: In pipelines exhibiting counterfactual policy sensitivity (\texttt{thermal\_\allowbreak{}plus\_\allowbreak{}arrhenius\_\allowbreak{}12h} and 24h), the perturbed tie steps contain positive ground-truth events (0.3\% to 1.2\% base prevalence), altering local precision slopes. While nominal alpha = 0.50 selects an unaffected threshold, tightening the precision constraint to alpha in [0.65, 0.80] forces the selector into the perturbed region, triggering active decision flips in 10 of 18 cases. In contrast, in plain\_6h and thermal\_24h, perturbed steps fall outside the feasible region across all evaluated alphas, preserving nominal decisions throughout.
+
+Empirical Implications of Policy Sensitivity. The retained and synthetic cohorts use eleven precision targets from 0.30 to 0.80 in steps of 0.05; the public WDBC cohort uses thirteen targets from 0.30 to 0.90. Retained cases exhibit no divergences at 0.30-0.60, five at 0.65, and ten at each of 0.70-0.80, giving 35/198 divergent configurations across 10/18 cases. Synthetic fixtures contribute 12/44 configurations across 4/4 cases. WDBC contributes 2/13 configurations, at 0.85 and 0.90, with identical selections through 0.80. Combined, 49/255 configurations diverge across 15/23 cases. These are counterfactual policy targets, not historical operating policies; related retained cases and designed synthetic fixtures do not support a general population probability of decision divergence.
+
+4.6 Deterministic pipeline reproduction and execution benchmark
+
+The entire empirical evaluation---spanning numerical matrix generation, formal tie-prefix certificate extraction, sensitivity sweeps, public diagnostic benchmarks, synthetic fixture verification, and runtime benchmarks---is codified into an automated reproduction pipeline consisting of 22 sequential execution stages. In an audited secondary evaluation, a co-author computational reproduction on a secondary workstation (Windows 11, 13th Gen Intel Core i5-13420H, Family 6 Model 186, AMD64) executed the complete pipeline deterministically in approximately 1 minute 53 seconds via python run\_reproduction.py. This execution time reflects evaluating closed-form frontier algorithms over frozen score arrays and inputs rather than retraining high-dimensional machine learning models from scratch or recollecting raw sensor telemetry.
+
+Across all 22 execution stages, all 13 primary tabular outputs (comprising 339 data rows) reproduce the published results bitwise byte-for-byte. Execution logs confirm clean termination with exit code zero across dual virtual environments (SciPy 1.18.1 and SciPy 1.15.3 under Python 3.12.10). This reproduction confirms computational determinism from frozen artifacts; it does not constitute an independent blind third-party trial. All source scripts, pre-computed input snapshots, configuration files, and reproduction logs are packaged in Online Resource 2 accompanying this submission. Online Resource 1 (Section C23) provides the complete audit manifest and verification procedures.
+
+A fresh local computational reproduction on 29 October 2026 executed all 22 stages with zero exit codes in 295.23 seconds. Both worker environments used Python 3.12.10 and NumPy 2.3.5, with SciPy 1.18.1 and 1.15.3 respectively; the main environment used scikit-learn 1.9.1 and the runner used Python 3.12.14. All 13 primary CSVs (339 data rows) matched the archive byte-for-byte. The 22 log hashes and 19 invoked script hashes were verified. This execution is separate from the earlier co-author run and the newly measured multi-baseline benchmark. It confirms deterministic computation from frozen inputs, without establishing investigator independence or new-cohort validity. The companion verification folder retains the full report, logs, environment configuration and validation summary; failed environment-setup attempts remain in the workspace audit record.
+
+5. Discussion
+
+Table 8. Master Evidence-to-Claim Traceability Matrix linking declared research contributions to empirical artifacts and technical appendices.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.36522\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.19130\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.13913\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.30435\dimexpr\textwidth-8\tabcolsep\relax}}
+\toprule
+\textbf{Claim / evidence} & \textbf{Main location} & \textbf{Appendix} & \textbf{Executable evidence} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Claim / evidence} & \textbf{Main location} & \textbf{Appendix} & \textbf{Executable evidence} \\
+\midrule
+\endhead
+RQ1: Candidate frontier changes beyond selected snapshots in the evaluated comparisons & Section 4.2, Table 3, Table 4 & Sections C13, C20 & Retained output tables \\
+RQ2: Sound Conditional Attribution (Proper-prefix witness isolates tie splitting) & Section 3.2, Proposition 1, Table 7 & Sections C3, C16 & Formal certificate script \\
+RQ3: Computational Efficiency (O(N log N + G) time, O(N+G) aux memory) & Section 4.4, Table 5, Table 6, Table 6b & Sections C14, C21, C25 & Recorded benchmark runner \\
+Practical Significance: Latent Decision Sensitivity (55.6\% of silent shifts flip under counterfactual precision-constraint changes) & Section 4.5.1, Table 7b & Section C24 & Counterfactual runner \\
+Multi-baseline runtime and memory trade-off against exact B4 & Section 4.4, Table 6b & Section C25 & Recorded benchmark CSV \\
+Deterministic Bitwise Reproducibility (339 data rows reproduced bitwise in 1m 53s) & Section 4.6, Declarations & Section C23 & Reproduction runner and logs \\
+\bottomrule
+\end{longtable}
+}
+5.1 Structural observability and diagnostic value
+
+On the retained comparisons, exact snapshots of the selected alert set omit changes in the candidate frontier. Comparing the set of attainable alert sets reveals differences that scalar decision snapshots miss. When isolated tie-refinement conditions hold, the tool provides a verified witness for the change; when preconditions fail, attribution is strictly withheld. Whether this diagnostic output helps developers triage pipeline regressions remains a question for future empirical evaluation.
+
+A detected candidate change is an observable difference under a declared contract, not an automatic judgment of software defect or operational failure. An actual defect requires evidence that behavior violates an intended specification. A candidate change can be an acceptable consequence of numerical migration, and an explained tie split is not automatically an error.
+
+5.2 Threats to validity
+
+Construct Validity. The observation contract models threshold selection under an explicit precision constraint and secondary tie-breaking rule. A detected candidate frontier change represents an observable structural difference in attainable candidate sets, not an automatic judgment of software defect or operational failure. The precision constraint alpha is fixed empirically; alternative objective formulations (such as cost-sensitive curves or F-beta metrics) would require extending the frontier definition.
+
+Internal Validity. The primary threat to internal validity is that the evaluation protocol and synthetic boundary fixtures were designed after the motivating cold-chain phenomenon was observed, and the 50 numerical comparisons were derived from related configurations of the same pipeline. Although isolated virtual environments and automated scripts ensure deterministic byte-for-byte reproduction, these experiments evaluate algorithmic consistency rather than independent pipeline diversity. Timing measurements are descriptive single-host observations under uncontrolled background load.
+
+External Validity. The empirical evaluation incorporates a motivating cold-chain early-warning pipeline, 17 synthetic boundary fixtures, and a separately sourced public diagnostic dataset (Wisconsin Diagnostic Breast Cancer; Wolberg et al., 1993). While these benchmarks demonstrate that feasible candidate frontiers can alter under unchanged scalar snapshots, the prevalence of such phenomena in arbitrary production pipelines depends on score density and tie frequency. Furthermore, because the 18 retained comparison cases are derived from related calibration pipelines sharing domain features, the observed 55.6\% counterfactual divergence rate reflects pipeline-specific tie structure and should not be construed as a general divergence probability across arbitrary predictive systems. Likewise, the counterfactual \ensuremath{\alpha} settings serve as a post-hoc sensitivity stress test, not as historical deployment record. Human debugging efficiency under guard diagnostics remains prospective and is not evaluated as an empirical outcome.
+
+Reliability and Reproducibility. All software components, data fixtures, and evaluation scripts are packaged in an automated reproduction runner. A second-run co-author computational reproduction on a secondary workstation reproduces all 13 compared tables bitwise byte-for-byte from frozen inputs. A single master README maps each stage directly to published tables.
+
+
+
+Explicit Scope Boundaries and Non-Claims. To prevent over-interpretation, we explicitly bound what this work does and does not claim: (1) It is not an unconstrained defect detector: a frontier change represents an observable candidate difference (selector-structural relevance), not an automatic fault. (2) It does not estimate population prevalence: our 18-of-50 and 4-of-17 counts demonstrate that the phenomenon occurs, not its base rate in production. (3) It provides no release-gate or repair capability: the comparator neither approves deployments nor repairs models. (4) It provides no latency guarantee: all timing medians are descriptive on their stated measured hosts. (5) It claims no proven developer productivity gain: human diagnostic efficiency is framed as a planned protocol (Online Resource 1, Section C17) for future empirical work.
+
+6. Conclusion
+
+Selected-decision snapshots can remain unchanged while attainable candidate sets change. We formalize this observation contract and implement an exact comparator with checked conditional attribution for isolated refinements. The retained comparisons and counterfactual evaluations demonstrate structural and decision relevance within the exercised pipelines, without estimating defect prevalence or developer productivity. In the measured invariant workload, compact comparison is faster than exact B4 but uses more auxiliary memory. Future evaluation should test additional independent pipelines and human debugging outcomes.
+
+Acknowledgments
+
+The authors thank the School of Business Information Systems at the University of Economics Ho Chi Minh City (UEH) for providing academic research support and computational infrastructure.
+
+
+
+Statements and Declarations
+
+
+
+Funding: The authors declare that no external funds, grants, or other financial support were received during the preparation of this manuscript.
+
+
+
+Competing Interests: The authors have no competing interests to declare that are relevant to the content of this article.
+
+
+
+Ethics Approval: Not applicable. This study does not involve human participants, animal subjects, or sensitive personal data.
+
+
+
+Consent to Participate: Not applicable.
+
+
+
+Consent to Publish: Not applicable.
+
+
+
+Author Contributions: All authors contributed to the study conception and methodology design. Software implementation, benchmark execution, and formal proofs were performed by [Author 1]. Validation, replication analysis, and data curation were conducted by [Author 2] and [Author 3]. The initial manuscript was drafted by [Author 1], and all authors reviewed, edited, and approved the final manuscript.
+
+
+
+Data Availability: The evaluation datasets analyzed in this study are openly accessible. Public benchmark data includes the Breast Cancer Wisconsin (Diagnostic) Dataset from the UCI Machine Learning Repository (\url{https://doi.org/10.24432/C5DW2B;} Wolberg et al., 1993) and the Long-range freeze-preventive vaccine carriers in Nepal: thermal data from Mendeley Data (\url{https://doi.org/10.17632/j277dvs69g.1;} Sibole et al., 2021). All 17 synthetic boundary fixtures, precomputed score arrays, and evaluation matrices are deposited in Online Resource 2.
+
+
+
+Code Availability: Author-owned executable source is supplied in Online Resource 2 (sealed historical replication archive) and Online Resource 3 (current companion scripts, benchmarks, simulations, and verification records). The accompanying full MIT LICENSE applies to this author-owned code; third-party software and data retain their respective licenses. The sealed historical archive is preserved byte-for-byte, with its license supplied alongside it in the delivery package. Upon publication, the authoritative repository will be permanently archived on Zenodo.
+
+
+
+Generative AI Statement: During the preparation of this manuscript, the authors utilized large language models for language editing, code generation and revision, computational checks, and artifact preparation. The authors reviewed and edited all generated content and take full responsibility for the accuracy, novelty, and integrity of the published work.
+
+\section*{References}
+Angelopoulos, A. N., Bates, S., Candès, E. J., Jordan, M. I., \& Lei, L. (2025). Learn then test: Calibrating predictive algorithms to achieve risk control. The Annals of Applied Statistics, 19(2), 1641--1662. \url{https://doi.org/10.1214/24-AOAS1998}
+
+ApprovalTests contributors. (n.d.). ApprovalTests.Python [Software documentation]. \url{https://github.com/approvals/ApprovalTests.Python} (accessed 24 October 2026).
+
+Breck, E., Cai, S., Nielsen, E., Salib, M., \& Sculley, D. (2017). The ML test score: A rubric for ML production readiness and technical debt reduction. 2017 IEEE International Conference on Big Data (Big Data), 1123--1132. \url{https://doi.org/10.1109/BigData.2017.8258038}
+
+Breck, E., Polyzotis, N., Roy, S., Whang, S. E., \& Zinkevich, M. (2019). Data validation for machine learning. Proceedings of the 2nd SysML Conference. \url{https://proceedings.mlsys.org/paper_files/paper/2019/file/928f1160e52192e3e0017fb63ab65391-Paper.pdf}
+
+Chen, T. Y., Cheung, S. C., \& Yiu, S. M. (1998). Metamorphic testing: A new approach for generating next test cases. Technical Report HKUST-CS98-01. \url{https://www.cse.ust.hk/faculty/scc/publ/CS98-01-metamorphictesting.pdf}
+
+Chen, T. Y., Kuo, F.-C., Liu, H., Poon, P.-L., Towey, D., Tse, T. H., \& Zhou, Z. Q. (2018). Metamorphic testing: A review of challenges and opportunities. ACM Computing Surveys, 51(1), Article 4, 1--27. \url{https://doi.org/10.1145/3143561}
+
+Chen, T., \& Guestrin, C. (2016). XGBoost: A scalable tree boosting system. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785--794. \url{https://doi.org/10.1145/2939672.2939785}
+
+Damouche, N., Martel, M., Panchekha, P., Qiu, C., Sanchez-Stern, A., \& Tatlock, Z. (2016). Toward a standard benchmark format and suite for floating-point analysis. Numerical Software Verification workshop. \url{https://fptalks.org/nsv16-paper.pdf}
+
+Dell'Anna, D., Aydemir, F. B., \& Dalpiaz, F. (2023). Evaluating classifiers in SE research: the ECSER pipeline and two replication studies. Empirical Software Engineering, 28, Article 3. \url{https://doi.org/10.1007/s10664-022-10243-1}
+
+Destefanis, G., Yousefi, L., Shepperd, M., Tucker, A., Swift, S., Counsell, S., \& Arzoky, M. (2026). An audit of machine learning experiments on software defect prediction. Empirical Software Engineering, 31, Article 83. \url{https://doi.org/10.1007/s10664-025-10797-w}
+
+Eban, E., Schain, M., Mackey, A., Gordon, A., Rifkin, R., \& Elidan, G. (2017). Scalable learning of non-decomposable objectives. PMLR, 54, 832--840. \url{https://proceedings.mlr.press/v54/eban17a.html}
+
+ESSS. (n.d.). pytest-regressions API reference [Software documentation]. \url{https://pytest-regressions.readthedocs.io/en/latest/api.html} (accessed 24 October 2026).
+
+Goldberg, D. (1991). What every computer scientist should know about floating-point arithmetic. ACM Computing Surveys, 23(1), 5--48. \url{https://doi.org/10.1145/103162.103163}
+
+Guo, C., Pleiss, G., Sun, Y., \& Weinberger, K. Q. (2017). On calibration of modern neural networks. Proceedings of the 34th International Conference on Machine Learning, PMLR 70, 1321--1330. \url{https://proceedings.mlr.press/v70/guo17a.html}
+
+Henzi, A., Ziegel, J. F., \& Gneiting, T. (2021). Isotonic distributional regression. Journal of the Royal Statistical Society Series B, 83(5), 963--993. \url{https://doi.org/10.1111/rssb.12450}
+
+Kumar, S., Lennon, P., Muller, N., Uranw, S., Mvundura, M., Sibole, A., Diesburg, S., Little, J., Ray, A., Sharma Gautam, J., Rajbhandari Singh, R., \& Jha, N. (2022). Using long-range freeze-preventive vaccine carriers in Nepal: A study of equipment performance, acceptability, systems fit, and cost. Vaccine: X, 10, Article 100146. \url{https://doi.org/10.1016/j.jvacx.2022.100146}
+
+McKeeman, W. M. (1998). Differential testing for software. Digital Technical Journal, 10(1), 100--107. \url{https://www.cs.tufts.edu/comp/150FP/archive/bill-mckeeman/DifferentailTesting.pdf}
+
+McSherry, F., \& Najork, M. (2008). Computing information retrieval performance measures efficiently in the presence of tied scores. ECIR, LNCS 4956, 414--421. \url{https://doi.org/10.1007/978-3-540-78646-7_38}
+
+Ovadia, Y., Fertig, E., Ren, J., Nado, Z., Sculley, D., Nowozin, S., Dillon, J. V., Lakshminarayanan, B., \& Snoek, J. (2019). Can you trust your model's uncertainty? Evaluating predictive uncertainty under dataset shift. Advances in Neural Information Processing Systems, 32, 13991--14002. \url{https://papers.neurips.cc/paper_files/paper/2019/hash/8558cb408c1d76621371888657d2eb1d-Abstract.html}
+
+Rath, P., \& Hughes, M. C. (2022). Optimizing early warning classifiers to control false alarms via a minimum precision constraint. PMLR, 151, 4895--4914. \url{https://proceedings.mlr.press/v151/rath22a.html}
+
+Ribeiro, M. T., Wu, T., Guestrin, C., \& Singh, S. (2020). Beyond accuracy: Behavioral testing of NLP models with CheckList. Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, 4902--4912. \url{https://doi.org/10.18653/v1/2020.acl-main.442}
+
+Sibole, A., Diesburg, S., \& Kumar, S. (2021). Long-range freeze-preventive vaccine carriers in Nepal: thermal data (Version 1) [Data set]. Mendeley Data. \url{https://doi.org/10.17632/j277dvs69g.1}
+
+Van Calster, B., McLernon, D. J., van Smeden, M., Wynants, L., \& Steyerberg, E. W. (2019). Calibration: The Achilles heel of predictive analytics. BMC Medicine, 17, Article 230. \url{https://doi.org/10.1186/s12916-019-1466-7}
+
+Wolberg, W., Mangasarian, O., Street, N., \& Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. \url{https://doi.org/10.24432/C5DW2B}
+
+Xie, X., Ho, J. W. K., Murphy, C., Kaiser, G., Xu, B., \& Chen, T. Y. (2011). Testing and validating machine learning classifiers by metamorphic testing. Journal of Systems and Software, 84(4), 544--558. \url{https://doi.org/10.1016/j.jss.2010.11.920}
+
+Xu, C., Terragni, V., Zhu, H., Wu, J., \& Cheung, S. C. (2024). MR-Scout: Automated synthesis of metamorphic relations from existing test cases. ACM Transactions on Software Engineering and Methodology, 33(6), Article 150, 1--28. \url{https://doi.org/10.1145/3656340}
+
+Zadrozny, B., \& Elkan, C. (2002). Transforming classifier scores into accurate multiclass probability estimates. Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 694--699. \url{https://doi.org/10.1145/775047.775151}
+
+\end{document}

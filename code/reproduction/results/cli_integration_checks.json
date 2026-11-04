@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "case": "equivalent",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "stdout": "{\"equivalent\": true, \"psc_exact\": \"0\", \"output\": \"D:\\\\UEH\\\\3_HKC2026\\\\Thi\\u1ebft k\\u1ebf h\\u1ec7 th\\u1ed1ng th\\u00f4ng tin\\\\PROJECT\\\\Q1_revision_v3\\\\clean_extract\\\\artifact\\\\results\\\\ci_equivalent_certificate.json\"}\n",
+      "stderr": ""
+    },
+    {
+      "case": "divergent",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "stdout": "{\"equivalent\": false, \"psc_exact\": \"29/306\", \"output\": \"D:\\\\UEH\\\\3_HKC2026\\\\Thi\\u1ebft k\\u1ebf h\\u1ec7 th\\u1ed1ng th\\u00f4ng tin\\\\PROJECT\\\\Q1_revision_v3\\\\clean_extract\\\\artifact\\\\results\\\\ci_divergent_certificate.json\"}\n",
+      "stderr": "{\"lo\": \"43/51\", \"hi\": \"9/10\", \"left_closed\": false, \"right_closed\": true, \"old_n\": 47, \"new_n\": 45, \"equal\": false, \"witness\": {\"row_index\": 24, \"row_id\": \"24\", \"old_selected\": true, \"new_selected\": false, \"changed_rows\": 2}}\n"
+    }
+  ]
+}

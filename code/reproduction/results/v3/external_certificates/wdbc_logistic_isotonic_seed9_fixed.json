@@ -1,0 +1,88 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed9",
+  "variant": "fixed",
+  "source_sha256": "f5eda405c09f57a094707c41524e48bb83c46722565495f5e33713d02466b9a5",
+  "upstream_commit": "32c53bc69cc0d1f142700dd6c02281a000b855b9",
+  "input_sha256": "8ad19e5dd04565bd6d3b57fd0485332add13adaef57625e07ac66f23f554ef2b",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "51/59",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "53/143",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "5210/8437",
+      "equal": true,
+      "expected_n": 59,
+      "actual_n": 59,
+      "witness_id": null,
+      "expected_bits": "0x452901c860317507e79480c0802c543bff4b",
+      "actual_bits": "0x452901c860317507e79480c0802c543bff4b"
+    },
+    {
+      "alpha": "51/59",
+      "equal": true,
+      "expected_n": 59,
+      "actual_n": 59,
+      "witness_id": null,
+      "expected_bits": "0x452901c860317507e79480c0802c543bff4b",
+      "actual_bits": "0x452901c860317507e79480c0802c543bff4b"
+    },
+    {
+      "alpha": "1041/1180",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x452901c840217505e79480c0802c543bff4b",
+      "actual_bits": "0x452901c840217505e79480c0802c543bff4b"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x452901c840217505e79480c0802c543bff4b",
+      "actual_bits": "0x452901c840217505e79480c0802c543bff4b"
+    }
+  ],
+  "equivalent": true,
+  "psc_exact": "0",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

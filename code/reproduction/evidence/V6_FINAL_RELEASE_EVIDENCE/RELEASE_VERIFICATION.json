@@ -1,0 +1,187 @@
+{
+  "status": "PASS",
+  "archive_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1\\Q1_RESEARCH_REVISION_V6_20261030.zip",
+  "archive_sha256_before": "ec708e725b6ee0f369c156ddaec401f6bdcc8d8ad0681d1e8026638096128de0",
+  "archive_sha256_after": "ec708e725b6ee0f369c156ddaec401f6bdcc8d8ad0681d1e8026638096128de0",
+  "archive_unchanged": true,
+  "manifest_files_verified": 1630,
+  "clean_extraction_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1_revision_v6\\v6_final_run\\artifact",
+  "neighboring_submission_absent": true,
+  "started_utc": "2026-10-29T21:29:47.685374+00:00",
+  "ended_utc": "2026-10-29T21:47:12.096729+00:00",
+  "elapsed_seconds": 1037.7411215999746,
+  "environment": {
+    "python": "3.13.18 (main, Oct 26 2026, 14:10:48) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1_revision_v5\\env\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "pytest": "9.2.0",
+    "z3": "5.3.3",
+    "eval_toolkit": "1.12.0",
+    "packages": {
+      "attrs": "26.1.0",
+      "cloudpickle": "3.1.2",
+      "colorama": "0.4.6",
+      "eval-toolkit": "1.12.0",
+      "iniconfig": "2.3.1",
+      "joblib": "1.6.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "narwhals": "2.28.0",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pluggy": "1.7.0",
+      "Pygments": "2.21.0",
+      "pytest": "9.2.0",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.9.1",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0",
+      "z3-solver": "5.3.3.0"
+    }
+  },
+  "exit_code": 0,
+  "stages": [
+    {
+      "stage": "pytest",
+      "exit_code": 0,
+      "seconds": 39.809278700035065
+    },
+    {
+      "stage": "policy_mutation_certificate_benchmarks",
+      "exit_code": 0,
+      "seconds": 147.26149440003792
+    },
+    {
+      "stage": "matched_method_benchmark",
+      "exit_code": 0,
+      "seconds": 1.6095360000035726
+    },
+    {
+      "stage": "independent_certificate_audit",
+      "exit_code": 0,
+      "seconds": 97.5551372000482
+    },
+    {
+      "stage": "benchmark_audit",
+      "exit_code": 0,
+      "seconds": 17.418931199994404
+    },
+    {
+      "stage": "cli_integration",
+      "exit_code": 0,
+      "seconds": 1.104551900003571
+    },
+    {
+      "stage": "program_evaluation",
+      "exit_code": 0,
+      "seconds": 52.579483600042295
+    },
+    {
+      "stage": "version_output_evaluation",
+      "exit_code": 0,
+      "seconds": 1.0207385999965481
+    },
+    {
+      "stage": "phase_ablation",
+      "exit_code": 0,
+      "seconds": 2.7404871999751776
+    },
+    {
+      "stage": "revision_audit",
+      "exit_code": 0,
+      "seconds": 39.9114812000189
+    },
+    {
+      "stage": "external_upstream_case",
+      "exit_code": 0,
+      "seconds": 19.1486731999903
+    },
+    {
+      "stage": "fail_closed_and_ci",
+      "exit_code": 0,
+      "seconds": 65.8147591999732
+    },
+    {
+      "stage": "smt_same_contract_baseline",
+      "exit_code": 0,
+      "seconds": 20.71307810000144
+    },
+    {
+      "stage": "revision_v3_audit",
+      "exit_code": 0,
+      "seconds": 22.063912100042216
+    },
+    {
+      "stage": "external_selector_onboarding",
+      "exit_code": 0,
+      "seconds": 4.244846099987626
+    },
+    {
+      "stage": "complete_region_comparison",
+      "exit_code": 0,
+      "seconds": 88.50523280003108
+    },
+    {
+      "stage": "revision_v4_audit",
+      "exit_code": 0,
+      "seconds": 20.588125100010075
+    },
+    {
+      "stage": "upstream_selector_tests",
+      "exit_code": 0,
+      "seconds": 5.538651300012134
+    },
+    {
+      "stage": "second_external_project",
+      "exit_code": 0,
+      "seconds": 5.522308900021017
+    },
+    {
+      "stage": "expanded_complete_regions",
+      "exit_code": 0,
+      "seconds": 24.564521099964622
+    },
+    {
+      "stage": "paired_independent_checkers",
+      "exit_code": 0,
+      "seconds": 221.0666858999757
+    },
+    {
+      "stage": "revision_v5_audit",
+      "exit_code": 0,
+      "seconds": 12.140755200001877
+    },
+    {
+      "stage": "second_documented_defect",
+      "exit_code": 0,
+      "seconds": 4.907021599996369
+    },
+    {
+      "stage": "policy_significance",
+      "exit_code": 0,
+      "seconds": 1.1361124999821186
+    },
+    {
+      "stage": "larger_candidate_regions",
+      "exit_code": 0,
+      "seconds": 101.45317860000068
+    },
+    {
+      "stage": "revision_v6_audit",
+      "exit_code": 0,
+      "seconds": 16.464978300035
+    },
+    {
+      "stage": "manuscript",
+      "exit_code": 0,
+      "seconds": 0.6151416000211611
+    }
+  ],
+  "output_files_hashed": 1269,
+  "output_digest_manifest_sha256": "312627287fa86bd847e36cf7b7666adab3d0b96169bef3f08384af067434c463",
+  "scope": "Execution of the exact frozen archive, not a candidate-source comparison. Evidence is intentionally outside the archive to avoid self-reference and changing its hash."
+}

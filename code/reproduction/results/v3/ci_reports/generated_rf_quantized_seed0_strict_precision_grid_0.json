@@ -1,0 +1,15 @@
+{
+  "status": "NONCONFORMING",
+  "certified": false,
+  "source_sha256": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+  "mode": "grid",
+  "probes": 13,
+  "failures": [
+    {
+      "alpha": "4/5",
+      "witness_row_id": "8"
+    }
+  ],
+  "gate_ms": 9.7726,
+  "scope": "Reviewed-source allowlist and audited guard contract. Not a sandbox or arbitrary-Python proof."
+}

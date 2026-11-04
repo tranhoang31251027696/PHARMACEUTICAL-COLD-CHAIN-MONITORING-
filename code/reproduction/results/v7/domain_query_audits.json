@@ -1,0 +1,434 @@
+[
+  {
+    "case_id": "upstream_int8",
+    "certificate_sha256": "775e43c29a6bddb0a035ed7db0046c0398bc84b022501a47055dc6493e5090dd",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 4,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.743100001476705
+  },
+  {
+    "case_id": "derived_int16",
+    "certificate_sha256": "62e3422c8410070fd32924b82e76e0e7c8b2392b6570c1e5a26a799f504d051d",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 4,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.359799993224442
+  },
+  {
+    "case_id": "unix_seconds_int32",
+    "certificate_sha256": "a47d692520d9b4d18870e9572401f67a5f42ddf4fe77563774c60bd75d8bbc13",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 4,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.005800033453852
+  },
+  {
+    "case_id": "aligned_large_int64",
+    "certificate_sha256": "65d31a0b9dd539d2106339b7ce392fd302caf7e22bdcf3bb8ed3d1b80b432491",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 4,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.3100000214762986
+  },
+  {
+    "case_id": "small_int32_control",
+    "certificate_sha256": "67376bb40035d1046dee09fdaa1af382f72aae693a1d82ad172cdce0478a39fa",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 6,
+      "winner_mask_builds": 4,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.6655000508762896
+  },
+  {
+    "case_id": "float64_control",
+    "certificate_sha256": "4a26766aea6519e88f16d637056c3951ea34a9212ac05dc6ef763ffa31b1ec25",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 6,
+      "winner_mask_builds": 4,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.1534999939613044
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+    "certificate_sha256": "3b7cda1e5216947689e90c11669efd8790324d6616a79038eb0c7cd922ece2f9",
+    "verification": {
+      "verified": true,
+      "probes": 15,
+      "candidate_masks": 11,
+      "winner_mask_builds": 8,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 2.8084999648854136
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed1",
+    "certificate_sha256": "d1d4b388cd848fcb3f3469fcbc721ed9b1b0f5de40ba0fd9a6f9458b84cce1d5",
+    "verification": {
+      "verified": true,
+      "probes": 16,
+      "candidate_masks": 8,
+      "winner_mask_builds": 7,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 2.2501000203192234
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed2",
+    "certificate_sha256": "1f100c7e91c346ccbeda996ed3b589aab3a2b2ed27353016751d398f9e6b2334",
+    "verification": {
+      "verified": true,
+      "probes": 7,
+      "candidate_masks": 6,
+      "winner_mask_builds": 4,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.7322000348940492
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed3",
+    "certificate_sha256": "0870dde05d6a93a918b51286ac17575a7c735667502b3a494ad67286352a3574",
+    "verification": {
+      "verified": true,
+      "probes": 11,
+      "candidate_masks": 9,
+      "winner_mask_builds": 6,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.7622000304982066
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed4",
+    "certificate_sha256": "bdacfff11fb3c8b429e4cba6cc0e5aecbfc29b4ed7b7fdbb081b18bf5de4912d",
+    "verification": {
+      "verified": true,
+      "probes": 11,
+      "candidate_masks": 7,
+      "winner_mask_builds": 6,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.7544000293128192
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed5",
+    "certificate_sha256": "5ee5530125e40524b78d168af7902a4479015dfcd59286c236688115bec2fdf6",
+    "verification": {
+      "verified": true,
+      "probes": 9,
+      "candidate_masks": 5,
+      "winner_mask_builds": 5,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.6258000396192074
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed6",
+    "certificate_sha256": "be32e5ffa2d5641cfb17438287546c3fd2a87bb3195a0979bd15f492a726365b",
+    "verification": {
+      "verified": true,
+      "probes": 9,
+      "candidate_masks": 5,
+      "winner_mask_builds": 5,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.5431999927386642
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed7",
+    "certificate_sha256": "e14e9d420aea87e4c1f85cbae7b8a82a9d3f279b9aa3b00358685c35a98306fc",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 6,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.5718999784439802
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed8",
+    "certificate_sha256": "079f66bf515899d2afd2c5609304d9ab121eafb85ec53b699e7c239824ad7a4d",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 4,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.40149996150285
+  },
+  {
+    "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed9",
+    "certificate_sha256": "0f8e294f8ba0348b4d4a2b853c4b3318ecf60c34294dbfdb4eb95325f3bb81ab",
+    "verification": {
+      "verified": true,
+      "probes": 7,
+      "candidate_masks": 5,
+      "winner_mask_builds": 4,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.4362999936565757
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+    "certificate_sha256": "4b7113c387bfab5b19ef0a3158b16c8e00e18d70cd9522c9c2a0b22614e469ee",
+    "verification": {
+      "verified": true,
+      "probes": 51,
+      "candidate_masks": 65,
+      "winner_mask_builds": 25,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 7.229099981486797
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed1",
+    "certificate_sha256": "abfe416c203e5d49063ab8b5ac8c1718de577830cd8579d3d08854bbff0ec41c",
+    "verification": {
+      "verified": true,
+      "probes": 25,
+      "candidate_masks": 65,
+      "winner_mask_builds": 12,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.810799960978329
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed2",
+    "certificate_sha256": "af4596957ba3580df725d30c3ee625d687bd2f4275e0243d9f7547b6bd2d1511",
+    "verification": {
+      "verified": true,
+      "probes": 15,
+      "candidate_masks": 65,
+      "winner_mask_builds": 8,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 3.9488999755121768
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed3",
+    "certificate_sha256": "add33b8c0955ecf344dbd824fd9dd71a449b8641906f887aa435a478557204da",
+    "verification": {
+      "verified": true,
+      "probes": 29,
+      "candidate_masks": 65,
+      "winner_mask_builds": 15,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.28469997132197
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed4",
+    "certificate_sha256": "205af476f529a4e632ee3336931034aad8074bffd732252db67c7ee83dca7d8b",
+    "verification": {
+      "verified": true,
+      "probes": 25,
+      "candidate_masks": 65,
+      "winner_mask_builds": 12,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.066299996338785
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed5",
+    "certificate_sha256": "f37bddb9152ad19a5481e9c8d61bd3547a0afa108f293cde89c22c6108b3b928",
+    "verification": {
+      "verified": true,
+      "probes": 21,
+      "candidate_masks": 65,
+      "winner_mask_builds": 10,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.676199983805418
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed6",
+    "certificate_sha256": "5ba892eb6fb5572cd2049a374a3538ae9c2e6b4fe3ced4c6ab051997e2f3ff80",
+    "verification": {
+      "verified": true,
+      "probes": 25,
+      "candidate_masks": 65,
+      "winner_mask_builds": 12,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.228700010571629
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed7",
+    "certificate_sha256": "0010fa3073d7be2d21b4208078eee3b096b9d1a8c40d4f903a4b3c67716199ac",
+    "verification": {
+      "verified": true,
+      "probes": 11,
+      "candidate_masks": 65,
+      "winner_mask_builds": 5,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 3.9716000319458544
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed8",
+    "certificate_sha256": "ee86ce7dee26d85886d71ce7a657ffb6fe7285a1b9a002fac7b74b8ef5fc8b90",
+    "verification": {
+      "verified": true,
+      "probes": 32,
+      "candidate_masks": 65,
+      "winner_mask_builds": 15,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.4720000005327165
+  },
+  {
+    "case_id": "pipeline_axis_digits_svc_sigmoid_seed9",
+    "certificate_sha256": "7f82f5f507c860c73cdbc84e495e14c996d96805ee8f1e4705ded68da11cb910",
+    "verification": {
+      "verified": true,
+      "probes": 25,
+      "candidate_masks": 65,
+      "winner_mask_builds": 12,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.664700012654066
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+    "certificate_sha256": "be412387954b2e6cac2dd6c70ac6216cb9b301588efb0fc6d2033207b3960645",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 17,
+      "winner_mask_builds": 3,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.889500010292977
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed1",
+    "certificate_sha256": "52052fc894c621514d20f23533b36f74bb92e6b23d32575968804226e886d7ba",
+    "verification": {
+      "verified": true,
+      "probes": 3,
+      "candidate_masks": 18,
+      "winner_mask_builds": 0,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 2.239900000859052
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed2",
+    "certificate_sha256": "0967b047b8fcba73647701eecdde4fd142efede79469bdb18c3725736416a199",
+    "verification": {
+      "verified": true,
+      "probes": 3,
+      "candidate_masks": 16,
+      "winner_mask_builds": 0,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 2.1675999742001295
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed3",
+    "certificate_sha256": "9d151c4d9004e2197dd6f0e1a0b8b2e7d9ee281e2cc712b8328c0e6192fc29f9",
+    "verification": {
+      "verified": true,
+      "probes": 23,
+      "candidate_masks": 22,
+      "winner_mask_builds": 9,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 2.974000002723187
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed4",
+    "certificate_sha256": "5e67cd050cff8a1d95df8c127f57812309eee69e03101ae20b7dccdea36f8676",
+    "verification": {
+      "verified": true,
+      "probes": 9,
+      "candidate_masks": 18,
+      "winner_mask_builds": 4,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.7515000072307885
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed5",
+    "certificate_sha256": "e7a6740bc32e6168ee13b34f529f31c43da7d3a9344ef486bc081c4f3f21b669",
+    "verification": {
+      "verified": true,
+      "probes": 26,
+      "candidate_masks": 25,
+      "winner_mask_builds": 11,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 3.4419000148773193
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed6",
+    "certificate_sha256": "aa826ebf022ac29bfc339716af3e2cba20c8686aeb52b520b8afa99313e4dce6",
+    "verification": {
+      "verified": true,
+      "probes": 3,
+      "candidate_masks": 15,
+      "winner_mask_builds": 0,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 1.2280000373721123
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed7",
+    "certificate_sha256": "e973e5d3e89d0522025d4ae636730e03cf5699cba007f56463675a34cdd0a6e1",
+    "verification": {
+      "verified": true,
+      "probes": 5,
+      "candidate_masks": 21,
+      "winner_mask_builds": 1,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 2.8138000052422285
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed8",
+    "certificate_sha256": "f9abbb05630192f51b0770cd5e45c030d08944254a6556f8d7df73ada46ceace",
+    "verification": {
+      "verified": true,
+      "probes": 24,
+      "candidate_masks": 21,
+      "winner_mask_builds": 10,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 3.9746000547893345
+  },
+  {
+    "case_id": "pipeline_axis_generated_rf_quantized_seed9",
+    "certificate_sha256": "fd6d14c2a69072ba956cc1835feb09478dd627acb8b27869aa1ad45c4b1e4eef",
+    "verification": {
+      "verified": true,
+      "probes": 35,
+      "candidate_masks": 28,
+      "winner_mask_builds": 14,
+      "checker": "streaming-suffix/1"
+    },
+    "verification_ms": 4.992900008801371
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "status": "UNSUPPORTED",
+  "certified": false,
+  "reason": "STATEFUL_GLOBAL_OR_NONLOCAL",
+  "mode": "complete"
+}

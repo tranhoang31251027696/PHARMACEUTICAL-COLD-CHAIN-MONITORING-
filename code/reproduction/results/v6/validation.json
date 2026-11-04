@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "prior_v5_final_stages": 23,
+  "significance_workloads_reconciled": 30,
+  "decimal_policy_resolutions_checked": [
+    2,
+    3,
+    4,
+    6
+  ],
+  "scipy_certificates_replayed": 108,
+  "scipy_affected_policy_divergent": 31,
+  "scipy_grid_detections": 31,
+  "scipy_snapshot_detections": 26,
+  "additional_documented_defects": 1,
+  "larger_g_tasks": 6,
+  "larger_g_certificates_replayed": 12,
+  "larger_g_timing_records_reconciled": 36
+}

@@ -1,0 +1,256 @@
+cohort,case_id,calibrator,setting,alpha,nominal_alpha,old_tau,new_tau,old_TP,old_N,new_TP,new_N,reselected_changed,is_divergent
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.3,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.35,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.4,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.45,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.5,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.55,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.6,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.65,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.7,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.75,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__scipy_1.15.3_float32,plain_6h,scipy_1.15.3_float32,0.8,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.3,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.35,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.4,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.45,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.5,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.55,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.6,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.65,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.7,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.75,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__manual_float32_slope,plain_6h,manual_float32_slope,0.8,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.3,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.35,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.4,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.45,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.5,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.55,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.6,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.65,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.7,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.75,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,plain_6h__numpy_float64_linear_cast32,plain_6h,numpy_float64_linear_cast32,0.8,0.5,0.0314633846282959,0.0314633846282959,47,56,47,56,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.3,0.5,0.032258063554763794,0.032258063554763794,51,150,51,150,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.35,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.4,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.45,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.5,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.55,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.6,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.65,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.7,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.75,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__scipy_1.15.3_float32,thermal_plus_arrhenius_12h,scipy_1.15.3_float32,0.8,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.3,0.5,0.032258063554763794,0.032258063554763794,51,150,51,150,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.35,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.4,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.45,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.5,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.55,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.6,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.65,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.7,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.75,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__manual_float32_slope,thermal_plus_arrhenius_12h,manual_float32_slope,0.8,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.3,0.5,0.032258063554763794,0.03225806355476379,51,150,51,150,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.35,0.5,0.07692307233810425,0.07692307978868483,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.4,0.5,0.07692307233810425,0.07692307978868483,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.45,0.5,0.07692307233810425,0.07692307978868483,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.5,0.5,0.07692307233810425,0.07692307978868483,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.55,0.5,0.07692307233810425,0.07692307978868483,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.6,0.5,0.07692307233810425,0.07692307978868483,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.65,0.5,0.07692308723926544,0.07692307978868486,43,49,43,48,3,True
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.7,0.5,0.07692308723926544,0.07692307978868486,43,49,43,48,3,True
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.75,0.5,0.07692308723926544,0.07692307978868486,43,49,43,48,3,True
+Retained,thermal_plus_arrhenius_12h__manual_float64_endpoint,thermal_plus_arrhenius_12h,manual_float64_endpoint,0.8,0.5,0.07692308723926544,0.07692307978868486,43,49,43,48,3,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.3,0.5,0.032258063554763794,0.032258063554763794,51,150,51,150,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.35,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.4,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.45,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.5,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.55,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.6,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.65,0.5,0.07692308723926544,0.08559282405958768,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.7,0.5,0.07692308723926544,0.08559282405958768,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.75,0.5,0.07692308723926544,0.08559282405958768,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear,thermal_plus_arrhenius_12h,numpy_float64_linear,0.8,0.5,0.07692308723926544,0.08559282405958768,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.3,0.5,0.032258063554763794,0.032258063554763794,51,150,51,150,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.35,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.4,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.45,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.5,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.55,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.6,0.5,0.07692307233810425,0.07692307978868484,49,81,49,81,0,False
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.65,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.7,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.75,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_plus_arrhenius_12h__numpy_float64_linear_cast32,thermal_plus_arrhenius_12h,numpy_float64_linear_cast32,0.8,0.5,0.07692308723926544,0.08559282124042511,43,49,43,47,2,True
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.3,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.35,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.4,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.45,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.5,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.55,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.6,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.65,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.7,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.75,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__scipy_1.15.3_float32,thermal_24h,scipy_1.15.3_float32,0.8,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.3,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.35,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.4,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.45,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.5,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.55,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.6,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.65,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.7,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.75,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float32_slope,thermal_24h,manual_float32_slope,0.8,0.5,0.05403139442205429,0.05403139442205429,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.3,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.35,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.4,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.45,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.5,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.55,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.6,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.65,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.7,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.75,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__manual_float64_endpoint,thermal_24h,manual_float64_endpoint,0.8,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.3,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.35,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.4,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.45,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.5,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.55,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.6,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.65,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.7,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.75,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear,thermal_24h,numpy_float64_linear,0.8,0.5,0.05403139442205429,0.05403139659345432,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.3,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.35,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.4,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.45,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.5,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.55,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.6,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.65,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.7,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.75,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_24h__numpy_float64_linear_cast32,thermal_24h,numpy_float64_linear_cast32,0.8,0.5,0.05403139442205429,0.05403139814734459,42,47,42,47,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.3,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.35,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.4,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.45,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.5,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.55,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.6,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.65,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.7,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.75,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__scipy_1.15.3_float32,thermal_plus_arrhenius_24h,scipy_1.15.3_float32,0.8,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.3,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.35,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.4,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.45,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.5,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.55,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.6,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.65,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.7,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.75,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__manual_float32_slope,thermal_plus_arrhenius_24h,manual_float32_slope,0.8,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.3,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.35,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.4,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.45,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.5,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.55,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.6,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.65,0.5,0.3333333134651184,0.33333334326744074,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.7,0.5,0.3333333730697632,0.5833073891091688,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.75,0.5,0.3333333730697632,0.5833073891091688,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__manual_float64_endpoint,thermal_plus_arrhenius_24h,manual_float64_endpoint,0.8,0.5,0.3333333730697632,0.5833073891091688,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.3,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.35,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.4,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.45,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.5,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.55,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.6,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.65,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.7,0.5,0.3333333730697632,0.5833073891091688,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.75,0.5,0.3333333730697632,0.5833073891091688,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear,thermal_plus_arrhenius_24h,numpy_float64_linear,0.8,0.5,0.3333333730697632,0.5833073891091688,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.3,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.35,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.4,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.45,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.5,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.55,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.6,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.65,0.5,0.3333333134651184,0.3333333432674408,40,61,40,61,0,False
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.7,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.75,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Retained,thermal_plus_arrhenius_24h__numpy_float64_linear_cast32,thermal_plus_arrhenius_24h,numpy_float64_linear_cast32,0.8,0.5,0.3333333730697632,0.5833073854446411,38,45,36,37,8,True
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.3,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.35,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.4,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.45,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.5,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.55,0.8,0.8,0.50000001,2,2,2,3,1,True
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.6,0.8,0.8,0.50000001,2,2,2,3,1,True
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.65,0.8,0.8,0.50000001,2,2,2,3,1,True
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.7,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.75,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,split_frontier_only,synthetic_fixture,isolated split no decision change,0.8,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.3,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.35,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.4,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.45,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.5,0.8,0.5,0.5,2,4,2,4,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.55,0.8,0.50000001,0.8,2,3,2,2,1,True
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.6,0.8,0.50000001,0.8,2,3,2,2,1,True
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.65,0.8,0.50000001,0.8,2,3,2,2,1,True
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.7,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.75,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,merge_frontier_only,synthetic_fixture,merge no decision change,0.8,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.3,0.8,0.3,0.3,2,4,2,4,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.35,0.8,0.3,0.3,2,4,2,4,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.4,0.8,0.3,0.3,2,4,2,4,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.45,0.8,0.3,0.3,2,4,2,4,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.5,0.8,0.3,0.3,2,4,2,4,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.55,0.8,0.4,0.4,2,3,2,3,2,True
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.6,0.8,0.4,0.4,2,3,2,3,2,True
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.65,0.8,0.4,0.4,2,3,2,3,2,True
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.7,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.75,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,cross_below_selection,synthetic_fixture,crossing no decision change,0.8,0.8,0.8,0.8,2,2,2,2,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.3,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.35,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.4,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.45,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.5,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.55,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.6,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.65,0.5,0.5,0.5,2,3,2,3,0,False
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.7,0.5,,0.50000001,0,0,1,1,1,True
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.75,0.5,,0.50000001,0,0,1,1,1,True
+Synthetic,duplicates_full_feasible,synthetic_fixture,duplicate scores,0.8,0.5,,0.50000001,0,0,1,1,1,True
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.3,0.5,0.0,0.0,43,114,43,114,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.35,0.5,0.0,0.0,43,114,43,114,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.4,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.45,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.5,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.55,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.6,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.65,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.7,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.75,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.8,0.5,0.02748774364590645,0.02748774364590645,43,53,43,53,0,False
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.85,0.5,0.0833333432674408,0.4570517838001251,43,47,43,45,2,True
+Public_WDBC,public_wdbc_pilot,logistic_isotonic,scipy_1.15.3_vs_1.18.1,0.9,0.5,0.0833333432674408,0.4570517838001251,43,47,43,45,2,True

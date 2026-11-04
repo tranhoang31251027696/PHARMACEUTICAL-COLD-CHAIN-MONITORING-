@@ -1,0 +1,84 @@
+{
+  "case_id": "n100000_g10_alternating",
+  "n": 100000,
+  "g": 10,
+  "pattern": "alternating",
+  "input_sha256": "62a239888d05257c675e8c2587bb1e36fef3680bd4722ffffe0608b84b60df5a",
+  "method": "partition",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "3/5",
+        "left_closed": true,
+        "right_closed": true
+      },
+      {
+        "lo": "23/36",
+        "hi": "27111/40000",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "25083/35000",
+        "hi": "15111/20000",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "19861/25000",
+        "hi": "33333/40000",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4361/5000",
+        "hi": "9/10",
+        "left_closed": false,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "2800123/3780000",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 0,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "473999/720000",
+        "row_index": 9,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "206109/280000",
+        "row_index": 16,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "325553/400000",
+        "row_index": 7,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "8861/10000",
+        "row_index": 11,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "critical_points": 10
+  }
+}

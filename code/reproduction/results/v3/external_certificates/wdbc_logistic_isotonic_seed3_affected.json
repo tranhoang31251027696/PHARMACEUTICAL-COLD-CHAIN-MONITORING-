@@ -1,0 +1,183 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed3",
+  "variant": "affected",
+  "source_sha256": "6fec0d88fe0e40ff8624d6c240b7f656ba0a84a408db52e52cf6b4b312617658",
+  "upstream_commit": "7e1e6d09bcc2eaeba98f7e737aac2ac782f0e5f1",
+  "input_sha256": "cc47b2c02cf2705c9b545554fee9e9e7afbaebe9327b1ee26cc88a9f6e583ce1",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "53/84",
+    "53/83",
+    "53/82",
+    "53/81",
+    "53/80",
+    "53/79",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": false,
+      "expected_n": 143,
+      "actual_n": 55,
+      "witness_id": "0",
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": false,
+      "expected_n": 143,
+      "actual_n": 55,
+      "witness_id": "0",
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/143",
+      "equal": false,
+      "expected_n": 143,
+      "actual_n": 55,
+      "witness_id": "0",
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "12031/24024",
+      "equal": false,
+      "expected_n": 84,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/84",
+      "equal": false,
+      "expected_n": 84,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "8851/13944",
+      "equal": false,
+      "expected_n": 83,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/83",
+      "equal": false,
+      "expected_n": 83,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "8745/13612",
+      "equal": false,
+      "expected_n": 82,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/82",
+      "equal": false,
+      "expected_n": 82,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "8639/13284",
+      "equal": false,
+      "expected_n": 81,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/81",
+      "equal": false,
+      "expected_n": 81,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "8533/12960",
+      "equal": false,
+      "expected_n": 80,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/80",
+      "equal": false,
+      "expected_n": 80,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "8427/12640",
+      "equal": false,
+      "expected_n": 79,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "53/79",
+      "equal": false,
+      "expected_n": 79,
+      "actual_n": 55,
+      "witness_id": "5",
+      "expected_bits": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "1241/1580",
+      "equal": false,
+      "expected_n": 57,
+      "actual_n": 55,
+      "witness_id": "41",
+      "expected_bits": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    },
+    {
+      "alpha": "9/10",
+      "equal": false,
+      "expected_n": 57,
+      "actual_n": 55,
+      "witness_id": "41",
+      "expected_bits": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits": "0x45186b88061491b3d7b22cb7580c20190c80"
+    }
+  ],
+  "equivalent": false,
+  "psc_exact": "1",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

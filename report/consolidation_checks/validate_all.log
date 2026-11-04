@@ -1,0 +1,189 @@
+Checking benchmark
+{
+  "status": "PASS",
+  "certificate_timing_rows": 120,
+  "reconstructed_workloads": 6,
+  "workload_hashes": [
+    {
+      "n": 1000,
+      "g": 20,
+      "workload": "invariant",
+      "input_sha256": "28f6ecdf57da6f9ba3c045cc088f524d1ab232b4ddc51c689c19678d0bca2238",
+      "oracle_probes": 45
+    },
+    {
+      "n": 1000,
+      "g": 20,
+      "workload": "divergent",
+      "input_sha256": "87f513c9cd6e062b64d9fbec3d75e0454ffb9d5f74ff36d02adbc07777c85174",
+      "oracle_probes": 120
+    },
+    {
+      "n": 10000,
+      "g": 100,
+      "workload": "invariant",
+      "input_sha256": "7667fa752b59ebe89d83517e41b44a2a8c156a01635d1b986e1c4eed16723a44",
+      "oracle_probes": 214
+    },
+    {
+      "n": 10000,
+      "g": 100,
+      "workload": "divergent",
+      "input_sha256": "85b4e664c6fb372e55f91bbe75ed694d4cfccc3c76be84bb5ad636dfbcf7a1dd",
+      "oracle_probes": 628
+    },
+    {
+      "n": 100000,
+      "g": 500,
+      "workload": "invariant",
+      "input_sha256": "01640d9681080f41a18c6b01d51a2166d29bc4097c60bf853a0aee42f28747c1",
+      "oracle_probes": 1062
+    },
+    {
+      "n": 100000,
+      "g": 500,
+      "workload": "divergent",
+      "input_sha256": "1a3b21bd639b6626a0adb5f6e7e997eda2ced74f072fb94c1c4c87b61d9889ce",
+      "oracle_probes": 3142
+    }
+  ],
+  "matched_method_rows": 270,
+  "matched_method_groups": 45,
+  "measurement_source_sha256": {
+    "results/execution_source_snapshot/run_experiments.py": "62c4c1c4a192d1eaa39ad787d8b9ff90157ffc3fdac88abb55ba9e5d5fe9c123",
+    "results/execution_source_snapshot/policy_exact.py": "f4c682d80026c08a9a236e453faba606893e09b7941c2ffe21ee0a551aa3dc6c"
+  },
+  "raw_record_sha256": {
+    "certificate_timings.csv": "9b1bb4524fa307ba7041912a1fc04e9c0670ee549cf7ca9e2aced2147038007b",
+    "certificate_timing_summary.csv": "48fcee9391027fef623c9ed4afc44299a199625f8464c50780bc34b51746fa7b",
+    "matched_method_timings.csv": "8290bffa18cd12fc05013c52d52cf7e71bdb03bdfb28e4df4c8646020d84cd87",
+    "matched_method_summary.csv": "bae1d8b1fbb061097b47091efd97ead0980849f5b07fd90549142b5c8d3e72f3"
+  }
+}
+Checking program_results
+{
+  "status": "PASS",
+  "program_certificates_replayed": 210,
+  "program_policy_probes": 25386,
+  "real_version_certificates_reverified": 11,
+  "ablation_records_reconciled": 60,
+  "new_spec_provided": false
+}
+Checking program_admission
+{
+  "status": "PASS",
+  "external_certificates_replayed": 93,
+  "external_policy_probes": 11853,
+  "failure_modes_rejected": 15,
+  "ci_process_measurements": 60,
+  "smt_records_verified": 279,
+  "smtlib_tasks_resolved": 93,
+  "old_v2_status": "The unchanged core results remain separate; executed-program adapter has additionally been hardened and rerun."
+}
+Checking complete_regions
+{
+  "status": "PASS",
+  "external_optimizer_workloads_replayed": 3,
+  "external_optimizer_policies_replayed": 59,
+  "scorer_callbacks_replayed": 2150,
+  "unsupported_configurations_rejected": 4,
+  "region_certificates_replayed": 16,
+  "matched_region_tasks": 8,
+  "complete_region_timing_records": 48,
+  "checker_raw_records_reconciled": 36,
+  "checker_groups_reconciled": 6,
+  "second_project_executed": false,
+  "scope": "Executed optimizer replay, independent exact membership/region checks, raw timing reconciliation and pinned-source bindings. No second executed project or additional confirmed defect is inferred."
+}
+Checking external_project_and_checkers
+{
+  "status": "PASS",
+  "second_project_workloads_replayed": 30,
+  "second_project_policy_probes_replayed": 884,
+  "second_project_semantic_differentials": 27,
+  "additional_confirmed_defects": 0,
+  "expanded_region_tasks": 27,
+  "expanded_certificates_replayed": 54,
+  "expanded_timing_records_reconciled": 270,
+  "paired_checker_raw_records_reconciled": 72,
+  "paired_checker_groups_reconciled": 12,
+  "streaming_corpus_certificates": 428,
+  "upstream_threshold_tests": 18,
+  "independent_checker_has_no_production_import": true
+}
+Checking documented_defect_and_policy
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+{
+  "status": "PASS",
+  "prior_v5_final_stages": 23,
+  "significance_workloads_reconciled": 30,
+  "decimal_policy_resolutions_checked": [
+    2,
+    3,
+    4,
+    6
+  ],
+  "scipy_certificates_replayed": 108,
+  "scipy_affected_policy_divergent": 31,
+  "scipy_grid_detections": 31,
+  "scipy_snapshot_detections": 26,
+  "additional_documented_defects": 1,
+  "larger_g_tasks": 6,
+  "larger_g_certificates_replayed": 12,
+  "larger_g_timing_records_reconciled": 36
+}
+Checking allowed_domains
+{
+  "status": "PASS",
+  "prior_v6_exact_stages": 27,
+  "prior_v6_archive_sha256": "ec708e725b6ee0f369c156ddaec401f6bdcc8d8ad0681d1e8026638096128de0",
+  "query_answers_reconciled": 288,
+  "direct_policy_checks": 24408,
+  "smt_answers_agree": 288,
+  "tampered_input_rejected_before_query": true,
+  "scope": "Local controlled functional validation, not independent developer evaluation or new bug corpus"
+}
+Checking reuse_costs
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+{
+  "status": "PASS",
+  "prior_v7_exact_stages": 29,
+  "raw_measurements_reconciled": 720,
+  "summary_groups_reconciled": 144,
+  "unique_case_query_plans_replayed": 2028,
+  "saved_method_query_answers_reconciled": 30420,
+  "smt_unknown": 0,
+  "q2_source_snapshot_hashes_verified": 3,
+  "scope": "Measured computational reuse, not developer productivity or real production policy requirements; observed crossings may change with host/run."
+}
+Checking boolean_api
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+{
+  "status": "PASS",
+  "prior_v8_exact_stages": 31,
+  "prior_certificate_audit_exit_code": 0,
+  "raw_measurements_reconciled": 960,
+  "statistical_groups_reconciled": 192,
+  "reused_unique_case_query_plans": 2028,
+  "saved_method_query_answers_reconciled": 40560,
+  "boolean_existing_domain_queries_replayed": 288,
+  "saved_rational_witnesses_rechecked": 25160,
+  "smt_unknown": 0,
+  "scope": "Paired certificate API comparison has matched certificate construction/checking obligations; comparisons to direct/SMT are implementation request costs with unequal assurance. No new bug/deployment/developer evidence."
+}
+Checking external_bindings
+{
+  "status": "PASS",
+  "external_certificates_source_and_domain_bound": 93,
+  "upstream_snapshots_hash_checked": 3,
+  "historical_binary_execution_claimed": false
+}

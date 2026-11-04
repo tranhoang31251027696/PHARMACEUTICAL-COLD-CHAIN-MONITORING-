@@ -1,0 +1,88 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed2",
+  "variant": "installed_current",
+  "source_sha256": null,
+  "upstream_commit": null,
+  "input_sha256": "e2e4c0e90e31367ac791d7445a75f0ce435d49552e801127a18341195300753d",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "13/16",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "53/143",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "2707/4576",
+      "equal": true,
+      "expected_n": 64,
+      "actual_n": 64,
+      "witness_id": null,
+      "expected_bits": "0x68581668bd9e606c958773e843a2321aa328",
+      "actual_bits": "0x68581668bd9e606c958773e843a2321aa328"
+    },
+    {
+      "alpha": "13/16",
+      "equal": true,
+      "expected_n": 64,
+      "actual_n": 64,
+      "witness_id": null,
+      "expected_bits": "0x68581668bd9e606c958773e843a2321aa328",
+      "actual_bits": "0x68581668bd9e606c958773e843a2321aa328"
+    },
+    {
+      "alpha": "137/160",
+      "equal": true,
+      "expected_n": 52,
+      "actual_n": 52,
+      "witness_id": null,
+      "expected_bits": "0x20581260959e006c858773e843a2300a2328",
+      "actual_bits": "0x20581260959e006c858773e843a2300a2328"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 52,
+      "actual_n": 52,
+      "witness_id": null,
+      "expected_bits": "0x20581260959e006c858773e843a2300a2328",
+      "actual_bits": "0x20581260959e006c858773e843a2300a2328"
+    }
+  ],
+  "equivalent": true,
+  "psc_exact": "0",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

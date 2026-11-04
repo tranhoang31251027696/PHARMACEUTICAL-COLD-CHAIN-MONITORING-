@@ -1,0 +1,28 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun alpha () Real)
+(assert
+ (<= (/ 3.0 10.0) alpha))
+(assert
+ (>= (/ 9.0 10.0) alpha))
+(assert
+ (let (($x689 (>= 1.0 (* alpha 1.0))))
+(let ((?x1250 (ite $x689 4 (ite $x689 3 (ite $x689 2 (ite $x689 1 0))))))
+(let ((?x1664 (ite (>= 11.0 (* alpha 12.0)) 12 (ite $x689 9 (ite $x689 8 (ite $x689 5 ?x1250))))))
+(let ((?x4024 (ite (>= 13.0 (* alpha 15.0)) 15 (ite (>= 6.0 (* alpha 7.0)) 14 ?x1664))))
+(let ((?x1551 (ite (>= 13.0 (* alpha 17.0)) 17 (ite (>= 13.0 (* alpha 16.0)) 16 ?x4024))))
+(let ((?x310 (ite (>= 16.0 (* alpha 21.0)) 21 (ite (>= 14.0 (* alpha 19.0)) 19 ?x1551))))
+(let ((?x2566 (ite (>= 22.0 (* alpha 29.0)) 29 (ite (>= 21.0 (* alpha 26.0)) 26 ?x310))))
+(let ((?x4158 (ite (>= 25.0 (* alpha 36.0)) 36 (ite (>= 23.0 (* alpha 31.0)) 31 ?x2566))))
+(let ((?x1491 (ite (>= 28.0 (* alpha 45.0)) 45 (ite (>= 5.0 (* alpha 8.0)) 40 ?x4158))))
+(let ((?x1013 (ite (>= 5.0 (* alpha 9.0)) 63 (ite (>= 11.0 (* alpha 18.0)) 54 ?x1491))))
+(let ((?x1029 (ite (>= 36.0 (* alpha 73.0)) 73 (ite (>= 12.0 (* alpha 23.0)) 69 ?x1013))))
+(let ((?x1171 (ite (>= 19.0 (* alpha 50.0)) 100 (ite (>= 3.0 (* alpha 7.0)) 84 ?x1029))))
+(let ((?x2509 (ite (>= 8.0 (* alpha 25.0)) 125 (ite (>= 39.0 (* alpha 110.0)) 110 ?x1171))))
+(let ((?x57 (ite (>= 21.0 (* alpha 85.0)) 170 (ite (>= 42.0 (* alpha 149.0)) 149 ?x2509))))
+(let ((?x2556 (ite (>= 15.0 (* alpha 79.0)) 237 (ite (>= 22.0 (* alpha 101.0)) 202 ?x57))))
+(let ((?x3890 (ite (>= 47.0 (* alpha 331.0)) 331 (ite (>= 45.0 (* alpha 274.0)) 274 ?x2556))))
+(let ((?x849 (ite (>= 52.0 (* alpha 451.0)) 451 (ite (>= 5.0 (* alpha 39.0)) 390 ?x3890))))
+(let ((?x1718 (ite (>= 11.0 (* alpha 120.0)) 600 (ite (>= 53.0 (* alpha 518.0)) 518 ?x849))))
+(and (distinct ?x1718 ?x1718) true))))))))))))))))))))
+(check-sat)

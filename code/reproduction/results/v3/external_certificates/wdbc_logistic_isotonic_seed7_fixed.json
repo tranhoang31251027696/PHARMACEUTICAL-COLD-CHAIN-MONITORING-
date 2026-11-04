@@ -1,0 +1,69 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed7",
+  "variant": "fixed",
+  "source_sha256": "f5eda405c09f57a094707c41524e48bb83c46722565495f5e33713d02466b9a5",
+  "upstream_commit": "32c53bc69cc0d1f142700dd6c02281a000b855b9",
+  "input_sha256": "19825dd2f9c5628baa6683c39902cec5bb3963f4955e52c2f5abde8676aedfd0",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "53/143",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "1817/2860",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x20015003acc9c406fa0283fa5a243943529e",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x20015003acc9c406fa0283fa5a243943529e",
+      "actual_bits": "0x20015003acc9c406fa0283fa5a243943529e"
+    }
+  ],
+  "equivalent": true,
+  "psc_exact": "0",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

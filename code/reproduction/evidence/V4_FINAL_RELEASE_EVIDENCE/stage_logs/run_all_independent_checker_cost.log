@@ -1,0 +1,16 @@
+checker 1000 invariant
+checker 1000 divergent
+checker 10000 invariant
+checker 10000 divergent
+checker 100000 invariant
+checker 100000 divergent
+{
+  "status": "PASS",
+  "raw_records": 36,
+  "timing_records": 30,
+  "memory_records": 6,
+  "timing_tracemalloc": false,
+  "memory_timing_pooled": false,
+  "checker_source_sha256": "71902f156dea33ce1346e9f6966550b27a040ea6a8f423f6b0aae67303bfb4a3",
+  "scope": "Producer runs before timing and is excluded. Inputs/certificate prepared before memory tracing; checker construction, hashing, coverage and witness/PSC checks included. Independent checker materializes Boolean threshold masks before bitset packing, so peak scratch includes O(NG) bytes, not only stored O(NG) bits. One host; five repetitions per timing group."
+}

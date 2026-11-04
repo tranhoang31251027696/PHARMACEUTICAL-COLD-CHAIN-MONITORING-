@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "program_runs": 210,
+  "source_mutants": 6,
+  "reference_controls": 30,
+  "reference_false_alarms": 0,
+  "nonconforming_runs": 136,
+  "snapshot_detected": 72,
+  "grid_detected": 111,
+  "guard_complete_detected": 136,
+  "policy_probes": 25386,
+  "new_spec_passed_to_checker": false,
+  "limitation": "Known source-mutant corpus, instrumented guard coverage, locally built SUT. No naturally occurring bug corpus."
+}

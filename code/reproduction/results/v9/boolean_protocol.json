@@ -1,0 +1,28 @@
+{
+  "case_ids": [
+    "upstream_int8",
+    "unix_seconds_int32",
+    "small_int32_control",
+    "pipeline_axis_wdbc_logistic_isotonic_seed0",
+    "pipeline_axis_digits_svc_sigmoid_seed0",
+    "pipeline_axis_generated_rf_quantized_seed0"
+  ],
+  "batch_sizes": [
+    1,
+    8,
+    32,
+    128
+  ],
+  "repetitions": 5,
+  "methods": [
+    "checked_certificate",
+    "boolean_certificate",
+    "direct_masks",
+    "incremental_z3"
+  ],
+  "request_protocol": "Exact same six V8 inputs and deterministic singleton/window plans; no outcome or timing filtering. 2,028 unique case/query plans are reused, not new workloads.",
+  "matched_assurance_panel": "checked_certificate versus boolean_certificate: both construct a complete core diagnostic certificate, perform JSON roundtrip and independent full verification once per batch. Boolean route additionally freezes/merges/indexes unequal cells; both answer existence plus rational witness.",
+  "workflow_cost_panel": "Four implementations answer the same Boolean question but do not have equal assurance obligations. Direct masks and incremental Z3 do not produce or independently verify a complete certificate. These are request-cost comparisons, not matched-assurance verification rankings.",
+  "timing": "One warmup per case/type/method, 5 fresh setups per batch/method, seeded randomized method order. Setup/query/total retained separately; no tracemalloc. Same executed interpolation outputs outside all timers. No result memoization; requests within a batch differ. Imports, disk I/O and human work excluded.",
+  "scope": "API cost isolation on existing controlled fixtures. No new algorithmic primitive, independent developer/production requirement evidence, defect count or universal speed claim."
+}

@@ -1,0 +1,193 @@
+{
+  "cases": [
+    {
+      "case_id": "issue23213_protocol",
+      "file": "issue23213_protocol.npz",
+      "sha256": "0a3d8bdf2fabcd7ec7905a271ab07b5707f558854a6285164524eec2330e5a7c",
+      "origin": "Upstream issue reproduction protocol, fitted with current sklearn; not historical fitted coefficients"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed0",
+      "file": "wdbc_logistic_isotonic_seed0.npz",
+      "sha256": "deba8163e7d2e172ee4f4cde9316036265d0db11fe077c8032ccfe0162eb3f50",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed1",
+      "file": "wdbc_logistic_isotonic_seed1.npz",
+      "sha256": "bc32c2be4e3eab4c3dcd5e2927e62499a863595e18817f3cf185a5ee8f2d822c",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed2",
+      "file": "wdbc_logistic_isotonic_seed2.npz",
+      "sha256": "e2e4c0e90e31367ac791d7445a75f0ce435d49552e801127a18341195300753d",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed3",
+      "file": "wdbc_logistic_isotonic_seed3.npz",
+      "sha256": "cc47b2c02cf2705c9b545554fee9e9e7afbaebe9327b1ee26cc88a9f6e583ce1",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed4",
+      "file": "wdbc_logistic_isotonic_seed4.npz",
+      "sha256": "b51b5b706e5816fa0f99414187d0e4079ade0912a758cbaf2fd32f61f3a533da",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed5",
+      "file": "wdbc_logistic_isotonic_seed5.npz",
+      "sha256": "5527dda8cdc225de4a92720c530b840bc3a695106058160453aee52a5089a2d2",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed6",
+      "file": "wdbc_logistic_isotonic_seed6.npz",
+      "sha256": "d3e2af8716edef2a1ca9626ebbccbcf2efe63a564248e755a9f2f35fe297e9f7",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed7",
+      "file": "wdbc_logistic_isotonic_seed7.npz",
+      "sha256": "19825dd2f9c5628baa6683c39902cec5bb3963f4955e52c2f5abde8676aedfd0",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed8",
+      "file": "wdbc_logistic_isotonic_seed8.npz",
+      "sha256": "5218e2d2578cf1675f510040a5d7122795df7c58ff4692c13f82512100a9cd72",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "wdbc_logistic_isotonic_seed9",
+      "file": "wdbc_logistic_isotonic_seed9.npz",
+      "sha256": "8ad19e5dd04565bd6d3b57fd0485332add13adaef57625e07ac66f23f554ef2b",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed0",
+      "file": "digits_svc_sigmoid_seed0.npz",
+      "sha256": "6d1b32a28ff57e4b677e11b95ef46d6e22a0d70f6e5a97875190395105178619",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed1",
+      "file": "digits_svc_sigmoid_seed1.npz",
+      "sha256": "326cfa74e4eca375f5a6feb80119f61ebbc1f3b78d5d0fad7d1aa360b542a917",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed2",
+      "file": "digits_svc_sigmoid_seed2.npz",
+      "sha256": "30c62c545cc09b7051f826da260a42f21d1c3289999dc534edafb8f749ff9010",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed3",
+      "file": "digits_svc_sigmoid_seed3.npz",
+      "sha256": "dc340262b4b43e4d9764e9a55669f064b4223ce0f8167bd241a66756b788d655",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed4",
+      "file": "digits_svc_sigmoid_seed4.npz",
+      "sha256": "e2c9876ba4a246b8c60b1d40fad71c8a36925a240c75668fb89a1436322a684b",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed5",
+      "file": "digits_svc_sigmoid_seed5.npz",
+      "sha256": "c8c84f1783f5aeacf91f20f5a782f2003cb774014964b568630a926f83932c32",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed6",
+      "file": "digits_svc_sigmoid_seed6.npz",
+      "sha256": "adad978743009183215580bcc20600071a6018f664598cbe4756d918b241a0d9",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed7",
+      "file": "digits_svc_sigmoid_seed7.npz",
+      "sha256": "5c9b0862310ad0da0afde0f1d2201b40b79401b832a9dfd566a0ccd07d7e1443",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed8",
+      "file": "digits_svc_sigmoid_seed8.npz",
+      "sha256": "a2e3585a1c61c75c94c334aeb285568aebed996d34b5bd63f3a565708ca74625",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "digits_svc_sigmoid_seed9",
+      "file": "digits_svc_sigmoid_seed9.npz",
+      "sha256": "360d0a3957ea3db7c295c185afdc94d5a39251a18aba40180cad8a928799d29d",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed0",
+      "file": "generated_rf_quantized_seed0.npz",
+      "sha256": "e4b1198d9aea745fa035610008baf68f649a3ed7a5053d2414927d74a23fd5b1",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed1",
+      "file": "generated_rf_quantized_seed1.npz",
+      "sha256": "6bf600434feb790ef587043c0b989d5bb7fd3f8a1e6e81195f949fce80745cec",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed2",
+      "file": "generated_rf_quantized_seed2.npz",
+      "sha256": "80acd38326ddc979e7196c8d32ff5172349b517f4e376c064919784b330bd701",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed3",
+      "file": "generated_rf_quantized_seed3.npz",
+      "sha256": "941748cc8a1427025e3f6c9398d14046b2bae884534178f541fe383de33295f5",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed4",
+      "file": "generated_rf_quantized_seed4.npz",
+      "sha256": "2ee3ebee3913147e8e4302951b7268db4cd58881be0347fff53febed45366c8d",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed5",
+      "file": "generated_rf_quantized_seed5.npz",
+      "sha256": "300a5895f622d0594e699f30137548d1b84a4635a0e187ad9f0240aaacaab692",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed6",
+      "file": "generated_rf_quantized_seed6.npz",
+      "sha256": "b97798db4850d359ddee87881898e349787d4e5e961e65ab7145fd2fa11f0603",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed7",
+      "file": "generated_rf_quantized_seed7.npz",
+      "sha256": "c3cc3e4bce559e1427c882149865f2fc576e2f5fc48c025480d0205815673a68",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed8",
+      "file": "generated_rf_quantized_seed8.npz",
+      "sha256": "a6fa4f0d66d8925afc140de2de7508f87504ceebb9956411209b39baa402cdad",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    },
+    {
+      "case_id": "generated_rf_quantized_seed9",
+      "file": "generated_rf_quantized_seed9.npz",
+      "sha256": "b820ae587bc54bbbeb46d37be63b169ebeb5b122ec929cbed3efcbfd807f4917",
+      "origin": "Inherited local pipeline workload applied to one external defect"
+    }
+  ],
+  "upstream_issue": "https://github.com/scikit-learn/scikit-learn/issues/23213",
+  "defect_count": 1,
+  "split_warning": "Upstream reproducer fits and evaluates the same synthetic rows to expose a metrics defect; no predictive generalization claim."
+}

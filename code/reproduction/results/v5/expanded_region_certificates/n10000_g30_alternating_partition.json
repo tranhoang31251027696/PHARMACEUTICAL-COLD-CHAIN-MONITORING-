@@ -1,0 +1,180 @@
+{
+  "case_id": "n10000_g30_alternating",
+  "n": 10000,
+  "g": 30,
+  "pattern": "alternating",
+  "input_sha256": "116922a3095c99ff6b7be7d9000faeb037114bc59fcd8611e8fd8fa90c27ed03",
+  "method": "partition",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "6003/10000",
+        "left_closed": true,
+        "right_closed": true
+      },
+      {
+        "lo": "5920/9667",
+        "hi": "5829/9334",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5730/9001",
+        "hi": "5623/8668",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5508/8335",
+        "hi": "5385/8002",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5254/7669",
+        "hi": "2557/3668",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4966/7003",
+        "hi": "481/667",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4646/6337",
+        "hi": "2237/3002",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4294/5671",
+        "hi": "2053/2669",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "782/1001",
+        "hi": "1853/2336",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3494/4339",
+        "hi": "1637/2003",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3046/3673",
+        "hi": "281/334",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "285/334",
+        "hi": "289/334",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "293/334",
+        "hi": "297/334",
+        "left_closed": false,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "4575030720638385002579635750969999026263892391456167437762970203939/6172581149374780847207421527037580662712202446943819073298171628000",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 16,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "111606223/180463556",
+        "row_index": 17,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "100280263/156041336",
+        "row_index": 71,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "88958991/133393340",
+        "row_index": 28,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "38881305/56259784",
+        "row_index": 10,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "6680765/9342002",
+        "row_index": 14,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "28123161/38047348",
+        "row_index": 81,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "23103249/30271798",
+        "row_index": 27,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "3681605/4676672",
+        "row_index": 9,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "14101425/17382034",
+        "row_index": 48,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2049477/2453564",
+        "row_index": 35,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "287/334",
+        "row_index": 30,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "295/334",
+        "row_index": 1,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "critical_points": 27
+  }
+}

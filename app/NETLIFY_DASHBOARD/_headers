@@ -1,0 +1,23 @@
+/api-config.js
+  Cache-Control: no-store
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/coldchain-runtime.js
+  Cache-Control: no-cache
+
+/coldchain-workbench.js
+  Cache-Control: no-cache
+
+/csv-worker.js
+  Cache-Control: no-cache
+
+/coldchain-dataset.js
+  Cache-Control: no-cache
+
+/coldchain-workflow.js
+  Cache-Control: no-cache
+
+/coldchain-workbench.css
+  Cache-Control: no-cache

@@ -1,0 +1,164 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed0",
+  "variant": "installed_current",
+  "source_sha256": null,
+  "upstream_commit": null,
+  "input_sha256": "deba8163e7d2e172ee4f4cde9316036265d0db11fe077c8032ccfe0162eb3f50",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "53/83",
+    "53/82",
+    "53/75",
+    "53/74",
+    "17/19",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "53/143",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "5989/11869",
+      "equal": true,
+      "expected_n": 83,
+      "actual_n": 83,
+      "witness_id": null,
+      "expected_bits": "0x3e3afcc3d63d499ade17d297de5d93a56f0e",
+      "actual_bits": "0x3e3afcc3d63d499ade17d297de5d93a56f0e"
+    },
+    {
+      "alpha": "53/83",
+      "equal": true,
+      "expected_n": 83,
+      "actual_n": 83,
+      "witness_id": null,
+      "expected_bits": "0x3e3afcc3d63d499ade17d297de5d93a56f0e",
+      "actual_bits": "0x3e3afcc3d63d499ade17d297de5d93a56f0e"
+    },
+    {
+      "alpha": "8745/13612",
+      "equal": true,
+      "expected_n": 82,
+      "actual_n": 82,
+      "witness_id": null,
+      "expected_bits": "0x3e3afcc3d63d499ade17d297de5d92a56f0e",
+      "actual_bits": "0x3e3afcc3d63d499ade17d297de5d92a56f0e"
+    },
+    {
+      "alpha": "53/82",
+      "equal": true,
+      "expected_n": 82,
+      "actual_n": 82,
+      "witness_id": null,
+      "expected_bits": "0x3e3afcc3d63d499ade17d297de5d92a56f0e",
+      "actual_bits": "0x3e3afcc3d63d499ade17d297de5d92a56f0e"
+    },
+    {
+      "alpha": "8321/12300",
+      "equal": true,
+      "expected_n": 75,
+      "actual_n": 75,
+      "witness_id": null,
+      "expected_bits": "0x263afcc3c41d499ade17d2979e5d92a16f0e",
+      "actual_bits": "0x263afcc3c41d499ade17d2979e5d92a16f0e"
+    },
+    {
+      "alpha": "53/75",
+      "equal": true,
+      "expected_n": 75,
+      "actual_n": 75,
+      "witness_id": null,
+      "expected_bits": "0x263afcc3c41d499ade17d2979e5d92a16f0e",
+      "actual_bits": "0x263afcc3c41d499ade17d2979e5d92a16f0e"
+    },
+    {
+      "alpha": "7897/11100",
+      "equal": true,
+      "expected_n": 74,
+      "actual_n": 74,
+      "witness_id": null,
+      "expected_bits": "0x263afcc3441d499ade17d2979e5d92a16f0e",
+      "actual_bits": "0x263afcc3441d499ade17d2979e5d92a16f0e"
+    },
+    {
+      "alpha": "53/74",
+      "equal": true,
+      "expected_n": 74,
+      "actual_n": 74,
+      "witness_id": null,
+      "expected_bits": "0x263afcc3441d499ade17d2979e5d92a16f0e",
+      "actual_bits": "0x263afcc3441d499ade17d2979e5d92a16f0e"
+    },
+    {
+      "alpha": "2265/2812",
+      "equal": true,
+      "expected_n": 57,
+      "actual_n": 57,
+      "witness_id": null,
+      "expected_bits": "0x221ab843441d419ad21150878e5d9220670e",
+      "actual_bits": "0x221ab843441d419ad21150878e5d9220670e"
+    },
+    {
+      "alpha": "17/19",
+      "equal": true,
+      "expected_n": 57,
+      "actual_n": 57,
+      "witness_id": null,
+      "expected_bits": "0x221ab843441d419ad21150878e5d9220670e",
+      "actual_bits": "0x221ab843441d419ad21150878e5d9220670e"
+    },
+    {
+      "alpha": "341/380",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x221aa843441d419ad21150878e5d9220670e",
+      "actual_bits": "0x221aa843441d419ad21150878e5d9220670e"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x221aa843441d419ad21150878e5d9220670e",
+      "actual_bits": "0x221aa843441d419ad21150878e5d9220670e"
+    }
+  ],
+  "equivalent": true,
+  "psc_exact": "0",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

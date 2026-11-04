@@ -1,0 +1,10 @@
+{
+  "status": "NO_FAILURE_AT_PROBES",
+  "certified": false,
+  "source_sha256": "d47a27df7e6e92430cbcc32ce8743c76b256bc0075191511ef47b7c84985a05c",
+  "mode": "snapshot",
+  "probes": 1,
+  "failures": [],
+  "gate_ms": 64.4414,
+  "scope": "Reviewed-source allowlist and audited guard contract. Not a sandbox or arbitrary-Python proof."
+}

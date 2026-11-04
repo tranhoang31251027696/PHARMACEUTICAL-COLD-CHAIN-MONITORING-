@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "pages": 9,
+  "tables": 6,
+  "figures": 1,
+  "native_equations": 0,
+  "docx_sha256": "7ae853e06381ae3d763a08a2a84ec9a5e831619a145e02781fb423b4ac49ea15",
+  "pdf_sha256": "39af372edc12ee93d224fcd66cb66cd6ad386e157208c60a246873f08f7ac570",
+  "words_per_page": [
+    612,
+    540,
+    373,
+    576,
+    682,
+    636,
+    475,
+    501,
+    505
+  ],
+  "rendering": "Native Word PDF export then Poppler; canonical renderer attempted, LibreOffice unavailable; see canonical_render.log",
+  "visual_pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

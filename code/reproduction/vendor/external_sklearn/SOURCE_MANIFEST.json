@@ -1,0 +1,42 @@
+{
+  "1.0.2": {
+    "tag": "1.0.2",
+    "commit": "7e1e6d09bcc2eaeba98f7e737aac2ac782f0e5f1",
+    "files": {
+      "1.0.2__ranking.py": {
+        "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/7e1e6d09bcc2eaeba98f7e737aac2ac782f0e5f1/sklearn/metrics/_ranking.py",
+        "sha256": "6fec0d88fe0e40ff8624d6c240b7f656ba0a84a408db52e52cf6b4b312617658"
+      },
+      "1.0.2_COPYING": {
+        "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/7e1e6d09bcc2eaeba98f7e737aac2ac782f0e5f1/COPYING",
+        "sha256": "bc2e5553b31344779335ddadac8de6f9d12da6f4ce46e22a8e2820951a1d5458"
+      }
+    }
+  },
+  "1.1.0": {
+    "tag": "1.1.0",
+    "commit": "16625450b58f555dc3955d223f0c3b64a5686984",
+    "files": {
+      "1.1.0__ranking.py": {
+        "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/16625450b58f555dc3955d223f0c3b64a5686984/sklearn/metrics/_ranking.py",
+        "sha256": "3dc94f2707a16ac1c820849fb743897788f2484c63cb16a8b60a8dafe1e9d005"
+      },
+      "1.1.0_COPYING": {
+        "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/16625450b58f555dc3955d223f0c3b64a5686984/COPYING",
+        "sha256": "bc2e5553b31344779335ddadac8de6f9d12da6f4ce46e22a8e2820951a1d5458"
+      }
+    }
+  },
+  "23214_merged": {
+    "commit": "32c53bc69cc0d1f142700dd6c02281a000b855b9",
+    "merged_at": "2022-05-02T12:11:58Z",
+    "issue": "https://github.com/scikit-learn/scikit-learn/issues/23213",
+    "pull_request": "https://github.com/scikit-learn/scikit-learn/pull/23214",
+    "files": {
+      "23214_merged__ranking.py": {
+        "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/32c53bc69cc0d1f142700dd6c02281a000b855b9/sklearn/metrics/_ranking.py",
+        "sha256": "f5eda405c09f57a094707c41524e48bb83c46722565495f5e33713d02466b9a5"
+      }
+    }
+  }
+}

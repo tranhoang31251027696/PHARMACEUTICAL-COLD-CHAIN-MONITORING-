@@ -1,0 +1,415 @@
+{
+  "status": "NONCONFORMING",
+  "certified": false,
+  "source_sha256": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+  "mode": "complete",
+  "probes": 211,
+  "failures": [
+    {
+      "alpha": "3/10",
+      "witness_row_id": "85"
+    },
+    {
+      "alpha": "45/149",
+      "witness_row_id": "326"
+    },
+    {
+      "alpha": "45/148",
+      "witness_row_id": "391"
+    },
+    {
+      "alpha": "15/49",
+      "witness_row_id": "328"
+    },
+    {
+      "alpha": "45/146",
+      "witness_row_id": "259"
+    },
+    {
+      "alpha": "9/29",
+      "witness_row_id": "269"
+    },
+    {
+      "alpha": "5/16",
+      "witness_row_id": "318"
+    },
+    {
+      "alpha": "45/143",
+      "witness_row_id": "379"
+    },
+    {
+      "alpha": "45/142",
+      "witness_row_id": "93"
+    },
+    {
+      "alpha": "15/47",
+      "witness_row_id": "255"
+    },
+    {
+      "alpha": "9/28",
+      "witness_row_id": "49"
+    },
+    {
+      "alpha": "45/139",
+      "witness_row_id": "281"
+    },
+    {
+      "alpha": "15/46",
+      "witness_row_id": "355"
+    },
+    {
+      "alpha": "45/137",
+      "witness_row_id": "289"
+    },
+    {
+      "alpha": "45/136",
+      "witness_row_id": "159"
+    },
+    {
+      "alpha": "1/3",
+      "witness_row_id": "12"
+    },
+    {
+      "alpha": "45/134",
+      "witness_row_id": "245"
+    },
+    {
+      "alpha": "45/133",
+      "witness_row_id": "60"
+    },
+    {
+      "alpha": "15/44",
+      "witness_row_id": "320"
+    },
+    {
+      "alpha": "45/131",
+      "witness_row_id": "122"
+    },
+    {
+      "alpha": "9/26",
+      "witness_row_id": "94"
+    },
+    {
+      "alpha": "15/43",
+      "witness_row_id": "291"
+    },
+    {
+      "alpha": "45/128",
+      "witness_row_id": "342"
+    },
+    {
+      "alpha": "45/127",
+      "witness_row_id": "38"
+    },
+    {
+      "alpha": "5/14",
+      "witness_row_id": "172"
+    },
+    {
+      "alpha": "9/25",
+      "witness_row_id": "28"
+    },
+    {
+      "alpha": "45/124",
+      "witness_row_id": "265"
+    },
+    {
+      "alpha": "15/41",
+      "witness_row_id": "139"
+    },
+    {
+      "alpha": "45/122",
+      "witness_row_id": "371"
+    },
+    {
+      "alpha": "45/121",
+      "witness_row_id": "68"
+    },
+    {
+      "alpha": "3/8",
+      "witness_row_id": "206"
+    },
+    {
+      "alpha": "45/119",
+      "witness_row_id": "175"
+    },
+    {
+      "alpha": "45/118",
+      "witness_row_id": "204"
+    },
+    {
+      "alpha": "5/13",
+      "witness_row_id": "380"
+    },
+    {
+      "alpha": "45/116",
+      "witness_row_id": "400"
+    },
+    {
+      "alpha": "9/23",
+      "witness_row_id": "294"
+    },
+    {
+      "alpha": "15/38",
+      "witness_row_id": "247"
+    },
+    {
+      "alpha": "45/113",
+      "witness_row_id": "47"
+    },
+    {
+      "alpha": "45/112",
+      "witness_row_id": "393"
+    },
+    {
+      "alpha": "15/37",
+      "witness_row_id": "418"
+    },
+    {
+      "alpha": "9/22",
+      "witness_row_id": "89"
+    },
+    {
+      "alpha": "45/109",
+      "witness_row_id": "120"
+    },
+    {
+      "alpha": "5/12",
+      "witness_row_id": "190"
+    },
+    {
+      "alpha": "45/107",
+      "witness_row_id": "197"
+    },
+    {
+      "alpha": "45/106",
+      "witness_row_id": "313"
+    },
+    {
+      "alpha": "3/7",
+      "witness_row_id": "14"
+    },
+    {
+      "alpha": "45/104",
+      "witness_row_id": "210"
+    },
+    {
+      "alpha": "45/103",
+      "witness_row_id": "51"
+    },
+    {
+      "alpha": "15/34",
+      "witness_row_id": "44"
+    },
+    {
+      "alpha": "45/101",
+      "witness_row_id": "71"
+    },
+    {
+      "alpha": "9/20",
+      "witness_row_id": "336"
+    },
+    {
+      "alpha": "5/11",
+      "witness_row_id": "86"
+    },
+    {
+      "alpha": "45/98",
+      "witness_row_id": "58"
+    },
+    {
+      "alpha": "45/97",
+      "witness_row_id": "251"
+    },
+    {
+      "alpha": "15/32",
+      "witness_row_id": "228"
+    },
+    {
+      "alpha": "9/19",
+      "witness_row_id": "350"
+    },
+    {
+      "alpha": "45/94",
+      "witness_row_id": "119"
+    },
+    {
+      "alpha": "15/31",
+      "witness_row_id": "76"
+    },
+    {
+      "alpha": "45/92",
+      "witness_row_id": "69"
+    },
+    {
+      "alpha": "45/91",
+      "witness_row_id": "140"
+    },
+    {
+      "alpha": "1/2",
+      "witness_row_id": "271"
+    },
+    {
+      "alpha": "45/89",
+      "witness_row_id": "241"
+    },
+    {
+      "alpha": "45/88",
+      "witness_row_id": "366"
+    },
+    {
+      "alpha": "15/29",
+      "witness_row_id": "132"
+    },
+    {
+      "alpha": "45/86",
+      "witness_row_id": "56"
+    },
+    {
+      "alpha": "9/17",
+      "witness_row_id": "234"
+    },
+    {
+      "alpha": "15/28",
+      "witness_row_id": "233"
+    },
+    {
+      "alpha": "45/83",
+      "witness_row_id": "146"
+    },
+    {
+      "alpha": "45/82",
+      "witness_row_id": "167"
+    },
+    {
+      "alpha": "5/9",
+      "witness_row_id": "235"
+    },
+    {
+      "alpha": "9/16",
+      "witness_row_id": "277"
+    },
+    {
+      "alpha": "45/79",
+      "witness_row_id": "229"
+    },
+    {
+      "alpha": "15/26",
+      "witness_row_id": "317"
+    },
+    {
+      "alpha": "45/77",
+      "witness_row_id": "368"
+    },
+    {
+      "alpha": "45/76",
+      "witness_row_id": "268"
+    },
+    {
+      "alpha": "3/5",
+      "witness_row_id": "264"
+    },
+    {
+      "alpha": "45/74",
+      "witness_row_id": "239"
+    },
+    {
+      "alpha": "45/73",
+      "witness_row_id": "349"
+    },
+    {
+      "alpha": "5/8",
+      "witness_row_id": "20"
+    },
+    {
+      "alpha": "45/71",
+      "witness_row_id": "275"
+    },
+    {
+      "alpha": "9/14",
+      "witness_row_id": "102"
+    },
+    {
+      "alpha": "15/23",
+      "witness_row_id": "433"
+    },
+    {
+      "alpha": "45/68",
+      "witness_row_id": "346"
+    },
+    {
+      "alpha": "45/67",
+      "witness_row_id": "134"
+    },
+    {
+      "alpha": "15/22",
+      "witness_row_id": "444"
+    },
+    {
+      "alpha": "9/13",
+      "witness_row_id": "321"
+    },
+    {
+      "alpha": "45/64",
+      "witness_row_id": "384"
+    },
+    {
+      "alpha": "5/7",
+      "witness_row_id": "419"
+    },
+    {
+      "alpha": "45/62",
+      "witness_row_id": "87"
+    },
+    {
+      "alpha": "45/61",
+      "witness_row_id": "10"
+    },
+    {
+      "alpha": "3/4",
+      "witness_row_id": "240"
+    },
+    {
+      "alpha": "45/59",
+      "witness_row_id": "180"
+    },
+    {
+      "alpha": "45/58",
+      "witness_row_id": "399"
+    },
+    {
+      "alpha": "15/19",
+      "witness_row_id": "33"
+    },
+    {
+      "alpha": "45/56",
+      "witness_row_id": "428"
+    },
+    {
+      "alpha": "9/11",
+      "witness_row_id": "408"
+    },
+    {
+      "alpha": "5/6",
+      "witness_row_id": "341"
+    },
+    {
+      "alpha": "45/53",
+      "witness_row_id": "39"
+    },
+    {
+      "alpha": "45/52",
+      "witness_row_id": "202"
+    },
+    {
+      "alpha": "15/17",
+      "witness_row_id": "445"
+    },
+    {
+      "alpha": "9/10",
+      "witness_row_id": "446"
+    }
+  ],
+  "gate_ms": 505.5917,
+  "scope": "Reviewed-source allowlist and audited guard contract. Not a sandbox or arbitrary-Python proof."
+}

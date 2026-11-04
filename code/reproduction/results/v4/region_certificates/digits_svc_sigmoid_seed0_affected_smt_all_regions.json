@@ -1,0 +1,35 @@
+{
+  "case_id": "digits_svc_sigmoid_seed0",
+  "variant": "affected",
+  "method": "smt_all_regions",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "9/10",
+        "left_closed": true,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "1",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 10,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "solver_calls": 107,
+    "predicate_cells": 106,
+    "residual_result": "unsat"
+  }
+}

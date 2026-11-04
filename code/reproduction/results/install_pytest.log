@@ -1,0 +1,26 @@
+Collecting pytest
+  Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting colorama>=0.4 (from pytest)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting iniconfig>=2 (from pytest)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=24 (from pytest)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.6 (from pytest)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pygments>=2.15 (from pytest)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 608.0 kB/s  0:00:02
+Installing collected packages: pygments, pluggy, packaging, iniconfig, colorama, pytest
+
+Successfully installed colorama-0.4.6 iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-9.2.0
+WARNING: Target directory D:\UEH\3_HKC2026\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th�ng tin\PROJECT\revision_20261029\envs\main\Lib\site-packages\packaging already exists. Specify --upgrade to force replacement.
+WARNING: Target directory D:\UEH\3_HKC2026\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th�ng tin\PROJECT\revision_20261029\envs\main\Lib\site-packages\packaging-26.3.dist-info already exists. Specify --upgrade to force replacement.
+WARNING: Target directory D:\UEH\3_HKC2026\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th�ng tin\PROJECT\revision_20261029\envs\main\Lib\site-packages\__pycache__ already exists. Specify --upgrade to force replacement.
+WARNING: Target directory D:\UEH\3_HKC2026\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th�ng tin\PROJECT\revision_20261029\envs\main\Lib\site-packages\bin already exists. Specify --upgrade to force replacement.

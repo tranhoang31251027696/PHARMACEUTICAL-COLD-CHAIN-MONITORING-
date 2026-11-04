@@ -1,0 +1,494 @@
+{
+  "case_id": "n10000_g90_alternating",
+  "n": 10000,
+  "g": 90,
+  "pattern": "alternating",
+  "input_sha256": "4745c2c9533b6a12e3ceff7745bf0165f33b6aeccb6ecd0af4b4e39542a99e25",
+  "method": "smt_all_regions",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3/10",
+        "hi": "3001/5000",
+        "left_closed": true,
+        "right_closed": true
+      },
+      {
+        "lo": "206/341",
+        "hi": "5945/9778",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5916/9667",
+        "hi": "2943/4778",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "1171/1889",
+        "hi": "5823/9334",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5790/9223",
+        "hi": "1439/2278",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5721/9001",
+        "hi": "1137/1778",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5649/8779",
+        "hi": "1403/2167",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5574/8557",
+        "hi": "135/206",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "1099/1667",
+        "hi": "2727/4112",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5412/8113",
+        "hi": "5369/8002",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5326/7891",
+        "hi": "2641/3890",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5237/7669",
+        "hi": "5191/7558",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5144/7447",
+        "hi": "91/131",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "5047/7225",
+        "hi": "4997/7114",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4947/7003",
+        "hi": "1224/1723",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4844/6781",
+        "hi": "4791/6670",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4737/6559",
+        "hi": "2341/3224",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4626/6337",
+        "hi": "4569/6226",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4512/6115",
+        "hi": "2227/3002",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4395/5893",
+        "hi": "4335/5782",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4274/5671",
+        "hi": "1053/1390",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4149/5449",
+        "hi": "4085/5338",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "4021/5227",
+        "hi": "989/1279",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "778/1001",
+        "hi": "3823/4894",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3755/4783",
+        "hi": "1843/2336",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3616/4561",
+        "hi": "709/890",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3474/4339",
+        "hi": "243/302",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3329/4117",
+        "hi": "3255/4006",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "636/779",
+        "hi": "388/473",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "3027/3673",
+        "hi": "2949/3562",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "99/119",
+        "hi": "698/835",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "2712/3229",
+        "hi": "2631/3118",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "2549/3007",
+        "hi": "1233/1448",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "2382/2785",
+        "hi": "1149/1337",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "2213/2563",
+        "hi": "2127/2452",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "2040/2341",
+        "hi": "976/1115",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "1863/2119",
+        "hi": "1773/2008",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "1682/1897",
+        "hi": "1591/1786",
+        "left_closed": false,
+        "right_closed": true
+      },
+      {
+        "lo": "1499/1675",
+        "hi": "703/782",
+        "left_closed": false,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "1211608034267234579412147917976402794759732387298451620915252181205856308117700116330210398417669259938654689791798483835077426126162620667262665977056386033596797594742799800198399524315888112175917955011/1617261733093807206309724597735932042119432494594539237791775653254259754034479098337443045811143330210997628158336255057219388946070958695682963991645570380676527745126822920998572284173203548681303908000",
+    "representative_witnesses": [
+      {
+        "alpha": "3/10",
+        "row_index": 87,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "4041513/6668596",
+        "row_index": 74,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "56716629/92377852",
+        "row_index": 0,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "21929761/35263852",
+        "row_index": 64,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "26461517/42019988",
+        "row_index": 29,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "20406075/32007556",
+        "row_index": 196,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "12279160/19024093",
+        "row_index": 5,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2303439/3525484",
+        "row_index": 40,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "9064997/13709408",
+        "row_index": 16,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "86865521/129840452",
+        "row_index": 148,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "41558271/61391980",
+        "row_index": 97,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "79391025/115924604",
+        "row_index": 158,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "1351541/1951114",
+        "row_index": 55,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "72007683/102797300",
+        "row_index": 45,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "17095353/24132338",
+        "row_index": 135,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "64797251/90458540",
+        "row_index": 91,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "30626707/42292432",
+        "row_index": 47,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "57755229/78908324",
+        "row_index": 67,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "27163129/36714460",
+        "row_index": 8,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "50958045/68146652",
+        "row_index": 49,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "11912423/15765380",
+        "row_index": 19,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "44406527/58173524",
+        "row_index": 32,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "5156181/6685333",
+        "row_index": 23,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "7634355/9797788",
+        "row_index": 11,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "17586749/22346176",
+        "row_index": 10,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "6451989/8118580",
+        "row_index": 106,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2103525/2620756",
+        "row_index": 98,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "26736809/32985404",
+        "row_index": 109,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "301540/368467",
+        "row_index": 54,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "21613851/26166452",
+        "row_index": 30,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "165727/198730",
+        "row_index": 145,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "16951515/20136044",
+        "row_index": 34,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "7398583/8708272",
+        "row_index": 43,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "6384699/7447090",
+        "row_index": 17,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "10877777/12568952",
+        "row_index": 195,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2279708/2610215",
+        "row_index": 86,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "7497891/8509904",
+        "row_index": 73,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "6022179/6776084",
+        "row_index": 62,
+        "old_selected": true,
+        "new_selected": false
+      },
+      {
+        "alpha": "2349743/2619700",
+        "row_index": 282,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "solver_calls": 40,
+    "predicate_cells": 39,
+    "residual_result": "unsat"
+  }
+}

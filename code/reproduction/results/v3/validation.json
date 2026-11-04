@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "external_certificates_replayed": 93,
+  "external_policy_probes": 11853,
+  "failure_modes_rejected": 15,
+  "ci_process_measurements": 60,
+  "smt_records_verified": 279,
+  "smtlib_tasks_resolved": 93,
+  "old_v2_status": "The unchanged core results remain separate; executed-program adapter has additionally been hardened and rerun."
+}

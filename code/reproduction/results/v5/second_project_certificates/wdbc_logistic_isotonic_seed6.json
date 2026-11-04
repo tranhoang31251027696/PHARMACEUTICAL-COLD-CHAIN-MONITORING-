@@ -1,0 +1,220 @@
+{
+  "schema": "external-binary64-selector-policy/1",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "25/64",
+    "14073748835532801/36028797018963968",
+    "25/36",
+    "12509998964918045/18014398509481984",
+    "5/7",
+    "12867427506772847/18014398509481984",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "public_binary64_policy": "0x1.3333333333333p-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "221/640",
+      "public_binary64_policy": "0x1.619999999999ap-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "25/64",
+      "public_binary64_policy": "0x1.9000000000000p-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "28147497671065601/72057594037927936",
+      "public_binary64_policy": "0x1.9000000000000p-2",
+      "reference_bits": "0xf46d0ee26c7db0bb",
+      "actual_bits": "0xffffffffffffffff",
+      "different": true,
+      "witness": {
+        "row_index": 2,
+        "row_id": "2",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "14073748835532801/36028797018963968",
+      "public_binary64_policy": "0x1.9000000000000p-2",
+      "reference_bits": "0xf46d0ee26c7db0bb",
+      "actual_bits": "0xffffffffffffffff",
+      "different": true,
+      "witness": {
+        "row_index": 2,
+        "row_id": "2",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "351843720888320009/648518346341351424",
+      "public_binary64_policy": "0x1.15c71c71c71c7p-1",
+      "reference_bits": "0xf46d0ee26c7db0bb",
+      "actual_bits": "0xf46d0ee26c7db0bb",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "25/36",
+      "public_binary64_policy": "0x1.638e38e38e38ep-1",
+      "reference_bits": "0xf46d0ee26c7db0bb",
+      "actual_bits": "0xf46d0ee26c7db0bb",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "225179981368524805/324259173170675712",
+      "public_binary64_policy": "0x1.638e38e38e38ep-1",
+      "reference_bits": "0xe46d0ee26c7db0bb",
+      "actual_bits": "0xf46d0ee26c7db0bb",
+      "different": true,
+      "witness": {
+        "row_index": 60,
+        "row_id": "60",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "12509998964918045/18014398509481984",
+      "public_binary64_policy": "0x1.638e38e38e38ep-1",
+      "reference_bits": "0xe46d0ee26c7db0bb",
+      "actual_bits": "0xf46d0ee26c7db0bb",
+      "different": true,
+      "witness": {
+        "row_index": 60,
+        "row_id": "60",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "177641985301836235/252201579132747776",
+      "public_binary64_policy": "0x1.68a28a28a28a3p-1",
+      "reference_bits": "0xe46d0ee26c7db0bb",
+      "actual_bits": "0xe46d0ee26c7db0bb",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/7",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-1",
+      "reference_bits": "0xe46d0ee26c7db0bb",
+      "actual_bits": "0xe46d0ee26c7db0bb",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "180143985094819849/252201579132747776",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-1",
+      "reference_bits": "0xc06c0ce04c5d10ba",
+      "actual_bits": "0xe46d0ee26c7db0bb",
+      "different": true,
+      "witness": {
+        "row_index": 0,
+        "row_id": "0",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "12867427506772847/18014398509481984",
+      "public_binary64_policy": "0x1.6db6db6db6db8p-1",
+      "reference_bits": "0xc06c0ce04c5d10ba",
+      "actual_bits": "0xc06c0ce04c5d10ba",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "145401930826533163/180143985094819840",
+      "public_binary64_policy": "0x1.9d41d41d41d42p-1",
+      "reference_bits": "0xc06c0ce04c5d10ba",
+      "actual_bits": "0xc06c0ce04c5d10ba",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "9/10",
+      "public_binary64_policy": "0x1.ccccccccccccdp-1",
+      "reference_bits": "0xc06c0ce04c5d10ba",
+      "actual_bits": "0xc06c0ce04c5d10ba",
+      "different": false,
+      "witness": null
+    }
+  ],
+  "representable_policy_probes": [
+    {
+      "alpha": "25/64",
+      "public_binary64_policy": "0x1.9000000000000p-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false
+    },
+    {
+      "alpha": "3127499741229511/4503599627370496",
+      "public_binary64_policy": "0x1.638e38e38e38ep-1",
+      "reference_bits": "0xf46d0ee26c7db0bb",
+      "actual_bits": "0xf46d0ee26c7db0bb",
+      "different": false
+    },
+    {
+      "alpha": "6433713753386423/9007199254740992",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-1",
+      "reference_bits": "0xc06c0ce04c5d10ba",
+      "actual_bits": "0xe46d0ee26c7db0bb",
+      "different": true
+    }
+  ],
+  "representable_policy_difference": true,
+  "equivalent_to_rational_reference": false,
+  "divergent_regions": [
+    {
+      "lo": "25/64",
+      "hi": "14073748835532801/36028797018963968",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "25/36",
+      "hi": "12509998964918045/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "5/7",
+      "hi": "12867427506772847/18014398509481984",
+      "left_closed": false,
+      "right_closed": false
+    }
+  ],
+  "psc_exact": "1475/6809442636584189952",
+  "grid_detected": false,
+  "snapshot_detected": false,
+  "candidate_count": 4,
+  "guard_count": 4,
+  "contract": "Exact rational reference versus the actual public binary64 policy interface; nearest/even rounding-cell cuts included. A semantic differential is not an upstream-confirmed defect.",
+  "case_id": "wdbc_logistic_isotonic_seed6",
+  "source_input_sha256": "f3e88a8604fd5f9613af82ef4dd58226e128acd439a41b42830fe1351edf4ded",
+  "slice": "first 64 rows, all 30 pipeline cases",
+  "source_module_sha256": "dd4f4751fdf30f85ca06233c5a5cd140d0a46105a9e494ccb32bd7c041fc1e47",
+  "upstream_commit": "a6400e74c4534d6d79f17dee11ad903b6d664980"
+}

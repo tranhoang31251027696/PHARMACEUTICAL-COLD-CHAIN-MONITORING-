@@ -1,0 +1,15 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path');
+const context={window:{},Blob,URL,setTimeout};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../NETLIFY_DASHBOARD/coldchain-workflow.js'),'utf8'),context);const s=context.window.ColdChainWorkflow.store;
+const rows=[{id:'A',productId:'P',fefoRank:1,status:'Awaiting approval',risk:'Low'},{id:'B',productId:'P',fefoRank:2,status:'Awaiting approval',risk:'Low'},{id:'C',productId:'Q',status:'Awaiting approval',risk:'High'}],source={};
+s.sync(source,rows);assert.throws(()=>s.transition('A','Approved','warehouse'),/Cannot/);assert.throws(()=>s.transition('A','In queue','warehouse'),/Cannot/);
+s.requestReview('A','warehouse');s.requestReview('A','warehouse');assert.equal(s.audit.length,1);
+s.transition('A','Approved','qa');s.transition('B','Approved','qa');assert.throws(()=>s.transition('B','In queue','warehouse'),/FEFO/);
+s.sync(source,rows.map(x=>({...x})));assert.equal(s.status(rows[0]),'Approved');assert(s.requests.A);
+s.transition('A','In queue','warehouse');assert.throws(()=>s.transition('A','Dispatched','qa'),/Cannot/);s.transition('A','Dispatched','warehouse');assert.throws(()=>s.transition('A','Dispatched','warehouse'),/Cannot/);s.transition('B','In queue','warehouse');
+assert.throws(()=>s.transition('C','Approved','qa'),/review note/);assert.throws(()=>s.transition('C','Rejected','qa'),/reason/);s.transition('C','Rejected','qa','Observed excursion needs investigation');assert.throws(()=>s.transition('C','In queue','warehouse'),/Cannot/);
+s.transition('B','Rejected','qa','Hold after review');assert.throws(()=>s.transition('B','Dispatched','warehouse'),/Cannot/);
+assert.throws(()=>s.acknowledge({id:'ALT'},'warehouse'),/Only QA/);s.acknowledge({id:'ALT'},'qa');s.sync(source,rows);assert(s.acknowledgements.ALT);
+s.sync({},rows);assert.equal(s.status(rows[0]),'Awaiting approval');assert.equal(s.audit.length,0);assert.equal(Object.keys(s.acknowledgements).length,0);
+s.sync({},[{id:'D',workflowKey:'P:D',status:'Awaiting approval'},{id:'D',workflowKey:'Q:D',status:'Awaiting approval'}]);s.transition('P:D','Approved','qa');assert.equal(s.status(s.batches[1]),'Awaiting approval');
+s.sync({},[{id:'__proto__',status:'Awaiting approval'}]);s.transition('__proto__','Approved','qa');assert.equal(s.status(s.batches[0]),'Approved');
+console.log('PASS: roles, review requests, QA notes, FEFO, guarded dispatch, stale status, refresh synchronization, alert acknowledgement and dataset isolation');

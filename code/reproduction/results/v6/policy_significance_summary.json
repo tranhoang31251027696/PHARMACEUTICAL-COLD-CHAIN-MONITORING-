@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "workloads": 30,
+  "positive_psc_workloads": 27,
+  "zero_psc_workloads": 3,
+  "positive_psc_distribution": {
+    "min": {
+      "exact": "5/324259173170675712",
+      "value": 1.5419764230904953e-17
+    },
+    "q25": {
+      "exact": "1211/7295831396340203520",
+      "value": 1.6598519541000798e-16
+    },
+    "median": {
+      "exact": "310205/827833669104735092736",
+      "value": 3.74718994378995e-16
+    },
+    "q75": {
+      "exact": "1484159/2184176013480466317312",
+      "value": 6.795052188284977e-16
+    },
+    "max": {
+      "exact": "1051605486071/633443948379148703980584960",
+      "value": 1.6601397625817402e-15
+    }
+  },
+  "decimal_policy_resolution": [
+    {
+      "decimal_places": 2,
+      "policies_per_workload": 61,
+      "affected_workloads": 0,
+      "affected_policy_workload_pairs": 0,
+      "scope": "Exact rational decimal lattice on [0.30,0.90], with interval endpoint ownership respected. Restricted-domain equality does not imply continuous-domain equality."
+    },
+    {
+      "decimal_places": 3,
+      "policies_per_workload": 601,
+      "affected_workloads": 0,
+      "affected_policy_workload_pairs": 0,
+      "scope": "Exact rational decimal lattice on [0.30,0.90], with interval endpoint ownership respected. Restricted-domain equality does not imply continuous-domain equality."
+    },
+    {
+      "decimal_places": 4,
+      "policies_per_workload": 6001,
+      "affected_workloads": 0,
+      "affected_policy_workload_pairs": 0,
+      "scope": "Exact rational decimal lattice on [0.30,0.90], with interval endpoint ownership respected. Restricted-domain equality does not imply continuous-domain equality."
+    },
+    {
+      "decimal_places": 6,
+      "policies_per_workload": 600001,
+      "affected_workloads": 0,
+      "affected_policy_workload_pairs": 0,
+      "scope": "Exact rational decimal lattice on [0.30,0.90], with interval endpoint ownership respected. Restricted-domain equality does not imply continuous-domain equality."
+    }
+  ],
+  "workloads_with_representable_policy_difference": 19,
+  "max_changed_observations": 41,
+  "max_precision_shortfall": 1.0485439677015367e-16,
+  "source_sha256": "a3808c83193f9a457a7bc54bcdf601913bd2f153c34d8911b291131ec3f79605",
+  "scope": "Descriptive numerical-contract sensitivity, not a population frequency, defect rate, deployment risk or tolerance-based continuous equivalence claim. No utility/cost data or operational deployment was observed.",
+  "max_precision_shortfall_supremum": 1.0485439677015367e-16,
+  "shortfall_scope": "max_precision_shortfall is observed at stored probes; the separate supremum includes open-cell endpoint limits and need not be attained.",
+  "documented_scipy_defect_decimal_resolution": [
+    {
+      "decimal_places": 2,
+      "workloads": 36,
+      "policies_per_workload": 61,
+      "affected_workloads": 31,
+      "affected_policy_workload_pairs": 1611
+    },
+    {
+      "decimal_places": 3,
+      "workloads": 36,
+      "policies_per_workload": 601,
+      "affected_workloads": 31,
+      "affected_policy_workload_pairs": 15886
+    },
+    {
+      "decimal_places": 4,
+      "workloads": 36,
+      "policies_per_workload": 6001,
+      "affected_workloads": 31,
+      "affected_policy_workload_pairs": 158657
+    },
+    {
+      "decimal_places": 6,
+      "workloads": 36,
+      "policies_per_workload": 600001,
+      "affected_workloads": 31,
+      "affected_policy_workload_pairs": 15863561
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "fixture": "alpha_branch",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "ALPHA_OUTSIDE_INSTRUMENTED_GUARD"
+  },
+  {
+    "fixture": "alpha_dependent_objective",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "ALPHA_OUTSIDE_INSTRUMENTED_GUARD"
+  },
+  {
+    "fixture": "alpha_dependent_candidates",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "ALPHA_OUTSIDE_INSTRUMENTED_GUARD"
+  },
+  {
+    "fixture": "hidden_global_state",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "STATEFUL_GLOBAL_OR_NONLOCAL"
+  },
+  {
+    "fixture": "top_level_state",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "TOP_LEVEL_STATE"
+  },
+  {
+    "fixture": "indirect_alpha_helper",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "ALPHA_OUTSIDE_INSTRUMENTED_GUARD"
+  },
+  {
+    "fixture": "dynamic_eval",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "SOURCE_NOT_IN_REVIEWED_FINITE_CORPUS"
+  },
+  {
+    "fixture": "random_priority",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "SOURCE_NOT_IN_REVIEWED_FINITE_CORPUS"
+  },
+  {
+    "fixture": "mutable_default_state",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "UNREVIEWED_DECORATOR_OR_DEFAULT"
+  },
+  {
+    "fixture": "unreviewed_priority",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "SOURCE_NOT_IN_REVIEWED_FINITE_CORPUS"
+  },
+  {
+    "fixture": "invalid_syntax",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "INVALID_SOURCE"
+  },
+  {
+    "fixture": "unreviewed_import",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "SOURCE_NOT_IN_REVIEWED_FINITE_CORPUS"
+  },
+  {
+    "fixture": "wrong_shape",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "MISALIGNED_MEMBERSHIP_OUTPUT"
+  },
+  {
+    "fixture": "non_boolean",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "NON_BOOLEAN_MEMBERSHIP_OUTPUT"
+  },
+  {
+    "fixture": "invalid_guard",
+    "status": "UNSUPPORTED",
+    "certified": false,
+    "reason": "INVALID_OR_TRANSFORMED_GUARD_ARGUMENT"
+  }
+]

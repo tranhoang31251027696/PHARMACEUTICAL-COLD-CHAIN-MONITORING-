@@ -1,0 +1,239 @@
+Có. Với bản nghiên cứu hiện tại, mình nghĩ có thể nâng novelty đủ đáng kể để chuyển mục tiêu từ JCR Q2 sang thử sức ở JCR Q1. Nhưng để làm được, nhóm nên bổ sung một đóng góp khoa học mới có thể chứng minh, không chỉ tăng số lượng dataset, benchmark hoặc oracle tests.
+
+Mình đã đối chiếu hướng nghiên cứu của bạn với các công trình gần đây về software testing. Có một khoảng trống đáng khai thác: bài hiện kiểm tra rất tốt candidate frontier có thay đổi hay không, nhưng chưa trả lời đầy đủ thay đổi đó ảnh hưởng đến quyết định ở chính xác những precision policies nào.
+
+## 1. Bản hiện tại đang mạnh và yếu ở đâu?
+
+| Thành phần                | Hiện tại                                       | Tiềm năng nâng cấp                                       |
+| ------------------------- | ---------------------------------------------- | -------------------------------------------------------- |
+| Observation contract      | Tương đối mạnh                                 | Mở rộng thành policy-level verification contract         |
+| Exact frontier comparator | Đã có B4 đối chứng và exhaustive tests         | Không cần phát minh lại thuật toán                       |
+| Proposition 1             | Có điều kiện cần–đủ cho isolated tie splitting | Có thể bổ sung một định lý tổng quát mới                 |
+| Counterfactual experiment | 255 cấu hình chính sách rời rạc                | Thay bằng kiểm chứng chính xác trên toàn miền chính sách |
+| Thực nghiệm               | Retained, synthetic, public pilot              | Bổ sung mutation-based testing và pipeline độc lập       |
+| Diagnostic utility        | Có proper-prefix witness                       | Phát triển witness giúp định vị và ưu tiên regression    |
+
+Hướng mình ưu tiên nhất: Exact Policy-Robust Regression Verification.
+
+Thay vì chỉ nói “hai frontiers khác nhau”, phương pháp sẽ trả lời:
+
+> Hai phiên bản selector có luôn đưa ra cùng quyết định với mọi precision constraint trong một khoảng hay không? Nếu không, chính xác khoảng chính sách nào tạo ra sự khác biệt và có thể cung cấp witness nào để chứng minh?
+
+Đây là bước nâng cấp về research question, formal contribution và practical usefulness cùng lúc.
+
+## 2. Hướng nâng novelty mình đánh giá cao nhất
+
+Đề xuất nghiên cứu mở rộng
+
+## Exact Policy-Robust Regression Testing for Precision-Constrained Decision Pipelines
+
+Từ phát hiện frontier changes → chứng nhận chính xác tính bất biến của quyết định trên cả một miền chính sách.
+
+Bài hiện tại
+
+Kiểm tra frontier equality tại một cặp score vectors; sau đó quét 11–13 giá trị \\(\alpha\\).
+
+Bài nâng cấp
+
+Xác định chính xác mọi khoảng \\(\alpha\\) mà hai phiên bản cho cùng hoặc khác selected membership, không phụ thuộc một lưới mẫu.
+
+### 2.1. Có thể phát triển thành một định lý mới
+
+Với mỗi candidate \\(C_j\\), đặt:
+
+\\[ p_j=\frac{k_j}{n_j} \\]
+
+trong đó \\(k_j\\) là số true positives và \\(n_j\\) là số observations được chọn.
+
+Candidate khả thi khi:
+
+\\[ \alpha\leq p_j \\]
+
+Như vậy, khi thay đổi precision constraint \\(\alpha\\), trạng thái khả thi chỉ thay đổi tại một số hữu hạn critical precision values \\(p_j\\).
+
+Điều này dẫn đến một mệnh đề có thể chứng minh:
+
+> Với labels và deterministic selector cố định, selected membership không thay đổi trong những khoảng mở nằm giữa hai critical precision values liên tiếp. Vì vậy, có thể kiểm tra chính xác policy equivalence trên toàn bộ một khoảng liên tục bằng cách xét hữu hạn các điểm đại diện và các điểm biên, với quy tắc bao gồm biên được xử lý chính xác.
+
+Ví dụ, thay vì chỉ kiểm tra:
+
+\\[ \alpha\in\\{0.30,0.35,\ldots,0.80\\} \\]
+
+nhóm có thể chứng nhận:
+
+\\[ \forall\alpha\in[0.30,0.80]: S\_{\mathrm{old}}(\alpha) = S\_{\mathrm{new}}(\alpha) \\]
+
+hoặc trả về tập những khoảng mà điều kiện này không đúng.
+
+Đây là một hướng định lý khả thi từ cấu trúc toán học hiện tại, chưa phải định lý đã được chứng minh trong bài. Ý tưởng critical breakpoints cũng có nền tảng trong tối ưu threshold, nên cần khảo sát prior art trước khi xác nhận phần nào thực sự mới.
+
+### 2.2. Đầu ra mới có giá trị hơn Boolean frontier difference
+
+Ví dụ minh họa giả định
+
+Các khoảng và kết quả dưới đây chỉ để giải thích tính năng đề xuất, không phải dữ liệu bài nghiên cứu.
+
+Từ một cảnh báo chung thành một chứng nhận có thể kiểm tra:
+
+“Hai phiên bản khác nhau về candidate frontier; quyết định chỉ khác tại những precision-policy intervals được xác định, kèm observation IDs tạo ra khác biệt.”
+
+Đặc biệt, có thể định nghĩa một metric mới cho policy sensitivity coverage:
+
+\\[ \mathrm{PSC}= \frac{\operatorname{length}\\{\alpha\in A: S\_{\mathrm{old}}(\alpha)\neq S\_{\mathrm{new}}(\alpha)\\}} {\operatorname{length}(A)} \\]
+
+Đây là tỷ lệ độ dài miền chính sách có decision divergence, không phải xác suất lỗi hay rủi ro vận hành.
+
+Nếu xây dựng tốt, phần này có thể tạo ra một đóng góp tích hợp gồm formal characterization, exact algorithm, verifiable certificate và một metric đánh giá mới.
+
+## 3. Hai thí nghiệm nên bổ sung để làm bài mạnh hơn ở Q1
+
+### A. Mutation-based regression testing
+
+Hiện tại bạn có 18/50 retained frontier-only comparisons. Kết quả cho thấy khả năng quan sát nhưng chưa đo được testing effectiveness đối với những thay đổi có kiểm soát.
+
+Một hướng tốt là tạo những mutants ở selector và numerical pipeline, chẳng hạn sửa phép so sánh `>=` thành `>`, thay đổi tie-breaking, xử lý sai một score group hoặc làm thay đổi row-ID alignment.
+
+Sau đó so sánh:
+
+| Hệ thống kiểm thử | Detect structural change     | Detect policy-sensitive change         | Diagnostic witness        |
+| ----------------- | ---------------------------- | -------------------------------------- | ------------------------- |
+| Selected snapshot | Chỉ khi selected output khác | Một phần                               | Không                     |
+| Exact frontier B4 | Có                           | Cần thêm policy logic                  | Không                     |
+| Proposed hiện tại | Có                           | Có thể quét grid                       | Có điều kiện              |
+| Proposed mở rộng  | Có                           | Chứng nhận trên toàn miền \\(\alpha\\) | Policy interval + witness |
+
+Cần đánh giá mutation detection rate, false alarms theo specification, thời gian kiểm tra và chi phí tạo chứng nhận. Đặc biệt, không được coi mọi thay đổi frontier là defect.
+
+Hướng này có cơ sở trong nghiên cứu hiện nay: một bài tại Information and Software Technology năm 2025 đã đánh giá metamorphic testing của optimization software thông qua mutation testing, và một nghiên cứu tại STVR kết hợp mutation-guided testing với verification of optimality.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.sciencedirect.com\&sz=32)
+
+ScienceDirect+1
+
+
+
+Giá trị novelty: Tăng bằng chứng rằng phương pháp kiểm thử có tác dụng, không chỉ tạo ra output chi tiết hơn.
+
+### B. Independent multi-pipeline evaluation
+
+Hiện bài phụ thuộc nhiều vào một pipeline cold-chain cùng những configurations liên quan.
+
+Để hướng Q1, mình muốn thấy phương pháp được dùng trên ít nhất hai hoặc ba decision pipelines thực sự khác biệt, ví dụ classification với isotonic calibration, một pipeline có sigmoid/Platt calibration và một pipeline có score ties do rounding/quantization.
+
+Không cần phải huấn luyện mô hình lớn hay dùng deep learning.
+
+Quan trọng hơn là chứng minh rằng method vẫn đúng và hữu ích khi thay đổi score distribution, tie density, class imbalance và selection coverage.
+
+Một nghiên cứu về ML testing trong thực tiễn năm 2026 còn chỉ ra rằng developer ngại các công cụ học thuật chuyên biệt vì chi phí tích hợp và lợi ích khó nhận thấy. Vì vậy, một thử nghiệm tích hợp vào pytest hoặc CI, với output dễ hành động, có thể tăng giá trị thực tiễn đáng kể.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.sciencedirect.com\&sz=32)
+
+ScienceDirect
+
+
+
+## 4. So sánh các chiến lược nâng cấp
+
+| Hướng mở rộng                                       | Tiềm năng nâng novelty        | Công sức tương đối | Mình đánh giá          |
+| --------------------------------------------------- | ----------------------------- | ------------------ | ---------------------- |
+| Thêm 10.000 oracle tests nữa                        | Thấp                          | Thấp               | Không ưu tiên          |
+| Thêm nhiều benchmark machines                       | Thấp                          | Trung bình         | Chỉ giúp reliability   |
+| Thêm dataset cùng kiểu                              | Thấp–vừa                      | Trung bình         | Hữu ích nhưng không đủ |
+| Generalize attribution sang multiple ties/crossings | Cao nếu chứng minh được       | Rất cao            | Khó và có rủi ro       |
+| Exact policy-equivalence certificate                | Cao                           | Trung bình–cao     | Ưu tiên 1              |
+| Mutation-based testing effectiveness                | Cao về empirical contribution | Trung bình         | Ưu tiên 2              |
+| Independent pipelines + CI integration              | Cao về external validity      | Trung bình–cao     | Ưu tiên 3              |
+
+## 5. Có thể nhắm những tạp chí nào sau khi nâng cấp?
+
+[M3S Cloud Research Group](https://images.openai.com/static-rsc-4/tHAuOY5l5s44Lbnwt1MS1NYEDy74zPd6YXoleduOjICe6aVangBprw6AZ9t6DkdbKpkcaWZsYyupDGYoD5SBUoJswcQ_VOyn-k-N-Bs7eIiD6jrbIjdjZXJnXjUrW2_D0Sfx8L6TL7a0YFcHh0RO-qFXWwWKYbDZpaRN2uUJu2I?purpose=inline)
+
+Information and Software Technology
+
+Ứng viên JCR Q1 đáng ưu tiên nếu nhóm bổ sung exact policy verification và một đánh giá testing effectiveness mạnh. Một nguồn tổng hợp ghi JIF quartile 2025 là Q1, nhưng cần đối chiếu trực tiếp JCR của Clarivate trước khi quyết định.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://researchcloud.net\&sz=32)
+
+researchcloud.net
+
+
+
+[CSDL Pub Home: Transactions on Software Engineering](https://images.openai.com/static-rsc-4/iFyKXpGW15E5aeIOrnF6FHjJhbsIxWAbgPkIWwoLlbdVVhBxeuRFa1F1KtdulzOCBBKGB1j8jNd86NQ6YzmmfLHm52b7O1QzfrJdBHBu2elFdp-_x-1lBGdIpemAxYMOIt-g7r5d2Fu6B-UA56Vts8PCS5PIzIwAsK2CRUs2en8?purpose=inline)
+
+IEEE Transactions on Software Engineering
+
+Q1 theo nguồn tổng hợp JCR 2025. Mục tiêu rất tham vọng; sẽ cần một đóng góp phương pháp có tính tổng quát, bằng chứng thực nghiệm mạnh và đối chứng state-of-the-art thuyết phục.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://dizin.docent.com.tr\&sz=32)
+
+Dizin
+
+
+
+[软件工程研究领域最顶级的两个期刊_tse期刊-CSDN博客](https://images.openai.com/static-rsc-4/ZzlBV2luWGdA3nt_F9Zuv0gYgQq-0dP3GMLAORFLT3APLGnhOGQXokdxHHg9jciDwy7dUUfkdAZ7Tk_Jfk8MTFTYSi8nj3kxlTyfvqhnT0blYBjL44XW6vzPulS7GKCrdPrwXgu0P98zsggIwT9cNxOo4yK5m8rT6edbC_EhtDM?purpose=inline)
+
+ACM Transactions on Software Engineering and Methodology
+
+Q1 theo nguồn tổng hợp JCR 2025. Phù hợp nếu hướng policy-level verification mang lại lý thuyết hoặc phương pháp tổng quát thực sự mới.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://researchcloud.net\&sz=32)
+
+researchcloud.net
+
+
+
+Mình sẽ chọn Information and Software Technology (IST) làm mục tiêu Q1 tham vọng nhưng hợp lý hơn hai tạp chí rất cạnh tranh phía dưới. Trong khi đó, Journal of Systems and Software là phương án Q2 cần giữ, và STVR vẫn rất khớp về chủ đề formal testing.
+
+Lưu ý, Q1/Q2 là thứ hạng của tạp chí, không phải điểm được nâng tự động khi bài có thêm novelty. Việc lựa chọn còn phụ thuộc JCR JIF quartile đúng năm, category và tiêu chuẩn UEH; JCR không đồng nhất với SJR.
+
+## 6. Lộ trình nâng cấp mình đề xuất cho nhóm 6 người
+
+Tuần 1 — Formalization
+
+Lý thuyết
+
+Định nghĩa policy equivalence, tập critical precision values, chứng minh điều kiện kiểm tra trên toàn miền và nghiên cứu giới hạn của certificate.
+
+Tuần 2 — Exact algorithm
+
+Implementation
+
+Triển khai breakpoint sweep, xuất divergence intervals và witnesses. Kiểm chứng bằng exhaustive oracle trên vector nhỏ và randomized testing.
+
+Tuần 3–4 — Empirical validation
+
+Thực nghiệm
+
+Tạo mutants có phân loại, kiểm thử trên các independent pipelines, so sánh selection snapshots, B4, current Proposed và extended Proposed.
+
+Tuần 5–6 — Q1 manuscript
+
+Hoàn thiện
+
+Cập nhật RQs, định lý, proofs, baselines, threats to validity và kiểm toán artifact. Đây là lịch mục tiêu có điều kiện, không phải bảo đảm hoàn tất hoặc được chấp nhận trong sáu tuần.
+
+### Có nên phát triển trực tiếp bản hiện tại hay tách thành bài thứ hai?
+
+Đây là quyết định quan trọng.
+
+Nếu bài hiện tại chưa nộp, nhóm có thể tích hợp policy-equivalence verification thành contribution thứ tư và mở rộng thực nghiệm để nhắm IST Q1. Nhưng khi đó nên viết lại research narrative, không chỉ chèn thêm một Section 4.7.
+
+Nếu muốn giữ lộ trình Q2 trước, Q1 sau, bài Q2 hiện tại có thể giữ ba contributions gốc; bài Q1 phải giải quyết một research question mới và có phần lý thuyết, thuật toán, kiểm định riêng đủ lớn. Phải dẫn lại bài trước, phân biệt rõ nội dung kế thừa và tuân thủ chính sách của tạp chí về bài mở rộng, tránh công bố trùng lặp.
+
+## Đề xuất cuối cùng
+
+Mình nghiêng về phương án nâng cấp bằng một định lý và thuật toán về exact policy equivalence, sau đó bổ sung mutation-based evaluation.
+
+Lý do: phần frontier comparator hiện đã có nhiều bằng chứng correctness và reproducibility. Điểm còn thiếu để cạnh tranh Q1 không đơn thuần là thêm độ chính xác, mà là một năng lực kiểm chứng mới.
+
+Định vị nghiên cứu sẽ chuyển từ:
+
+“Chúng tôi phát hiện hai candidate frontiers khác nhau.”
+
+sang:
+
+“Chúng tôi chứng nhận chính xác khi nào sự thay đổi của decision pipeline có thể hoặc không thể ảnh hưởng đến các quyết định dưới mọi precision policy được phép, đồng thời cung cấp witness kiểm chứng được.”
+
+Đây là hướng mình thấy đáng đầu tư nhất. Tuy nhiên, cần khảo sát prior art riêng cho critical-point verification, parametric optimization và policy robustness trước khi khẳng định tính mới của định lý — vì bản thân việc chia miền theo các breakpoints hữu hạn là một ý tưởng toán học đã có nền tảng.
+
+Mức độ tự tin của mình: Hướng này có tiềm năng nâng sức cạnh tranh của bài lên nhóm tạp chí Q1; chưa có cơ sở để bảo đảm rằng chỉ cần bổ sung nó là đủ được Q1 chấp nhận.

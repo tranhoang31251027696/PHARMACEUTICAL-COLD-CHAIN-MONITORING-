@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eval-toolkit/schemas/results_full.v1.json",
+  "version": "1",
+  "title": "eval-toolkit RunResult (full)",
+  "description": "Schema for run_dir/results_full.json (includes per-row scores). Same top-level shape as results.v1; differs only in that by_slice[*].by_scorer[*].scores arrays are retained.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "config", "by_slice"],
+  "properties": {
+    "schema_version": {
+      "const": "v1"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "git_sha": {
+      "type": ["string", "null"]
+    },
+    "config": {
+      "type": "object"
+    },
+    "by_slice": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "description": "Per-slice block. Scorer blocks may optionally include transferred_operating_points for validation-fit thresholds applied to this slice."
+      }
+    },
+    "by_fold": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "fold_summary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "claim_report": {
+      "type": "object",
+      "description": "Optional ClaimReport payload from eval_toolkit.claims.evaluate_claims.",
+      "additionalProperties": true
+    },
+    "prediction_artifacts": {
+      "type": "array",
+      "description": "Optional references to retained prediction artifacts associated with the result.",
+      "items": {"type": "object", "additionalProperties": true}
+    },
+    "evidence_axes": {
+      "type": "array",
+      "description": "Optional named axes that scope aggregate evidence.",
+      "items": {
+        "type": "object",
+        "required": ["name", "value"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "value": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "pairing_metadata": {
+      "type": "object",
+      "description": "Optional explicit pairing metadata for paired comparisons.",
+      "additionalProperties": true
+    },
+    "aggregate_evidence": {
+      "type": "object",
+      "description": "Optional typed aggregate status: inferential, descriptive, diagnostic, or unsupported.",
+      "properties": {
+        "status": {
+          "enum": ["inferential", "descriptive", "diagnostic", "unsupported"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "threshold_policy": {
+      "type": "object",
+      "description": "Optional threshold policy metadata naming calibration slice, score column, selector, constraints, and claim-enabled status.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

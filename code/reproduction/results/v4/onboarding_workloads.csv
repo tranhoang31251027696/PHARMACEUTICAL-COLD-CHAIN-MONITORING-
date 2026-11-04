@@ -1,0 +1,4 @@
+pipeline,observations,thresholds,policy_probes,optimizer_fit_calls,scorer_callbacks,mismatches,elapsed_ms
+wdbc_logistic_isotonic,48,9,13,13,117,0,50.7096
+digits_svc_sigmoid,48,48,41,41,1968,0,114.0834
+generated_rf_quantized,48,13,5,5,65,0,17.6261

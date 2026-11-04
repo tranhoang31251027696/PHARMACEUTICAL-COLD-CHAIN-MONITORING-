@@ -1,0 +1,24 @@
+{
+  "case_id": "n10000_g10_none",
+  "n": 10000,
+  "g": 10,
+  "pattern": "none",
+  "input_sha256": "f81ff0212d1de32b8caa34d2dbef12b4f354a5d7f634754180903bebc5d32adc",
+  "method": "smt_all_regions",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": true,
+    "divergent_regions": [],
+    "psc_exact": "0",
+    "representative_witnesses": [],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "solver_calls": 1,
+    "predicate_cells": 0,
+    "residual_result": "unsat"
+  }
+}

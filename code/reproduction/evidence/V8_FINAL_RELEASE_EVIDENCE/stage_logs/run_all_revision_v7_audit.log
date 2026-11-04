@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "prior_v6_exact_stages": 27,
+  "prior_v6_archive_sha256": "ec708e725b6ee0f369c156ddaec401f6bdcc8d8ad0681d1e8026638096128de0",
+  "query_answers_reconciled": 288,
+  "direct_policy_checks": 24408,
+  "smt_answers_agree": 288,
+  "tampered_input_rejected_before_query": true,
+  "scope": "Local controlled functional validation, not independent developer evaluation or new bug corpus"
+}

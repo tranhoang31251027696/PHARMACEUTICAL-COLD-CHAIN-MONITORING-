@@ -1,0 +1,12 @@
+{
+  "scope": "Manually reviewed finite corpus from V2; unknown sources are rejected before execution",
+  "approved_sha256": {
+    "drop_middle_group": "4f46e086c14504be522275de40a12807b567fedb95f9b0a619342c00fb704553",
+    "reference": "d47a27df7e6e92430cbcc32ce8743c76b256bc0075191511ef47b7c84985a05c",
+    "reverse_tie_break": "4900f19cd8c7188fba553a015cc7af10ea92b309c7873b1b4a5356ab745dc2e9",
+    "split_score_ties": "36e3d4454ace708318fe265259c17e3138ee4a451e4c4249b7099c31e684c862",
+    "strict_precision": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+    "threshold_gt": "ddd307d7d012280e59a24ad22d753c599af10e8e0e58421a196e6c0e55afcf3d",
+    "tp_count_plus_one": "178fc6b21076ca64ef7406d8569c887736cdf5a5f864cd144d681c3c6e48541b"
+  }
+}

@@ -1,0 +1,359 @@
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+boolean_api_cost upstream_int8 singleton 1
+boolean_api_cost upstream_int8 singleton 8
+boolean_api_cost upstream_int8 singleton 32
+boolean_api_cost upstream_int8 singleton 128
+boolean_api_cost upstream_int8 continuous_window 1
+boolean_api_cost upstream_int8 continuous_window 8
+boolean_api_cost upstream_int8 continuous_window 32
+boolean_api_cost upstream_int8 continuous_window 128
+boolean_api_cost unix_seconds_int32 singleton 1
+boolean_api_cost unix_seconds_int32 singleton 8
+boolean_api_cost unix_seconds_int32 singleton 32
+boolean_api_cost unix_seconds_int32 singleton 128
+boolean_api_cost unix_seconds_int32 continuous_window 1
+boolean_api_cost unix_seconds_int32 continuous_window 8
+boolean_api_cost unix_seconds_int32 continuous_window 32
+boolean_api_cost unix_seconds_int32 continuous_window 128
+boolean_api_cost small_int32_control singleton 1
+boolean_api_cost small_int32_control singleton 8
+boolean_api_cost small_int32_control singleton 32
+boolean_api_cost small_int32_control singleton 128
+boolean_api_cost small_int32_control continuous_window 1
+boolean_api_cost small_int32_control continuous_window 8
+boolean_api_cost small_int32_control continuous_window 32
+boolean_api_cost small_int32_control continuous_window 128
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 1
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 8
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 32
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 128
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 1
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 8
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 32
+boolean_api_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 128
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 1
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 8
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 32
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 128
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 1
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 8
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 32
+boolean_api_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 128
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 singleton 1
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 singleton 8
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 singleton 32
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 singleton 128
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 1
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 8
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 32
+boolean_api_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 128
+{
+  "status": "PASS",
+  "case_count": 6,
+  "query_kinds": 2,
+  "batch_sizes": [
+    1,
+    8,
+    32,
+    128
+  ],
+  "repetitions": 5,
+  "methods": [
+    "checked_certificate",
+    "boolean_certificate",
+    "direct_masks",
+    "incremental_z3"
+  ],
+  "raw_records": 960,
+  "summary_groups": 192,
+  "unique_case_query_plans": 2028,
+  "matched_method_answers": 40560,
+  "smt_unknown": 0,
+  "paired_certificate_comparisons": [
+    {
+      "case_id": "upstream_int8",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.1295464425445587,
+      "total_speedup": 1.6588972333553835
+    },
+    {
+      "case_id": "upstream_int8",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 3.167732076913282,
+      "total_speedup": 1.785327964546949
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.2899367109579507,
+      "total_speedup": 1.811596633530524
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 3.8771571113110332,
+      "total_speedup": 2.848747195432814
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 1.6806657438979102,
+      "total_speedup": 1.3625256213169357
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 1.6780276513825692,
+      "total_speedup": 1.3998995172458988
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 3.336626390980205,
+      "total_speedup": 1.9683624483264435
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 7.044434062015886,
+      "total_speedup": 4.016123903654045
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 8.811452169625246,
+      "total_speedup": 3.4350362401139862
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 44.152108918633,
+      "total_speedup": 10.70463695607829
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 3.719628612527788,
+      "total_speedup": 2.2867297801945816
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 8.564037558685445,
+      "total_speedup": 5.290088677673802
+    }
+  ],
+  "workflow_comparisons": [
+    {
+      "batch": 1,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 1,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 1,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 1,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 1,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 1,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 1,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 8,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 8,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 32,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 32,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 128,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 1,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 128,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    }
+  ],
+  "source_sha256": "74cc6a12627b171f7bcf932cef24c8aeef54a25a5407380143d43cf3a11110d8",
+  "index_source_sha256": "3debd85ea5291e93b6903986ea1c75b58bfbc39e65c786a867600806cd942d68",
+  "v8_baseline_source_sha256": "18d1a6564f5b16314b2053f8e973d111519021979b6b4b4efdf991dfc689cc88",
+  "scope": "API cost isolation on existing controlled fixtures. No new algorithmic primitive, independent developer/production requirement evidence, defect count or universal speed claim."
+}

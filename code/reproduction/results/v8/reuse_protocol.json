@@ -1,0 +1,31 @@
+{
+  "case_ids": [
+    "upstream_int8",
+    "unix_seconds_int32",
+    "small_int32_control",
+    "pipeline_axis_wdbc_logistic_isotonic_seed0",
+    "pipeline_axis_digits_svc_sigmoid_seed0",
+    "pipeline_axis_generated_rf_quantized_seed0"
+  ],
+  "selection": "Six fixed existing fixtures: upstream int8, Unix int32, small-int control, and seed-zero from each pipeline family. No timing/outcome-based filtering.",
+  "batch_sizes": [
+    1,
+    8,
+    32,
+    128
+  ],
+  "repetitions": 5,
+  "query_kinds": [
+    "singleton",
+    "continuous_window"
+  ],
+  "methods": [
+    "checked_certificate",
+    "direct_masks",
+    "incremental_z3"
+  ],
+  "request_generation": "Deterministic distinct rational points or width-1/20 windows spread over [0.30,0.90]; alternating endpoint ownership; study scenarios, not observed deployment configurations.",
+  "contract": "Same Boolean existence-of-divergence answer plus rational witness; counts/intersection enumeration are not required of the direct/SMT baselines. Certificate API still materializes its own intersections before projection.",
+  "timing": "perf_counter_ns, no tracemalloc, one warmup per case/kind/method, five fresh setups per batch/method, seeded random method order. Common interpolation outside all timings. Direct and SMT prepare masks once per batch; incremental Z3 reuses base constraints with push/pop. Checked certificate includes construction, JSON roundtrip and independent verification once per batch. No query memoization; all requests within a batch are distinct. Disk I/O, human triage and dependency import excluded.",
+  "crossing_definition": "First tested batch size with certificate total median below comparator, remaining below at every larger tested size. Discrete observed crossing only, no extrapolation or population significance."
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "external-binary64-selector-policy/1",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "public_binary64_policy": "0x1.3333333333333p-2",
+      "reference_bits": "0x0",
+      "actual_bits": "0x0",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "3/5",
+      "public_binary64_policy": "0x1.3333333333333p-1",
+      "reference_bits": "0x0",
+      "actual_bits": "0x0",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "9/10",
+      "public_binary64_policy": "0x1.ccccccccccccdp-1",
+      "reference_bits": "0x0",
+      "actual_bits": "0x0",
+      "different": false,
+      "witness": null
+    }
+  ],
+  "representable_policy_probes": [],
+  "representable_policy_difference": false,
+  "equivalent_to_rational_reference": true,
+  "divergent_regions": [],
+  "psc_exact": "0",
+  "grid_detected": false,
+  "snapshot_detected": false,
+  "candidate_count": 17,
+  "guard_count": 17,
+  "contract": "Exact rational reference versus the actual public binary64 policy interface; nearest/even rounding-cell cuts included. A semantic differential is not an upstream-confirmed defect.",
+  "case_id": "generated_rf_quantized_seed1",
+  "source_input_sha256": "d742469d64b1b906a4df89b2ac91b7a592a58d419c8543fec967c4aa151bed41",
+  "slice": "first 64 rows, all 30 pipeline cases",
+  "source_module_sha256": "dd4f4751fdf30f85ca06233c5a5cd140d0a46105a9e494ccb32bd7c041fc1e47",
+  "upstream_commit": "a6400e74c4534d6d79f17dee11ad903b6d664980"
+}

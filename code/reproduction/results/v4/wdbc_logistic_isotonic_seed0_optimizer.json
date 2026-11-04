@@ -1,0 +1,140 @@
+{
+  "schema": "external-threshold-optimizer-integration/1",
+  "case_id": "wdbc_logistic_isotonic_seed0",
+  "source_input_sha256": "cad791a600bf2bdb3b224b87a8af2df633f5bf5a4c237e34b41ae9f8a8ad6600",
+  "slice": "first 48 fixed rows",
+  "source_class_sha256": "e1f39f6e0ae8eca1df4162ee3c3e72b4dc12f10d3dfd3d1da8818e4c4d78128d",
+  "sklearn": "1.9.1",
+  "ids": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47"
+  ],
+  "policy_probes": [
+    {
+      "alpha": "3/10",
+      "expected_bits": "0xffffffffffff",
+      "actual_bits": "0xffffffffffff",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "27/80",
+      "expected_bits": "0xffffffffffff",
+      "actual_bits": "0xffffffffffff",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "3/8",
+      "expected_bits": "0xffffffffffff",
+      "actual_bits": "0xffffffffffff",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "57/112",
+      "expected_bits": "0xde5d93a56f0e",
+      "actual_bits": "0xde5d93a56f0e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "9/14",
+      "expected_bits": "0xde5d93a56f0e",
+      "actual_bits": "0xde5d93a56f0e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "55/84",
+      "expected_bits": "0xde5d92a56f0e",
+      "actual_bits": "0xde5d92a56f0e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "2/3",
+      "expected_bits": "0xde5d92a56f0e",
+      "actual_bits": "0xde5d92a56f0e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "52/75",
+      "expected_bits": "0x9e5d92a16f0e",
+      "actual_bits": "0x9e5d92a16f0e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "18/25",
+      "expected_bits": "0x9e5d92a16f0e",
+      "actual_bits": "0x9e5d92a16f0e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "138/175",
+      "expected_bits": "0x8e5d9220670e",
+      "actual_bits": "0x8e5d9220670e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "6/7",
+      "expected_bits": "0x8e5d9220670e",
+      "actual_bits": "0x8e5d9220670e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "123/140",
+      "expected_bits": "0xe5d9220670e",
+      "actual_bits": "0xe5d9220670e",
+      "scorer_calls": 9
+    },
+    {
+      "alpha": "9/10",
+      "expected_bits": "0xe5d9220670e",
+      "actual_bits": "0xe5d9220670e",
+      "scorer_calls": 9
+    }
+  ],
+  "conforms": true,
+  "adapter_scope": "Exact finite thresholds via public API, custom exact-ratio scorer, prefit and no-feasible abstention mapping. Not the library default tuning objective or cross-validation configuration."
+}

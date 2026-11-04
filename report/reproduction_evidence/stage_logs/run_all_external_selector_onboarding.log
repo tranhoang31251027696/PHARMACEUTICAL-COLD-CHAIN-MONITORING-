@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "external_selector": "sklearn.model_selection.TunedThresholdClassifierCV",
+  "library_version": "1.9.1",
+  "source_file_sha256": "36b3df1ce1ce0029cfcc0987b52652fef0863df27f9e72ad995a3c5a3c573240",
+  "source_class_sha256": "e1f39f6e0ae8eca1df4162ee3c3e72b4dc12f10d3dfd3d1da8818e4c4d78128d",
+  "upstream_source_edits": 0,
+  "public_configuration_hooks": [
+    "prefit score carrier",
+    "custom objective scorer",
+    "complete candidate threshold array",
+    "explicit infeasible abstention mapping"
+  ],
+  "workloads": [
+    {
+      "pipeline": "wdbc_logistic_isotonic",
+      "observations": 48,
+      "thresholds": 9,
+      "policy_probes": 13,
+      "optimizer_fit_calls": 13,
+      "scorer_callbacks": 117,
+      "mismatches": 0,
+      "elapsed_ms": 122.1294
+    },
+    {
+      "pipeline": "digits_svc_sigmoid",
+      "observations": 48,
+      "thresholds": 48,
+      "policy_probes": 41,
+      "optimizer_fit_calls": 41,
+      "scorer_callbacks": 1968,
+      "mismatches": 0,
+      "elapsed_ms": 309.565
+    },
+    {
+      "pipeline": "generated_rf_quantized",
+      "observations": 48,
+      "thresholds": 13,
+      "policy_probes": 5,
+      "optimizer_fit_calls": 5,
+      "scorer_callbacks": 65,
+      "mismatches": 0,
+      "elapsed_ms": 49.4371
+    }
+  ],
+  "total_policy_probes": 59,
+  "mismatches": 0,
+  "unsupported_configurations": [
+    {
+      "case": "default_grid",
+      "status": "UNSUPPORTED",
+      "reason": "UNSUPPORTED_SAMPLED_THRESHOLD_GRID"
+    },
+    {
+      "case": "missing_threshold",
+      "status": "UNSUPPORTED",
+      "reason": "INCOMPLETE_OR_DIFFERENT_CANDIDATE_SET"
+    },
+    {
+      "case": "cross_validation",
+      "status": "UNSUPPORTED",
+      "reason": "UNSUPPORTED_RESAMPLING_CONTRACT"
+    },
+    {
+      "case": "refit",
+      "status": "UNSUPPORTED",
+      "reason": "UNSUPPORTED_RESAMPLING_CONTRACT"
+    }
+  ],
+  "second_project": {
+    "project": "eval-toolkit",
+    "requires_python": ">=3.13",
+    "runtime_python": "3.13.18",
+    "status": "RUNTIME_COMPATIBLE_NOT_EVALUATED",
+    "full_package_executed": false,
+    "policy_certificate_issued": false
+  },
+  "adapter_physical_lines": 76,
+  "adapter_top_level_definitions": [
+    "ScoreCarrier",
+    "admission",
+    "execute",
+    "main"
+  ],
+  "elapsed_seconds": 0.8243525000289083,
+  "effort_scope": "Observed code/configuration artifacts and timed execution, not measured programmer-hours or a multi-team usability study. Custom scorer and wrapper remain trusted integration code."
+}

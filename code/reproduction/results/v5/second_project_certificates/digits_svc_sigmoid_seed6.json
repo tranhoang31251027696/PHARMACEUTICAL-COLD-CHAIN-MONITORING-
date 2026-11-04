@@ -1,0 +1,646 @@
+{
+  "schema": "external-binary64-selector-policy/1",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "5/16",
+    "11258999068426241/36028797018963968",
+    "1/3",
+    "12009599006321323/36028797018963968",
+    "5/14",
+    "12867427506772847/36028797018963968",
+    "5/13",
+    "13857229622678451/36028797018963968",
+    "5/12",
+    "15011998757901655/36028797018963968",
+    "5/11",
+    "16376725917710895/36028797018963968",
+    "1/2",
+    "9007199254740993/18014398509481984",
+    "5/9",
+    "10007999171934437/18014398509481984",
+    "5/8",
+    "11258999068426241/18014398509481984",
+    "5/7",
+    "12867427506772847/18014398509481984",
+    "5/6",
+    "15011998757901655/18014398509481984",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "public_binary64_policy": "0x1.3333333333333p-2",
+      "reference_bits": "0x2aa63068040400a",
+      "actual_bits": "0x2aa63068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "49/160",
+      "public_binary64_policy": "0x1.399999999999ap-2",
+      "reference_bits": "0x2aa63068040400a",
+      "actual_bits": "0x2aa63068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/16",
+      "public_binary64_policy": "0x1.4000000000000p-2",
+      "reference_bits": "0x2aa63068040400a",
+      "actual_bits": "0x2aa63068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "22517998136852481/72057594037927936",
+      "public_binary64_policy": "0x1.4000000000000p-2",
+      "reference_bits": "0x2aa43068040400a",
+      "actual_bits": "0x2aa63068040400a",
+      "different": true,
+      "witness": {
+        "row_index": 45,
+        "row_id": "45",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "11258999068426241/36028797018963968",
+      "public_binary64_policy": "0x1.4000000000000p-2",
+      "reference_bits": "0x2aa43068040400a",
+      "actual_bits": "0x2aa63068040400a",
+      "different": true,
+      "witness": {
+        "row_index": 45,
+        "row_id": "45",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "69805794224242691/216172782113783808",
+      "public_binary64_policy": "0x1.4aaaaaaaaaaabp-2",
+      "reference_bits": "0x2aa43068040400a",
+      "actual_bits": "0x2aa43068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "1/3",
+      "public_binary64_policy": "0x1.5555555555555p-2",
+      "reference_bits": "0x2aa43068040400a",
+      "actual_bits": "0x2aa43068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "72057594037927937/216172782113783808",
+      "public_binary64_policy": "0x1.5555555555555p-2",
+      "reference_bits": "0x2aa42068040400a",
+      "actual_bits": "0x2aa43068040400a",
+      "different": true,
+      "witness": {
+        "row_index": 40,
+        "row_id": "40",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "12009599006321323/36028797018963968",
+      "public_binary64_policy": "0x1.5555555555556p-2",
+      "reference_bits": "0x2aa42068040400a",
+      "actual_bits": "0x2aa42068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "174139185591659181/504403158265495552",
+      "public_binary64_policy": "0x1.6186186186186p-2",
+      "reference_bits": "0x2aa42068040400a",
+      "actual_bits": "0x2aa42068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/14",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-2",
+      "reference_bits": "0x2aa42068040400a",
+      "actual_bits": "0x2aa42068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "180143985094819849/504403158265495552",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-2",
+      "reference_bits": "0x2a842068040400a",
+      "actual_bits": "0x2aa42068040400a",
+      "different": true,
+      "witness": {
+        "row_index": 49,
+        "row_id": "49",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "12867427506772847/36028797018963968",
+      "public_binary64_policy": "0x1.6db6db6db6db8p-2",
+      "reference_bits": "0x2a842068040400a",
+      "actual_bits": "0x2a842068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "347420542682866851/936748722493063168",
+      "public_binary64_policy": "0x1.7bc7bc7bc7bc8p-2",
+      "reference_bits": "0x2a842068040400a",
+      "actual_bits": "0x2a842068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/13",
+      "public_binary64_policy": "0x1.89d89d89d89d9p-2",
+      "reference_bits": "0x2a842068040400a",
+      "actual_bits": "0x2a842068040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "360287970189639703/936748722493063168",
+      "public_binary64_policy": "0x1.89d89d89d89d9p-2",
+      "reference_bits": "0x2a842048040400a",
+      "actual_bits": "0x2a842068040400a",
+      "different": true,
+      "witness": {
+        "row_index": 33,
+        "row_id": "33",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "13857229622678451/36028797018963968",
+      "public_binary64_policy": "0x1.89d89d89d89dap-2",
+      "reference_bits": "0x2a842048040400a",
+      "actual_bits": "0x2a842048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "86607685141740313/216172782113783808",
+      "public_binary64_policy": "0x1.9a41a41a41a42p-2",
+      "reference_bits": "0x2a842048040400a",
+      "actual_bits": "0x2a842048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/12",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaabp-2",
+      "reference_bits": "0x2a842048040400a",
+      "actual_bits": "0x2a842048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "90071992547409925/216172782113783808",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaabp-2",
+      "reference_bits": "0x2a802048040400a",
+      "actual_bits": "0x2a842048040400a",
+      "different": true,
+      "witness": {
+        "row_index": 46,
+        "row_id": "46",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "15011998757901655/36028797018963968",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaacp-2",
+      "reference_bits": "0x2a802048040400a",
+      "actual_bits": "0x2a802048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "345275971431738045/792633534417207296",
+      "public_binary64_policy": "0x1.be0f83e0f83e1p-2",
+      "reference_bits": "0x2a802048040400a",
+      "actual_bits": "0x2a802048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/11",
+      "public_binary64_policy": "0x1.d1745d1745d17p-2",
+      "reference_bits": "0x2a802048040400a",
+      "actual_bits": "0x2a802048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "360287970189639685/792633534417207296",
+      "public_binary64_policy": "0x1.d1745d1745d17p-2",
+      "reference_bits": "0x2a800048040400a",
+      "actual_bits": "0x2a802048040400a",
+      "different": true,
+      "witness": {
+        "row_index": 41,
+        "row_id": "41",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "16376725917710895/36028797018963968",
+      "public_binary64_policy": "0x1.d1745d1745d18p-2",
+      "reference_bits": "0x2a800048040400a",
+      "actual_bits": "0x2a800048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "34391124427192879/72057594037927936",
+      "public_binary64_policy": "0x1.e8ba2e8ba2e8cp-2",
+      "reference_bits": "0x2a800048040400a",
+      "actual_bits": "0x2a800048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "1/2",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x2a800048040400a",
+      "actual_bits": "0x2a800048040400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "18014398509481985/36028797018963968",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x2a800048000400a",
+      "actual_bits": "0x2a800048040400a",
+      "different": true,
+      "witness": {
+        "row_index": 22,
+        "row_id": "22",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "9007199254740993/18014398509481984",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x2a800048000400a",
+      "actual_bits": "0x2a800048040400a",
+      "different": true,
+      "witness": {
+        "row_index": 22,
+        "row_id": "22",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "171136785840078857/324259173170675712",
+      "public_binary64_policy": "0x1.0e38e38e38e39p-1",
+      "reference_bits": "0x2a800048000400a",
+      "actual_bits": "0x2a800048000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/9",
+      "public_binary64_policy": "0x1.1c71c71c71c72p-1",
+      "reference_bits": "0x2a800048000400a",
+      "actual_bits": "0x2a800048000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "180143985094819853/324259173170675712",
+      "public_binary64_policy": "0x1.1c71c71c71c72p-1",
+      "reference_bits": "0x2a800040000400a",
+      "actual_bits": "0x2a800048000400a",
+      "different": true,
+      "witness": {
+        "row_index": 31,
+        "row_id": "31",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "10007999171934437/18014398509481984",
+      "public_binary64_policy": "0x1.1c71c71c71c72p-1",
+      "reference_bits": "0x2a800040000400a",
+      "actual_bits": "0x2a800048000400a",
+      "different": true,
+      "witness": {
+        "row_index": 31,
+        "row_id": "31",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "21266998240360677/36028797018963968",
+      "public_binary64_policy": "0x1.2e38e38e38e39p-1",
+      "reference_bits": "0x2a800040000400a",
+      "actual_bits": "0x2a800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/8",
+      "public_binary64_policy": "0x1.4000000000000p-1",
+      "reference_bits": "0x2a800040000400a",
+      "actual_bits": "0x2a800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "22517998136852481/36028797018963968",
+      "public_binary64_policy": "0x1.4000000000000p-1",
+      "reference_bits": "0xa800040000400a",
+      "actual_bits": "0x2a800040000400a",
+      "different": true,
+      "witness": {
+        "row_index": 57,
+        "row_id": "57",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "11258999068426241/18014398509481984",
+      "public_binary64_policy": "0x1.4000000000000p-1",
+      "reference_bits": "0xa800040000400a",
+      "actual_bits": "0x2a800040000400a",
+      "different": true,
+      "witness": {
+        "row_index": 57,
+        "row_id": "57",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "168884986026393607/252201579132747776",
+      "public_binary64_policy": "0x1.56db6db6db6dcp-1",
+      "reference_bits": "0xa800040000400a",
+      "actual_bits": "0xa800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/7",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-1",
+      "reference_bits": "0xa800040000400a",
+      "actual_bits": "0xa800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "180143985094819849/252201579132747776",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-1",
+      "reference_bits": "0x8800040000400a",
+      "actual_bits": "0xa800040000400a",
+      "different": true,
+      "witness": {
+        "row_index": 53,
+        "row_id": "53",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "12867427506772847/18014398509481984",
+      "public_binary64_policy": "0x1.6db6db6db6db8p-1",
+      "reference_bits": "0x8800040000400a",
+      "actual_bits": "0x8800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "83638278794023501/108086391056891904",
+      "public_binary64_policy": "0x1.8c30c30c30c31p-1",
+      "reference_bits": "0x8800040000400a",
+      "actual_bits": "0x8800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "5/6",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaabp-1",
+      "reference_bits": "0x8800040000400a",
+      "actual_bits": "0x8800040000400a",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "90071992547409925/108086391056891904",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaabp-1",
+      "reference_bits": "0x88000400004002",
+      "actual_bits": "0x8800040000400a",
+      "different": true,
+      "witness": {
+        "row_index": 3,
+        "row_id": "3",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "15011998757901655/18014398509481984",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaacp-1",
+      "reference_bits": "0x88000400004002",
+      "actual_bits": "0x88000400004002",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "156124787082177203/180143985094819840",
+      "public_binary64_policy": "0x1.bbbbbbbbbbbbcp-1",
+      "reference_bits": "0x88000400004002",
+      "actual_bits": "0x88000400004002",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "9/10",
+      "public_binary64_policy": "0x1.ccccccccccccdp-1",
+      "reference_bits": "0x88000400004002",
+      "actual_bits": "0x88000400004002",
+      "different": false,
+      "witness": null
+    }
+  ],
+  "representable_policy_probes": [
+    {
+      "alpha": "5/16",
+      "public_binary64_policy": "0x1.4000000000000p-2",
+      "reference_bits": "0x2aa63068040400a",
+      "actual_bits": "0x2aa63068040400a",
+      "different": false
+    },
+    {
+      "alpha": "6004799503160661/18014398509481984",
+      "public_binary64_policy": "0x1.5555555555555p-2",
+      "reference_bits": "0x2aa43068040400a",
+      "actual_bits": "0x2aa43068040400a",
+      "different": false
+    },
+    {
+      "alpha": "6433713753386423/18014398509481984",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-2",
+      "reference_bits": "0x2a842068040400a",
+      "actual_bits": "0x2aa42068040400a",
+      "different": true
+    },
+    {
+      "alpha": "6928614811339225/18014398509481984",
+      "public_binary64_policy": "0x1.89d89d89d89d9p-2",
+      "reference_bits": "0x2a842048040400a",
+      "actual_bits": "0x2a842068040400a",
+      "different": true
+    },
+    {
+      "alpha": "7505999378950827/18014398509481984",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaabp-2",
+      "reference_bits": "0x2a802048040400a",
+      "actual_bits": "0x2a842048040400a",
+      "different": true
+    },
+    {
+      "alpha": "8188362958855447/18014398509481984",
+      "public_binary64_policy": "0x1.d1745d1745d17p-2",
+      "reference_bits": "0x2a802048040400a",
+      "actual_bits": "0x2a802048040400a",
+      "different": false
+    },
+    {
+      "alpha": "1/2",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x2a800048040400a",
+      "actual_bits": "0x2a800048040400a",
+      "different": false
+    },
+    {
+      "alpha": "2501999792983609/4503599627370496",
+      "public_binary64_policy": "0x1.1c71c71c71c72p-1",
+      "reference_bits": "0x2a800040000400a",
+      "actual_bits": "0x2a800048000400a",
+      "different": true
+    },
+    {
+      "alpha": "5/8",
+      "public_binary64_policy": "0x1.4000000000000p-1",
+      "reference_bits": "0x2a800040000400a",
+      "actual_bits": "0x2a800040000400a",
+      "different": false
+    },
+    {
+      "alpha": "6433713753386423/9007199254740992",
+      "public_binary64_policy": "0x1.6db6db6db6db7p-1",
+      "reference_bits": "0x8800040000400a",
+      "actual_bits": "0xa800040000400a",
+      "different": true
+    },
+    {
+      "alpha": "7505999378950827/9007199254740992",
+      "public_binary64_policy": "0x1.aaaaaaaaaaaabp-1",
+      "reference_bits": "0x88000400004002",
+      "actual_bits": "0x8800040000400a",
+      "different": true
+    }
+  ],
+  "representable_policy_difference": true,
+  "equivalent_to_rational_reference": false,
+  "divergent_regions": [
+    {
+      "lo": "5/16",
+      "hi": "11258999068426241/36028797018963968",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "1/3",
+      "hi": "12009599006321323/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "5/14",
+      "hi": "12867427506772847/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "5/13",
+      "hi": "13857229622678451/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "5/12",
+      "hi": "15011998757901655/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "5/11",
+      "hi": "16376725917710895/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "1/2",
+      "hi": "9007199254740993/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "5/9",
+      "hi": "10007999171934437/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "5/8",
+      "hi": "11258999068426241/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "5/7",
+      "hi": "12867427506772847/18014398509481984",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "5/6",
+      "hi": "15011998757901655/18014398509481984",
+      "left_closed": false,
+      "right_closed": false
+    }
+  ],
+  "psc_exact": "434755/486875148515769581568",
+  "grid_detected": false,
+  "snapshot_detected": false,
+  "candidate_count": 64,
+  "guard_count": 64,
+  "contract": "Exact rational reference versus the actual public binary64 policy interface; nearest/even rounding-cell cuts included. A semantic differential is not an upstream-confirmed defect.",
+  "case_id": "digits_svc_sigmoid_seed6",
+  "source_input_sha256": "9671beddc122dbd5e06c26a5fbee34c941ce03240960622ee161cfa947af40e1",
+  "slice": "first 64 rows, all 30 pipeline cases",
+  "source_module_sha256": "dd4f4751fdf30f85ca06233c5a5cd140d0a46105a9e494ccb32bd7c041fc1e47",
+  "upstream_commit": "a6400e74c4534d6d79f17dee11ad903b6d664980"
+}

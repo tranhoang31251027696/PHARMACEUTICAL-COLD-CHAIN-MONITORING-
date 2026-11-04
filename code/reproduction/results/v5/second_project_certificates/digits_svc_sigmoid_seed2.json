@@ -1,0 +1,409 @@
+{
+  "schema": "external-binary64-selector-policy/1",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "10808639105689191/36028797018963968",
+    "1/3",
+    "12009599006321323/36028797018963968",
+    "3/8",
+    "13510798882111489/36028797018963968",
+    "3/7",
+    "15440913008127415/36028797018963968",
+    "1/2",
+    "9007199254740993/18014398509481984",
+    "3/5",
+    "10808639105689191/18014398509481984",
+    "3/4",
+    "13510798882111489/18014398509481984",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "public_binary64_policy": "0x1.3333333333333p-2",
+      "reference_bits": "0x40c02184000a0100",
+      "actual_bits": "0x40c02184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "108086391056891907/360287970189639680",
+      "public_binary64_policy": "0x1.3333333333333p-2",
+      "reference_bits": "0x40c00184000a0100",
+      "actual_bits": "0x40c02184000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 45,
+        "row_id": "45",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "10808639105689191/36028797018963968",
+      "public_binary64_policy": "0x1.3333333333334p-2",
+      "reference_bits": "0x40c00184000a0100",
+      "actual_bits": "0x40c00184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "68454714336031541/216172782113783808",
+      "public_binary64_policy": "0x1.4444444444444p-2",
+      "reference_bits": "0x40c00184000a0100",
+      "actual_bits": "0x40c00184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "1/3",
+      "public_binary64_policy": "0x1.5555555555555p-2",
+      "reference_bits": "0x40c00184000a0100",
+      "actual_bits": "0x40c00184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "72057594037927937/216172782113783808",
+      "public_binary64_policy": "0x1.5555555555555p-2",
+      "reference_bits": "0x40400184000a0100",
+      "actual_bits": "0x40c00184000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 55,
+        "row_id": "55",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "12009599006321323/36028797018963968",
+      "public_binary64_policy": "0x1.5555555555556p-2",
+      "reference_bits": "0x40400184000a0100",
+      "actual_bits": "0x40400184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "25520397888432811/72057594037927936",
+      "public_binary64_policy": "0x1.6aaaaaaaaaaabp-2",
+      "reference_bits": "0x40400184000a0100",
+      "actual_bits": "0x40400184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "3/8",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0x40400184000a0100",
+      "actual_bits": "0x40400184000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "27021597764222977/72057594037927936",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0x40400084000a0100",
+      "actual_bits": "0x40400184000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 40,
+        "row_id": "40",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "13510798882111489/36028797018963968",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0x40400084000a0100",
+      "actual_bits": "0x40400184000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 40,
+        "row_id": "40",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "202661983231672327/504403158265495552",
+      "public_binary64_policy": "0x1.9b6db6db6db6ep-2",
+      "reference_bits": "0x40400084000a0100",
+      "actual_bits": "0x40400084000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "3/7",
+      "public_binary64_policy": "0x1.b6db6db6db6dbp-2",
+      "reference_bits": "0x40400084000a0100",
+      "actual_bits": "0x40400084000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "216172782113783809/504403158265495552",
+      "public_binary64_policy": "0x1.b6db6db6db6dbp-2",
+      "reference_bits": "0x400084000a0100",
+      "actual_bits": "0x40400084000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 62,
+        "row_id": "62",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "15440913008127415/36028797018963968",
+      "public_binary64_policy": "0x1.b6db6db6db6dcp-2",
+      "reference_bits": "0x400084000a0100",
+      "actual_bits": "0x400084000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "33455311517609399/72057594037927936",
+      "public_binary64_policy": "0x1.db6db6db6db6ep-2",
+      "reference_bits": "0x400084000a0100",
+      "actual_bits": "0x400084000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "1/2",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x400084000a0100",
+      "actual_bits": "0x400084000a0100",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "18014398509481985/36028797018963968",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x400084000a0000",
+      "actual_bits": "0x400084000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 8,
+        "row_id": "8",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "9007199254740993/18014398509481984",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x400084000a0000",
+      "actual_bits": "0x400084000a0100",
+      "different": true,
+      "witness": {
+        "row_index": 8,
+        "row_id": "8",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "99079191802150917/180143985094819840",
+      "public_binary64_policy": "0x1.199999999999ap-1",
+      "reference_bits": "0x400084000a0000",
+      "actual_bits": "0x400084000a0000",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "3/5",
+      "public_binary64_policy": "0x1.3333333333333p-1",
+      "reference_bits": "0x400084000a0000",
+      "actual_bits": "0x400084000a0000",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "108086391056891907/180143985094819840",
+      "public_binary64_policy": "0x1.3333333333333p-1",
+      "reference_bits": "0x40008400080000",
+      "actual_bits": "0x400084000a0000",
+      "different": true,
+      "witness": {
+        "row_index": 17,
+        "row_id": "17",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "10808639105689191/18014398509481984",
+      "public_binary64_policy": "0x1.3333333333334p-1",
+      "reference_bits": "0x40008400080000",
+      "actual_bits": "0x40008400080000",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "24319437987800679/36028797018963968",
+      "public_binary64_policy": "0x1.599999999999ap-1",
+      "reference_bits": "0x40008400080000",
+      "actual_bits": "0x40008400080000",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "3/4",
+      "public_binary64_policy": "0x1.8000000000000p-1",
+      "reference_bits": "0x40008400080000",
+      "actual_bits": "0x40008400080000",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "27021597764222977/36028797018963968",
+      "public_binary64_policy": "0x1.8000000000000p-1",
+      "reference_bits": "0x40000400080000",
+      "actual_bits": "0x40008400080000",
+      "different": true,
+      "witness": {
+        "row_index": 39,
+        "row_id": "39",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "13510798882111489/18014398509481984",
+      "public_binary64_policy": "0x1.8000000000000p-1",
+      "reference_bits": "0x40000400080000",
+      "actual_bits": "0x40008400080000",
+      "different": true,
+      "witness": {
+        "row_index": 39,
+        "row_id": "39",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "148618787703226373/180143985094819840",
+      "public_binary64_policy": "0x1.a666666666667p-1",
+      "reference_bits": "0x40000400080000",
+      "actual_bits": "0x40000400080000",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "9/10",
+      "public_binary64_policy": "0x1.ccccccccccccdp-1",
+      "reference_bits": "0x40000400080000",
+      "actual_bits": "0x40000400080000",
+      "different": false,
+      "witness": null
+    }
+  ],
+  "representable_policy_probes": [
+    {
+      "alpha": "6004799503160661/18014398509481984",
+      "public_binary64_policy": "0x1.5555555555555p-2",
+      "reference_bits": "0x40c00184000a0100",
+      "actual_bits": "0x40c00184000a0100",
+      "different": false
+    },
+    {
+      "alpha": "3/8",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0x40400184000a0100",
+      "actual_bits": "0x40400184000a0100",
+      "different": false
+    },
+    {
+      "alpha": "7720456504063707/18014398509481984",
+      "public_binary64_policy": "0x1.b6db6db6db6dbp-2",
+      "reference_bits": "0x40400084000a0100",
+      "actual_bits": "0x40400084000a0100",
+      "different": false
+    },
+    {
+      "alpha": "1/2",
+      "public_binary64_policy": "0x1.0000000000000p-1",
+      "reference_bits": "0x400084000a0100",
+      "actual_bits": "0x400084000a0100",
+      "different": false
+    },
+    {
+      "alpha": "5404319552844595/9007199254740992",
+      "public_binary64_policy": "0x1.3333333333333p-1",
+      "reference_bits": "0x400084000a0000",
+      "actual_bits": "0x400084000a0000",
+      "different": false
+    },
+    {
+      "alpha": "3/4",
+      "public_binary64_policy": "0x1.8000000000000p-1",
+      "reference_bits": "0x40008400080000",
+      "actual_bits": "0x40008400080000",
+      "different": false
+    }
+  ],
+  "representable_policy_difference": false,
+  "equivalent_to_rational_reference": false,
+  "divergent_regions": [
+    {
+      "lo": "3/10",
+      "hi": "10808639105689191/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "1/3",
+      "hi": "12009599006321323/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "3/8",
+      "hi": "13510798882111489/36028797018963968",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "3/7",
+      "hi": "15440913008127415/36028797018963968",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "1/2",
+      "hi": "9007199254740993/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "3/5",
+      "hi": "10808639105689191/18014398509481984",
+      "left_closed": false,
+      "right_closed": false
+    },
+    {
+      "lo": "3/4",
+      "hi": "13510798882111489/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    }
+  ],
+  "psc_exact": "191/567453553048682496",
+  "grid_detected": false,
+  "snapshot_detected": false,
+  "candidate_count": 64,
+  "guard_count": 64,
+  "contract": "Exact rational reference versus the actual public binary64 policy interface; nearest/even rounding-cell cuts included. A semantic differential is not an upstream-confirmed defect.",
+  "case_id": "digits_svc_sigmoid_seed2",
+  "source_input_sha256": "26879942a17ca3206a1500c3623d0d45c94075756611836e9d727be946273db1",
+  "slice": "first 64 rows, all 30 pipeline cases",
+  "source_module_sha256": "dd4f4751fdf30f85ca06233c5a5cd140d0a46105a9e494ccb32bd7c041fc1e47",
+  "upstream_commit": "a6400e74c4534d6d79f17dee11ad903b6d664980"
+}

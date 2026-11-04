@@ -1,0 +1,75 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "c7d6a14db6f932ba4d37b2d10aec0273a32b60254c20fa7e8d04bede68290a69",
+  "domain": [
+    "3/10",
+    "4/5"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "1/3",
+    "1/2",
+    "4/5"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "1/3",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 3,
+      "new_n": 3,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "1/3",
+      "hi": "1/2",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 1,
+      "new_n": 2,
+      "equal": false,
+      "witness": {
+        "row_index": 1,
+        "row_id": "1",
+        "old_selected": false,
+        "new_selected": true,
+        "changed_rows": 1
+      }
+    },
+    {
+      "lo": "1/2",
+      "hi": "4/5",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 1,
+      "new_n": 1,
+      "equal": true,
+      "witness": null
+    }
+  ],
+  "equivalent": false,
+  "divergent_length": "1/6",
+  "psc_exact": "1/3",
+  "psc": 0.3333333333333333,
+  "candidate_counts": [
+    2,
+    3
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 3
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "7b1b41f8514d7891e5ada3829464577551a94462886471caebeeee1a31f142d0",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "drop_group",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "53/83",
+    "53/82",
+    "53/75",
+    "53/74",
+    "17/19",
+    "9/10"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "53/143",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 143,
+      "new_n": 143,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/143",
+      "hi": "53/83",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 83,
+      "new_n": 83,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/83",
+      "hi": "53/82",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 82,
+      "new_n": 82,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/82",
+      "hi": "53/75",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 75,
+      "new_n": 75,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/75",
+      "hi": "53/74",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 74,
+      "new_n": 74,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/74",
+      "hi": "17/19",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 57,
+      "new_n": 57,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "17/19",
+      "hi": "9/10",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 56,
+      "new_n": 56,
+      "equal": true,
+      "witness": null
+    }
+  ],
+  "equivalent": true,
+  "divergent_length": "0",
+  "psc_exact": "0",
+  "psc": 0.0,
+  "candidate_counts": [
+    15,
+    14
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 7
+}

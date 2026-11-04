@@ -1,0 +1,103 @@
+{
+  "case_id": "derived_int16",
+  "variant": "affected",
+  "source_commit": "3565a801587a699d2f320a6406d0f38f86c0c4b0",
+  "source_ast_sha256": "d70e17c4f92b7cf95b2962f0f2a59e0c7208ca6e5ac23194dc365fde56257372",
+  "axis_dtype": "int16",
+  "axis_values": [
+    0,
+    15000,
+    32767
+  ],
+  "knot_scores": [
+    0.05,
+    0.6,
+    0.95
+  ],
+  "labels": [
+    0,
+    1,
+    1
+  ],
+  "ids": [
+    0,
+    1,
+    2
+  ],
+  "reference_scores": [
+    0.05,
+    0.6,
+    0.95
+  ],
+  "actual_scores": [
+    0.95,
+    0.95,
+    0.95
+  ],
+  "source_input_sha256": null,
+  "certificate": {
+    "schema": "exact-policy-certificate/1",
+    "version": "1.0.0",
+    "input_sha256": "eac7d848636b54dd73b05d9d77d0037f29e960cb86fc5011139189e8964036b1",
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "old_spec": {
+      "family": "ge",
+      "precision": "inclusive",
+      "objective": "max_tp_max_n",
+      "count_offset": 0
+    },
+    "new_spec": {
+      "family": "ge",
+      "precision": "inclusive",
+      "objective": "max_tp_max_n",
+      "count_offset": 0
+    },
+    "critical_values": [
+      "3/10",
+      "2/3",
+      "9/10"
+    ],
+    "cells": [
+      {
+        "lo": "3/10",
+        "hi": "2/3",
+        "left_closed": true,
+        "right_closed": true,
+        "old_n": 3,
+        "new_n": 3,
+        "equal": true,
+        "witness": null
+      },
+      {
+        "lo": "2/3",
+        "hi": "9/10",
+        "left_closed": false,
+        "right_closed": true,
+        "old_n": 2,
+        "new_n": 0,
+        "equal": false,
+        "witness": {
+          "row_index": 1,
+          "row_id": 1,
+          "old_selected": true,
+          "new_selected": false,
+          "changed_rows": 2
+        }
+      }
+    ],
+    "equivalent": false,
+    "divergent_length": "7/30",
+    "psc_exact": "7/18",
+    "psc": 0.3888888888888889,
+    "candidate_counts": [
+      3,
+      1
+    ],
+    "witness_enabled": true,
+    "distinct_state_pairs": 2
+  },
+  "independent_probes": 5
+}

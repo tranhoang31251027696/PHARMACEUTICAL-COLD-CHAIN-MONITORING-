@@ -1,0 +1,99 @@
+{
+  "status": "NONCONFORMING",
+  "certified": false,
+  "source_sha256": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+  "mode": "complete",
+  "probes": 65,
+  "failures": [
+    {
+      "alpha": "23/71",
+      "witness_row_id": "75"
+    },
+    {
+      "alpha": "23/64",
+      "witness_row_id": "65"
+    },
+    {
+      "alpha": "45/116",
+      "witness_row_id": "19"
+    },
+    {
+      "alpha": "45/109",
+      "witness_row_id": "153"
+    },
+    {
+      "alpha": "11/26",
+      "witness_row_id": "177"
+    },
+    {
+      "alpha": "41/95",
+      "witness_row_id": "106"
+    },
+    {
+      "alpha": "41/89",
+      "witness_row_id": "285"
+    },
+    {
+      "alpha": "41/85",
+      "witness_row_id": "24"
+    },
+    {
+      "alpha": "40/79",
+      "witness_row_id": "38"
+    },
+    {
+      "alpha": "8/15",
+      "witness_row_id": "52"
+    },
+    {
+      "alpha": "38/67",
+      "witness_row_id": "81"
+    },
+    {
+      "alpha": "17/29",
+      "witness_row_id": "108"
+    },
+    {
+      "alpha": "34/55",
+      "witness_row_id": "35"
+    },
+    {
+      "alpha": "17/26",
+      "witness_row_id": "522"
+    },
+    {
+      "alpha": "2/3",
+      "witness_row_id": "389"
+    },
+    {
+      "alpha": "33/49",
+      "witness_row_id": "101"
+    },
+    {
+      "alpha": "16/23",
+      "witness_row_id": "358"
+    },
+    {
+      "alpha": "31/44",
+      "witness_row_id": "59"
+    },
+    {
+      "alpha": "29/41",
+      "witness_row_id": "346"
+    },
+    {
+      "alpha": "28/37",
+      "witness_row_id": "107"
+    },
+    {
+      "alpha": "19/24",
+      "witness_row_id": "144"
+    },
+    {
+      "alpha": "4/5",
+      "witness_row_id": "8"
+    }
+  ],
+  "gate_ms": 27.1357,
+  "scope": "Reviewed-source allowlist and audited guard contract. Not a sandbox or arbitrary-Python proof."
+}

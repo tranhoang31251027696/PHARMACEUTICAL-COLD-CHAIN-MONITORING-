@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "records": 60,
+  "groups": 36,
+  "seed_rule": "90210+N",
+  "tracemalloc": false,
+  "source_sha256": "f4c682d80026c08a9a236e453faba606893e09b7941c2ffe21ee0a551aa3dc6c",
+  "scope": "Same-invocation instrumented wall-clock stages; profiler overhead remains; medians are descriptive and need not sum to median total. Not pooled with traced timings."
+}

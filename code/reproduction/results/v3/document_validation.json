@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "pages": 15,
+  "tables": 9,
+  "embedded_figures": 2,
+  "native_equations": 2,
+  "reference_entries": 20,
+  "markdown_words": 7917,
+  "visual_review": "All 15 final page images inspected; readable tables, repeated headers, no clipping or isolated headers",
+  "render_route": "Native Word export and Poppler; LibreOffice unavailable as established in V2",
+  "docx_sha256": "3535b8cfdde5fe06e4f97569c2fefec5bcaa20845d4f07e4338e1c8b2c7b893a",
+  "pdf_sha256": "2821c245f515cfcb282f2be9e0409caad5b74203dfcbf2d636a0760823fb5f9c",
+  "fresh_ci_scale_process_median_ms": 4292.4281
+}

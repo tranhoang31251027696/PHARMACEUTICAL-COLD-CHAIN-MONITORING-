@@ -1,0 +1,264 @@
+{
+  "schema": "instrumented-program-conformance/1",
+  "case_id": "wdbc_logistic_isotonic_seed3",
+  "source_sha256": "178fc6b21076ca64ef7406d8569c887736cdf5a5f864cd144d681c3c6e48541b",
+  "frozen_input_sha256": "ccdada8f9038e43da64a9879929798ca5be8a337b1b01fa9e24ce1f13c057238",
+  "expected_contract": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "guard_events": [
+    "54/143",
+    "9/14",
+    "54/83",
+    "27/41",
+    "2/3",
+    "27/40",
+    "54/79",
+    "18/19",
+    "54/55",
+    "1"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "54/143",
+    "53/84",
+    "53/83",
+    "9/14",
+    "53/82",
+    "54/83",
+    "53/81",
+    "27/41",
+    "53/80",
+    "2/3",
+    "53/79",
+    "27/40",
+    "54/79",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "conforms": true,
+      "expected_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "959/2860",
+      "conforms": true,
+      "expected_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "53/143",
+      "conforms": true,
+      "expected_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "107/286",
+      "conforms": false,
+      "expected_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": "0"
+    },
+    {
+      "alpha": "54/143",
+      "conforms": false,
+      "expected_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": "0"
+    },
+    {
+      "alpha": "12115/24024",
+      "conforms": true,
+      "expected_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "53/84",
+      "conforms": true,
+      "expected_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "8851/13944",
+      "conforms": false,
+      "expected_bits_hex": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "99"
+    },
+    {
+      "alpha": "53/83",
+      "conforms": false,
+      "expected_bits_hex": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "99"
+    },
+    {
+      "alpha": "1489/2324",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "99"
+    },
+    {
+      "alpha": "9/14",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b89669dd1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "99"
+    },
+    {
+      "alpha": "185/287",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "137"
+    },
+    {
+      "alpha": "53/82",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "137"
+    },
+    {
+      "alpha": "8827/13612",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "70"
+    },
+    {
+      "alpha": "54/83",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x671e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "70"
+    },
+    {
+      "alpha": "8773/13446",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "70"
+    },
+    {
+      "alpha": "53/81",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "70"
+    },
+    {
+      "alpha": "2180/3321",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "27/41",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7f2acbffbcc3a9b2ea0",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "4333/6560",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "53/80",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "319/480",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "2/3",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc3a9b2ea0",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "317/474",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "witness_row_id": "103"
+    },
+    {
+      "alpha": "53/79",
+      "conforms": false,
+      "expected_bits_hex": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "witness_row_id": "103"
+    },
+    {
+      "alpha": "4253/6320",
+      "conforms": false,
+      "expected_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "witness_row_id": "5"
+    },
+    {
+      "alpha": "27/40",
+      "conforms": false,
+      "expected_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits_hex": "0x651e7b896695d1b3d7b2acbffbcc329b2ea0",
+      "witness_row_id": "5"
+    },
+    {
+      "alpha": "4293/6320",
+      "conforms": false,
+      "expected_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits_hex": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "witness_row_id": "5"
+    },
+    {
+      "alpha": "54/79",
+      "conforms": false,
+      "expected_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits_hex": "0x651e7b896615d1b3d7b2acbffbcc329b2ea0",
+      "witness_row_id": "5"
+    },
+    {
+      "alpha": "1251/1580",
+      "conforms": true,
+      "expected_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "9/10",
+      "conforms": true,
+      "expected_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "actual_bits_hex": "0x45186b88061491b3d7b22cb77a0c20190c80",
+      "witness_row_id": null
+    }
+  ],
+  "conforms": false,
+  "psc_exact": "282715/2846844",
+  "scope": "Complete for this audited alpha-only-in-guard corpus; not arbitrary program verification."
+}

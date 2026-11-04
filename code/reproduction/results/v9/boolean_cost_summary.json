@@ -1,0 +1,307 @@
+{
+  "status": "PASS",
+  "case_count": 6,
+  "query_kinds": 2,
+  "batch_sizes": [
+    1,
+    8,
+    32,
+    128
+  ],
+  "repetitions": 5,
+  "methods": [
+    "checked_certificate",
+    "boolean_certificate",
+    "direct_masks",
+    "incremental_z3"
+  ],
+  "raw_records": 960,
+  "summary_groups": 192,
+  "unique_case_query_plans": 2028,
+  "matched_method_answers": 40560,
+  "smt_unknown": 0,
+  "paired_certificate_comparisons": [
+    {
+      "case_id": "upstream_int8",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.0606287425149703,
+      "total_speedup": 1.300396462336078
+    },
+    {
+      "case_id": "upstream_int8",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 3.139542069647437,
+      "total_speedup": 1.8614491792405903
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.292860008022463,
+      "total_speedup": 1.4649645041838006
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 4.286688988565292,
+      "total_speedup": 3.001340585261223
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.1876194811106053,
+      "total_speedup": 0.9758077654086343
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 2.2453314241393714,
+      "total_speedup": 1.6912990196078435
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.8232513629509337,
+      "total_speedup": 1.976917810022911
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 10.31540155879363,
+      "total_speedup": 4.78883175683976
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 19.097133923918705,
+      "total_speedup": 4.068019712099598
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 35.38502951692026,
+      "total_speedup": 10.861828485584997
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "singleton",
+      "batch": 128,
+      "query_phase_speedup": 2.088724088634739,
+      "total_speedup": 1.8976206322795341
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "continuous_window",
+      "batch": 128,
+      "query_phase_speedup": 6.012812067716224,
+      "total_speedup": 3.54867196979911
+    }
+  ],
+  "workflow_comparisons": [
+    {
+      "batch": 1,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 3,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 1,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 1,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 1,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 3,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 1,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 1,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 8,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 4,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 8,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 8,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 32,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 0,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 32,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 3,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 32,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "singleton",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 5,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 128,
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 2,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "continuous_window",
+      "comparator": "checked_certificate",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": true
+    },
+    {
+      "batch": 128,
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    },
+    {
+      "batch": 128,
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "boolean_certificate_faster_total_cases": 6,
+      "cases": 6,
+      "assurance_matched": false
+    }
+  ],
+  "source_sha256": "74cc6a12627b171f7bcf932cef24c8aeef54a25a5407380143d43cf3a11110d8",
+  "index_source_sha256": "3debd85ea5291e93b6903986ea1c75b58bfbc39e65c786a867600806cd942d68",
+  "v8_baseline_source_sha256": "18d1a6564f5b16314b2053f8e973d111519021979b6b4b4efdf991dfc689cc88",
+  "scope": "API cost isolation on existing controlled fixtures. No new algorithmic primitive, independent developer/production requirement evidence, defect count or universal speed claim."
+}

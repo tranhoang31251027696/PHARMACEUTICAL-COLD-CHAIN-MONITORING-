@@ -1,0 +1,245 @@
+# eval-toolkit
+
+[![CI](https://github.com/brandon-behring/eval-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/brandon-behring/eval-toolkit/actions/workflows/ci.yml)
+[![Docs](https://github.com/brandon-behring/eval-toolkit/actions/workflows/docs.yml/badge.svg)](https://brandon-behring.github.io/eval-toolkit/)
+[![PyPI version](https://img.shields.io/pypi/v/eval-toolkit.svg)](https://pypi.org/project/eval-toolkit/)
+[![Python ≥3.13](https://img.shields.io/badge/python-%E2%89%A53.13-blue.svg)](https://pypi.org/project/eval-toolkit/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/brandon-behring/eval-toolkit/main?labpath=docs%2Fexamples%2F)
+
+A **methodology-aware evaluation harness for binary classification**:
+metrics, bootstrap CIs, calibration, leakage detection, splitting,
+threshold selection, dataset loading, reproducibility manifests, and a
+slice-aware orchestrator that ties them together. Pure
+numpy/scipy/sklearn core; pandas/matplotlib/hypothesis are optional
+extras; PyTorch / HuggingFace / `datasets` are *consumer-side* (never
+required).
+
+Library-grade by design — every public function is type-annotated,
+every math kernel is documented with LaTeX + literature references,
+statistical validity (bootstrap CIs, MDE estimates, paired-difference
+tests) is built in, and the JSON outputs (`results.json` /
+`results_full.json` / `manifest.json`) ship with versioned [JSON
+Schemas](src/eval_toolkit/schemas/) so downstream parsers can gate on
+format changes.
+
+## Three-tier architecture
+
+```
+┌─ Tier 3 ─ Reproducibility scaffolding ─────────────────┐
+│  manifest.json + seeds + git_sha + data_hashes +       │
+│  gpu_info + leakage_report (NeurIPS-aligned)           │
+├─ Tier 2 ─ Protocol-based orchestration ────────────────┤
+│  Scorer / LeakageCheck / Splitter / ThresholdSelector  │
+│  DatasetLoader / MetricSpec / MetaLearner / Probe /    │
+│  TextTransform / SimilarityStrategy (10 strict)        │
+│  SliceAwareScorer / Versioned (outside the 10 strict)  │
+├─ Tier 1 ─ Functional core ─────────────────────────────┤
+│  pr_auc / roc_auc / ECE variants / Brier / bootstrap_ci│
+│  paired_bootstrap_diff / cv_clt_ci / mde_from_ci       │
+│  reliability_curve / fit_temperature / fit_isotonic    │
+└────────────────────────────────────────────────────────┘
+```
+
+Pick the tier your task needs. Ad-hoc analysis: just call the
+functional core. Full eval pipelines: implement the Protocols. Every
+run: capture the manifest.
+
+## Documentation
+
+- **[Getting started](docs/source/getting-started.md)** — end-to-end
+  walkthrough for new users: install, define a Scorer, build slices,
+  run `evaluate()`, persist results, add a claim, render a plot.
+- **[Methodology curriculum](docs/source/methodology/README.md)** — 16
+  chapters on splits, metrics, calibration, evidence gates,
+  prediction artifacts, and more.
+- **[Schema reference](docs/source/schemas.md)** — field-by-field semantics
+  for `results.v1.json`, `results_full.v1.json`, `manifest.v1.json`.
+- **[Migration guides](docs/source/MIGRATION.md)** — per-version migration
+  hub (v0.7 onward).
+- **[Extending](docs/source/extending.md)** — Protocol-by-Protocol guide for
+  custom Scorers, Splitters, LeakageChecks, ThresholdSelectors,
+  DatasetLoaders, EvidenceGates.
+- **[Repo strategy](docs/source/repo-strategy.md)** — how the package is
+  organized, the flat-module layout per ADR 0001, and the v2.0 trigger
+  criteria for any future subpackage split.
+
+## Methodology
+
+What good binary-classification evaluation looks like, with each
+concern mapped to the toolkit primitive that operationalizes it.
+
+- [`docs/source/methodology/`](docs/source/methodology/README.md) — the
+  curriculum (16 chapters). Recommended reading order:
+  [`leakage`](docs/source/methodology/leakage.md) →
+  [`splits`](docs/source/methodology/splits.md) →
+  [`thresholds`](docs/source/methodology/thresholds.md) →
+  [`calibration`](docs/source/methodology/calibration.md) →
+  [`comparison`](docs/source/methodology/comparison.md) →
+  [`bootstrap`](docs/source/methodology/bootstrap.md) →
+  [`length_stratification`](docs/source/methodology/length_stratification.md) →
+  [`text_dedup`](docs/source/methodology/text_dedup.md) →
+  [`versioning`](docs/source/methodology/versioning.md) →
+  [`fairness`](docs/source/methodology/fairness.md) →
+  [`reproducibility`](docs/source/methodology/reproducibility.md) →
+  [`testing`](docs/source/methodology/testing.md) →
+  [`reading_list`](docs/source/methodology/reading_list.md).
+- [`docs/source/MIGRATION.md`](docs/source/MIGRATION.md) — per-version
+  migration guides (v0.7 onward; v0.49 / v0.50 / v0.51 included as of
+  v0.51.0).
+- [`docs/source/roadmap.md`](docs/source/roadmap.md) — forward-looking
+  tracker; v1.0.0 path; consumer gap-doc cross-links.
+
+## Extending eval-toolkit
+
+How to plug your own scorers / leakage checks / splitters / loaders /
+threshold selectors into the harness.
+
+- [`docs/source/extending.md`](docs/source/extending.md) — Protocol-by-Protocol
+  guide, ~50-line full-harness recipe, project-layout pointer.
+
+## Worked examples
+
+- [`docs/source/examples/`](docs/source/examples/index.md) — Sphinx /
+  MyST-NB executable notebooks covering: the evaluation harness,
+  metrics + bootstrap, calibration, claims-and-gates, leakage
+  detection, cross-corpus contamination scanning, character-injection
+  adversarial sweeps, callable-embedder dedup, and the activation-delta
+  probe.
+
+## Install
+
+```bash
+uv venv
+uv pip install -e .[dev]
+```
+
+For consumers who only need the math kernels (no plotting, no pandas):
+
+```bash
+pip install eval-toolkit                        # core only: numpy/scipy/sklearn
+pip install "eval-toolkit[plotting]"            # adds matplotlib + pillow
+pip install "eval-toolkit[dataframe]"           # adds pandas
+pip install "eval-toolkit[all]"                 # everything
+```
+
+## Quick examples
+
+### Metrics
+
+```python
+import numpy as np
+from eval_toolkit.metrics import pr_auc, roc_auc, expected_calibration_error
+
+rng = np.random.default_rng(42)
+y = rng.integers(0, 2, size=200)
+# Clip to [0, 1] — ECE only meaningful on calibrated probabilities.
+s = np.clip(y + rng.normal(0, 0.3, size=200), 0, 1)
+
+print(f"PR-AUC: {pr_auc(y, s):.3f}")
+print(f"ROC-AUC: {roc_auc(y, s):.3f}")
+print(f"ECE (10 bins): {expected_calibration_error(y, s, n_bins=10):.3f}")
+```
+
+### Bootstrap confidence intervals
+
+```python
+from eval_toolkit import bootstrap_ci, paired_bootstrap_diff
+from eval_toolkit.metrics import pr_auc
+
+ci = bootstrap_ci(y, s, pr_auc, n_resamples=1000, rng=42)
+print(f"PR-AUC: {ci.point_estimate:.3f}  95% CI: [{ci.ci_low:.3f}, {ci.ci_high:.3f}]")
+
+# Paired bootstrap on the lift between two scorers (s_baseline must be in [0, 1] too).
+s_baseline = np.clip(rng.normal(0.5, 0.3, size=200), 0, 1)
+diff = paired_bootstrap_diff(y, s_baseline, s, pr_auc, n_resamples=1000, rng=42)
+print(f"Δ PR-AUC: {diff.delta:.3f}  overlaps zero: {diff.overlaps_zero}")
+```
+
+### Temperature scaling (Guo et al. 2017)
+
+```python
+import numpy as np
+from eval_toolkit import fit_temperature
+
+rng = np.random.default_rng(42)
+logits = rng.normal(size=(500, 2))
+labels = (logits[:, 1] > logits[:, 0]).astype(int)
+result = fit_temperature(logits, labels)
+print(f"Optimal T: {result['temperature']:.3f}")
+print(f"NLL: {result['nll_pre']:.3f} -> {result['nll_post']:.3f}")
+```
+
+### Reproducibility manifest (NeurIPS-aligned)
+
+```python
+import tempfile
+from pathlib import Path
+from eval_toolkit import make_manifest, write_manifest
+
+with tempfile.TemporaryDirectory() as run_dir:
+    # data_files: {name: path} → eval_toolkit hashes the files for you;
+    # versioned: any object with a `version` attribute (e.g. a scorer or
+    # leakage check) is captured by name → version in the manifest.
+    manifest = make_manifest(
+        run_id="quickstart-demo",
+        config={"threshold_criterion": "max_f1", "seed": 42},
+        seeds={"global": 42, "bootstrap": 42},
+    )
+    write_manifest(manifest, Path(run_dir))
+    # → run_dir/manifest.json: schema_version, git_sha, dirty_flag, code_versions,
+    #   env (python+platform), seeds, data_hashes, versioned_objects, gpu_info
+```
+
+## Modules
+
+| Module | Purpose |
+|---|---|
+| `eval_toolkit.metrics` | PR-AUC, ROC-AUC, ECE variants, Brier decomposition, prior-shift projection |
+| `eval_toolkit.thresholds` | `ThresholdSelector` Protocol + 6 reference impls (max-F1, target-recall/precision/FPR, Youden-J, cost-sensitive) |
+| `eval_toolkit.operating_points` | Fit thresholds on mixed-class slices and apply them to mixed or single-class target slices with provenance |
+| `eval_toolkit.bootstrap` | BCa + paired bootstrap, MDE estimates, two-level operating-point bootstrap, K-fold CLT-corrected CI |
+| `eval_toolkit.calibration` | Reliability curves, Bayes-optimal thresholds, isotonic/Platt/temperature scaling |
+| `eval_toolkit.harness` | `Scorer` Protocol + `evaluate(...)` + `evaluate_folded(...)` slice-aware orchestrators |
+| `eval_toolkit.leakage` | `LeakageCheck` Protocol + 7 reference impls (exact / near / encoding-obfuscated / cross-split / label-conflict / group / temporal); `Versioned` opt-in Protocol |
+| `eval_toolkit.splits` | `Splitter` Protocol + 5 reference impls (holdout / stratified / group / source-disjoint / time-series) |
+| `eval_toolkit.loaders` | `DatasetLoader` Protocol + 4 reference impls (DataFrame / SingleSlice / ParquetGlob / HF datasets) with Croissant-compatible `describe()` |
+| `eval_toolkit.manifest` | `RunManifest` (NeurIPS-aligned) + source-role / guardrail metadata + `make_manifest` / `write_manifest` |
+| `eval_toolkit.claims` | `EvidenceGate` class (frozen dataclass: name + callable check + severity), reference gate factories (`required_metric_gate`, `minimum_slice_size_gate`, `metric_threshold_gate`, etc.), `evaluate_claims()`, and `ClaimReport` for claim-mode vs exploratory-mode checks. See [`docs/source/extending.md`](docs/source/extending.md) for writing custom gates and [`docs/source/examples/claims_and_gates.md`](docs/source/examples/claims_and_gates.md) for a worked end-to-end example. |
+| `eval_toolkit.text_dedup` | `SimilarityStrategy` Protocol + 5 strategies (TF-IDF / hash / embedding / Jaccard / MinHash-LSH); `near_dedup` / `cross_dedup` orchestrators |
+| `eval_toolkit.plotting` | PR curves, reliability diagrams, confusion matrices, score histograms, lift CIs |
+| `eval_toolkit.provenance` | File hashing, run-directory layout, figure metadata sidecar |
+| `eval_toolkit/schemas/` | Bundled JSON Schemas (`results.v1.json`, `results_full.v1.json`, `manifest.v1.json`) — load via `importlib.resources.files("eval_toolkit") / "schemas"` (not an importable Python module) |
+| `eval_toolkit.paths` | Repo-relative path normalization |
+| `eval_toolkit.seeds` | `set_global_seeds` (random + numpy + optional torch) |
+| `eval_toolkit.config` | `frozen_config` decorator + `from_yaml` loader |
+| `eval_toolkit.docs` | Anchor-based markdown rendering with formatter registry |
+
+## Fast iteration loop
+
+For development, skip slow tests with:
+
+```bash
+make fast              # or: nox -s fast
+# under the hood: uv run pytest -m "not slow" -q
+```
+
+CI runs the full suite (including `slow`) on every push. The `slow`
+marker is applied to tests exceeding ~2s (mostly Hypothesis property
+tests with large `max_examples` and a few bootstrap tests with
+`n_resamples >= 200`). `make fast` keeps the developer iteration loop
+under ~30 seconds.
+
+
+## Standards
+
+See [`STYLE.md`](STYLE.md) for the full reconciled coding standards (formatting,
+naming, errors, docstrings, tests, packaging).
+
+## Versioning
+
+Semver from v0.1.0. See [`CHANGELOG.md`](CHANGELOG.md).
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).

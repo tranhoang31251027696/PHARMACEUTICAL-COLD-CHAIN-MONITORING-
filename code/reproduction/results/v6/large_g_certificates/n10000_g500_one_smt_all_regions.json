@@ -1,0 +1,38 @@
+{
+  "case_id": "n10000_g500_one",
+  "n": 10000,
+  "g": 500,
+  "pattern": "one",
+  "method": "smt_all_regions",
+  "input_sha256": "36c477908a81a11920433d384abced502b9553d3c9d9866f7f15f960ab26d723",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "3901/5040",
+        "hi": "3889/5020",
+        "left_closed": false,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "877/759024",
+    "representative_witnesses": [
+      {
+        "alpha": "1959179/2530080",
+        "row_index": 406,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "solver_calls": 2,
+    "predicate_cells": 1,
+    "residual_result": "unsat"
+  }
+}

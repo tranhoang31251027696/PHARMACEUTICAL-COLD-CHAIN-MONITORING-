@@ -1,0 +1,216 @@
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+reuse_cost upstream_int8 singleton 1
+reuse_cost upstream_int8 singleton 8
+reuse_cost upstream_int8 singleton 32
+reuse_cost upstream_int8 singleton 128
+reuse_cost upstream_int8 continuous_window 1
+reuse_cost upstream_int8 continuous_window 8
+reuse_cost upstream_int8 continuous_window 32
+reuse_cost upstream_int8 continuous_window 128
+reuse_cost unix_seconds_int32 singleton 1
+reuse_cost unix_seconds_int32 singleton 8
+reuse_cost unix_seconds_int32 singleton 32
+reuse_cost unix_seconds_int32 singleton 128
+reuse_cost unix_seconds_int32 continuous_window 1
+reuse_cost unix_seconds_int32 continuous_window 8
+reuse_cost unix_seconds_int32 continuous_window 32
+reuse_cost unix_seconds_int32 continuous_window 128
+reuse_cost small_int32_control singleton 1
+reuse_cost small_int32_control singleton 8
+reuse_cost small_int32_control singleton 32
+reuse_cost small_int32_control singleton 128
+reuse_cost small_int32_control continuous_window 1
+reuse_cost small_int32_control continuous_window 8
+reuse_cost small_int32_control continuous_window 32
+reuse_cost small_int32_control continuous_window 128
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 1
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 8
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 32
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 singleton 128
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 1
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 8
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 32
+reuse_cost pipeline_axis_wdbc_logistic_isotonic_seed0 continuous_window 128
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 1
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 8
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 32
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 singleton 128
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 1
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 8
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 32
+reuse_cost pipeline_axis_digits_svc_sigmoid_seed0 continuous_window 128
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 singleton 1
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 singleton 8
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 singleton 32
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 singleton 128
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 1
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 8
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 32
+reuse_cost pipeline_axis_generated_rf_quantized_seed0 continuous_window 128
+{
+  "status": "PASS",
+  "case_count": 6,
+  "query_kinds": 2,
+  "batch_sizes": [
+    1,
+    8,
+    32,
+    128
+  ],
+  "repetitions": 5,
+  "raw_records": 720,
+  "summary_groups": 144,
+  "matched_answers": 30420,
+  "smt_unknown": 0,
+  "observed_crossings": [
+    {
+      "case_id": "upstream_int8",
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "upstream_int8",
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "upstream_int8",
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "upstream_int8",
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "unix_seconds_int32",
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": 32
+    },
+    {
+      "case_id": "small_int32_control",
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "pipeline_axis_wdbc_logistic_isotonic_seed0",
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "pipeline_axis_digits_svc_sigmoid_seed0",
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "singleton",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "singleton",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "continuous_window",
+      "comparator": "direct_masks",
+      "first_observed_sustained_batch": null
+    },
+    {
+      "case_id": "pipeline_axis_generated_rf_quantized_seed0",
+      "kind": "continuous_window",
+      "comparator": "incremental_z3",
+      "first_observed_sustained_batch": 1
+    }
+  ],
+  "source_sha256": "18d1a6564f5b16314b2053f8e973d111519021979b6b4b4efdf991dfc689cc88",
+  "scope": "Computational batch-reuse costs on six existing controlled fixtures, with initial construction/verification included. No human productivity, production requirements, industrial effectiveness, universal threshold or optimized external-tool superiority."
+}

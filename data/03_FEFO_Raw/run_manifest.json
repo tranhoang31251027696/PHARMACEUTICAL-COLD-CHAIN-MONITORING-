@@ -1,0 +1,73 @@
+{
+  "scope": "FEFO only; no training, no Model 2/3, no Quality_Risk_Score",
+  "policy": "Within Product_ID: Dynamic_Expiry_Date ASC; Model 1 does not affect ranking",
+  "policy_source": "Project owner explicitly confirmed in this conversation",
+  "tie_handling": "Equal expiry within a product receives equal dense rank; Batch_ID is display order only",
+  "snapshot_mode": "latest_per_batch",
+  "as_of": null,
+  "candidate_batch_ids": null,
+  "source_zip": "HTTT_W7-20261014T013511Z-1-001.zip",
+  "source_zip_sha256": "0d2ff16449f276b54c36f5db7c8d749da8766957eacb5f74e7ea9b3863ad2c82",
+  "members": {
+    "features_engineered.csv": "HTTT_W7/features_engineered.csv",
+    "products.csv": "HTTT_W7/products.csv",
+    "batches.csv": "HTTT_W7/batches.csv",
+    "sensor.csv": "HTTT_W7/sensor.csv",
+    "coldchain_early_warning_FINAL.pkl": "HTTT_W7/MODEL AND RESULT/MODEL/coldchain_early_warning_FINAL.pkl",
+    "MODEL_CARD_coldchain_early_warning.md": "HTTT_W7/MODEL AND RESULT/RESULT/MODEL_CARD_coldchain_early_warning.md"
+  },
+  "model_sha256": "af9b682914cbb43a28238c2c81bb546bbc3b1dd642610f97320754734647e1a3",
+  "inference_sha256": "f1d96d8afc7718258bb8492d2536f24ac69b375869538f6faf99b536d1cf6d8d",
+  "source_summary": {
+    "products": 63,
+    "batches": 1500,
+    "readings": 416688,
+    "observed_products": 50,
+    "first_reading": "2024-10-30 00:00:00",
+    "last_reading": "2026-04-30 23:00:00"
+  },
+  "ranked_batches": 1500,
+  "ranked_products": 50,
+  "observation_min": "2024-11-12 23:00:00",
+  "observation_max": "2026-04-30 23:00:00",
+  "status_counts": {
+    "NORMAL_ORIGIN": 1482,
+    "ALREADY_EXCURSION": 18
+  },
+  "model1_runtime": {
+    "python": "3.12.3",
+    "libraries": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit-learn": "1.8.0",
+      "xgboost": "3.4.1",
+      "statsmodels": "0.15.0"
+    },
+    "bundle_version": "FINAL-1.0",
+    "tasks": [
+      "w1_12",
+      "w1_24",
+      "w1_6"
+    ],
+    "operating_point": "precision50",
+    "rows_predicted": 4500,
+    "batches": 1500,
+    "inference_status": "SUCCESS"
+  },
+  "notebook_python": "3.13.16",
+  "checks": {
+    "one_row_per_batch": true,
+    "fefo_unchanged_after_alert_join": true,
+    "source_expiry_preserved": true,
+    "sorted_within_product": true,
+    "matching_model1_origin": true,
+    "three_windows_per_batch": true,
+    "model1_inference_succeeded": true
+  },
+  "limitations": [
+    "Historical observations do not establish contemporaneous inventory or shipment eligibility.",
+    "No shelf-life recalculation or fill/interpolation; Dynamic_Expiry_Date preserved from supplied dataset.",
+    "No new risk score, QA clearance, tie-break priority or automatic exclusion policy.",
+    "ALREADY_EXCURSION has no early-warning probability; alert=False in raw inference is not a safety statement."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "external_certificates_source_and_domain_bound": 93,
+  "upstream_snapshots_hash_checked": 3,
+  "historical_binary_execution_claimed": false
+}

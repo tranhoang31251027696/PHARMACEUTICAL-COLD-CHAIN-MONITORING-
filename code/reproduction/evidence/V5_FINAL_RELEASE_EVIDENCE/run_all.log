@@ -1,0 +1,24 @@
+Running pytest
+Running policy_mutation_certificate_benchmarks
+Running matched_method_benchmark
+Running independent_certificate_audit
+Running benchmark_audit
+Running cli_integration
+Running program_evaluation
+Running version_output_evaluation
+Running phase_ablation
+Running revision_audit
+Running external_upstream_case
+Running fail_closed_and_ci
+Running smt_same_contract_baseline
+Running revision_v3_audit
+Running external_selector_onboarding
+Running complete_region_comparison
+Running revision_v4_audit
+Running upstream_selector_tests
+Running second_external_project
+Running expanded_complete_regions
+Running paired_independent_checkers
+Running revision_v5_audit
+Running manuscript
+All requested stages PASS

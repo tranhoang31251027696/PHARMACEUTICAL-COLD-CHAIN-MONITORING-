@@ -1,0 +1,11 @@
+{
+  "scipy": "1.18.1",
+  "numpy": "2.3.5",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python_executable": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\revision_20261029\\envs\\main\\Scripts\\python.exe",
+  "scipy_path": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\revision_20261029\\envs\\main\\Lib\\site-packages\\scipy\\__init__.py",
+  "source_sha256": "5d7aa4e43df2a0b150c87099e48019ce640230f13ed966a2b512d33b973aca95",
+  "arrays": 11,
+  "scores_sha256": "20f233379f562e9aa082fce40baf827b7abd99eb883d0f242cf370d0fea150a9"
+}

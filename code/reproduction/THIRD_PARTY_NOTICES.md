@@ -1,0 +1,9 @@
+# Source and license scope
+
+V6 adds historical SciPy snapshots under vendor/external_scipy, at pre-merge 3565a801587a699d2f320a6406d0f38f86c0c4b0 and merged-fix 7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636. Both upstream BSD LICENSE.txt files and full source/test files are retained with hashes. The executed nearest-interpolation class/helper ASTs are unmodified; current SciPy/NumPy provide the explicitly recorded compatibility bridge. These upstream files are not relicensed under the research project's MIT license.
+
+The original research implementation uses the MIT license in LICENSE. MIT names a permissive software license and does not imply affiliation with MIT. The copyright holder placeholder must be finalized by the actual rights holders before publication.
+
+Historical scikit-learn source snapshots under vendor/external_sklearn retain their upstream BSD license and notices. Installed scikit-learn is executed through its public API for the new optimizer study; its implementation is not relicensed by this project.
+
+The eval-toolkit snapshots under vendor/external_eval_toolkit retain the pinned upstream MIT license, copyright 2026 Brandon Behring, plus source URL/hash manifests. V4 inspected them without executing the package in Python 3.12. V5 retains the complete upstream package source and eighteen threshold tests under vendor/eval_toolkit_full, and an unchanged-source wheel under vendor/wheels. The installed 1.12.0 package is executed in Python 3.13.18, and its 53 installed source files are hash-checked against the pinned source. Source, bundled wheel and upstream license remain under that upstream MIT license. Other inherited vendor files retain their existing provenance documentation. Dataset provenance and inherited-input boundaries are recorded separately in inputs/manifest.json.

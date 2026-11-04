@@ -1,0 +1,103 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "8365eb28ff044321e015d5f71a39ef6833f532c6123174f6b1e9ee36ea3cad05",
+  "domain": [
+    "3/10",
+    "4/5"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "41/64",
+    "41/56",
+    "41/55",
+    "41/54",
+    "4/5"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "41/64",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 64,
+      "new_n": 56,
+      "equal": false,
+      "witness": {
+        "row_index": 8216,
+        "row_id": "8216",
+        "old_selected": true,
+        "new_selected": false,
+        "changed_rows": 8
+      }
+    },
+    {
+      "lo": "41/64",
+      "hi": "41/56",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 56,
+      "new_n": 56,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "41/56",
+      "hi": "41/55",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 55,
+      "new_n": 55,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "41/55",
+      "hi": "41/54",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 54,
+      "new_n": 54,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "41/54",
+      "hi": "4/5",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 42,
+      "new_n": 41,
+      "equal": false,
+      "witness": {
+        "row_index": 18420,
+        "row_id": "18420",
+        "old_selected": true,
+        "new_selected": false,
+        "changed_rows": 1
+      }
+    }
+  ],
+  "equivalent": false,
+  "divergent_length": "659/1728",
+  "psc_exact": "659/864",
+  "psc": 0.7627314814814815,
+  "candidate_counts": [
+    63,
+    34
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 5
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "external_projects": 1,
+  "upstream_confirmed_defects": 1,
+  "issue": "https://github.com/scikit-learn/scikit-learn/issues/23213",
+  "merged_fix": "https://github.com/scikit-learn/scikit-learn/pull/23214",
+  "input_cases": 31,
+  "executed_variant_input_pairs": 93,
+  "affected_policy_divergent_inputs": 15,
+  "snapshot_detected": 14,
+  "grid_detected": 15,
+  "complete_detected": 15,
+  "fixed_or_current_false_alarms": 0,
+  "elapsed_seconds": 28.448823000013363,
+  "historical_mode": "Unmodified upstream function AST replay with sklearn 1.9.1 counting backend, checked against direct masks; not old release binary installation",
+  "scope": "One confirmed upstream curve-truncation defect, propagated through a common local precision-policy selection adapter. Repeated workloads are not independent bugs. No new upstream issue or message sent."
+}

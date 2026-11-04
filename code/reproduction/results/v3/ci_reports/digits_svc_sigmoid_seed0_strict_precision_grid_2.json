@@ -1,0 +1,35 @@
+{
+  "status": "NONCONFORMING",
+  "certified": false,
+  "source_sha256": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+  "mode": "grid",
+  "probes": 13,
+  "failures": [
+    {
+      "alpha": "3/10",
+      "witness_row_id": "85"
+    },
+    {
+      "alpha": "9/20",
+      "witness_row_id": "336"
+    },
+    {
+      "alpha": "1/2",
+      "witness_row_id": "271"
+    },
+    {
+      "alpha": "3/5",
+      "witness_row_id": "264"
+    },
+    {
+      "alpha": "3/4",
+      "witness_row_id": "240"
+    },
+    {
+      "alpha": "9/10",
+      "witness_row_id": "446"
+    }
+  ],
+  "gate_ms": 60.9046,
+  "scope": "Reviewed-source allowlist and audited guard contract. Not a sandbox or arbitrary-Python proof."
+}

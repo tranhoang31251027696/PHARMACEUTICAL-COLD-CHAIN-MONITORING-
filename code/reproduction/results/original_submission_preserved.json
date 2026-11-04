@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "sha256": {
+    "main.pdf": "0d70dded5fef2c12515a1c6756abe21ff4cfd2c1b19a754effecb4da8ba018fe",
+    "ESM_1.pdf": "0f2552a46e913487ae1b4dd29c6a49ca7fd05c064516fb2a1256c36c38b0b17a",
+    "ESM_2.zip": "cd540469e8946498d82210ea79192183ba77e0951d0c80be16189d152fb53cc5"
+  }
+}

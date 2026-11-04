@@ -1,0 +1,13 @@
+operator,runs,policy_divergent,snapshot,grid,id_violations
+aligned_permutation_control,30,0,0,0,0
+drop_middle_group,30,16,2,7,0
+identity_control,30,0,0,0,0
+monotone_control,30,0,0,0,0
+reverse_tie_break,30,30,22,30,0
+round_one_decimal,30,26,24,26,0
+roundoff_tie_split,30,21,16,20,0
+row_id_misalignment,30,0,0,0,30
+split_score_ties,30,20,20,20,0
+strict_precision,30,30,11,19,0
+threshold_gt,30,10,0,10,0
+tp_count_plus_one,30,30,17,25,0

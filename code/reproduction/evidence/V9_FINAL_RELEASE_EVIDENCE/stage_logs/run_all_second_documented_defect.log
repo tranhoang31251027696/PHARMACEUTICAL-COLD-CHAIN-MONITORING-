@@ -1,0 +1,70 @@
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+scipy_source_replay upstream_int8 True
+scipy_source_replay derived_int16 True
+scipy_source_replay unix_seconds_int32 True
+scipy_source_replay aligned_large_int64 True
+scipy_source_replay small_int32_control False
+scipy_source_replay float64_control False
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed0 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed1 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed2 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed3 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed4 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed5 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed6 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed7 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed8 True
+scipy_source_replay pipeline_axis_wdbc_logistic_isotonic_seed9 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed0 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed1 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed2 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed3 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed4 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed5 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed6 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed7 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed8 True
+scipy_source_replay pipeline_axis_digits_svc_sigmoid_seed9 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed0 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed1 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed2 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed3 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed4 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed5 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed6 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed7 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed8 True
+scipy_source_replay pipeline_axis_generated_rf_quantized_seed9 True
+{
+  "status": "PASS",
+  "documented_defect": "scipy/scipy#6318",
+  "merged_fix": "scipy/scipy#6351",
+  "affected_commit": "3565a801587a699d2f320a6406d0f38f86c0c4b0",
+  "fixed_commit": "7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636",
+  "upstream_regression_test": {
+    "affected": "FAIL_EXPECTED_REGRESSION",
+    "fixed": "PASS",
+    "current": "PASS"
+  },
+  "workloads": 36,
+  "variant_workload_pairs": 108,
+  "affected_score_changed": 34,
+  "affected_policy_divergent": 31,
+  "snapshot_detected": 26,
+  "grid_detected": 31,
+  "complete_detected": 31,
+  "fixed_or_current_false_alarms": 0,
+  "positive_divergent_psc_min": 0.05555555555555555,
+  "positive_divergent_psc_max": 1.0,
+  "confirmed_defects_added": 1,
+  "confirmed_defects_across_studies": 2,
+  "external_projects_across_studies": 3,
+  "scipy_runtime": "1.18.1",
+  "compatibility_base_sha256": "54b8bb7db16b6351d49728345157535452bbcb269f8e10f958ca2be25aea7bbe",
+  "upstream_source_edits": 0,
+  "source_sha256": "833b268e7ccc6b43439f438dbe7c22ce40a379802ec000c1d9a2a913b55d69bb",
+  "scope": "Unmodified historical nearest-interpolator class/helpers with modern base helper and np.float_ alias bridge. Original upstream regression test reproduced; not an old binary or original full reporter dataset. Six axis fixtures and thirty fixed pipeline prefixes with synthetic integer-time carriers. One additional documented defect, not thirty-four independent bugs/deployments. Fixed/current identity at observed knots checked directly."
+}

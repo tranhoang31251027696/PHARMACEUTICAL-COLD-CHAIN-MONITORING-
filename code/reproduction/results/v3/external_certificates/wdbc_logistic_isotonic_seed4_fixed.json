@@ -1,0 +1,126 @@
+{
+  "schema": "external-upstream-candidate-conformance/1",
+  "issue": "scikit-learn#23213",
+  "case_id": "wdbc_logistic_isotonic_seed4",
+  "variant": "fixed",
+  "source_sha256": "f5eda405c09f57a094707c41524e48bb83c46722565495f5e33713d02466b9a5",
+  "upstream_commit": "32c53bc69cc0d1f142700dd6c02281a000b855b9",
+  "input_sha256": "b51b5b706e5816fa0f99414187d0e4079ade0912a758cbaf2fd32f61f3a533da",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "52/67",
+    "51/58",
+    "17/19",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "959/2860",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "53/143",
+      "equal": true,
+      "expected_n": 143,
+      "actual_n": 143,
+      "witness_id": null,
+      "expected_bits": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits": "0x7fffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "alpha": "10987/19162",
+      "equal": true,
+      "expected_n": 67,
+      "actual_n": 67,
+      "witness_id": null,
+      "expected_bits": "0x444295711783831bb9e6cdd03b7cf2c35050",
+      "actual_bits": "0x444295711783831bb9e6cdd03b7cf2c35050"
+    },
+    {
+      "alpha": "52/67",
+      "equal": true,
+      "expected_n": 67,
+      "actual_n": 67,
+      "witness_id": null,
+      "expected_bits": "0x444295711783831bb9e6cdd03b7cf2c35050",
+      "actual_bits": "0x444295711783831bb9e6cdd03b7cf2c35050"
+    },
+    {
+      "alpha": "6433/7772",
+      "equal": true,
+      "expected_n": 58,
+      "actual_n": 58,
+      "witness_id": null,
+      "expected_bits": "0x4442917117810303b9e6cdc01b78f0c35050",
+      "actual_bits": "0x4442917117810303b9e6cdc01b78f0c35050"
+    },
+    {
+      "alpha": "51/58",
+      "equal": true,
+      "expected_n": 58,
+      "actual_n": 58,
+      "witness_id": null,
+      "expected_bits": "0x4442917117810303b9e6cdc01b78f0c35050",
+      "actual_bits": "0x4442917117810303b9e6cdc01b78f0c35050"
+    },
+    {
+      "alpha": "1955/2204",
+      "equal": true,
+      "expected_n": 57,
+      "actual_n": 57,
+      "witness_id": null,
+      "expected_bits": "0x4442917117810303b9e6cd801b78f0c35050",
+      "actual_bits": "0x4442917117810303b9e6cd801b78f0c35050"
+    },
+    {
+      "alpha": "17/19",
+      "equal": true,
+      "expected_n": 57,
+      "actual_n": 57,
+      "witness_id": null,
+      "expected_bits": "0x4442917117810303b9e6cd801b78f0c35050",
+      "actual_bits": "0x4442917117810303b9e6cd801b78f0c35050"
+    },
+    {
+      "alpha": "341/380",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x4442917117810303b9e6cd801b78f0435050",
+      "actual_bits": "0x4442917117810303b9e6cd801b78f0435050"
+    },
+    {
+      "alpha": "9/10",
+      "equal": true,
+      "expected_n": 56,
+      "actual_n": 56,
+      "witness_id": null,
+      "expected_bits": "0x4442917117810303b9e6cd801b78f0435050",
+      "actual_bits": "0x4442917117810303b9e6cd801b78f0435050"
+    }
+  ],
+  "equivalent": true,
+  "psc_exact": "0",
+  "historical_binary_execution": false,
+  "backend_sklearn": "1.9.1"
+}

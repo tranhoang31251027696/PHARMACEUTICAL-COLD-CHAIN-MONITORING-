@@ -1,0 +1,40 @@
+{
+  "project": "scipy",
+  "issue": "https://github.com/scipy/scipy/issues/6318",
+  "pull_request": "https://github.com/scipy/scipy/pull/6351",
+  "pr_title": "BUG: #6318 Interp1d 'nearest' integer x-axis overflow issue fixed",
+  "merged_at": "2016-07-06T09:08:44Z",
+  "affected_commit": "3565a801587a699d2f320a6406d0f38f86c0c4b0",
+  "fixed_commit": "7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636",
+  "upstream_source_edits": 0,
+  "files": {
+    "affected__scipy__interpolate__interpolate.py": {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/3565a801587a699d2f320a6406d0f38f86c0c4b0/scipy/interpolate/interpolate.py",
+      "sha256": "5b215ea4b5c95b1df93c49f864fcf3410dc94236fbf5ac28306f908aacd00c63"
+    },
+    "affected__scipy__interpolate__tests__test_interpolate.py": {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/3565a801587a699d2f320a6406d0f38f86c0c4b0/scipy/interpolate/tests/test_interpolate.py",
+      "sha256": "70131b153a444b1dd9f28f2b56ead083db84e1ed23c4f923f9417a1a9ccc97a8"
+    },
+    "affected__LICENSE.txt": {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/3565a801587a699d2f320a6406d0f38f86c0c4b0/LICENSE.txt",
+      "sha256": "142b6deb0132be1adba8d9ba9f9027629f5a9573be3a829ed8a53733473ae0a1"
+    },
+    "fixed__scipy__interpolate__interpolate.py": {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636/scipy/interpolate/interpolate.py",
+      "sha256": "1e0f66368ea3daf46f58d23421400ef6b2f36fff337849ea4d45440ddde933be"
+    },
+    "fixed__scipy__interpolate__tests__test_interpolate.py": {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636/scipy/interpolate/tests/test_interpolate.py",
+      "sha256": "21555b21826d49806b005f731fcd547d3849240194af7c26b1aa0458d4b02efa"
+    },
+    "fixed__LICENSE.txt": {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/7a46deb6b272fb8cdf4348cb3db45ca0ef3b2636/LICENSE.txt",
+      "sha256": "142b6deb0132be1adba8d9ba9f9027629f5a9573be3a829ed8a53733473ae0a1"
+    }
+  },
+  "fix_patches": {
+    "scipy/interpolate/interpolate.py": "@@ -458,7 +458,10 @@ def __init__(self, x, y, kind='linear', axis=-1,\n             # axis.\n             minval = 2\n             if kind == 'nearest':\n-                self.x_bds = (self.x[1:] + self.x[:-1]) / 2.0\n+                # Do division before addition to prevent possible integer overflow\n+                self.x_bds = self.x / 2.0\n+                self.x_bds = self.x_bds[1:] + self.x_bds[:-1]\n+\n                 self._call = self.__class__._call_nearest\n             else:\n                 # Check if we can delegate to numpy.interp (2x-10x faster).",
+    "scipy/interpolate/tests/test_interpolate.py": "@@ -614,6 +614,11 @@ def test_circular_refs(self):\n             new_y = interp([0.1, 0.2])\n             del interp\n \n+    def test_overflow_nearest(self):\n+        # Test that the x range doesn't overflow when given integers as input\n+        x = np.array([0, 50, 127], dtype=np.int8)\n+        ii = interp1d(x, x, kind='nearest')\n+        assert_array_almost_equal(ii(x), x)\n \n class TestLagrange(TestCase):\n "
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "case_id": "n10000_g90_one",
+  "n": 10000,
+  "g": 90,
+  "pattern": "one",
+  "input_sha256": "4745c2c9533b6a12e3ceff7745bf0165f33b6aeccb6ecd0af4b4e39542a99e25",
+  "method": "partition",
+  "certificate": {
+    "domain": [
+      "3/10",
+      "9/10"
+    ],
+    "equivalent": false,
+    "divergent_regions": [
+      {
+        "lo": "4021/5227",
+        "hi": "989/1279",
+        "left_closed": false,
+        "right_closed": true
+      }
+    ],
+    "psc_exact": "133220/20055999",
+    "representative_witnesses": [
+      {
+        "alpha": "5156181/6685333",
+        "row_index": 23,
+        "old_selected": true,
+        "new_selected": false
+      }
+    ],
+    "witness_scope": "One example policy/ID per maximal component, not one universally changing ID over the component."
+  },
+  "algorithm_stats": {
+    "critical_points": 79
+  }
+}

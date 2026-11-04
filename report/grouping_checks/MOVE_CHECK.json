@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "from": "GITHUB_UPLOAD/code",
+  "to": "GITHUB_UPLOAD/code/reproduction",
+  "manifest_files_verified": 3474,
+  "computational_source_modified": false,
+  "outer_entrypoint_and_dependency_paths_updated": true,
+  "administrative_missing_manifest_entries_removed": [
+    "RESPONSE_TO_REVIEW_V2.md"
+  ],
+  "dependency_notices_restored_from_original_archive": true
+}

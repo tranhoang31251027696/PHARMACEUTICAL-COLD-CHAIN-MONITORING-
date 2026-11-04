@@ -1,0 +1,200 @@
+policy 0 plain_6h__scipy_1.15.3_float32 PSC 0
+policy 1 plain_6h__manual_float32_slope PSC 0
+policy 2 plain_6h__manual_float64_endpoint PSC 0
+policy 3 plain_6h__numpy_float64_linear PSC 0
+policy 4 plain_6h__numpy_float64_linear_cast32 PSC 0
+policy 5 thermal_6h__scipy_1.15.3_float32 PSC 1
+policy 6 thermal_6h__manual_float32_slope PSC 1
+policy 7 thermal_6h__manual_float64_endpoint PSC 1
+policy 8 thermal_6h__numpy_float64_linear PSC 1
+policy 9 thermal_6h__numpy_float64_linear_cast32 PSC 1
+policy 10 thermal_plus_arrhenius_6h__scipy_1.15.3_float32 PSC 83/90
+policy 11 thermal_plus_arrhenius_6h__manual_float32_slope PSC 83/90
+policy 12 thermal_plus_arrhenius_6h__manual_float64_endpoint PSC 83/90
+policy 13 thermal_plus_arrhenius_6h__numpy_float64_linear PSC 83/90
+policy 14 thermal_plus_arrhenius_6h__numpy_float64_linear_cast32 PSC 83/90
+policy 15 plain_12h__scipy_1.15.3_float32 PSC 53/120
+policy 16 plain_12h__manual_float32_slope PSC 53/120
+policy 17 plain_12h__manual_float64_endpoint PSC 37/55
+policy 18 plain_12h__numpy_float64_linear PSC 53/120
+policy 19 plain_12h__numpy_float64_linear_cast32 PSC 53/120
+policy 20 thermal_12h__scipy_1.15.3_float32 PSC 59318/89175
+policy 21 thermal_12h__manual_float32_slope PSC 59318/89175
+policy 22 thermal_12h__manual_float64_endpoint PSC 36084/41615
+policy 23 thermal_12h__numpy_float64_linear PSC 59318/89175
+policy 24 thermal_12h__numpy_float64_linear_cast32 PSC 59318/89175
+policy 25 thermal_plus_arrhenius_12h__scipy_1.15.3_float32 PSC 158/405
+policy 26 thermal_plus_arrhenius_12h__manual_float32_slope PSC 158/405
+policy 27 thermal_plus_arrhenius_12h__manual_float64_endpoint PSC 119087/301725
+policy 28 thermal_plus_arrhenius_12h__numpy_float64_linear PSC 158/405
+policy 29 thermal_plus_arrhenius_12h__numpy_float64_linear_cast32 PSC 158/405
+policy 30 plain_24h__scipy_1.15.3_float32 PSC 659/864
+policy 31 plain_24h__manual_float32_slope PSC 659/864
+policy 32 plain_24h__manual_float64_endpoint PSC 1358/1755
+policy 33 plain_24h__numpy_float64_linear PSC 659/864
+policy 34 plain_24h__numpy_float64_linear_cast32 PSC 659/864
+policy 35 thermal_24h__scipy_1.15.3_float32 PSC 0
+policy 36 thermal_24h__manual_float32_slope PSC 0
+policy 37 thermal_24h__manual_float64_endpoint PSC 0
+policy 38 thermal_24h__numpy_float64_linear PSC 0
+policy 39 thermal_24h__numpy_float64_linear_cast32 PSC 0
+policy 40 thermal_plus_arrhenius_24h__scipy_1.15.3_float32 PSC 88/305
+policy 41 thermal_plus_arrhenius_24h__manual_float32_slope PSC 88/305
+policy 42 thermal_plus_arrhenius_24h__manual_float64_endpoint PSC 88/305
+policy 43 thermal_plus_arrhenius_24h__numpy_float64_linear PSC 88/305
+policy 44 thermal_plus_arrhenius_24h__numpy_float64_linear_cast32 PSC 88/305
+policy 45 temperature_only48_6h__scipy_1.15.3_float32 PSC 2986/5985
+policy 46 temperature_only48_6h__manual_float32_slope PSC 2986/5985
+policy 47 temperature_only48_6h__manual_float64_endpoint PSC 947/1596
+policy 48 temperature_only48_6h__numpy_float64_linear PSC 2986/5985
+policy 49 temperature_only48_6h__numpy_float64_linear_cast32 PSC 2986/5985
+policy 50 identity PSC 0
+policy 51 split_strict_gain PSC 1/3
+policy 52 split_equal_TP_more_alerts PSC 1/3
+policy 53 split_frontier_only PSC 1/3
+policy 54 merge_changes_selection PSC 1/3
+policy 55 merge_frontier_only PSC 1/3
+policy 56 cross_to_abstention PSC 3/5
+policy 57 cross_below_selection PSC 1/3
+policy 58 monotone_affine PSC 0
+policy 59 tiny_monotone_shift PSC 0
+policy 60 no_feasible_candidate PSC 0
+policy 61 all_negative PSC 0
+policy 62 duplicates_full_feasible PSC 4/15
+policy 63 fixed_only_boundary_cross PSC 0
+policy 64 equal_counts_different_members PSC 4/15
+policy 65 multiple_splits PSC 3/5
+policy 66 split_with_outside_shift PSC 1/3
+policy 67 public_wdbc_pilot PSC 29/306
+policy 68 wdbc_logistic_isotonic_seed0 PSC 0
+policy 69 wdbc_logistic_isotonic_seed1 PSC 0
+policy 70 wdbc_logistic_isotonic_seed2 PSC 0
+policy 71 wdbc_logistic_isotonic_seed3 PSC 0
+policy 72 wdbc_logistic_isotonic_seed4 PSC 0
+policy 73 wdbc_logistic_isotonic_seed5 PSC 0
+policy 74 wdbc_logistic_isotonic_seed6 PSC 0
+policy 75 wdbc_logistic_isotonic_seed7 PSC 0
+policy 76 wdbc_logistic_isotonic_seed8 PSC 0
+policy 77 wdbc_logistic_isotonic_seed9 PSC 0
+policy 78 digits_svc_sigmoid_seed0 PSC 0
+policy 79 digits_svc_sigmoid_seed1 PSC 0
+policy 80 digits_svc_sigmoid_seed2 PSC 25/5084
+policy 81 digits_svc_sigmoid_seed3 PSC 0
+policy 82 digits_svc_sigmoid_seed4 PSC 0
+policy 83 digits_svc_sigmoid_seed5 PSC 0
+policy 84 digits_svc_sigmoid_seed6 PSC 0
+policy 85 digits_svc_sigmoid_seed7 PSC 0
+policy 86 digits_svc_sigmoid_seed8 PSC 0
+policy 87 digits_svc_sigmoid_seed9 PSC 0
+policy 88 generated_rf_quantized_seed0 PSC 0
+policy 89 generated_rf_quantized_seed1 PSC 0
+policy 90 generated_rf_quantized_seed2 PSC 0
+policy 91 generated_rf_quantized_seed3 PSC 0
+policy 92 generated_rf_quantized_seed4 PSC 0
+policy 93 generated_rf_quantized_seed5 PSC 0
+policy 94 generated_rf_quantized_seed6 PSC 0
+policy 95 generated_rf_quantized_seed7 PSC 0
+policy 96 generated_rf_quantized_seed8 PSC 0
+policy 97 generated_rf_quantized_seed9 PSC 0
+mutations wdbc_logistic_isotonic_seed0
+mutations wdbc_logistic_isotonic_seed1
+mutations wdbc_logistic_isotonic_seed2
+mutations wdbc_logistic_isotonic_seed3
+mutations wdbc_logistic_isotonic_seed4
+mutations wdbc_logistic_isotonic_seed5
+mutations wdbc_logistic_isotonic_seed6
+mutations wdbc_logistic_isotonic_seed7
+mutations wdbc_logistic_isotonic_seed8
+mutations wdbc_logistic_isotonic_seed9
+mutations digits_svc_sigmoid_seed0
+mutations digits_svc_sigmoid_seed1
+mutations digits_svc_sigmoid_seed2
+mutations digits_svc_sigmoid_seed3
+mutations digits_svc_sigmoid_seed4
+mutations digits_svc_sigmoid_seed5
+mutations digits_svc_sigmoid_seed6
+mutations digits_svc_sigmoid_seed7
+mutations digits_svc_sigmoid_seed8
+mutations digits_svc_sigmoid_seed9
+mutations generated_rf_quantized_seed0
+mutations generated_rf_quantized_seed1
+mutations generated_rf_quantized_seed2
+mutations generated_rf_quantized_seed3
+mutations generated_rf_quantized_seed4
+mutations generated_rf_quantized_seed5
+mutations generated_rf_quantized_seed6
+mutations generated_rf_quantized_seed7
+mutations generated_rf_quantized_seed8
+mutations generated_rf_quantized_seed9
+benchmark 1000 invariant
+benchmark 1000 divergent
+benchmark 10000 invariant
+benchmark 10000 divergent
+benchmark 100000 invariant
+benchmark 100000 divergent
+{
+  "status": "PASS",
+  "started_utc": "2026-10-30T02:41:55.560722+00:00",
+  "ended_utc": "2026-10-30T02:46:12.399291+00:00",
+  "elapsed_seconds": 256.83851510001114,
+  "policy_cases": 98,
+  "historical_grid_checks": 255,
+  "policy_sensitive_cases": 53,
+  "cohorts": {
+    "Independent_pipeline": {
+      "cases": 30,
+      "sensitive": 1
+    },
+    "Public_WDBC": {
+      "cases": 1,
+      "sensitive": 1
+    },
+    "Retained": {
+      "cases": 50,
+      "sensitive": 40
+    },
+    "Synthetic": {
+      "cases": 17,
+      "sensitive": 11
+    }
+  },
+  "mutation_runs": 360,
+  "contract_failures_detected": 30,
+  "policy_divergent_mutants": 183,
+  "observed_equivalent_mutants": 57,
+  "valid_controls": 90,
+  "policy_false_alarms_on_controls": 0,
+  "detections_on_policy_divergent": {
+    "snapshot_detected": 112,
+    "grid_detected": 157,
+    "score_b4_flag": 47,
+    "current_guard_flag": 47,
+    "exact_detected": 183
+  },
+  "structural_flags_without_policy_divergence": {
+    "score_b4_flag": 9,
+    "current_guard_flag": 42
+  },
+  "benchmark_rows": 120,
+  "limitations": [
+    "Single host; descriptive latency under tracemalloc includes certificate serialization",
+    "Hand-designed mutants and synthetic perturbations, not naturally occurring releases",
+    "Repeated splits of three datasets are not independent external deployments",
+    "B4/current guard observe scores, not arbitrary changes inside selector code",
+    "Finite local evidence does not establish novelty, universal correctness, or journal acceptance"
+  ],
+  "environment": {
+    "python": "3.13.18 (main, Oct 26 2026, 14:10:48) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.3.5",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "frozen_input_generation_environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.3.5",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "workloads": 36,
+  "queries_per_workload": 8,
+  "matched_query_answers": 288,
+  "direct_policies_enumerated": 24408,
+  "smt_unknown": 0,
+  "new_documented_defects": 0,
+  "study_source_sha256": "d834781476660da6313640ab17175e55ef84b077a45dab99d5122fc3fd589f7e",
+  "query_source_sha256": "1f7d0da3955de18efcb8ee3d57e9630ffe00c4685c7e23a908385c0313c1feb2",
+  "by_query": [
+    {
+      "query": "grid13",
+      "workloads": 36,
+      "affected_workloads": 31,
+      "allowed_count_per_workload": 13,
+      "affected_policy_workload_pairs": 340
+    },
+    {
+      "query": "declared_three",
+      "workloads": 36,
+      "affected_workloads": 30,
+      "allowed_count_per_workload": 3,
+      "affected_policy_workload_pairs": 86
+    },
+    {
+      "query": "decimal2",
+      "workloads": 36,
+      "affected_workloads": 31,
+      "allowed_count_per_workload": 61,
+      "affected_policy_workload_pairs": 1611
+    },
+    {
+      "query": "decimal3",
+      "workloads": 36,
+      "affected_workloads": 31,
+      "allowed_count_per_workload": 601,
+      "affected_policy_workload_pairs": 15886
+    },
+    {
+      "query": "decimal4",
+      "workloads": 36,
+      "affected_workloads": 31,
+      "allowed_count_per_workload": 6001,
+      "affected_policy_workload_pairs": 158657
+    },
+    {
+      "query": "decimal6",
+      "workloads": 36,
+      "affected_workloads": 31,
+      "allowed_count_per_workload": 600001,
+      "affected_policy_workload_pairs": 15863561
+    },
+    {
+      "query": "whole_interval",
+      "workloads": 36,
+      "affected_workloads": 31,
+      "allowed_count_per_workload": null,
+      "affected_policy_workload_pairs": null
+    },
+    {
+      "query": "high_interval",
+      "workloads": 36,
+      "affected_workloads": 30,
+      "allowed_count_per_workload": null,
+      "affected_policy_workload_pairs": null
+    }
+  ],
+  "scope": "Functional diagnostic utility on existing controlled SciPy propagation fixtures. Scenario policies are not observed application requirements. SMT answers the same questions; no unique solver capability, speed superiority, measured developer benefit or new real-bug detection gain."
+}

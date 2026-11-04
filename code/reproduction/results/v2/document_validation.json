@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "pages": 12,
+  "native_equations": 2,
+  "embedded_figures": 2,
+  "tables": 8,
+  "references": 13,
+  "word_count_markdown": 6259,
+  "render_route": "Native Word export plus Poppler; canonical renderer unavailable because LibreOffice is absent",
+  "visual_review": "All 12 pages inspected; title border removed and table-header-only page break fixed",
+  "source_docx_sha256": "dc072c88503cd6eb36ae725a2e13bd1bd5175522e5ddec407e39def81375f478",
+  "pdf_sha256": "2805e6a18f8c066270c8545f87a1c598034f43d122b6f299deefd61c8bc749dc",
+  "fresh_measured_median_ms": 1737.7592
+}

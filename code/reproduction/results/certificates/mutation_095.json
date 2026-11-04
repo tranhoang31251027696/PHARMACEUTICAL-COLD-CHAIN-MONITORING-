@@ -1,0 +1,120 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "a3a85ca82b972e983c69e5a88b02eb49cf45a4237cab592cdcf227c0d24becb3",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "53/114",
+    "53/87",
+    "53/65",
+    "53/64",
+    "9/10"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "53/143",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 143,
+      "new_n": 143,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/143",
+      "hi": "53/114",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 65,
+      "new_n": 114,
+      "equal": false,
+      "witness": {
+        "row_index": 0,
+        "row_id": "0",
+        "old_selected": false,
+        "new_selected": true,
+        "changed_rows": 49
+      }
+    },
+    {
+      "lo": "53/114",
+      "hi": "53/87",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 65,
+      "new_n": 87,
+      "equal": false,
+      "witness": {
+        "row_index": 6,
+        "row_id": "6",
+        "old_selected": false,
+        "new_selected": true,
+        "changed_rows": 22
+      }
+    },
+    {
+      "lo": "53/87",
+      "hi": "53/65",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 65,
+      "new_n": 65,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/65",
+      "hi": "53/64",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 64,
+      "new_n": 64,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/64",
+      "hi": "9/10",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 49,
+      "new_n": 58,
+      "equal": false,
+      "witness": {
+        "row_index": 12,
+        "row_id": "12",
+        "old_selected": false,
+        "new_selected": true,
+        "changed_rows": 9
+      }
+    }
+  ],
+  "equivalent": false,
+  "divergent_length": "1235903/3981120",
+  "psc_exact": "1235903/2388672",
+  "psc": 0.5174017194491333,
+  "candidate_counts": [
+    4,
+    10
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 6
+}

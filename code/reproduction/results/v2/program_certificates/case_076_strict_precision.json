@@ -1,0 +1,93 @@
+{
+  "schema": "instrumented-program-conformance/1",
+  "case_id": "wdbc_logistic_isotonic_seed8",
+  "source_sha256": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+  "frozen_input_sha256": "984cfc6db36931e7c9ab61d6a68d1ec6f257929a8c656849445aca9aa5182d64",
+  "expected_contract": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "guard_events": [
+    "53/143",
+    "53/65",
+    "53/64",
+    "1"
+  ],
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "53/65",
+    "53/64",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "conforms": true,
+      "expected_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "959/2860",
+      "conforms": true,
+      "expected_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "53/143",
+      "conforms": false,
+      "expected_bits_hex": "0x7fffffffffffffffffffffffffffffffffff",
+      "actual_bits_hex": "0x1c71c5ec686f653caa3e8919942833199c04",
+      "witness_row_id": "0"
+    },
+    {
+      "alpha": "424/715",
+      "conforms": true,
+      "expected_bits_hex": "0x1c71c5ec686f653caa3e8919942833199c04",
+      "actual_bits_hex": "0x1c71c5ec686f653caa3e8919942833199c04",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "53/65",
+      "conforms": false,
+      "expected_bits_hex": "0x1c71c5ec686f653caa3e8919942833199c04",
+      "actual_bits_hex": "0x1c7185ec686f653caa3e8919942833199c04",
+      "witness_row_id": "126"
+    },
+    {
+      "alpha": "6837/8320",
+      "conforms": true,
+      "expected_bits_hex": "0x1c7185ec686f653caa3e8919942833199c04",
+      "actual_bits_hex": "0x1c7185ec686f653caa3e8919942833199c04",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "53/64",
+      "conforms": false,
+      "expected_bits_hex": "0x1c7185ec686f653caa3e8919942833199c04",
+      "actual_bits_hex": "0x1c70846028676514283e8908902833198c04",
+      "witness_row_id": "12"
+    },
+    {
+      "alpha": "553/640",
+      "conforms": true,
+      "expected_bits_hex": "0x1c70846028676514283e8908902833198c04",
+      "actual_bits_hex": "0x1c70846028676514283e8908902833198c04",
+      "witness_row_id": null
+    },
+    {
+      "alpha": "9/10",
+      "conforms": true,
+      "expected_bits_hex": "0x1c70846028676514283e8908902833198c04",
+      "actual_bits_hex": "0x1c70846028676514283e8908902833198c04",
+      "witness_row_id": null
+    }
+  ],
+  "conforms": false,
+  "psc_exact": "0",
+  "scope": "Complete for this audited alpha-only-in-guard corpus; not arbitrary program verification."
+}

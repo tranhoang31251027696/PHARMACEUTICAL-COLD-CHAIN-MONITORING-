@@ -1,0 +1,159 @@
+{
+  "status": "NONCONFORMING",
+  "certified": false,
+  "source_sha256": "f69bd621ace5408ea15f0306f570c4de5a91155b2ed89d0ea7bd8ba24a9069b6",
+  "mode": "complete",
+  "probes": 1003,
+  "failures": [
+    {
+      "alpha": "25059/50000",
+      "witness_row_id": "35"
+    },
+    {
+      "alpha": "48108/95989",
+      "witness_row_id": "159"
+    },
+    {
+      "alpha": "47421/94607",
+      "witness_row_id": "231"
+    },
+    {
+      "alpha": "23509/46898",
+      "witness_row_id": "105"
+    },
+    {
+      "alpha": "46635/93013",
+      "witness_row_id": "13"
+    },
+    {
+      "alpha": "46319/92381",
+      "witness_row_id": "183"
+    },
+    {
+      "alpha": "45432/90605",
+      "witness_row_id": "383"
+    },
+    {
+      "alpha": "22668/45199",
+      "witness_row_id": "74"
+    },
+    {
+      "alpha": "6433/12827",
+      "witness_row_id": "182"
+    },
+    {
+      "alpha": "44836/89385",
+      "witness_row_id": "46"
+    },
+    {
+      "alpha": "44643/89000",
+      "witness_row_id": "2"
+    },
+    {
+      "alpha": "44536/88769",
+      "witness_row_id": "27"
+    },
+    {
+      "alpha": "1019/2031",
+      "witness_row_id": "194"
+    },
+    {
+      "alpha": "39637/78994",
+      "witness_row_id": "143"
+    },
+    {
+      "alpha": "39561/78802",
+      "witness_row_id": "163"
+    },
+    {
+      "alpha": "39471/78620",
+      "witness_row_id": "48"
+    },
+    {
+      "alpha": "37833/75347",
+      "witness_row_id": "257"
+    },
+    {
+      "alpha": "37738/75153",
+      "witness_row_id": "455"
+    },
+    {
+      "alpha": "37360/74387",
+      "witness_row_id": "23"
+    },
+    {
+      "alpha": "37277/74209",
+      "witness_row_id": "254"
+    },
+    {
+      "alpha": "37075/73797",
+      "witness_row_id": "674"
+    },
+    {
+      "alpha": "12328/24537",
+      "witness_row_id": "19"
+    },
+    {
+      "alpha": "1966/3913",
+      "witness_row_id": "0"
+    },
+    {
+      "alpha": "2147/4270",
+      "witness_row_id": "110"
+    },
+    {
+      "alpha": "6253/12414",
+      "witness_row_id": "7"
+    },
+    {
+      "alpha": "6163/12215",
+      "witness_row_id": "72"
+    },
+    {
+      "alpha": "5494/10889",
+      "witness_row_id": "745"
+    },
+    {
+      "alpha": "1796/3557",
+      "witness_row_id": "228"
+    },
+    {
+      "alpha": "5093/10078",
+      "witness_row_id": "118"
+    },
+    {
+      "alpha": "1569/3097",
+      "witness_row_id": "200"
+    },
+    {
+      "alpha": "3819/7537",
+      "witness_row_id": "247"
+    },
+    {
+      "alpha": "1859/3662",
+      "witness_row_id": "314"
+    },
+    {
+      "alpha": "3522/6937",
+      "witness_row_id": "155"
+    },
+    {
+      "alpha": "2997/5900",
+      "witness_row_id": "25"
+    },
+    {
+      "alpha": "494/963",
+      "witness_row_id": "530"
+    },
+    {
+      "alpha": "319/596",
+      "witness_row_id": "171"
+    },
+    {
+      "alpha": "101/188",
+      "witness_row_id": "463"
+    }
+  ],
+  "gate_ms": 3789.4991,
+  "scope": "Reviewed-source allowlist and audited guard contract. Not a sandbox or arbitrary-Python proof."
+}

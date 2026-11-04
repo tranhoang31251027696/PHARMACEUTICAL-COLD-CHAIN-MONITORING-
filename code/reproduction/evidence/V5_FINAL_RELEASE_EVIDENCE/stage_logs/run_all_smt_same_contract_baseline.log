@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "solver_version": "5.3.3",
+  "queries": 279,
+  "distinct_equivalence_tasks": 93,
+  "repetitions": 3,
+  "sat_queries": 45,
+  "unknown_queries": 0,
+  "all_logical_verdicts_match_partition_checker": true,
+  "all_sat_models_independently_rechecked": true,
+  "median_encoding_ms": 11.9482,
+  "median_solver_ms": 0.898,
+  "scope": "Same finite empirical contract and external threshold lists. Same-score nested prefixes allow size inequality as membership inequality. SAT gives one witness; no full interval certificate/PSC. Not a claim about arbitrary score crossings or arbitrary source programs."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "prior_v9_exact_stages": 33,
+  "prior_v9_archive_sha256": "7cef6e2f0355f701c044f3a1e46239ccc016325706ad2f0aca48a807bda03340",
+  "prior_certificate_audit_exit_code": 0,
+  "sidecars_hash_verified": 36,
+  "scientific_source_files_unchanged": 138,
+  "generated_snapshot_binding": "Snapshot must match archived V9 bytes or unchanged V9 root driver bytes; the archived snapshot predates an environment reporting fix",
+  "default_stage_driver_unchanged": true,
+  "scientific_protocol_stages": 33,
+  "manuscript_title": "Exact Policy-Aware Regression Diagnosis for Precision-Constrained Threshold Selectors",
+  "external_references_retained": 28,
+  "related_unpublished_reference": 29,
+  "publication_status_source": "Direct user confirmation; no fabricated publication metadata",
+  "scope": "Editorial scope/title/overlap and release-context checks; no new scientific experiment, property-test corpus or external validation claimed."
+}

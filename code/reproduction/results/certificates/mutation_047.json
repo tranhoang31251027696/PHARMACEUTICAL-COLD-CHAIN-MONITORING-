@@ -1,0 +1,97 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "6fdf9d2432e46fa3deffc165022b827cec946e36fd12bbbc0c5219e321bdd264",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "drop_group",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "53/143",
+    "52/67",
+    "51/58",
+    "17/19",
+    "9/10"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "53/143",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 143,
+      "new_n": 143,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "53/143",
+      "hi": "52/67",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 67,
+      "new_n": 67,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "52/67",
+      "hi": "51/58",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 58,
+      "new_n": 58,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "51/58",
+      "hi": "17/19",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 57,
+      "new_n": 56,
+      "equal": false,
+      "witness": {
+        "row_index": 23,
+        "row_id": "23",
+        "old_selected": true,
+        "new_selected": false,
+        "changed_rows": 1
+      }
+    },
+    {
+      "lo": "17/19",
+      "hi": "9/10",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 56,
+      "new_n": 56,
+      "equal": true,
+      "witness": null
+    }
+  ],
+  "equivalent": false,
+  "divergent_length": "17/1102",
+  "psc_exact": "85/3306",
+  "psc": 0.02571082879612825,
+  "candidate_counts": [
+    8,
+    7
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 5
+}

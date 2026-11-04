@@ -1,0 +1,26 @@
+{
+  "repo": "https://github.com/brandon-behring/eval-toolkit",
+  "commit": "a6400e74c4534d6d79f17dee11ad903b6d664980",
+  "files": {
+    "LICENSE": {
+      "upstream_path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/brandon-behring/eval-toolkit/a6400e74c4534d6d79f17dee11ad903b6d664980/LICENSE",
+      "sha256": "20b7a48290796e3c8eab7822f0cc86e3705dd1f7504a8ca516759d789830e400"
+    },
+    "pyproject.toml": {
+      "upstream_path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/brandon-behring/eval-toolkit/a6400e74c4534d6d79f17dee11ad903b6d664980/pyproject.toml",
+      "sha256": "2c684d4b3f0531ed9cfd95e4d31c699e919957cd0af0f3765afb0c83106f90e4"
+    },
+    "src__eval_toolkit__thresholds.py": {
+      "upstream_path": "src/eval_toolkit/thresholds.py",
+      "url": "https://raw.githubusercontent.com/brandon-behring/eval-toolkit/a6400e74c4534d6d79f17dee11ad903b6d664980/src/eval_toolkit/thresholds.py",
+      "sha256": "dd4f4751fdf30f85ca06233c5a5cd140d0a46105a9e494ccb32bd7c041fc1e47"
+    },
+    "tests__test_thresholds.py": {
+      "upstream_path": "tests/test_thresholds.py",
+      "url": "https://raw.githubusercontent.com/brandon-behring/eval-toolkit/a6400e74c4534d6d79f17dee11ad903b6d664980/tests/test_thresholds.py",
+      "sha256": "158fd9e490d8017e2e72b2b64cb04beae11ce34e574f0098035d306681761401"
+    }
+  }
+}

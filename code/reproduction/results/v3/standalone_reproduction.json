@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "candidate_zip_sha256": "c7c615cfe1a8bfc8a781d6fd4e91573332f430d01b2f19bb54b1e581a51db8d7",
+  "clean_directory": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\Q1_revision_v3\\clean_extract\\artifact",
+  "neighboring_submission_absent": true,
+  "interpreter": "D:\\UEH\\3_HKC2026\\Thi\u1ebft k\u1ebf h\u1ec7 th\u1ed1ng th\u00f4ng tin\\PROJECT\\revision_20261029\\envs\\main\\Scripts\\python.exe",
+  "stages": [
+    {
+      "stage": "pytest",
+      "exit_code": 0,
+      "seconds": 13.032864100008737
+    },
+    {
+      "stage": "policy_mutation_certificate_benchmarks",
+      "exit_code": 0,
+      "seconds": 103.88431059999857
+    },
+    {
+      "stage": "matched_method_benchmark",
+      "exit_code": 0,
+      "seconds": 1.6879885999951512
+    },
+    {
+      "stage": "independent_certificate_audit",
+      "exit_code": 0,
+      "seconds": 64.8471520000021
+    },
+    {
+      "stage": "benchmark_audit",
+      "exit_code": 0,
+      "seconds": 16.809474199952092
+    },
+    {
+      "stage": "cli_integration",
+      "exit_code": 0,
+      "seconds": 0.9347830000333488
+    },
+    {
+      "stage": "program_evaluation",
+      "exit_code": 0,
+      "seconds": 33.14791440003319
+    },
+    {
+      "stage": "version_output_evaluation",
+      "exit_code": 0,
+      "seconds": 0.8909768000012264
+    },
+    {
+      "stage": "phase_ablation",
+      "exit_code": 0,
+      "seconds": 2.972038200008683
+    },
+    {
+      "stage": "revision_audit",
+      "exit_code": 0,
+      "seconds": 33.47860470000887
+    },
+    {
+      "stage": "external_upstream_case",
+      "exit_code": 0,
+      "seconds": 12.847258699999657
+    },
+    {
+      "stage": "fail_closed_and_ci",
+      "exit_code": 0,
+      "seconds": 57.684499499970116
+    },
+    {
+      "stage": "smt_same_contract_baseline",
+      "exit_code": 0,
+      "seconds": 14.687499199993908
+    },
+    {
+      "stage": "revision_v3_audit",
+      "exit_code": 0,
+      "seconds": 14.201339599967469
+    },
+    {
+      "stage": "manuscript",
+      "exit_code": 0,
+      "seconds": 0.19093909999355674
+    }
+  ],
+  "elapsed_stage_seconds": 371.2976426999667,
+  "scientific_source_sha256_match": {
+    "benchmark_test_methods.py": "68ce2397d5e56c91e86c474bd5186043af984b08ce953ac077885fd3a22eac7c",
+    "build_manuscript.py": "553d9a3a2010f3d110bd25756cc6ef174c4c8593ff2b7a6d55248ad905dca04d",
+    "build_revision_text.py": "c2589e525a320dfc1a40084a490f2c45238421e7f4bd09da161a7069f41378a0",
+    "build_v3_revision.py": "3bae927f7f374dbcf8cd5b82dd5e954c41a0eb8be25300e3e109ad2c919363b1",
+    "check_cli_integration.py": "0696fd09407b900ae6587b3c17d944bc5a99a29a8624e478b9bd3c13289e5869",
+    "external_sut_evaluation.py": "faf49866b2ed07540e6035098cc5cb69c7b7d466cf2aaa04d9ea04f9837c29eb",
+    "failure_and_ci_evaluation.py": "402963f36c660bdb698d1eba73a8a8965abee5c4728904224214cf43eb409e6e",
+    "package_artifact.py": "24b8c7609e9cf56ef54d73d945d675b87ec095bcfe12e13a4413784a5698f72e",
+    "policy_cli.py": "aae8fb85c2ec2b2e35967f041e3be85d096a497ba71bc43dca893eb573a366ce",
+    "prepare_inputs.py": "a8e861e7525a3997484bed78bab69ea7172c857ea1c689b1c7894a6276ad78d3",
+    "program_evaluation.py": "dce285ac7ee119e9f71419e1eeaf097895239a7afb1b45fd5a39a9880c1abdf5",
+    "program_gate.py": "825f5d52cc8d0771ec03f23e460c6953640cba174954065af325b77746440fed",
+    "run_ablation.py": "a988ff7d1e75b642057a6120273fa946854e91c5dc22a678f5f2974f6d4256fe",
+    "run_all.py": "4f6fa074e247012ce8445cb6b753f923d2e1ce319c85dd5424b08d5bb82ca6e9",
+    "run_experiments.py": "3ccc4c35aa8e26b036112f23a101e584d4fcca39da553fad486e575c5bd1358f",
+    "run_version_pair.py": "dcda3e69825e0f1551172a793ab9e05f6db33a345ac441f2a01b954386dbe849",
+    "smt_baseline.py": "4eb311c70768786c68c7b8cdfbbc86853ae4ae791abdccdd316053e05cdcc910",
+    "validate_benchmarks.py": "d4f293bef07436b8308a93e84e1ba5f7783e59b8b981b6f5d2ee85dda75f55e7",
+    "validate_revision.py": "d8ac68eb2f61cb5fbb735a7f9e5cbb4cd45e875d7048286414a5f5c19cdb483b",
+    "validate_v3.py": "ef593af74bc4d343b0d6da2003a55b13308c2a29e85364c760002719b7a12da9",
+    "verify_artifact.py": "9ad4d04675ca3c560b2cdf58a95d128f03c67a5b765fefd90a163c0d5b6d11e3",
+    "version_evaluation.py": "93f76c8aaecbb36b5bcfeefb7144b2ec540b919787705b39da6dbe2ea374010a",
+    "version_worker.py": "9a6edf88aa35ab3ae22c8ac36d005820549c6744815bdd302fad4bde7f26c03f",
+    "src/adapter_admission.py": "0b5c71f1041d72dc46eb0f4c6e73bff05d69c8f60bad9afc210c7a244826cf0a",
+    "src/independent_oracle.py": "71902f156dea33ce1346e9f6966550b27a040ea6a8f423f6b0aae67303bfb4a3",
+    "src/policy_exact.py": "f4c682d80026c08a9a236e453faba606893e09b7941c2ffe21ee0a551aa3dc6c",
+    "src/selector_program.py": "d47a27df7e6e92430cbcc32ce8743c76b256bc0075191511ef47b7c84985a05c",
+    "tests/test_fail_closed.py": "4b6889c8f88747522c458d1b473966b54bd80a59a90c6361a6d2ace9b7d56403",
+    "tests/test_policy_exact.py": "a0cb7ae4641d460f40ad07e414648a963e81be839bedc0b33da2df05502283d4",
+    "tests/test_standalone_assets.py": "087b6d5e727f19348f9c16d7b3d3c1c77a6ff3a0b62f7959fb030bdc150b1830",
+    "vendor/benchmark_baselines.py": "41b6f4cffdf47aca69019fdd3bb9b2b94311ec84a4f94340fd8fa44cfe87006b",
+    "vendor/decision_regression.py": "d8156b3c9508d54f960dbb40beefe7390ec06fc7933fd08b616e3558b9d907dd",
+    "vendor/external_sklearn/1.0.2__ranking.py": "6fec0d88fe0e40ff8624d6c240b7f656ba0a84a408db52e52cf6b4b312617658",
+    "vendor/external_sklearn/1.1.0__ranking.py": "3dc94f2707a16ac1c820849fb743897788f2484c63cb16a8b60a8dafe1e9d005",
+    "vendor/external_sklearn/23214_merged__ranking.py": "f5eda405c09f57a094707c41524e48bb83c46722565495f5e33713d02466b9a5"
+  },
+  "all_fifteen_stage_sources_unchanged_from_candidate": true,
+  "additional_external_binding_audit_exit_code": 0,
+  "scope": "Local clean reproduction of all default stages, not independent-human replication. Final Word/PDF, README and response additions change distribution hash; tested scientific source hashes are unchanged. The optional authoring renderer is outside the scientific runner."
+}

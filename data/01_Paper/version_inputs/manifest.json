@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "case_id": "plain_6h",
+      "file": "plain_6h.npz",
+      "sha256": "d3b14aa3b57a34982db2552cf5726059a2bafb18d4d16a0cb2c33c4a9711ee6d",
+      "cast_float32": true
+    },
+    {
+      "case_id": "thermal_6h",
+      "file": "thermal_6h.npz",
+      "sha256": "80ef984fa4604177728f7a73dab0e564a0427ed756583325ae0ce70dd87a6b5b",
+      "cast_float32": true
+    },
+    {
+      "case_id": "thermal_plus_arrhenius_6h",
+      "file": "thermal_plus_arrhenius_6h.npz",
+      "sha256": "8fc10ff500c44a95d1ee5834beb10a9fe305b7557e588bbe3b081aeeb8e16ffa",
+      "cast_float32": true
+    },
+    {
+      "case_id": "plain_12h",
+      "file": "plain_12h.npz",
+      "sha256": "b85957487fb6328e4a7d8d759a403c153ee59821aaa22fb6cc77de1a0620f3f5",
+      "cast_float32": true
+    },
+    {
+      "case_id": "thermal_12h",
+      "file": "thermal_12h.npz",
+      "sha256": "66161f2eb0c48e84bcfbecd298df7a6b069806f108ca37326b5bdbdc9bf2ebd7",
+      "cast_float32": true
+    },
+    {
+      "case_id": "thermal_plus_arrhenius_12h",
+      "file": "thermal_plus_arrhenius_12h.npz",
+      "sha256": "8a9cf9b422f963232b4a765b2446098ecefc56aa798a99d10482cbddfa2c3461",
+      "cast_float32": true
+    },
+    {
+      "case_id": "plain_24h",
+      "file": "plain_24h.npz",
+      "sha256": "ee4624e500409b48cc030e6dcaa18ed75159464f90aaebae8222f73e2034ef69",
+      "cast_float32": true
+    },
+    {
+      "case_id": "thermal_24h",
+      "file": "thermal_24h.npz",
+      "sha256": "817ef52aa98e5696a8f7f53de8b02d8c7f6da8ee0ee68d87523fd9ce1df55af6",
+      "cast_float32": true
+    },
+    {
+      "case_id": "thermal_plus_arrhenius_24h",
+      "file": "thermal_plus_arrhenius_24h.npz",
+      "sha256": "c7819e29e8e5a508ecde56e42ee7a7c57bc25b741cd07001934b39efb2784a69",
+      "cast_float32": true
+    },
+    {
+      "case_id": "temperature_only48_6h",
+      "file": "temperature_only48_6h.npz",
+      "sha256": "9260e75797a9470a3309c11cb4fff76a3418d0eb7d0b397a2d4ff06c5858f672",
+      "cast_float32": true
+    },
+    {
+      "case_id": "public_wdbc_pilot",
+      "file": "public_wdbc_pilot.npz",
+      "sha256": "ac65f995c35019be84af29eac40110531ab2fac891eb62894ed0cfd43ff400ee",
+      "cast_float32": false
+    }
+  ],
+  "scope": "Frozen interpolation inputs from inherited fitted calibrators. No new model fitting or case selection."
+}

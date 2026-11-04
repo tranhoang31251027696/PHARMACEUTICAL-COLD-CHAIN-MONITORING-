@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "original_submission_neighbor_absent": true,
+  "packaging_result": {
+    "status": "PASS",
+    "members": 868,
+    "manifest_verified_files": 867,
+    "zip_sha256": "75d376c40a5185db24036a6b1c4f24d43ae5971e3a8464aad38e17697a1326ac",
+    "bytes": 6438460,
+    "original_submission_unchanged": null
+  }
+}

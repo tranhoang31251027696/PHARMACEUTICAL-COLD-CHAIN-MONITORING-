@@ -1,0 +1,15 @@
+<unknown>:1668: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1740: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1671: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:1743: SyntaxWarning: invalid escape sequence '\s'
+{
+  "status": "PASS",
+  "prior_v7_exact_stages": 29,
+  "raw_measurements_reconciled": 720,
+  "summary_groups_reconciled": 144,
+  "unique_case_query_plans_replayed": 2028,
+  "saved_method_query_answers_reconciled": 30420,
+  "smt_unknown": 0,
+  "q2_source_snapshot_hashes_verified": 3,
+  "scope": "Measured computational reuse, not developer productivity or real production policy requirements; observed crossings may change with host/run."
+}

@@ -1,0 +1,282 @@
+{
+  "schema": "external-binary64-selector-policy/1",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "critical_values": [
+    "3/10",
+    "3/8",
+    "13510798882111489/36028797018963968",
+    "23/31",
+    "13365521474776957/18014398509481984",
+    "23/27",
+    "15345598730299469/18014398509481984",
+    "23/26",
+    "15935814066080217/18014398509481984",
+    "9/10"
+  ],
+  "probes": [
+    {
+      "alpha": "3/10",
+      "public_binary64_policy": "0x1.3333333333333p-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "27/80",
+      "public_binary64_policy": "0x1.599999999999ap-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "3/8",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "27021597764222977/72057594037927936",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0xcdd03b7cf2c35050",
+      "actual_bits": "0xffffffffffffffff",
+      "different": true,
+      "witness": {
+        "row_index": 0,
+        "row_id": "0",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "13510798882111489/36028797018963968",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0xcdd03b7cf2c35050",
+      "actual_bits": "0xffffffffffffffff",
+      "different": true,
+      "witness": {
+        "row_index": 0,
+        "row_id": "0",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "1247497096781627423/2233785415175766016",
+      "public_binary64_policy": "0x1.1def7bdef7bdfp-1",
+      "reference_bits": "0xcdd03b7cf2c35050",
+      "actual_bits": "0xcdd03b7cf2c35050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "23/31",
+      "public_binary64_policy": "0x1.7bdef7bdef7bep-1",
+      "reference_bits": "0xcdd03b7cf2c35050",
+      "actual_bits": "0xcdd03b7cf2c35050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "828662331436171299/1116892707587883008",
+      "public_binary64_policy": "0x1.7bdef7bdef7bep-1",
+      "reference_bits": "0xcdc01b78f0c35050",
+      "actual_bits": "0xcdd03b7cf2c35050",
+      "different": true,
+      "witness": {
+        "row_index": 25,
+        "row_id": "25",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "13365521474776957/18014398509481984",
+      "public_binary64_policy": "0x1.7bdef7bdef7bep-1",
+      "reference_bits": "0xcdc01b78f0c35050",
+      "actual_bits": "0xcdd03b7cf2c35050",
+      "different": true,
+      "witness": {
+        "row_index": 25,
+        "row_id": "25",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "775200245537063471/972777519512027136",
+      "public_binary64_policy": "0x1.98027263b55f2p-1",
+      "reference_bits": "0xcdc01b78f0c35050",
+      "actual_bits": "0xcdc01b78f0c35050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "23/27",
+      "public_binary64_policy": "0x1.b425ed097b426p-1",
+      "reference_bits": "0xcdc01b78f0c35050",
+      "actual_bits": "0xcdc01b78f0c35050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "828662331436171295/972777519512027136",
+      "public_binary64_policy": "0x1.b425ed097b426p-1",
+      "reference_bits": "0xcd801b78f0c35050",
+      "actual_bits": "0xcdc01b78f0c35050",
+      "different": true,
+      "witness": {
+        "row_index": 54,
+        "row_id": "54",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "15345598730299469/18014398509481984",
+      "public_binary64_policy": "0x1.b425ed097b426p-1",
+      "reference_bits": "0xcd801b78f0c35050",
+      "actual_bits": "0xcdc01b78f0c35050",
+      "different": true,
+      "witness": {
+        "row_index": 54,
+        "row_id": "54",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "406658366352935913/468374361246531584",
+      "public_binary64_policy": "0x1.bc891de733c89p-1",
+      "reference_bits": "0xcd801b78f0c35050",
+      "actual_bits": "0xcd801b78f0c35050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "23/26",
+      "public_binary64_policy": "0x1.c4ec4ec4ec4ecp-1",
+      "reference_bits": "0xcd801b78f0c35050",
+      "actual_bits": "0xcd801b78f0c35050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "414331165718085637/468374361246531584",
+      "public_binary64_policy": "0x1.c4ec4ec4ec4ecp-1",
+      "reference_bits": "0xcd801b78f0435050",
+      "actual_bits": "0xcd801b78f0c35050",
+      "different": true,
+      "witness": {
+        "row_index": 23,
+        "row_id": "23",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "15935814066080217/18014398509481984",
+      "public_binary64_policy": "0x1.c4ec4ec4ec4ecp-1",
+      "reference_bits": "0xcd801b78f0435050",
+      "actual_bits": "0xcd801b78f0c35050",
+      "different": true,
+      "witness": {
+        "row_index": 23,
+        "row_id": "23",
+        "reference_selected": false,
+        "actual_selected": true
+      }
+    },
+    {
+      "alpha": "160743863623070013/180143985094819840",
+      "public_binary64_policy": "0x1.c8dc8dc8dc8ddp-1",
+      "reference_bits": "0xcd801b78f0435050",
+      "actual_bits": "0xcd801b78f0435050",
+      "different": false,
+      "witness": null
+    },
+    {
+      "alpha": "9/10",
+      "public_binary64_policy": "0x1.ccccccccccccdp-1",
+      "reference_bits": "0xcd801b78f0435050",
+      "actual_bits": "0xcd801b78f0435050",
+      "different": false,
+      "witness": null
+    }
+  ],
+  "representable_policy_probes": [
+    {
+      "alpha": "3/8",
+      "public_binary64_policy": "0x1.8000000000000p-2",
+      "reference_bits": "0xffffffffffffffff",
+      "actual_bits": "0xffffffffffffffff",
+      "different": false
+    },
+    {
+      "alpha": "3341380368694239/4503599627370496",
+      "public_binary64_policy": "0x1.7bdef7bdef7bep-1",
+      "reference_bits": "0xcdc01b78f0c35050",
+      "actual_bits": "0xcdd03b7cf2c35050",
+      "different": true
+    },
+    {
+      "alpha": "3836399682574867/4503599627370496",
+      "public_binary64_policy": "0x1.b425ed097b426p-1",
+      "reference_bits": "0xcd801b78f0c35050",
+      "actual_bits": "0xcdc01b78f0c35050",
+      "different": true
+    },
+    {
+      "alpha": "1991976758260027/2251799813685248",
+      "public_binary64_policy": "0x1.c4ec4ec4ec4ecp-1",
+      "reference_bits": "0xcd801b78f0c35050",
+      "actual_bits": "0xcd801b78f0c35050",
+      "different": false
+    }
+  ],
+  "representable_policy_difference": true,
+  "equivalent_to_rational_reference": false,
+  "divergent_regions": [
+    {
+      "lo": "3/8",
+      "hi": "13510798882111489/36028797018963968",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "23/31",
+      "hi": "13365521474776957/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "23/27",
+      "hi": "15345598730299469/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    },
+    {
+      "lo": "23/26",
+      "hi": "15935814066080217/18014398509481984",
+      "left_closed": false,
+      "right_closed": true
+    }
+  ],
+  "psc_exact": "344035/1176088021090040807424",
+  "grid_detected": false,
+  "snapshot_detected": false,
+  "candidate_count": 6,
+  "guard_count": 6,
+  "contract": "Exact rational reference versus the actual public binary64 policy interface; nearest/even rounding-cell cuts included. A semantic differential is not an upstream-confirmed defect.",
+  "case_id": "wdbc_logistic_isotonic_seed4",
+  "source_input_sha256": "c406809a388afa0d74c63ac5824edd9d4d27d9c32297aacc1b991e05ac219f1e",
+  "slice": "first 64 rows, all 30 pipeline cases",
+  "source_module_sha256": "dd4f4751fdf30f85ca06233c5a5cd140d0a46105a9e494ccb32bd7c041fc1e47",
+  "upstream_commit": "a6400e74c4534d6d79f17dee11ad903b6d664980"
+}

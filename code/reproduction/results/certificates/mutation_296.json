@@ -1,0 +1,323 @@
+{
+  "schema": "exact-policy-certificate/1",
+  "version": "1.0.0",
+  "input_sha256": "5d7ef3880473b09e7bc9ffd6d24fa92d42a9e568d2b0fd772a9bb5b02cc1458a",
+  "domain": [
+    "3/10",
+    "9/10"
+  ],
+  "old_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "new_spec": {
+    "family": "ge",
+    "precision": "inclusive",
+    "objective": "max_tp_max_n",
+    "count_offset": 0
+  },
+  "critical_values": [
+    "3/10",
+    "38/123",
+    "19/55",
+    "5/14",
+    "34/91",
+    "34/89",
+    "33/82",
+    "32/75",
+    "31/68",
+    "31/63",
+    "15/29",
+    "6/11",
+    "15/26",
+    "29/48",
+    "14/23",
+    "27/44",
+    "13/21",
+    "26/41",
+    "13/20",
+    "2/3",
+    "25/37",
+    "5/7",
+    "8/11",
+    "25/34",
+    "24/31",
+    "4/5",
+    "8/9",
+    "9/10"
+  ],
+  "cells": [
+    {
+      "lo": "3/10",
+      "hi": "38/123",
+      "left_closed": true,
+      "right_closed": true,
+      "old_n": 123,
+      "new_n": 123,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "38/123",
+      "hi": "19/55",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 110,
+      "new_n": 110,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "19/55",
+      "hi": "5/14",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 98,
+      "new_n": 98,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "5/14",
+      "hi": "34/91",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 91,
+      "new_n": 91,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "34/91",
+      "hi": "34/89",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 89,
+      "new_n": 89,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "34/89",
+      "hi": "33/82",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 82,
+      "new_n": 82,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "33/82",
+      "hi": "32/75",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 75,
+      "new_n": 75,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "32/75",
+      "hi": "31/68",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 68,
+      "new_n": 68,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "31/68",
+      "hi": "31/63",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 63,
+      "new_n": 63,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "31/63",
+      "hi": "15/29",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 58,
+      "new_n": 58,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "15/29",
+      "hi": "6/11",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 55,
+      "new_n": 55,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "6/11",
+      "hi": "15/26",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 52,
+      "new_n": 52,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "15/26",
+      "hi": "29/48",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 48,
+      "new_n": 48,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "29/48",
+      "hi": "14/23",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 46,
+      "new_n": 46,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "14/23",
+      "hi": "27/44",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 44,
+      "new_n": 44,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "27/44",
+      "hi": "13/21",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 42,
+      "new_n": 42,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "13/21",
+      "hi": "26/41",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 41,
+      "new_n": 41,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "26/41",
+      "hi": "13/20",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 40,
+      "new_n": 40,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "13/20",
+      "hi": "2/3",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 39,
+      "new_n": 39,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "2/3",
+      "hi": "25/37",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 37,
+      "new_n": 37,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "25/37",
+      "hi": "5/7",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 35,
+      "new_n": 35,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "5/7",
+      "hi": "25/34",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 34,
+      "new_n": 34,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "25/34",
+      "hi": "24/31",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 31,
+      "new_n": 31,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "24/31",
+      "hi": "4/5",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 30,
+      "new_n": 30,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "4/5",
+      "hi": "8/9",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 27,
+      "new_n": 27,
+      "equal": true,
+      "witness": null
+    },
+    {
+      "lo": "8/9",
+      "hi": "9/10",
+      "left_closed": false,
+      "right_closed": true,
+      "old_n": 25,
+      "new_n": 25,
+      "equal": true,
+      "witness": null
+    }
+  ],
+  "equivalent": true,
+  "divergent_length": "0",
+  "psc_exact": "0",
+  "psc": 0.0,
+  "candidate_counts": [
+    54,
+    54
+  ],
+  "witness_enabled": true,
+  "distinct_state_pairs": 26
+}

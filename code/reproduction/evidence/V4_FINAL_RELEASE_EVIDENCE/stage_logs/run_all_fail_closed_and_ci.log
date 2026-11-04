@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "unsupported_source_fixtures": 12,
+  "runtime_rejections": 3,
+  "approved_sources_admitted": 7,
+  "ci_timing_invocations": 60,
+  "unsupported_cli_exit2_checks": 3,
+  "small_pipeline_median_process_ms": 773.55575,
+  "small_pipeline_median_gate_ms": 14.72155,
+  "scale_100k_median_process_ms": 7694.73315,
+  "scale_100k_median_gate_ms": 6954.4232,
+  "scope": "Local subprocess checks, three fitted-pipeline representatives and a separate controlled 100k fixture. Not remote CI or deployment-frequency evidence. Unsupported never means equivalent."
+}
