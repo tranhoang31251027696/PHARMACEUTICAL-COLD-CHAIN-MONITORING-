@@ -72,7 +72,7 @@ Khi chạy thành công, app đưa ID, nhãn và hai cột scores sang mục 3. 
 
 ## Người 4 kiểm chứng quyết định theo paper
 
-**Thao tác:** Giữ dataset do hai model vừa tạo. Không bấm scores mẫu liên kết. Trong mục 3, chỉ tên hai model và bảng scores. Chọn lo = 0.30, hi = 0.90, cả hai contract inclusive ≥. Bấm Compare and verify independently.
+**Thao tác:** Ưu tiên Sensor sample 3; giữ Position ở cuối chuỗi, dùng scores kèm đúng sensor hoặc chạy lại hai model. Với mặc định inclusive và miền [0.30,0.90], kết quả dự kiến là DIVERGENT, PSC 13/14. Đây là ca được chọn để minh họa, không đại diện hiệu quả chung. Giữ dataset do hai model vừa tạo. Không bấm scores mẫu liên kết. Trong mục 3, chỉ tên hai model và bảng scores. Chọn lo = 0.30, hi = 0.90, cả hai contract inclusive ≥. Bấm Compare and verify independently.
 
 “Bảng này chứa cùng các quan sát được chấm bởi hai model. ID dùng để đối chiếu cùng quan sát; y là nhãn; old_score và new_score là điểm của hai bên.
 

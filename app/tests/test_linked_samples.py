@@ -23,6 +23,10 @@ class LinkedSamplesTest(unittest.TestCase):
                     fresh = predict_pair(dict(readings=rows, history_complete=True))
                     self.assertEqual(fresh['payload'], stored['payload'])
                     result = diagnose(stored['payload'])
+                    if filename == 'sample_sensor_positive.csv':
+                        self.assertGreater(sum(stored['payload']['labels']), 0)
+                        self.assertEqual(result['status'], 'DIVERGENT')
+                        self.assertTrue(any(c.get('witness') for c in result['certificate']['cells']))
                     self.assertTrue(result['verified'])
                     self.assertTrue(result['verification']['verified'])
 

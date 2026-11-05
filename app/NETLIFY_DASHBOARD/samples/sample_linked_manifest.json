@@ -5,7 +5,17 @@
   "files": {
     "sample_sensor_BATCH-01004.csv": "ccd5052c1bf8b9eaccc3079e0176c862308f34386e9dd81f7c64cc6529f224f8",
     "sample_sensor_multi_batch.csv": "71e7a8febdcdf8ac9a0b786b0bf8c3d488b1aa34697a37f9f0f8117e9a78ac1e",
-    "sample_linked_inventory.csv": "ceb6f385805ae17879daff43d7205f484cc84a656a2056efad9f4f6160729bb5",
-    "sample_linked_predictions.json": "24f71656e5dfe0af8e4d36ccda77513f4725f7ebf3020a75510a9ad3334d88e0"
+    "sample_linked_inventory.csv": "a62c0c6181d7b35fb17c250478a5dff3efd28c4b4381a13a5ee86eec0e1f4fad",
+    "sample_linked_predictions.json": "ac483da96125b71b007fc9419bf50970c83419e3c34779c74c3d3770391643c4",
+    "sample_sensor_positive.csv": "61f1af4c968acc38d6427f97282f44f059bf8d1f49070547f9d8c83d9c21fdfe"
+  },
+  "positive_sample": {
+    "file": "sample_sensor_positive.csv",
+    "batch": "BATCH-00006",
+    "origin": "Subset of the existing simulated cold-chain sensor dataset; selected after model/checker execution to demonstrate a divergent case. Not a representative evaluation sample.",
+    "observations": 320,
+    "positive_labels": 6,
+    "expected_verdict_on_domain_0.30_0.90": "DIVERGENT",
+    "expected_psc_exact": "13/14"
   }
 }

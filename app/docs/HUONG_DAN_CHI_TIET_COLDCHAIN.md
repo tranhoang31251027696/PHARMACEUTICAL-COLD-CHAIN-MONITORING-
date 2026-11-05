@@ -611,3 +611,7 @@ Chức năng dùng hai mô hình nghiên cứu, khác backend FINAL-1.0; nhiệt
 ## FEFO từ inventory CSV
 
 Phần tính dynamic expiry từ sensor đã được gỡ theo lựa chọn sử dụng hiện tại. Upload inventory CSV có Product_ID, Batch_ID và Dynamic_Expiry_Date để xếp FEFO theo ngày đã cung cấp. Sensor vẫn hỗ trợ Run backend inference và Run two XGBoost models locally; hai nút này không tính lại hạn dùng hoặc FEFO.
+
+## Sample có nhãn dương và phân kỳ
+
+Chọn **Sensor sample 3 (positive events / divergent)**, giữ import mặc định và Position ở cuối chuỗi. Sample lấy nguyên lô BATCH-00006 từ dữ liệu sensor mô phỏng hiện có, có 320 quan sát đủ điều kiện và 6 nhãn dương theo quy tắc tạo nhãn. Inventory cùng lô và scores hai XGBoost được nạp cùng nhau. Chạy Compare and verify independently với miền [0.30,0.90], hai contract inclusive, để nhận DIVERGENT và PSC 13/14. Sample được chọn có chủ đích để minh họa phân kỳ, không đại diện cho tỷ lệ lỗi hay chất lượng model. Có thể chạy lại hai XGBoost để tái lập scores. Không chỉnh nhãn hoặc score để ép kết quả.

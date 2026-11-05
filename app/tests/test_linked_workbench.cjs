@@ -36,6 +36,10 @@ async function settle(){await new Promise(r=>setImmediate(r));render()}
  assert(nodes(tree).some(n=>n.props.id==='cc-linked-fefo'));assert(nodes(tree).some(n=>n.props['aria-label']==='Sensor cursor'));assert(nodes(tree).some(n=>n.props['data-testid']==='regression-scores'));
  assert.throws(()=>store.attachInventory(R.normalize('Product_ID,Batch_ID,Dynamic_Expiry_Date\nP,OTHER,2027-01-01'),'bad.csv'),/no sensor/);
  assert.equal(store.active.dataset,identity);
+ await button('Sensor sample 3 (positive events / divergent)').props.onClick();await settle();
+ assert.equal(store.batchRows()[0].id,'BATCH-00006');
+ assert.equal(store.active.dataset.researchByBatch['BATCH-00006'].payload.labels.reduce((a,b)=>a+b,0),6);
+ assert.equal(button('Regression for current batch').props.disabled,false);
  const offset=nodes(tree).find(n=>n.tag==='label'&&n.children.includes('For Temperature: apply Temperature × (1 − Calibration_Offset_Pct/100)')).children.find(n=>n.tag==='input');
  offset.props.onChange({target:{checked:true}});render();
  await button('Sensor sample 2 (3 batches)').props.onClick();await settle();

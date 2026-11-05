@@ -21,3 +21,7 @@ Bản 05/11/2026 đã gỡ khối chỉnh độ nhạy minh họa và các đi�
 ## Luồng sensor FEFO regression liên kết
 
 Chọn một Sensor sample để nạp cùng lúc lịch sử nhiệt, inventory cùng mã lô và paired scores đã tính sẵn từ đúng sensor. FEFO/Regression là nút đi tới phần tương ứng, không đổi sample. Chạy hai XGBoost mới vẫn giữ sensor và inventory. Với CSV riêng, upload sensor rồi gắn inventory cùng Batch_ID; regression tính từ sensor đã chọn. Auto-inference mặc định tắt. FEFO dùng hạn được cung cấp, không tính dynamic expiry. Xem samples/sample_linked_manifest.json để đối chiếu nguồn.
+
+## Sample có nhãn dương và phân kỳ
+
+Chọn **Sensor sample 3 (positive events / divergent)**, giữ import mặc định và Position ở cuối chuỗi. Sample lấy nguyên lô BATCH-00006 từ dữ liệu sensor mô phỏng hiện có, có 320 quan sát đủ điều kiện và 6 nhãn dương theo quy tắc tạo nhãn. Inventory cùng lô và scores hai XGBoost được nạp cùng nhau. Chạy Compare and verify independently với miền [0.30,0.90], hai contract inclusive, để nhận DIVERGENT và PSC 13/14. Sample được chọn có chủ đích để minh họa phân kỳ, không đại diện cho tỷ lệ lỗi hay chất lượng model. Có thể chạy lại hai XGBoost để tái lập scores. Không chỉnh nhãn hoặc score để ép kết quả.

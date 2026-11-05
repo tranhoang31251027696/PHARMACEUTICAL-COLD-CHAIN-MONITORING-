@@ -214,6 +214,7 @@
           h('small', null, 'Up to 75 MiB / 500,000 rows. Supports commas, semicolons, tabs, empty cells and quoted fields.')),
         h('div', { className: 'cc-actions' }, button('Sensor sample 1 (1 batch)', () => sample('sample_sensor_BATCH-01004.csv'), parsing),
           button('Sensor sample 2 (3 batches)', () => sample('sample_sensor_multi_batch.csv'), parsing),
+          button('Sensor sample 3 (positive events / divergent)', () => sample('sample_sensor_positive.csv'), parsing),
           button('FEFO for current batches', () => document.getElementById('cc-linked-fefo')?.scrollIntoView({behavior:'smooth'}), !inventory), button('Regression for current batch', () => document.getElementById('cc-linked-regression')?.scrollIntoView({behavior:'smooth'}), !research)),
         h('p', { className: 'cc-note' }, 'Sensor samples include matching inventory and saved scores computed by both XGBoost models on those same histories. FEFO and Regression buttons navigate within the current data; they do not load another sample. Fresh model execution is optional.'),
         h('details', null, h('summary', null, 'Sensor import options and supported schemas'),
@@ -275,6 +276,8 @@
             ' ', h('a', { href: './samples/sample_regression_provenance.json', target: '_blank', rel: 'noopener' }, 'View model artifacts, hashes and sampling method'))),
         !!research && h('div', { 'data-testid': 'regression-scores' },
           h('h3', null, 'Paired input scores'),
+          h('div', {className:'cc-metrics'}, card('Observations', research.count), card('Positive labels y=1', research.payload.labels.reduce((a,b)=>a+b,0)), card('Negative labels y=0', research.payload.labels.filter(y=>y===0).length)),
+          research.payload.labels.every(y=>y===0) && h('p',{className:'cc-note'},'No positive labels in this input. Under this selector contract both versions abstain; equivalence is not evidence of model quality.'),
           table(['Observation ID', 'Label y', 'Reference · old_score', 'Comparison · new_score'],
             research.payload.ids.slice(scorePage * 20, scorePage * 20 + 20).map((id, offset) => {
               const index = scorePage * 20 + offset;
@@ -300,10 +303,10 @@
           h('div', { className: 'cc-metrics' }, card('PSC exact', diagnostic.certificate.psc_exact), card('Verified probes', diagnostic.verification.probes),
             card('Candidate counts old/new', diagnostic.certificate.candidate_counts.join(' / ')), card('Input SHA-256', diagnostic.certificate.input_sha256.slice(0, 16) + '…')),
           !diagnostic.certificate.equivalent && diagnostic.certificate.psc === 0 && h('p', { className: 'cc-warning' }, 'PSC=0 with pointwise divergence. The selectors are not equivalent.'),
-          table(['Lo', 'Hi', 'Left closed', 'Right closed', 'Equal', 'Witness ID', 'Witness label y', 'Reference · old_score', 'Comparison · new_score'],
+          table(['Lo', 'Hi', 'Left closed', 'Right closed', 'Equal', 'Old selected', 'New selected', 'Witness ID', 'Witness label y', 'Reference · old_score', 'Comparison · new_score'],
             diagnostic.certificate.cells.slice(0, 100).map(c => {
               const index = diagnostic.download.ids.indexOf(c.witness?.row_id);
-              return [c.lo, c.hi, c.left_closed, c.right_closed, c.equal, c.witness?.row_id,
+              return [c.lo, c.hi, c.left_closed, c.right_closed, c.equal, c.old_n, c.new_n, c.witness?.row_id,
                 diagnostic.download.labels[index], diagnostic.download.reference_scores[index], diagnostic.download.actual_scores[index]];
             })),
           diagnostic.certificate.cells.length > 100 && h('p', null, 'Showing the first 100 cells. The downloaded JSON contains all cells.'),
