@@ -158,6 +158,8 @@ obs-A,1,0.9,0.1
 obs-B,0,0.5,0.5
 ```
 
+Regression sample hiện dùng 2.000 quan sát lấy đều theo thứ tự dòng từ 42.110 kết quả test đã lưu của hai mô hình XGBoost dự báo 6 giờ. old_score là calibrated_score của thermal_6h, new_score là calibrated_score của thermal_plus_arrhenius_6h. Hai mô hình dùng cùng ID và nhãn; mô hình thứ hai bổ sung đặc trưng Arrhenius. Đây là hai biến thể đầu vào đã huấn luyện. Kết luận kiểm chứng chỉ áp dụng cho tập con và miền policy được chọn. Hai cột tùy chọn reference_model và comparison_model được hiển thị trong mục 3. Tệp samples/sample_regression_provenance.json ghi nguồn, hash mô hình, hash kết quả và cách lấy mẫu.
+
 ID phải duy nhất, y là 0 hoặc 1, scores hữu hạn. Đây là cùng các quan sát được chấm bởi hai phiên bản. Nếu có new_id thì phải khớp ID và thứ tự của id. Scores không bắt buộc là xác suất trong [0,1]; yêu cầu quan trọng là đúng thứ tự và ý nghĩa của score cho việc chọn ngưỡng.
 
 File upload tối đa 75 MiB và 500.000 dòng. Regression giới hạn 2.000 quan sát. Parser hỗ trợ dấu phẩy, chấm phẩy, tab, BOM, ô trống và trường có dấu nháy; số bắt buộc bị thiếu sẽ báo lỗi thay vì biến thành 0.

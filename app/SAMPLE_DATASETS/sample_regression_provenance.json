@@ -1,0 +1,29 @@
+{
+  "description": "Paired saved calibrated predictions from two separately trained XGBoost feature variants, evaluated on the same labeled test observations.",
+  "sample_file": "sample_regression.csv",
+  "sample_sha256": "f1d129695ac53fd5df2fae12df1dfdbb26377a5e95eb70508040c22657b0be02",
+  "horizon_hours": 6,
+  "full_test_rows": 42110,
+  "sample_rows": 2000,
+  "sample_positive_labels": 18,
+  "sampling": "Uniformly spaced row indices floor(i*(N-1)/(2000-1)), i=0..1999; no label or score filtering.",
+  "scope": "The app limit is 2000 observations. Any verification verdict applies to this subset and the selected policy domain. These are feature variants, not a documented chronological V1/V2 deployment.",
+  "sources": [
+    {
+      "model": "XGBoost thermal (6h)",
+      "artifact": "BACKUP/BACKUP_HISTORICAL_ARCHIVES/round backup/research_round2/results/thermal_6h.ubj",
+      "artifact_sha256": "3f211e053e349a1595ca6e6c018f0f2d1daa891358cbf71b4d03e9a319bb116b",
+      "predictions": "BACKUP/BACKUP_HISTORICAL_ARCHIVES/round backup/research_round2/results/predictions_thermal_6h.csv",
+      "predictions_sha256": "074399e4b02d6a8792577e99e99191f21fd19e4535864378fc0f0f8d80dbeedc",
+      "score_column": "calibrated_score"
+    },
+    {
+      "model": "XGBoost thermal + Arrhenius (6h)",
+      "artifact": "BACKUP/BACKUP_HISTORICAL_ARCHIVES/round backup/research_round2/results/thermal_plus_arrhenius_6h.ubj",
+      "artifact_sha256": "38d9d7a55ca7f7b7c132c4b76ae5542cf04ddecbb79e51826742accf48465d98",
+      "predictions": "BACKUP/BACKUP_HISTORICAL_ARCHIVES/round backup/research_round2/results/predictions_thermal_plus_arrhenius_6h.csv",
+      "predictions_sha256": "56bc0cb1f4bd8d2cb306da8cf3b5a22a1888d6b097efd6678e95486e45bf76e2",
+      "score_column": "calibrated_score"
+    }
+  ]
+}

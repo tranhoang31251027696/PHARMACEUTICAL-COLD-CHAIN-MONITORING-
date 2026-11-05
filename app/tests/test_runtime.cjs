@@ -7,12 +7,17 @@ for (const [name, kind, count] of [
   ['sample_sensor_BATCH-01004.csv', 'sensor', 336],
   ['sample_sensor_multi_batch.csv', 'sensor', 888],
   ['sample_fefo_batches.csv', 'inventory', 50],
-  ['sample_regression.csv', 'regression', 3]
+  ['sample_regression.csv', 'regression', 2000]
 ]) {
   const d = R.normalize(fs.readFileSync(path.join(root, 'SAMPLE_DATASETS', name), 'utf8'), { defaultShipment: 'Air', defaultHumidity: 60 });
   assert.equal(d.kind, kind); assert.equal(d.count, count);
 }
 assert.equal(R.parseCSV('a,b,c\nA,,C\n').rows[0][1], '');
+const regression = R.normalize(fs.readFileSync(path.join(root, 'SAMPLE_DATASETS/sample_regression.csv'), 'utf8'));
+assert.deepEqual(regression.modelNames, ['XGBoost thermal (6h)', 'XGBoost thermal + Arrhenius (6h)']);
+assert.equal(regression.payload.labels.reduce((sum, label) => sum + label, 0), 18);
+assert.deepEqual(R.normalize('id,y,old_score,new_score\nx,1,.8,.9').modelNames, [null, null]);
+assert.throws(() => R.normalize('id,y,old_score,new_score,reference_model\nx,1,.8,.9,A\nz,0,.7,.6,B'), /same model/);
 assert.equal(R.parseCSV('a,b\n"x,y","two\nlines"\n').rows[0][1], 'two\nlines');
 assert.equal(R.parseCSV('\uFEFFa;b\r\n"x;y";2\r\n').delimiter, ';');
 assert.equal(R.parseCSV('a\tb\r1\t2\r').delimiter, '\t');

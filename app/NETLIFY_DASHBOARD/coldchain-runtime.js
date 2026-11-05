@@ -118,7 +118,15 @@
       });
       if (new Set(ids).size !== ids.length) throw Error('Duplicate observation IDs.');
       if (newIds.some((id, i) => id !== ids[i])) throw Error('Old/new IDs are not aligned in the same order.');
-      return { kind: 'regression', count: ids.length, payload: { labels, reference_scores: old, actual_scores: actual, ids, new_ids: newIds }, warnings: [] };
+      const modelNames = ['reference_model', 'comparison_model'].map(column => {
+        const index = find([column]);
+        if (index < 0) return null;
+        const names = new Set(csv.rows.map(row => row[index].trim()));
+        if (names.size !== 1 || names.has('')) throw Error(column + ' must name the same model on every row.');
+        return [...names][0];
+      });
+      return { kind: 'regression', count: ids.length, modelNames,
+        payload: { labels, reference_scores: old, actual_scores: actual, ids, new_ids: newIds }, warnings: [] };
     }
     const product = find(['product_id']), expiry = find(['dynamic_expiry_date']);
     if (product >= 0 && expiry >= 0) {

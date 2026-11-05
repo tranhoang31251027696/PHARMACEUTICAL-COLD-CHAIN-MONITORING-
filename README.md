@@ -26,7 +26,7 @@ Trình kiểm tra hồi quy chạy trên máy. Dự báo Model 1 và dữ liệu
 | Thư mục | Nội dung |
 | --- | --- |
 | [data/01_Paper](data/01_Paper) | 98 cặp đầu vào cố định của paper gồm 50 Retained, 17 ca tổng hợp, 1 WDBC pilot và 30 cặp pipeline. Có manifest và các đầu vào kiểm thử bổ sung. |
-| [data/02_App_Samples](data/02_App_Samples) | Bốn CSV mẫu gồm cảm biến 1 lô (336 dòng), cảm biến 3 lô (888 dòng), tồn kho FEFO (50 dòng) và hồi quy (3 dòng). Bản phục vụ trực tiếp cho app nằm trong `app/NETLIFY_DASHBOARD/samples/`. |
+| [data/02_App_Samples](data/02_App_Samples) | Bốn CSV mẫu gồm cảm biến 1 lô (336 dòng), cảm biến 3 lô (888 dòng), tồn kho FEFO (50 dòng) và hồi quy (2.000 quan sát từ hai biến thể XGBoost đã huấn luyện). Bản phục vụ trực tiếp cho app nằm trong `app/NETLIFY_DASHBOARD/samples/`. |
 | [data/03_FEFO_Raw](data/03_FEFO_Raw) | Dữ liệu chuỗi lạnh mô phỏng gồm `sensor.csv` (416.688 bản ghi), `batches.csv` (1.500 lô) và `products.csv`, kèm kết quả xếp hạng FEFO và hồ sơ lần chạy. |
 
 Thông số **N = 37.471, G = 87, K = 6** thuộc hàng đo hiệu năng *Simulated Cold-Chain* trong paper. Xem [README dữ liệu](data/README.md) để tra nguồn và vai trò của từng bộ.
