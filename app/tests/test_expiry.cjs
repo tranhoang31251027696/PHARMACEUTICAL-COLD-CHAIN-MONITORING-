@@ -1,0 +1,12 @@
+const assert=require('assert');const {calculate}=require('../NETLIFY_DASHBOARD/coldchain-expiry.js');
+const sensor=(temp=5)=>({kind:'sensor',batches:{A:Array.from({length:25},(_,i)=>({Timestamp:new Date(Date.UTC(2026,0,1,i)).toISOString().replace('Z',''),calibrated_temp:temp}))}});
+const meta=[{Product_ID:'P',Batch_ID:'A',Manufacture_Date:'2026-01-01',Label_Expiry_Date:'2027-01-01',Standard_Shelf_Life_Days:365,Ea_J_per_mol:51044.8,Reference_Temp_C:5}];
+let result=calculate(sensor(),meta).rows[0];assert.equal(result.Monitored_Days,1);assert.equal(result.Equivalent_Days,1);assert.equal(result.Remaining_Days,364);assert.equal(result.Dynamic_Expiry_Date,'2027-01-01T00:00:00.000');
+const hot=calculate(sensor(15),meta).rows[0];assert(hot.Equivalent_Days>1);assert(hot.Remaining_Days<364);assert(hot.Dynamic_Expiry_Date<result.Dynamic_Expiry_Date);
+const cold=calculate(sensor(2),meta).rows[0];assert.equal(cold.Dynamic_Expiry_Date,result.Dynamic_Expiry_Date);
+const gap=sensor();gap.batches.A.splice(3,1);assert.throws(()=>calculate(gap,meta),/Consecutive/);
+assert.throws(()=>calculate(sensor(),[{...meta[0],Ea_J_per_mol:''}]),/Missing/);
+const aware=sensor();aware.batches.A[0].Timestamp+='Z';assert.throws(()=>calculate(aware,meta),/timezone-free/);
+const batches=sensor();batches.batches.B=batches.batches.A.map(x=>({...x}));const ranked=calculate(batches,[...meta,{...meta[0],Batch_ID:'B'}]);assert.deepEqual(ranked.rows.map(x=>x.FEFO_Rank),[1,1]);
+assert.throws(()=>calculate(batches,meta),/Metadata missing/);
+console.log('PASS: reference aging, heat penalty, label cap, ties, missing metadata, gaps and timezone validation');

@@ -1,0 +1,2 @@
+Product_ID,Product_Name,Batch_ID,Manufacture_Date,Label_Expiry_Date,Standard_Shelf_Life_Days,Ea_J_per_mol,Reference_Temp_C
+DEMO-001,Demonstration product,BATCH-01004,2025-10-28,2027-10-28,730,51044.8,5

@@ -184,3 +184,13 @@ Bản local có nút **Run two XGBoost models locally** trong Simulation, mục 
 Nhãn được suy ra từ nhiệt độ trong file: điểm bắt đầu của ít nhất 3 giờ liên tiếp ngoài [2,8]°C trong 6 giờ tiếp theo. Chỉ lấy thời điểm đang trong [2,8]°C và còn ít nhất 9 giờ theo dõi; nhãn này không phải ground truth được đánh giá độc lập. Tối đa 2.000 thời điểm đủ điều kiện được chọn đều theo thứ tự để kiểm chứng. Đặc trưng chỉ dùng quá khứ/hiện tại; phần tương lai chỉ dùng tạo nhãn.
 
 Chức năng dùng hai mô hình nghiên cứu, khác backend FINAL-1.0; nhiệt độ dùng theo kết quả import hiện tại, không hiệu chỉnh thêm. Trang Netlify static không tự chạy Python/XGBoost. Regression sample vẫn là lựa chọn đọc điểm đã lưu và được ghi rõ trên giao diện.
+
+## Tính hạn dùng động từ sensor trong app
+
+Sau khi upload sensor, mở **2B. Calculate dynamic expiry and FEFO**. Tải mẫu metadata để xem cấu trúc; các tham số trong mẫu là minh họa. Upload CSV metadata của từng lô gồm Product_ID, Batch_ID, Manufacture_Date, Label_Expiry_Date, Standard_Shelf_Life_Days, Ea_J_per_mol và Reference_Temp_C. Mọi lô trong sensor phải có metadata duy nhất. Product_Name và Quantity là tùy chọn.
+
+Xác nhận tham số sản phẩm và giả định giai đoạn chưa có sensor được bảo quản tại nhiệt độ chuẩn, rồi bấm **Calculate dynamic expiry and FEFO**. App tích phân Arrhenius theo từng khoảng một giờ, giữ nhiệt độ đầu khoảng; không cộng thêm thời gian sau lần đo cuối. Thời điểm đánh giá là lần đo cuối của từng lô. Không dùng cursor/What-if của phần dự báo và không dùng điểm XGBoost. Dữ liệu phải liên tục theo giờ, timestamp không timezone; app từ chối khoảng trống, timestamp trùng và metadata thiếu.
+
+Ngày còn lại = max(0, hạn chuẩn − tuổi lô − (ngày tương đương − ngày đã theo dõi)). Ngày ưu tiên được giới hạn không muộn hơn hạn trên nhãn. FEFO tính lại theo sản phẩm và ngày ước tính. Bảng giải thích hiển thị ngày theo dõi, ngày tương đương, hao hụt thêm và ngày còn lại; tải JSON để lưu kết quả. Đây là phép ước tính theo mô hình, không xác nhận chất lượng hoặc tự duyệt lô.
+
+Sau khi tính thành công, inventory kết quả trở thành nguồn cho Dashboard/Batches/Reports và workflow được khởi tạo lại. Cần tải audit trước nếu muốn giữ quyết định của nguồn cũ. Cách upload inventory có sẵn Dynamic_Expiry_Date vẫn được giữ và chỉ xếp hạng ngày đã cung cấp.
