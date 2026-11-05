@@ -21,7 +21,6 @@
     const [queryLo, setQueryLo] = React.useState('0.30'), [queryHi, setQueryHi] = React.useState('0.90');
     const [leftClosed, setLeftClosed] = React.useState(true), [rightClosed, setRightClosed] = React.useState(true), [digits, setDigits] = React.useState(2);
     const [inventoryPage, setInventoryPage] = React.useState(0);
-    const [expiryMetadata, setExpiryMetadata] = React.useState(null), [expiryConfirmed, setExpiryConfirmed] = React.useState(false);
     const [scorePage, setScorePage] = React.useState(0);
     const generation = React.useRef(0), fileGeneration = React.useRef(0), lastText = React.useRef(null), workerRef = React.useRef(null);
     const remote = (window.__COLDCHAIN_CONFIG__?.apiBaseUrl || '').replace(/\/+$/, '');
@@ -104,25 +103,6 @@
           request: { filename, batch, task, readings: history.length, adjusted_last_temperature: Number(adjust), history_complete: complete, operating_point: 'precision50', aware_timestamps_converted_to_UTC_naive: convertAwareToUTC } });
       } catch (e) { if (token === generation.current) fail(e); }
       finally { if (token === generation.current) setBusy(false); }
-    }
-    async function readExpiryMetadata(file) {
-      setExpiryMetadata(null); setExpiryConfirmed(false); setError('');
-      try {
-        if (!file) return;
-        if (file.size > 5*1024*1024) throw Error('Batch metadata CSV must be below 5 MiB.');
-        const csv=R.parseCSV(await file.text());
-        setExpiryMetadata({filename:file.name,rows:csv.rows.map(row=>Object.fromEntries(csv.headers.map((key,i)=>[key,row[i]])))});
-      } catch(e) { fail(e); }
-    }
-    function calculateExpiry() {
-      setError('');
-      try {
-        if(!expiryConfirmed) throw Error('Confirm the metadata and reference-temperature assumption first.');
-        const result=window.ColdChainExpiry.calculate(dataset,expiryMetadata.rows);
-        const name=filename+' + '+expiryMetadata.filename+' (calculated expiry)';
-        setDataset(result);setFilename(name);setInventoryPage(0);shared.activate(result,name);
-        notify('Dynamic expiry estimated from sensor histories; FEFO ranks recalculated.');
-      } catch(e) { fail(e); }
     }
     async function runLivePair() {
       const token = ++generation.current; setBusy(true); setError('');
@@ -233,24 +213,9 @@
             card('Threshold', inference.selected_prediction.threshold ?? 'Not applicable'), card('Status', inference.selected_prediction.status)),
           h('p', null, 'This is an inference result, not a selector-equivalence certificate.'), pre(inference), button('Download inference JSON', () => download('inference-result.json', inference)))
           : h('p', { className: 'cc-note' }, 'INFERENCE NOT RUN · no result for the current configuration.')),
-      dataset?.kind === 'sensor' && h('section',{className:'cc-panel'},h('h2',null,'2B. Calculate dynamic expiry and FEFO'),
-        h('p',null,'Use all batches and all readings in the uploaded sensor file. Upload matching batch/product metadata; existing expiry dates are not used as calculated results. What-if and the prediction cursor do not affect this calculation.'),
-        h('p',null,'Required metadata CSV columns: Product_ID, Batch_ID, Manufacture_Date, Label_Expiry_Date, Standard_Shelf_Life_Days, Ea_J_per_mol, Reference_Temp_C. Optional: Product_Name, Quantity. Dates must be timezone-free. Sensor data must be consecutive hourly readings.'),
-        h('a',{href:'./samples/sample_expiry_metadata.csv',download:true},'Download metadata template for Sensor sample 1'),
-        h('p',{className:'cc-note'},'Template values describe an illustrative product only. Replace them with your product parameters; they are not validated product specifications.'),
-        h('label',{htmlFor:'cc-expiry-metadata'},'Upload batch/product metadata CSV'),
-        h('input',{id:'cc-expiry-metadata',type:'file',accept:'.csv,.tsv',onChange:e=>readExpiryMetadata(e.target.files[0])}),
-        expiryMetadata && h('p',null,expiryMetadata.filename+' · '+expiryMetadata.rows.length+' metadata rows'),
-        checkbox('I confirm the product parameters and accept reference-temperature aging for periods without sensor measurements',expiryConfirmed,setExpiryConfirmed),
-        h('p',{className:'cc-note'},'This is an Arrhenius model estimate, capped at label expiry. It does not certify product quality or authorize release. Calculating inventory replaces the active source and resets session workflow decisions.'),
-        button('Calculate dynamic expiry and FEFO',calculateExpiry,busy||parsing||!expiryMetadata||!expiryConfirmed,{'data-testid':'calculate-expiry'})),
       dataset?.kind === 'inventory' && h('section', { className: 'cc-panel' }, h('h2', null, '2. FEFO for uploaded inventory'),
-        h('p', null, dataset.expiry_calculation ? 'Dynamic expiry freshly estimated from uploaded temperatures and metadata, capped at label expiry; FEFO ranked within each product.' : 'Dense ranking by ascending Dynamic_Expiry_Date supplied in the CSV within each Product_ID. Early-warning scores do not automatically change expiry dates or approve batches.'),
-        dataset.expiry_calculation && h('div',{'data-testid':'expiry-result'},h('h3',null,'Calculated expiry estimates'),
-          h('p',null,'Unmonitored periods are assumed to age at reference temperature. Expiry does not exceed the label date. No approval is granted by this calculation.'),
-          table(['Batch','As of','Monitored days','Equivalent days','Excess aging days','Remaining days'],dataset.rows.map(x=>[x.Batch_ID,x.As_Of,x.Monitored_Days.toFixed(3),x.Equivalent_Days.toFixed(3),x.Excess_Aging_Days.toFixed(3),x.Remaining_Days.toFixed(3)])),
-          h('details',null,h('summary',null,'View calculation details'),pre({calculation:dataset.expiry_calculation,batches:dataset.rows}))),
-        button('Download inventory calculation JSON',()=>download('dynamic-expiry-fefo.json',dataset)),
+        h('p', null, 'Dense ranking by ascending Dynamic_Expiry_Date supplied in the CSV within each Product_ID. Early-warning scores do not automatically change expiry dates or approve batches.'),
+        button('Download inventory JSON',()=>download('inventory-fefo.json',dataset)),
         table(['Product', 'Batch', 'Dynamic expiry', 'FEFO rank'], dataset.rows.slice(inventoryPage * 50, inventoryPage * 50 + 50).map(x => [`${x.Product_ID ?? x.product_id}${(x.Product_Name ?? x.product_name) ? " · " + (x.Product_Name ?? x.product_name) : ""}`, x.Batch_ID ?? x.batch_id, x.Dynamic_Expiry_Date ?? x.dynamic_expiry_date, x.FEFO_Rank])),
         h('div', { className: 'cc-actions' }, button('Previous page', () => setInventoryPage(x => x - 1), inventoryPage === 0),
           h('span', null, `Page ${inventoryPage + 1}/${Math.ceil(dataset.count / 50)}`), button('Next page', () => setInventoryPage(x => x + 1), (inventoryPage + 1) * 50 >= dataset.count))),
