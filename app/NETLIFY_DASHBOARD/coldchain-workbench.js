@@ -21,6 +21,7 @@
     const [queryLo, setQueryLo] = React.useState('0.30'), [queryHi, setQueryHi] = React.useState('0.90');
     const [leftClosed, setLeftClosed] = React.useState(true), [rightClosed, setRightClosed] = React.useState(true), [digits, setDigits] = React.useState(2);
     const [inventoryPage, setInventoryPage] = React.useState(0);
+    const [scorePage, setScorePage] = React.useState(0);
     const generation = React.useRef(0), fileGeneration = React.useRef(0), lastText = React.useRef(null), workerRef = React.useRef(null);
     const remote = (window.__COLDCHAIN_CONFIG__?.apiBaseUrl || '').replace(/\/+$/, '');
     const researchRemote = (window.__COLDCHAIN_CONFIG__?.researchApiBaseUrl || '').replace(/\/+$/, '');
@@ -43,6 +44,7 @@
     }, []);
     React.useEffect(() => { generation.current++; setInference(null); setBusy(false); setError(''); }, [dataset, batch, cursor, task, adjust, complete, convertAwareToUTC]);
     React.useEffect(() => { generation.current++; setDiagnostic(null); setBusy(false); }, [dataset, lo, hi, oldPrecision, newPrecision, queryKind, values, queryLo, queryHi, leftClosed, rightClosed, digits]);
+    React.useEffect(() => { setScorePage(0); }, [dataset]);
     function fail(e) { setError(e.message || String(e)); }
     function download(name, data) {
       const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
@@ -101,6 +103,18 @@
           request: { filename, batch, task, readings: history.length, adjusted_last_temperature: Number(adjust), history_complete: complete, operating_point: 'precision50', aware_timestamps_converted_to_UTC_naive: convertAwareToUTC } });
       } catch (e) { if (token === generation.current) fail(e); }
       finally { if (token === generation.current) setBusy(false); }
+    }
+    async function runLivePair() {
+      const token = ++generation.current; setBusy(true); setError('');
+      try {
+        if (!local) throw Error('Start the local Python app to run both XGBoost models.');
+        const history = rows.slice(0, cursor + 1).map(x => ({ ...x, Timestamp: R.modelTimestamp(x.Timestamp, convertAwareToUTC) }));
+        const data = await R.jsonFetch('/api/live-model-pair', { readings: history, history_complete: complete }, 120000);
+        if (token !== generation.current) return;
+        setDataset(data); setDiagnostic(null); setScorePage(0);
+        notify('Both XGBoost models executed. Fresh paired scores are ready in section 3.');
+      } catch(e) { if(token === generation.current) fail(e); }
+      finally { if(token === generation.current) setBusy(false); }
     }
     function query() {
       if (queryKind === 'none') return undefined;
@@ -189,6 +203,8 @@
         checkbox('I confirm that the submitted history is complete for this batch', complete, setComplete),
         checkbox('Convert timezone-aware timestamps to UTC-naive for the API (source CSV unchanged)', convertAwareToUTC, setConvertAwareToUTC),
         h('p', { className: 'cc-note' }, 'The API requires source-local timestamps without a timezone. For ISO timestamps with Z or an offset, enable UTC conversion above or normalize them to the model timezone. Timezone information is not silently discarded.'),
+        h('p', {className:'cc-note'}, 'Run both frozen research XGBoost models locally on this sensor history, then compare fresh scores in section 3. Labels are derived from future temperature excursions in this file; the last 9 hours are excluded. Requires complete hourly history. No model training is performed.'),
+        button('Run two XGBoost models locally', runLivePair, busy || parsing || !complete || !local, {'data-testid':'run-live-pair'}),
         button(busy ? 'Running inference…' : 'Run backend inference', runInference, busy || parsing, { 'data-testid': 'run-inference' }),
         h('p', { className: 'cc-note' }, 'Click Run to send the selected batch history up to the cursor to the configured model backend. Failed requests do not produce substitute scores.'),
         inference ? h('div', { className: 'cc-result', 'data-testid': 'inference-result' }, h('h3', null, 'Backend result received'),
@@ -203,14 +219,26 @@
         h('div', { className: 'cc-actions' }, button('Previous page', () => setInventoryPage(x => x - 1), inventoryPage === 0),
           h('span', null, `Page ${inventoryPage + 1}/${Math.ceil(dataset.count / 50)}`), button('Next page', () => setInventoryPage(x => x + 1), (inventoryPage + 1) * 50 >= dataset.count))),
       h('section', { className: 'cc-panel' }, h('h2', null, '3. Exact Policy Regression Diagnosis'),
+        dataset?.live_prediction && h('div', {'data-testid':'live-model-result'}, h('h3',null,'Fresh local XGBoost predictions'), pre(dataset.live_prediction)),
         dataset?.kind === 'regression' && h('div', { 'data-testid': 'regression-models' },
           h('div', { className: 'cc-metrics' },
             card('Reference · old_score', dataset.modelNames?.[0] || 'Model name not supplied'),
             card('Comparison · new_score', dataset.modelNames?.[1] || 'Model name not supplied')),
-          h('p', null, 'The CSV supplies paired model predictions. This step compares selected observation IDs; the model names describe the input columns. Each ID identifies one labeled observation.'),
+          h('p', null, dataset.live_prediction ? 'These paired scores were computed by both local XGBoost models from your sensor history. Labels are derived from future excursions in the uploaded file.' : 'The CSV supplies paired model predictions. This step compares selected observation IDs; the model names describe the input columns. Each ID identifies one labeled observation.'),
           filename === 'sample_regression.csv (sample)' && h('p', { className: 'cc-note' },
             'Built-in sample: two trained feature variants for the same 6-hour task. The reference uses thermal-history features; the comparison adds Arrhenius features. Verification applies to this 2,000-row subset.',
             ' ', h('a', { href: './samples/sample_regression_provenance.json', target: '_blank', rel: 'noopener' }, 'View model artifacts, hashes and sampling method'))),
+        dataset?.kind === 'regression' && h('div', { 'data-testid': 'regression-scores' },
+          h('h3', null, 'Paired input scores'),
+          table(['Observation ID', 'Label y', 'Reference · old_score', 'Comparison · new_score'],
+            dataset.payload.ids.slice(scorePage * 20, scorePage * 20 + 20).map((id, offset) => {
+              const index = scorePage * 20 + offset;
+              return [id, dataset.payload.labels[index], dataset.payload.reference_scores[index], dataset.payload.actual_scores[index]];
+            })),
+          h('div', { className: 'cc-actions' },
+            button('Previous scores', () => setScorePage(page => page - 1), scorePage === 0),
+            h('span', null, `Page ${scorePage + 1}/${Math.ceil(dataset.count / 20)} · ${dataset.count} observations`),
+            button('Next scores', () => setScorePage(page => page + 1), (scorePage + 1) * 20 >= dataset.count))),
         h('p', null, 'Upload CSV columns id,y,old_score,new_score for the same observations and labels. Verification covers fixed inputs and declared selector contracts; it does not prove arbitrary program source code correct.'),
         h('p', { className: researchAvailable ? 'cc-source' : 'cc-warning' }, researchAvailable ? 'Verification API configured. A verdict is available only after independent checking.' : 'Verification API unavailable. Run start_ui.py with requirements-ui.txt installed. Static hosting alone cannot run the Python checker.'),
         h('div', { className: 'cc-fields' }, field('Policy domain lo (rational)', lo, setLo), field('Policy domain hi (rational)', hi, setHi),
@@ -227,7 +255,12 @@
           h('div', { className: 'cc-metrics' }, card('PSC exact', diagnostic.certificate.psc_exact), card('Verified probes', diagnostic.verification.probes),
             card('Candidate counts old/new', diagnostic.certificate.candidate_counts.join(' / ')), card('Input SHA-256', diagnostic.certificate.input_sha256.slice(0, 16) + '…')),
           !diagnostic.certificate.equivalent && diagnostic.certificate.psc === 0 && h('p', { className: 'cc-warning' }, 'PSC=0 with pointwise divergence. The selectors are not equivalent.'),
-          table(['Lo', 'Hi', 'Left closed', 'Right closed', 'Equal', 'Witness ID'], diagnostic.certificate.cells.slice(0, 100).map(c => [c.lo, c.hi, c.left_closed, c.right_closed, c.equal, c.witness?.row_id])),
+          table(['Lo', 'Hi', 'Left closed', 'Right closed', 'Equal', 'Witness ID', 'Witness label y', 'Reference · old_score', 'Comparison · new_score'],
+            diagnostic.certificate.cells.slice(0, 100).map(c => {
+              const index = diagnostic.download.ids.indexOf(c.witness?.row_id);
+              return [c.lo, c.hi, c.left_closed, c.right_closed, c.equal, c.witness?.row_id,
+                diagnostic.download.labels[index], diagnostic.download.reference_scores[index], diagnostic.download.actual_scores[index]];
+            })),
           diagnostic.certificate.cells.length > 100 && h('p', null, 'Showing the first 100 cells. The downloaded JSON contains all cells.'),
           diagnostic.query_result && pre({ full_query: diagnostic.query_result, boolean_query: diagnostic.boolean_result }),
           button('Download certificate with inputs for rechecking', () => download('verified-policy-certificate.json', diagnostic.download)))

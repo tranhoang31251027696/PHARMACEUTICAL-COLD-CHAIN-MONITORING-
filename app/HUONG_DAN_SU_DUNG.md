@@ -169,3 +169,18 @@ Mã nguồn đọc được: NETLIFY_DASHBOARD/coldchain-workflow.js; bản sao 
 - Dispatch Board của Warehouse là bảng thao tác dạng thẻ theo 3 nhóm: Dispatch queue (In queue), Ready to queue (Approved), Waiting for QA (Awaiting approval). Các lô Dispatched/Rejected nằm trong mục thu gọn. Tại đây thực hiện Request QA review, Add to Queue và Confirm Dispatch, có kiểm tra FEFO.
 - Batches là bảng tra cứu toàn bộ inventory, có tìm kiếm/lọc trạng thái, nhiệt độ, FEFO rank, dynamic expiry, location và View details; không lặp lại board thẻ hoặc các nút dispatch trên từng hàng. Cùng một thay đổi trạng thái xuất hiện ở cả hai tab.
 - Warehouse không có thêm Reports hay Simulation trong sidebar. Menu vẫn là Dispatch Board / Batches / Alerts / Settings, ở cả nguồn lịch sử và nguồn upload. Việc upload thực hiện ở Simulation của QA; đổi vai trò vẫn giữ nguồn dữ liệu trong cùng phiên.
+
+
+## Chạy hai mô hình XGBoost trực tiếp từ sensor CSV
+
+Bản local có nút **Run two XGBoost models locally** trong Simulation, mục 2. Đây là chạy dự đoán mới bằng hai mô hình nghiên cứu đã huấn luyện: thermal 6h và thermal + Arrhenius 6h; không huấn luyện lại và không dùng điểm trong Regression sample.
+
+1. Cài requirements-ui.txt và khởi động lại start_ui.py.
+2. Upload sensor CSV hoặc chọn Sensor sample. Tắt auto-inference nếu chỉ muốn chạy hai mô hình trên máy.
+3. Chọn lô, đặt cursor đến cuối phần lịch sử cần dùng, xác nhận lịch sử đầy đủ. Dữ liệu cần liên tục theo giờ, tối thiểu 10 readings; chọn cách chuyển timezone nếu cần.
+4. Bấm **Run two XGBoost models locally**. App chạy cả hai mô hình trên máy, hiệu chỉnh điểm theo calibrator đã lưu và chuyển điểm mới sang mục 3. Điều chỉnh What-if ở mục gọi backend không áp dụng cho nút này.
+5. Xem **Fresh local XGBoost predictions**, hash đầu vào và hai mô hình; bấm **Compare and verify independently** để kiểm chứng.
+
+Nhãn được suy ra từ nhiệt độ trong file: điểm bắt đầu của ít nhất 3 giờ liên tiếp ngoài [2,8]°C trong 6 giờ tiếp theo. Chỉ lấy thời điểm đang trong [2,8]°C và còn ít nhất 9 giờ theo dõi; nhãn này không phải ground truth được đánh giá độc lập. Tối đa 2.000 thời điểm đủ điều kiện được chọn đều theo thứ tự để kiểm chứng. Đặc trưng chỉ dùng quá khứ/hiện tại; phần tương lai chỉ dùng tạo nhãn.
+
+Chức năng dùng hai mô hình nghiên cứu, khác backend FINAL-1.0; nhiệt độ dùng theo kết quả import hiện tại, không hiệu chỉnh thêm. Trang Netlify static không tự chạy Python/XGBoost. Regression sample vẫn là lựa chọn đọc điểm đã lưu và được ghi rõ trên giao diện.

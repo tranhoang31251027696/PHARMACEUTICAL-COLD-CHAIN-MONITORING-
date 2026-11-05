@@ -70,6 +70,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if self.path in ('/api/regression', '/api/check-certificate'):
                 from regression_service import diagnose
                 return self.send_json(diagnose(body, check_only=self.path.endswith('check-certificate')))
+            if self.path == '/api/live-model-pair':
+                from live_models import predict_pair
+                return self.send_json(predict_pair(body))
             if self.path == '/predict':
                 # Only this fixed inference endpoint is proxied; callers cannot choose a URL.
                 req = urllib.request.Request(REMOTE+'/predict', data=raw,
