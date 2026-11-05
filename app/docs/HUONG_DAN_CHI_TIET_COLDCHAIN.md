@@ -1,10 +1,16 @@
 # Hướng dẫn chi tiết ứng dụng ColdChain
 
-Tài liệu giải thích mục đích ứng dụng, dữ liệu đầu vào, từng màn hình và thao tác, kết quả đầu ra và cách đọc các chỉ số. Nội dung đối chiếu với mã nguồn local ngày 31/10/2026, sau khi Warehouse được giữ đúng bốn tab. Tên nút giữ bằng tiếng Anh như trên app; phần giải thích dùng tiếng Việt.
+Tài liệu giải thích mục đích ứng dụng, dữ liệu đầu vào, từng màn hình và thao tác, kết quả đầu ra và cách đọc các chỉ số. Nội dung đối chiếu với mã nguồn local ngày 05/11/2026, sau khi gỡ phần cấu hình độ nhạy minh họa và cột điểm chất lượng chưa được tính. Tên nút giữ bằng tiếng Anh như trên app; phần giải thích dùng tiếng Việt.
 
 ColdChain hỗ trợ xem dữ liệu nhiệt độ, nhận cảnh báo từ quan sát và model, tra cứu lô, xếp thứ tự FEFO và thực hành luồng QA duyệt lô rồi Warehouse chuẩn bị xuất. Simulation còn có công cụ nghiên cứu để so sánh quyết định giữa hai phiên bản model.
 
 Kết luận cần nhớ: dữ liệu sensor và inventory được tính ngay sau upload. Dự báo cần backend model, lịch sử phù hợp và xác nhận đầy đủ. Quyết định QA và Warehouse được đồng bộ trong cùng phiên tab trình duyệt; chưa ghi thành giao dịch kho trên server.
+
+## Bản cập nhật ngày 05 tháng 11 năm 2026
+
+Settings của QA chỉ còn Account Profile, Language, Notifications và Regulatory Temperature Limits. Bảng lô và thẻ lô hiển thị trạng thái nhiệt; cột Risk score và khối chỉnh độ nhạy minh họa đã được gỡ. High phản ánh phân loại từ dữ liệu nhiệt, không phải điểm chất lượng 0–100.
+
+Có thể mở bản demo tại https://coldchain-monitoring.netlify.app. Để chạy công cụ kiểm chứng hồi quy Python, dùng bản local theo phần 2; trang static không tự chạy dịch vụ Python.
 
 ## Cách đọc tài liệu
 
@@ -177,7 +183,7 @@ Dashboard cung cấp tổng quan số lô, cảnh báo và tình trạng nhiệt
 | Current Excursions | Số lô active được phân loại High do nhiệt độ hoặc trạng thái excursion từ nguồn |
 | Open Alerts | Số bản ghi cảnh báo chưa mang trạng thái Resolved; một lô có thể có nhiều bản ghi |
 | Awaiting Approval | Số lô đang chờ QA duyệt |
-| Thermal Status | Phân nhóm excursion, early warning, no early alert từ snapshot; không phải điểm chất lượng tổng hợp |
+| Thermal Status | Trạng thái nhiệt từ snapshot: excursion, early warning hoặc no early alert |
 | Shelf life hoặc Remaining Days | Giá trị do nguồn lịch sử cung cấp; upload sensor không tự tính được giá trị tương đương |
 
 ## Khi dùng dataset upload
@@ -193,7 +199,7 @@ Dashboard chuyển sang Uploaded dataset overview. Phần QA batch decisions cho
 
 Màu High của upload sensor phản ánh lần đo cuối ngoài vùng. Khi nhiệt độ trong vùng, phân loại nền có thể vẫn là Unknown; không tự đổi thành Low chỉ vì chưa có cảnh báo. Inventory không có sensor cũng dùng Unknown. Kết quả model được xem riêng trong bảng task và Alerts.
 
-Không có model Quality Risk Score tổng hợp được tích hợp trong nhánh này. Dấu gạch ngang hoặc N/A ở risk score là thiếu chỉ số đó, không phải rủi ro bằng 0.
+Bảng và chi tiết lô hiển thị trạng thái nhiệt từ dữ liệu hiện có; không hiển thị cột điểm chất lượng tổng hợp.
 
 <!-- PAGE -->
 # 7 Dispatch Board của Warehouse Staff
@@ -261,7 +267,7 @@ Luồng thông thường là Awaiting approval → Approved → In queue → Dis
 | Approved hoặc In queue | QA | Reject và nhập lý do | Rejected |
 | Awaiting approval | Warehouse | Request QA review | Giữ trạng thái, thêm yêu cầu review |
 
-Reject bắt buộc có Decision note. Approve một lô được gắn risk High cũng cần ghi chú đánh giá. Đây là yêu cầu ghi nhận quyết định, không phải chứng minh lô đạt chất lượng chỉ nhờ có ghi chú.
+Reject bắt buộc có Decision note. Approve một lô có trạng thái nhiệt High cũng cần ghi chú đánh giá. Đây là yêu cầu ghi nhận quyết định, không phải chứng minh lô đạt chất lượng chỉ nhờ có ghi chú.
 
 Warehouse không thể chuyển Awaiting approval thẳng sang In queue. QA không thể thực hiện Dispatched. Lô đã Dispatched không có thao tác hoàn tác trong workflow hiện tại. Muốn thử lại từ đầu, dùng một nguồn thử nghiệm mới hoặc một phiên mới, thay vì coi app đã hỗ trợ nghiệp vụ hoàn hàng.
 
@@ -504,7 +510,7 @@ Account Profile hiển thị hồ sơ demo. Display Language hiện là English 
 
 Save changes trong Warehouse chỉ khả dụng khi có thay đổi và hết trạng thái Saving. Giá trị được ghi nhận trong component của màn, chưa lưu lâu dài lên server; rời màn hoặc reload có thể mất. Nút bị mờ khi không có thay đổi không phải một lỗi xử lý.
 
-QA có Regulatory Temperature Limits hiển thị 2,0°C và 8,0°C cố định theo model dự án. Tên này không có nghĩa mọi loại hàng đều dùng chung ngưỡng phù hợp. Quality Risk Scoring Sensitivity với Decay rate, Anomaly, Excursion risk và Humidity variation là prototype. Low/Medium/High ở đây chưa đổi threshold model, rank FEFO hoặc tạo Quality Risk Score thật. Save/Reset của khối này chỉ tác động state demo của màn.
+QA có Regulatory Temperature Limits hiển thị 2,0°C và 8,0°C cố định theo model dự án. Tên này không có nghĩa mọi loại hàng đều dùng chung ngưỡng phù hợp.
 
 Không dùng thông báo Settings saved để suy rằng model đã được retrain, cấu hình server đã đổi hoặc cảnh báo cũ đã được resolve.
 
@@ -544,7 +550,7 @@ Website online chưa tự cập nhật theo mọi thay đổi local. Tài liệu
 
 ## Những việc chưa nên coi là đã có
 
-Chưa có xác thực/phân quyền server hoàn chỉnh, cơ sở dữ liệu workflow, đồng bộ nhiều tab/máy, xuất kho thật, lưu upload sau reload, ghép nhiều file sensor và inventory, huấn luyện lại khi upload, đánh giá tự động chất lượng model trên Nepal, hoặc chứng nhận chất lượng hàng dựa vào p_cal/Arrhenius. Các cấu hình sensitivity còn là UI prototype.
+Chưa có xác thực/phân quyền server hoàn chỉnh, cơ sở dữ liệu workflow, đồng bộ nhiều tab/máy, xuất kho thật, lưu upload sau reload, ghép nhiều file sensor và inventory, huấn luyện lại khi upload, đánh giá tự động chất lượng model trên Nepal, hoặc chứng nhận chất lượng hàng dựa vào p_cal/Arrhenius.
 
 ## Tệp mã được dùng để đối chiếu
 

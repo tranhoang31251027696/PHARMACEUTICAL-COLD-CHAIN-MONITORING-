@@ -1,4 +1,14 @@
-# ColdChain UI — sử dụng bản đã sửa
+# Hướng dẫn sử dụng ColdChain
+
+Cập nhật ngày 05/11/2026. Bản demo: https://coldchain-monitoring.netlify.app. Hướng dẫn đầy đủ theo từng màn hình: [Markdown](docs/HUONG_DAN_CHI_TIET_COLDCHAIN.md) hoặc [Word](docs/HUONG_DAN_CHI_TIET_COLDCHAIN.docx).
+
+## Đọc giao diện phiên bản hiện tại
+
+- **Settings của QA:** hồ sơ, ngôn ngữ, thông báo và giới hạn nhiệt độ 2–8°C. Phần chỉnh độ nhạy minh họa đã được gỡ.
+- **Thermal Status / Thermal status:** trạng thái nhiệt của lô. High yêu cầu xem xét dữ liệu nhiệt; không phải điểm chất lượng tổng hợp. Trạng thái Unknown thể hiện chưa có phân loại, không đồng nghĩa an toàn.
+- Bảng, thẻ và chi tiết lô không còn cột Risk score hoặc điểm rỗng. Xem nhiệt độ quan sát, cảnh báo, kết quả model và FEFO ở đúng phần tương ứng.
+- **p_cal / threshold** trong kết quả dự báo và **old_score / new_score** trong regression vẫn là dữ liệu của các chức năng đang hoạt động.
+- Bản demo online phục vụ giao diện và các kết nối backend đã cấu hình. Công cụ kiểm chứng hồi quy Python cần chạy bản local như bên dưới.
 
 ## Mở hệ thống
 
@@ -126,7 +136,7 @@ Bằng chứng kiểm thử trình duyệt headless, file upload tổng hợp n�
 
 - Vào Simulation để upload sensor/inventory CSV. Dữ liệu hợp lệ tự thay nguồn cho toàn app; banner luôn ghi tên file. Sensor tự tính min/max, số readings, số điểm ngoài [2,8]°C và cảnh báo tại lần đo cuối. Inventory tính dense FEFO theo sản phẩm/hạn dùng đã cung cấp.
 - Checkbox “Automatically run backend models…” mặc định bật: sau upload sensor, app gửi lần lượt lịch sử từng batch tới backend, chạy cả 6/12/24 giờ với precision50, history_complete=true chỉ sau khi bạn xác nhận lịch sử đầy đủ. Nếu chưa xác nhận, app chỉ tính local và chờ xác nhận ở banner; backend hiện từ chối lịch sử không đầy đủ vì dùng cumulative features. Không tự xác nhận thay người dùng. Tắt auto-inference trước upload nếu chỉ muốn tính local. Có Cancel và Run models for all batches. Chuỗi model phải theo giờ liên tục và timestamp không timezone; lỗi được ghi riêng từng batch, không coi là an toàn.
-- Dashboard/Batches/Alerts/Reports trong chế độ upload hiển thị dữ liệu tính thật; model alert dựa trên trường alert của API, khác cảnh báo nhiệt độ đo được. Reports xuất JSON kết quả thật thay cho report demo. Số điểm vượt ngưỡng không phải số giờ vượt ngưỡng. Chưa có persistence sau reload; thao tác approve/dispatch cũ không thực thi trong các màn upload.
+- Dashboard/Batches/Alerts/Reports trong chế độ upload hiển thị dữ liệu tính thật; model alert dựa trên trường alert của API, khác cảnh báo nhiệt độ đo được. Reports xuất JSON kết quả thật thay cho report demo. Số điểm vượt ngưỡng không phải số giờ vượt ngưỡng. Chưa lưu lâu dài sau reload; workflow QA/Warehouse trong phiên được mô tả ở phần bên dưới.
 - Regression CSV chỉ phục vụ kiểm chứng cặp scores cũ/mới ở section 3; không thay inventory/sensor đang hoạt động. Không bắt buộc chạy regression để phân tích dataset đơn.
 - Bấm Return to historical/demo data để hủy các request model đang chờ áp dụng, bỏ nguồn upload và quay lại nguồn ban đầu. Request cũ hoàn thành sau khi đổi file không được gắn vào file mới.
 
@@ -144,7 +154,7 @@ Mã quản lý nguồn chung: NETLIFY_DASHBOARD/coldchain-dataset.js. Kiểm th�
 
 Hai vai trò dùng chung nguồn dữ liệu, trạng thái lô, yêu cầu QA review, xác nhận cảnh báo và audit trong **cùng phiên tab trình duyệt**. Log out rồi chọn vai trò khác không xóa quyết định. Model cập nhật và polling cùng nguồn không xóa quyết định. Đổi dataset hoặc reload sẽ bắt đầu workflow mới; chưa có cơ sở dữ liệu workflow hoặc đồng bộ nhiều thiết bị/tab.
 
-- QA Manager: View details/Review batch → Approve hoặc Reject → Confirm action. Reject bắt buộc lý do. Approve lô có risk High cần ghi chú đánh giá. Có thể Reject lô Approved/In queue để giữ lại trước khi dispatch; không sửa lô đã Dispatched.
+- QA Manager: View details/Review batch → Approve hoặc Reject → Confirm action. Reject bắt buộc lý do. Approve lô có trạng thái nhiệt High cần ghi chú đánh giá. Có thể Reject lô Approved/In queue để giữ lại trước khi dispatch; không sửa lô đã Dispatched.
 - Warehouse Staff: Dispatch Board/Batches → Request QA review cho lô chờ duyệt; có ghi nhận trong bảng/audit của QA. Không có quyền Approve/Reject. Với Approved, chọn Add to Queue → Confirm action; với In queue, chọn Confirm Dispatch → Confirm action. Cancel không đổi trạng thái. Lô Rejected mở được lý do QA nhưng không queue/dispatch.
 - Khi có FEFO rank và Product_ID, chỉ xử lý trước các lô đã Approved/In queue có hạn dùng sớm hơn cùng sản phẩm. Các lô rank bằng nhau không chặn nhau. Lô thiếu dữ liệu FEFO không được gán một thứ hạng giả.
 - Mỗi xác nhận kiểm tra lại vai trò, trạng thái hiện tại và FEFO để từ chối thao tác từ màn hình đã cũ. Đây là guard trong app demo, không thay cho phân quyền server.
@@ -152,7 +162,7 @@ Hai vai trò dùng chung nguồn dữ liệu, trạng thái lô, yêu cầu QA r
 - Warehouse giữ đúng 4 tab: Dispatch Board, Batches, Alerts, Settings. QA vẫn có Reports và Simulation. Dataset do QA upload được dùng chung khi đổi sang Warehouse. Warehouse có Download workflow audit JSON trong Batches; không thêm tab Reports/Simulation.
 - Nút Forgot password? giải thích đây là demo và hướng dẫn Use demo user, không giả lập một email khôi phục đã gửi.
 
-Mã nguồn đọc được: NETLIFY_DASHBOARD/coldchain-workflow.js; bản sao SOURCE_PATCH/workbench/coldchain-workflow.js. Kiểm thử: node tests/test_workflow.cjs. Browser evidence: outputs/COLDCHAIN_SYSTEM_FIX/warehouse_checks.json. Không có thao tác deploy online hoặc ghi xuất kho thật trong lần sửa này.
+Mã nguồn đọc được: NETLIFY_DASHBOARD/coldchain-workflow.js; bản sao SOURCE_PATCH/workbench/coldchain-workflow.js. Kiểm thử: node tests/test_workflow.cjs. Browser evidence: outputs/COLDCHAIN_SYSTEM_FIX/warehouse_checks.json. Các thao tác workflow không ghi giao dịch xuất kho thật.
 
 ### Phân biệt Dispatch Board và Batches
 
