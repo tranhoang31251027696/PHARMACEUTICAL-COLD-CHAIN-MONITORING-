@@ -6,6 +6,16 @@ ColdChain hỗ trợ xem dữ liệu nhiệt độ, nhận cảnh báo từ quan
 
 Kết luận cần nhớ: dữ liệu sensor và inventory được tính ngay sau upload. Dự báo cần backend model, lịch sử phù hợp và xác nhận đầy đủ. Quyết định QA và Warehouse được đồng bộ trong cùng phiên tab trình duyệt; chưa ghi thành giao dịch kho trên server.
 
+## Luồng liền mạch cập nhật ngày 05/11/2026
+
+Chọn Sensor sample 1 hoặc Sensor sample 2 một lần để nạp sensor, inventory khớp Batch_ID và cặp scores đã tính sẵn bằng hai XGBoost từ chính file sensor đó. Auto-inference mặc định tắt để tránh chạy nhiều yêu cầu nền. FEFO for current batches và Regression for current batch chỉ cuộn tới phần kết quả trong cùng nguồn, không nạp sample khác.
+
+Giữ Position ở cuối chuỗi để dùng scores mẫu đã lưu, chọn miền alpha rồi bấm Compare and verify independently. Chạy Run two XGBoost models locally nếu muốn tính mới; sensor và FEFO vẫn được giữ. Đổi batch chọn đúng scores của batch đó. Đổi Position làm scores toàn chuỗi không còn được sử dụng cho tới khi trở lại cuối hoặc chạy lại hai model tại vị trí mới. Verdict vẫn chỉ xuất hiện sau checker chấp nhận.
+
+Với file riêng, upload sensor rồi dùng Link inventory to these sensor batches để gắn inventory theo Batch_ID. App từ chối lô inventory không có trong sensor và lô ánh xạ nhiều sản phẩm. FEFO dùng hạn đã cung cấp, chỉ xếp trong inventory được gắn; không tính dynamic expiry hoặc đổi hạn bằng scores. Dashboard, Batches, Reports và workflow cùng đọc sensor đã gắn inventory. Bản ghi inventory mẫu là snapshot đã lưu, không khẳng định ngày hạn được tính lại tại Position.
+
+Regression riêng vẫn có thể upload theo schema cũ, nhưng không được giới thiệu là kết quả của sensor hiện tại. Các mô tả sample và quy tắc thay nguồn ở các mục cũ bên dưới cần đọc cùng cập nhật này: sample liên kết và thao tác gắn inventory giữ nguyên nguồn sensor; upload file nguồn mới vẫn thay nguồn.
+
 ## Bản cập nhật ngày 05 tháng 11 năm 2026
 
 Settings của QA chỉ còn Account Profile, Language, Notifications và Regulatory Temperature Limits. Bảng lô và thẻ lô hiển thị trạng thái nhiệt; cột Risk score và khối chỉnh độ nhạy minh họa đã được gỡ. High phản ánh phân loại từ dữ liệu nhiệt, không phải điểm chất lượng 0–100.

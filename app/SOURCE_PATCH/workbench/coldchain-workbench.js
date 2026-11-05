@@ -6,7 +6,9 @@
     const initial = shared.active;
     const initialBatch = Object.keys(initial?.dataset.batches || {})[0] || '';
     const [dataset, setDataset] = React.useState(initial?.dataset || null), [filename, setFilename] = React.useState(initial?.filename || '');
-    const [autoRun, setAutoRun] = React.useState(true);
+    const [researchState, setResearchState] = React.useState(initial?.researchState || null);
+    const [, refreshLinked] = React.useState(0);
+    const [autoRun, setAutoRun] = React.useState(false);
     const [autoHistoryComplete, setAutoHistoryComplete] = React.useState(false);
     const [batch, setBatch] = React.useState(initialBatch), [cursor, setCursor] = React.useState(initial?.dataset.batches?.[initialBatch]?.length - 1 || 0), [task, setTask] = React.useState('w1_24');
     const [adjust, setAdjust] = React.useState(0), [complete, setComplete] = React.useState(false);
@@ -27,6 +29,9 @@
     const researchRemote = (window.__COLDCHAIN_CONFIG__?.researchApiBaseUrl || '').replace(/\/+$/, '');
     const researchAvailable = !!(local?.regression_available || researchRemote);
     const rows = dataset?.kind === 'sensor' ? dataset.batches[batch] || [] : [];
+    const research = dataset?.kind === 'regression' ? dataset : researchState?.dataset === dataset && researchState.batch === batch && researchState.cursor === cursor ? researchState.data : cursor === rows.length - 1 ? dataset?.researchByBatch?.[batch] : null;
+    const inventory = dataset?.kind === 'inventory' ? dataset : dataset?.inventory;
+    React.useEffect(() => shared.subscribe(() => refreshLinked(x => x + 1)), []);
     const current = rows[cursor], temp = current ? current.calibrated_temp + Number(adjust) : null;
     let thermal = null;
     try { if (temp != null && Number.isFinite(temp)) thermal = R.arrhenius(temp); } catch (_) { /* Invalid what-if temperature: no derived metric. */ }
@@ -43,7 +48,7 @@
       return () => { active = false; generation.current++; fileGeneration.current++; workerRef.current?.terminate(); };
     }, []);
     React.useEffect(() => { generation.current++; setInference(null); setBusy(false); setError(''); }, [dataset, batch, cursor, task, adjust, complete, convertAwareToUTC]);
-    React.useEffect(() => { generation.current++; setDiagnostic(null); setBusy(false); }, [dataset, lo, hi, oldPrecision, newPrecision, queryKind, values, queryLo, queryHi, leftClosed, rightClosed, digits]);
+    React.useEffect(() => { generation.current++; setDiagnostic(null); setBusy(false); }, [dataset, research, lo, hi, oldPrecision, newPrecision, queryKind, values, queryLo, queryHi, leftClosed, rightClosed, digits]);
     React.useEffect(() => { setScorePage(0); }, [dataset]);
     function fail(e) { setError(e.message || String(e)); }
     function download(name, data) {
@@ -68,7 +73,7 @@
           shared.activate(parsed, name, { historyComplete: autoHistoryComplete });
           if (parsed.kind === 'sensor' && autoRun) shared.runModels();
         }
-        notify(`Loaded ${parsed.count} rows from ${name}`);
+        return parsed;
       } catch (e) { if (token === fileGeneration.current) fail(e); }
       finally { if (token === fileGeneration.current) setParsing(false); }
     }
@@ -81,8 +86,42 @@
       try {
         const response = await fetch(new URL('./samples/' + name, document.baseURI));
         if (!response.ok) throw Error('Could not load the sample file.');
-        await readText(await response.text(), name + ' (sample)');
+        const text = await response.text();
+        let inventorySample, paired;
+        if (name.startsWith('sample_sensor_')) {
+          const responses = await Promise.all(['sample_linked_inventory.csv','sample_linked_predictions.json'].map(n => fetch(new URL('./samples/' + n, document.baseURI))));
+          if (responses.some(r => !r.ok)) throw Error('Could not load the linked sample package.');
+          inventorySample = R.normalize(await responses[0].text());
+          const cache = await responses[1].json();
+          const bytes = new TextEncoder().encode(text);
+          const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
+          paired = cache[name];
+          if (!paired || Object.values(paired).some(x=>x.live_prediction.sensor_file_sha256 !== hash)) throw Error('Stored scores do not match this sensor sample. Run both models on the uploaded sensor instead.');
+        }
+        const parsed = await readText(text, name + ' (linked sample)');
+        if (parsed && paired && shared.active?.dataset === parsed) {
+          const ids = new Set(Object.keys(parsed.batches));
+          const subset = R.normalize(['Product_ID,Product_Name,Batch_ID,Dynamic_Expiry_Date', ...inventorySample.rows.filter(x=>ids.has(x.Batch_ID)).map(x=>[x.Product_ID,JSON.stringify(x.Product_Name),x.Batch_ID,x.Dynamic_Expiry_Date].join(','))].join('\n'));
+          const matched = {};
+          for (const [id, data] of Object.entries(paired)) {
+            const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(parsed.batches[id]))))].map(x=>x.toString(16).padStart(2,'0')).join('');
+            if (digest === data.normalized_sensor_sha256) matched[id] = data;
+          }
+          if (shared.active?.dataset !== parsed) return;
+          parsed.researchByBatch = matched;
+          shared.attachInventory(subset, 'sample_linked_inventory.csv');
+          notify(Object.keys(matched).length === ids.size ? 'Linked sensor, inventory and saved paired scores loaded. Select a batch and verify in section 3.' : 'Sensor and inventory linked. Import options differ from the saved scores; run both XGBoost models to create matching scores.');
+        }
       } catch (e) { fail(e); }
+    }
+    async function attachInventory(file) {
+      if (!file) return;
+      try {
+        if (file.size > 75*1024*1024) throw Error('Inventory exceeds 75 MiB.');
+        const data = R.normalize(await file.text());
+        shared.attachInventory(data, file.name);
+        notify('Inventory linked to the current sensor batches.');
+      } catch(e) { fail(e); }
     }
     async function runInference() {
       const token = ++generation.current; setBusy(true); setError(''); setInference(null);
@@ -111,7 +150,10 @@
         const history = rows.slice(0, cursor + 1).map(x => ({ ...x, Timestamp: R.modelTimestamp(x.Timestamp, convertAwareToUTC) }));
         const data = await R.jsonFetch('/api/live-model-pair', { readings: history, history_complete: complete }, 120000);
         if (token !== generation.current) return;
-        setDataset(data); setDiagnostic(null); setScorePage(0);
+        const state = {dataset, batch, cursor, data};
+        setResearchState(state);
+        if (shared.active?.dataset === dataset) shared.active.researchState = state;
+        setDiagnostic(null); setScorePage(0);
         notify('Both XGBoost models executed. Fresh paired scores are ready in section 3.');
       } catch(e) { if(token === generation.current) fail(e); }
       finally { if(token === generation.current) setBusy(false); }
@@ -126,7 +168,7 @@
       const token = ++generation.current; setBusy(true); setError(''); setDiagnostic(null);
       try {
         if (!researchAvailable) throw Error('Run start_ui.py with NumPy installed, or configure researchApiBaseUrl for a deployed research API.');
-        const body = wrapper || { ...dataset.payload, lo, hi, old_precision: oldPrecision, new_precision: newPrecision, query: query() };
+        const body = wrapper || { ...research.payload, lo, hi, old_precision: oldPrecision, new_precision: newPrecision, query: query() };
         const data = await R.jsonFetch((local?.regression_available ? '' : researchRemote) + (wrapper ? '/api/check-certificate' : '/api/regression'), body);
         if (data.verified !== true || data.verification?.verified !== true) throw Error('The checker has not verified the result. No verdict is available.');
         if (token === generation.current) setDiagnostic(data);
@@ -163,7 +205,7 @@
     return h('div', { className: 'cc-workbench' },
       h('header', null, h('h1', null, 'Dataset & Research Workbench'), h('p', null, 'Upload your CSV · run backend inference · diagnose regression with an independent checker')),
       h('section', { className: 'cc-panel' }, h('h2', null, '1. Upload your dataset'),
-        h('p', null, 'Sensor and inventory uploads automatically become the active data source for Dashboard, Batches, Alerts and Reports. Regression CSVs are used only for the optional comparison in section 3.'),
+        h('p', null, 'Load sensor once to keep its chart, linked inventory FEFO and regression together. Sensor samples include the matching data. For your own sensor file, attach inventory below and run both XGBoost models. Standalone inventory/regression CSV uploads are also supported.'),
         checkbox('Automatically run backend models for all sensor batches after upload (sends sensor histories to the configured model API)', autoRun, setAutoRun),
         checkbox('I confirm before upload that all sensor series contain complete batch histories (required for automatic model inference)', autoHistoryComplete, setAutoHistoryComplete),
         h('div', { className: 'cc-upload', onDragOver: e => e.preventDefault(), onDrop: e => { e.preventDefault(); upload(e.dataTransfer.files[0]).catch(fail); } },
@@ -172,8 +214,8 @@
           h('small', null, 'Up to 75 MiB / 500,000 rows. Supports commas, semicolons, tabs, empty cells and quoted fields.')),
         h('div', { className: 'cc-actions' }, button('Sensor sample 1 (1 batch)', () => sample('sample_sensor_BATCH-01004.csv'), parsing),
           button('Sensor sample 2 (3 batches)', () => sample('sample_sensor_multi_batch.csv'), parsing),
-          button('FEFO sample', () => sample('sample_fefo_batches.csv'), parsing), button('Regression sample', () => sample('sample_regression.csv'), parsing)),
-        h('p', { className: 'cc-note' }, 'Regression sample compares saved calibrated predictions from XGBoost thermal (6h) and XGBoost thermal + Arrhenius (6h). It contains 2,000 uniformly spaced observations from the same 42,110-row test set.'),
+          button('FEFO for current batches', () => document.getElementById('cc-linked-fefo')?.scrollIntoView({behavior:'smooth'}), !inventory), button('Regression for current batch', () => document.getElementById('cc-linked-regression')?.scrollIntoView({behavior:'smooth'}), !research)),
+        h('p', { className: 'cc-note' }, 'Sensor samples include matching inventory and saved scores computed by both XGBoost models on those same histories. FEFO and Regression buttons navigate within the current data; they do not load another sample. Fresh model execution is optional.'),
         h('details', null, h('summary', null, 'Sensor import options and supported schemas'),
           h('p', null, 'Sensor: Timestamp, calibrated_temp/actual_temp/Temperature, Humidity; Batch_ID and Shipment_Mode can use the defaults below. Regression: id,y,old_score,new_score. Inventory: Product_ID,Batch_ID,Dynamic_Expiry_Date. Missing numeric values are not converted to zero.'),
           h('div', { className: 'cc-fields' }, field('Shipment_Mode default if missing', readingOptions.defaultShipment, v => setReadingOptions({ ...readingOptions, defaultShipment: v })),
@@ -213,33 +255,35 @@
             card('Threshold', inference.selected_prediction.threshold ?? 'Not applicable'), card('Status', inference.selected_prediction.status)),
           h('p', null, 'This is an inference result, not a selector-equivalence certificate.'), pre(inference), button('Download inference JSON', () => download('inference-result.json', inference)))
           : h('p', { className: 'cc-note' }, 'INFERENCE NOT RUN · no result for the current configuration.')),
-      dataset?.kind === 'inventory' && h('section', { className: 'cc-panel' }, h('h2', null, '2. FEFO for uploaded inventory'),
-        h('p', null, 'Dense ranking by ascending Dynamic_Expiry_Date supplied in the CSV within each Product_ID. Early-warning scores do not automatically change expiry dates or approve batches.'),
-        button('Download inventory JSON',()=>download('inventory-fefo.json',dataset)),
-        table(['Product', 'Batch', 'Dynamic expiry', 'FEFO rank'], dataset.rows.slice(inventoryPage * 50, inventoryPage * 50 + 50).map(x => [`${x.Product_ID ?? x.product_id}${(x.Product_Name ?? x.product_name) ? " · " + (x.Product_Name ?? x.product_name) : ""}`, x.Batch_ID ?? x.batch_id, x.Dynamic_Expiry_Date ?? x.dynamic_expiry_date, x.FEFO_Rank])),
+      dataset?.kind === 'sensor' && h('section', {className:'cc-panel'}, h('h2',null,'Link inventory to these sensor batches'), h('p',null,'Attach Product_ID, Batch_ID and Dynamic_Expiry_Date for the same batches. Supplied expiry dates are retained; ranks cover only the attached inventory. This does not calculate dynamic expiry.'), h('input',{type:'file',accept:'.csv,.tsv',onChange:e=>{attachInventory(e.target.files[0]);e.target.value='';}})),
+      inventory && h('section', { className: 'cc-panel', id:'cc-linked-fefo' }, h('h2', null, 'FEFO for current batches'),
+        h('p', null, 'FEFO ranks only the attached inventory within each product using supplied expiry dates. The linked sample uses stored inventory snapshots; those dates are not recalculated from the selected sensor window or model scores.'),
+        button('Download inventory JSON',()=>download('inventory-fefo.json',inventory)),
+        table(['Product', 'Batch', 'Dynamic expiry', 'FEFO rank'], inventory.rows.slice(inventoryPage * 50, inventoryPage * 50 + 50).map(x => [`${x.Product_ID ?? x.product_id}${(x.Product_Name ?? x.product_name) ? " · " + (x.Product_Name ?? x.product_name) : ""}`, x.Batch_ID ?? x.batch_id, x.Dynamic_Expiry_Date ?? x.dynamic_expiry_date, x.FEFO_Rank])),
         h('div', { className: 'cc-actions' }, button('Previous page', () => setInventoryPage(x => x - 1), inventoryPage === 0),
-          h('span', null, `Page ${inventoryPage + 1}/${Math.ceil(dataset.count / 50)}`), button('Next page', () => setInventoryPage(x => x + 1), (inventoryPage + 1) * 50 >= dataset.count))),
-      h('section', { className: 'cc-panel' }, h('h2', null, '3. Exact Policy Regression Diagnosis'),
-        dataset?.live_prediction && h('div', {'data-testid':'live-model-result'}, h('h3',null,'Fresh local XGBoost predictions'), pre(dataset.live_prediction)),
-        dataset?.kind === 'regression' && h('div', { 'data-testid': 'regression-models' },
+          h('span', null, `Page ${inventoryPage + 1}/${Math.ceil(inventory.count / 50)}`), button('Next page', () => setInventoryPage(x => x + 1), (inventoryPage + 1) * 50 >= inventory.count))),
+      h('section', { className: 'cc-panel', id:'cc-linked-regression' }, h('h2', null, '3. Exact Policy Regression Diagnosis'),
+        dataset?.kind === 'sensor' && h('p', {className:'cc-source'}, `Same sensor source · batch ${batch} · history through ${current?.Timestamp || '—'}. FEFO above refers to these same batches. Regression checks alert selections, not expiry or FEFO order.`),
+        research?.live_prediction && h('div', {'data-testid':'live-model-result'}, h('h3',null,'Paired XGBoost score provenance'), pre(research.live_prediction)),
+        !!research && h('div', { 'data-testid': 'regression-models' },
           h('div', { className: 'cc-metrics' },
-            card('Reference · old_score', dataset.modelNames?.[0] || 'Model name not supplied'),
-            card('Comparison · new_score', dataset.modelNames?.[1] || 'Model name not supplied')),
-          h('p', null, dataset.live_prediction ? 'These paired scores were computed by both local XGBoost models from your sensor history. Labels are derived from future excursions in the uploaded file.' : 'The CSV supplies paired model predictions. This step compares selected observation IDs; the model names describe the input columns. Each ID identifies one labeled observation.'),
+            card('Reference · old_score', research.modelNames?.[0] || 'Model name not supplied'),
+            card('Comparison · new_score', research.modelNames?.[1] || 'Model name not supplied')),
+          h('p', null, research.live_prediction ? research.live_prediction.source + '. Labels are derived from future excursions in this same sensor history.' : 'The CSV supplies paired model predictions. This step compares selected observation IDs; the model names describe the input columns. Each ID identifies one labeled observation.'),
           filename === 'sample_regression.csv (sample)' && h('p', { className: 'cc-note' },
             'Built-in sample: two trained feature variants for the same 6-hour task. The reference uses thermal-history features; the comparison adds Arrhenius features. Verification applies to this 2,000-row subset.',
             ' ', h('a', { href: './samples/sample_regression_provenance.json', target: '_blank', rel: 'noopener' }, 'View model artifacts, hashes and sampling method'))),
-        dataset?.kind === 'regression' && h('div', { 'data-testid': 'regression-scores' },
+        !!research && h('div', { 'data-testid': 'regression-scores' },
           h('h3', null, 'Paired input scores'),
           table(['Observation ID', 'Label y', 'Reference · old_score', 'Comparison · new_score'],
-            dataset.payload.ids.slice(scorePage * 20, scorePage * 20 + 20).map((id, offset) => {
+            research.payload.ids.slice(scorePage * 20, scorePage * 20 + 20).map((id, offset) => {
               const index = scorePage * 20 + offset;
-              return [id, dataset.payload.labels[index], dataset.payload.reference_scores[index], dataset.payload.actual_scores[index]];
+              return [id, research.payload.labels[index], research.payload.reference_scores[index], research.payload.actual_scores[index]];
             })),
           h('div', { className: 'cc-actions' },
             button('Previous scores', () => setScorePage(page => page - 1), scorePage === 0),
-            h('span', null, `Page ${scorePage + 1}/${Math.ceil(dataset.count / 20)} · ${dataset.count} observations`),
-            button('Next scores', () => setScorePage(page => page + 1), (scorePage + 1) * 20 >= dataset.count))),
+            h('span', null, `Page ${scorePage + 1}/${Math.ceil(research.count / 20)} · ${research.count} observations`),
+            button('Next scores', () => setScorePage(page => page + 1), (scorePage + 1) * 20 >= research.count))),
         h('p', null, 'Upload CSV columns id,y,old_score,new_score for the same observations and labels. Verification covers fixed inputs and declared selector contracts; it does not prove arbitrary program source code correct.'),
         h('p', { className: researchAvailable ? 'cc-source' : 'cc-warning' }, researchAvailable ? 'Verification API configured. A verdict is available only after independent checking.' : 'Verification API unavailable. Run start_ui.py with requirements-ui.txt installed. Static hosting alone cannot run the Python checker.'),
         h('div', { className: 'cc-fields' }, field('Policy domain lo (rational)', lo, setLo), field('Policy domain hi (rational)', hi, setHi),
@@ -249,7 +293,7 @@
           queryKind === 'finite' ? field('Policies, e.g. 1/2,0.8,0.9', values, setValues) : queryKind !== 'none' && h(React.Fragment, null,
             field('Query lo', queryLo, setQueryLo), field('Query hi', queryHi, setQueryHi), queryKind === 'lattice' && field('Decimal places', digits, setDigits, { type: 'number', min: 0, max: 12 }))),
         ['interval', 'lattice'].includes(queryKind) && h('div', { className: 'cc-actions' }, checkbox('Include left endpoint', leftClosed, setLeftClosed), checkbox('Include right endpoint', rightClosed, setRightClosed)),
-        button(busy ? 'Verifying…' : 'Compare and verify independently', () => runRegression(), busy || parsing || !researchAvailable || dataset?.kind !== 'regression', { 'data-testid': 'run-regression' }),
+        button(busy ? 'Verifying…' : 'Compare and verify independently', () => runRegression(), busy || parsing || !researchAvailable || !research, { 'data-testid': 'run-regression' }),
         h('label', { className: 'cc-field' }, 'Or recheck a downloaded certificate JSON (checker only)',
           h('input', { type: 'file', accept: '.json,application/json', onChange: e => { loadCertificate(e.target.files[0]); e.target.value = ''; }, disabled: busy || !researchAvailable })),
         diagnostic ? h('div', { className: 'cc-result', 'data-testid': 'regression-result' }, h('h3', null, `${diagnostic.status} · independent checker accepted`),

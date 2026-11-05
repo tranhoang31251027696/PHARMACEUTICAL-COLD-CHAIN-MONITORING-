@@ -1,0 +1,11 @@
+{
+  "description": "Linked demonstration package. Expiry dates are supplied snapshots, not recalculated from scores. Cached paired predictions were produced from the exact sensor CSV with raw Temperature, humidity default 60, shipment default Air and no offset. No new model training.",
+  "inventory_source": "data/03_FEFO_Raw/fefo_ranking.csv",
+  "inventory_source_sha256": "d4986b6f1d9b3c540803963f5e283a2b61820fa715316f073d20cb936d8b933b",
+  "files": {
+    "sample_sensor_BATCH-01004.csv": "ccd5052c1bf8b9eaccc3079e0176c862308f34386e9dd81f7c64cc6529f224f8",
+    "sample_sensor_multi_batch.csv": "71e7a8febdcdf8ac9a0b786b0bf8c3d488b1aa34697a37f9f0f8117e9a78ac1e",
+    "sample_linked_inventory.csv": "ceb6f385805ae17879daff43d7205f484cc84a656a2056efad9f4f6160729bb5",
+    "sample_linked_predictions.json": "24f71656e5dfe0af8e4d36ccda77513f4725f7ebf3020a75510a9ad3334d88e0"
+  }
+}

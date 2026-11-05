@@ -17,3 +17,7 @@ QA/Warehouse dùng chung workflow trong cùng phiên tab: QA approve/reject, War
 Warehouse sidebar giữ 4 tab gốc: Dispatch Board / Batches / Alerts / Settings. Dispatch Board dùng thẻ thao tác theo hàng chờ; Batches dùng bảng tra cứu riêng. QA upload qua Simulation; Warehouse dùng cùng nguồn khi đổi vai trò.
 
 Bản 05/11/2026 đã gỡ khối chỉnh độ nhạy minh họa và các điểm chất lượng chưa được tính. Giao diện giữ Thermal Status, kết quả dự báo backend và FEFO có dữ liệu thực tế.
+
+## Luồng sensor FEFO regression liên kết
+
+Chọn một Sensor sample để nạp cùng lúc lịch sử nhiệt, inventory cùng mã lô và paired scores đã tính sẵn từ đúng sensor. FEFO/Regression là nút đi tới phần tương ứng, không đổi sample. Chạy hai XGBoost mới vẫn giữ sensor và inventory. Với CSV riêng, upload sensor rồi gắn inventory cùng Batch_ID; regression tính từ sensor đã chọn. Auto-inference mặc định tắt. FEFO dùng hạn được cung cấp, không tính dynamic expiry. Xem samples/sample_linked_manifest.json để đối chiếu nguồn.

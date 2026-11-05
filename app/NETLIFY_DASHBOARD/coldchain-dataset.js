@@ -12,6 +12,19 @@
     store.active = { dataset, filename, historyComplete: options.historyComplete === true, predictions: {}, errors: {}, progress: 'Local calculations complete. Model inference not run.', busy: false };
     emit();
   };
+  store.attachInventory = (inventory, filename) => {
+    const a = store.active;
+    if (!a || a.dataset.kind !== 'sensor' || inventory.kind !== 'inventory') throw Error('Load sensor data before attaching inventory.');
+    const ids = new Set();
+    for (const row of inventory.rows) {
+      if (!a.dataset.batches[row.Batch_ID]) throw Error('Inventory batch has no sensor history: ' + row.Batch_ID);
+      if (ids.has(row.Batch_ID)) throw Error('Each sensor batch must map to exactly one inventory product.');
+      ids.add(row.Batch_ID);
+    }
+    a.dataset.inventory = inventory; a.dataset.inventoryFilename = filename;
+    emit();
+  };
+  store.refresh = emit;
   function alerts() {
     const a = store.active; if (!a || a.dataset.kind !== 'sensor') return [];
     const out = [];
@@ -33,7 +46,8 @@
     return Object.entries(a.dataset.batches).map(([id, rows]) => {
       const last = rows.at(-1), outside = rows.filter(x => x.calibrated_temp < 2 || x.calibrated_temp > 8).length;
       let min = Infinity, max = -Infinity; for (const r of rows) { min = Math.min(min,r.calibrated_temp); max = Math.max(max,r.calibrated_temp); }
-      return { id, product: 'Not supplied', temp: `${last.calibrated_temp.toFixed(2)}°C`, current: last.calibrated_temp, min, max, outside, readings: rows.length,
+      const inventory = a.dataset.inventory?.rows.find(x => x.Batch_ID === id);
+      return { ...(inventory || {}), id, workflowKey: inventory ? JSON.stringify([inventory.Product_ID,id]) : id, product: inventory ? inventory.Product_Name || inventory.Product_ID : 'Not supplied', temp: `${last.calibrated_temp.toFixed(2)}°C`, current: last.calibrated_temp, min, max, outside, readings: rows.length,
         observedAt: last.Timestamp, risk: last.calibrated_temp < 2 || last.calibrated_temp > 8 ? 'High' : 'Unknown', status: 'Awaiting approval', source: 'uploaded' };
     });
   };
@@ -101,7 +115,7 @@
       h('p',null,'All values below come from the active upload. Missing inventory facts remain unavailable. Model forecasts are separate from observed excursions.'),
       h('div',{className:'cc-metrics'},card('Batches / inventory rows',batches.length),card('Input rows',a.dataset.count),card('Latest-reading excursions',sensor?batches.filter(b=>b.current<2||b.current>8).length:'N/A'),card('Active alerts',allAlerts.length)),
       page==='alerts'?h(React.Fragment,null,table(['Batch','Type','Severity','Observed at','Details'],allAlerts.slice(0,limit).map(x=>[x.batch,x.type,x.severity,x.time,x.detail])),allAlerts.length===0&&h('p',null,sensor?'No current observed or returned model alerts. Unrun or failed predictions are not counted as safe.':'No sensor data supplied; temperature and prediction alerts are unavailable.')):
-      page==='reports'?h(React.Fragment,null,h('p',null,'Export contains source identity, calculated batch summaries, FEFO where supplied, actual model responses, errors, import warnings and session workflow decisions. It is not a compliance certificate.'),h('button',{className:'cc-button',onClick:()=>download('uploaded-dataset-results.json',{filename:a.filename,kind:a.dataset.kind,input_rows:a.dataset.count,batches,alerts:allAlerts,predictions:a.predictions,errors:a.errors,warnings:a.dataset.warnings,workflow:window.ColdChainWorkflow?{decisions:window.ColdChainWorkflow.store.decisions,audit:window.ColdChainWorkflow.store.audit,acknowledgements:window.ColdChainWorkflow.store.acknowledgements}:null})},'Download dataset results JSON')):
+      page==='reports'?h(React.Fragment,null,h('p',null,'Export contains source identity, calculated batch summaries, FEFO where supplied, actual model responses, errors, import warnings and session workflow decisions. It is not a compliance certificate.'),h('button',{className:'cc-button',onClick:()=>download('uploaded-dataset-results.json',{filename:a.filename,kind:a.dataset.kind,input_rows:a.dataset.count,batches,alerts:allAlerts,predictions:a.predictions,research:a.researchState?.data,inventory:a.dataset.inventory,errors:a.errors,warnings:a.dataset.warnings,workflow:window.ColdChainWorkflow?{decisions:window.ColdChainWorkflow.store.decisions,audit:window.ColdChainWorkflow.store.audit,acknowledgements:window.ColdChainWorkflow.store.acknowledgements}:null})},'Download dataset results JSON')):
       h(React.Fragment,null,h('input',{'aria-label':'Search uploaded batches',placeholder:'Search uploaded batches',value:search,onChange:e=>{setSearch(e.target.value);setLimit(50);}}),
         sensor?table(['Batch','Latest °C','Min °C','Max °C','Readings','Outside [2,8]°C','Latest time'],shown.slice(0,limit).map(b=>[b.id,b.current.toFixed(2),b.min.toFixed(2),b.max.toFixed(2),b.readings,b.outside,b.observedAt])):
         table(['Product','Batch','Dynamic expiry','FEFO rank'],shown.slice(0,limit).map(b=>[b.product,b.id,b.Dynamic_Expiry_Date,b.FEFO_Rank])),

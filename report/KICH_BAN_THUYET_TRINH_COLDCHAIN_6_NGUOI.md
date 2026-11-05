@@ -2,16 +2,16 @@
 
 Bản cập nhật ngày 05/11/2026. Thời lượng khoảng 15–18 phút, gồm thời gian chờ kết quả. Lời thoại có thể đọc trực tiếp; phần Thao tác dành cho người điều khiển máy.
 
-Luồng demo đã chốt: sensor CSV → backend inference → hai XGBoost → kiểm chứng regression → inventory CSV → FEFO → QA duyệt → kho xác nhận xuất. App không còn phần tính dynamic expiry từ sensor. FEFO dùng hạn có sẵn trong inventory.
+Luồng demo đã chốt: chọn sensor sample liên kết một lần → backend inference (tùy chọn) → dùng scores từ cùng sensor hoặc chạy hai XGBoost → kiểm chứng regression → FEFO cùng các lô → QA duyệt → kho xác nhận xuất. App không còn phần tính dynamic expiry từ sensor. FEFO dùng hạn có sẵn trong inventory.
 
 ## Chuẩn bị trước buổi trình bày
 
 - Chạy ColdChain UI/start_ui.bat và dùng bản local. Đổi QA và Warehouse trong cùng một tab; không reload giữa phần duyệt và xuất.
 - Vào QA Manager → Simulation, tắt Automatically run backend models trước khi chọn sensor sample để tránh tự chạy nhiều batch và nhiều horizon.
 - Chạy thử một batch đủ lịch sử theo giờ. Ghi lại batch và Position dùng được cho backend; ưu tiên điểm gốc nằm trong [2,8]°C. Trả What-if adjustment về 0.
-- Chạy thử hai XGBoost và checker trước buổi trình bày. Chuẩn bị kết quả đã tải của lượt chạy thử để minh họa nếu máy hoặc backend phản hồi chậm; khi dùng phải nói rõ đó là kết quả chạy trước.
-- Chuẩn bị inventory sample và ghi nhớ một lô hạng 1. Không đổi nguồn trong lúc QA và kho đang xử lý lô.
-- Regression sample là phương án thay thế khi không chạy được hai model tại chỗ. Đây là dữ liệu scores đã lưu; không giới thiệu là scores vừa tạo từ sensor.
+- Sensor sample đã kèm scores tính sẵn từ chính sensor để demo nhanh; vẫn phải chạy checker. Chạy thử hai XGBoost nếu muốn tính mới trước buổi trình bày. Chuẩn bị kết quả đã tải của lượt chạy thử để minh họa nếu máy hoặc backend phản hồi chậm; khi dùng phải nói rõ đó là kết quả chạy trước.
+- Inventory khớp sensor sample được nạp tự động. Ghi nhớ một lô hạng 1 trong phần FEFO for current batches. Không đổi nguồn trong lúc QA và kho đang xử lý lô.
+- Dùng scores đã lưu kèm Sensor sample nếu không chạy model tại chỗ. Đây là scores đã tính trước từ đúng file sensor, không giới thiệu là kết quả vừa chạy mới.
 
 | Người | Nội dung | Thời lượng dự kiến |
 |---|---|---|
@@ -62,17 +62,17 @@ Kết quả ghi tên model và phiên bản thực tế backend trả về. p_ca
 
 Lần chạy thủ công này hiển thị trong Simulation. Nếu thời điểm gốc đã ngoài vùng, cần đọc trạng thái trả về vì cảnh báo sớm có thể không áp dụng. Nếu backend lỗi, app báo lỗi và lần chạy đó chưa có kết quả dự báo.”
 
-**Thao tác 2:** Tải inference JSON nếu cần. Đưa Position đến cuối chuỗi đủ điều kiện, giữ xác nhận lịch sử đầy đủ. Bấm Run two XGBoost models locally. Chờ bảng paired scores ở mục 3.
+**Thao tác 2:** Tải inference JSON nếu cần. Đưa Position đến cuối chuỗi. Để demo nhanh, dùng cặp scores mẫu đã được tính trước từ chính sensor và nói rõ nguồn. Nếu cần chạy mới, giữ xác nhận lịch sử đầy đủ rồi bấm Run two XGBoost models locally; sensor và bảng FEFO vẫn hiển thị. Không bấm một sample khác.
 
 “Nút thứ hai phục vụ nghiên cứu so sánh. App chạy hai XGBoost đã huấn luyện ngay trên máy local: thermal sáu giờ và thermal bổ sung đặc trưng Arrhenius sáu giờ. Đây là hai biến thể nghiên cứu riêng; không suy rằng chúng trùng weights với model backend vừa gọi.
 
-Nút này tạo scores cho nhiều thời điểm đủ điều kiện trong lịch sử, tối đa hai nghìn quan sát. Nó cố định horizon sáu giờ và không áp dụng ô What-if. App suy ra nhãn từ diễn biến nhiệt độ phía sau trong file, nên cần thời gian theo dõi tương lai và loại phần cuối theo điều kiện tạo nhãn. Nhãn này được tạo theo quy tắc, chưa phải ground truth được đánh giá độc lập.
+Sensor sample đã kèm kết quả tính trước từ đúng file để giảm thời gian chờ; khi em bấm chạy lại thì model thực thi mới. Nút này tạo scores cho nhiều thời điểm đủ điều kiện trong lịch sử, tối đa hai nghìn quan sát. Nó cố định horizon sáu giờ và không áp dụng ô What-if. App suy ra nhãn từ diễn biến nhiệt độ phía sau trong file, nên cần thời gian theo dõi tương lai và loại phần cuối theo điều kiện tạo nhãn. Nhãn này được tạo theo quy tắc, chưa phải ground truth được đánh giá độc lập.
 
 Khi chạy thành công, app đưa ID, nhãn và hai cột scores sang mục 3. Chúng em không cần chọn Regression CSV nữa. Chạy hai model mới hoàn thành bước tạo dữ liệu; bước kiểm chứng sẽ do bạn tiếp theo thực hiện.”
 
 ## Người 4 kiểm chứng quyết định theo paper
 
-**Thao tác:** Giữ dataset do hai model vừa tạo. Không bấm Regression sample. Trong mục 3, chỉ tên hai model và bảng scores. Chọn lo = 0.30, hi = 0.90, cả hai contract inclusive ≥. Bấm Compare and verify independently.
+**Thao tác:** Giữ dataset do hai model vừa tạo. Không bấm scores mẫu liên kết. Trong mục 3, chỉ tên hai model và bảng scores. Chọn lo = 0.30, hi = 0.90, cả hai contract inclusive ≥. Bấm Compare and verify independently.
 
 “Bảng này chứa cùng các quan sát được chấm bởi hai model. ID dùng để đối chiếu cùng quan sát; y là nhãn; old_score và new_score là điểm của hai bên.
 
@@ -88,15 +88,15 @@ PSC là tỷ lệ độ dài miền alpha có phân kỳ. Nó không phải tỷ
 
 DIVERGENT cũng chưa kết luận model mới kém hơn; nó cho biết quyết định đã đổi ở đâu. Certificate có thể tải về để kiểm tra lại với đầu vào. Kết luận giới hạn trên dataset, miền policy và contract hiện tại, không chứng nhận toàn bộ ứng dụng hoặc chất lượng hàng.
 
-Sau phần nghiên cứu này, nhóm chuyển nguồn sang inventory để minh họa FEFO và workflow.”
+Sau phần nghiên cứu này, nhóm giữ nguyên nguồn và mở FEFO của chính các lô đó để minh họa workflow.”
 
 ## Người 5 chạy FEFO và workflow QA với kho
 
-**Thao tác 1:** Tải kết quả regression cần giữ. Chọn FEFO sample hoặc upload inventory CSV. Chỉ Product_ID, Batch_ID, Dynamic_Expiry_Date và FEFO rank. Ghi nhớ lô hạng 1.
+**Thao tác 1:** Giữ nguyên nguồn sensor. Bấm FEFO for current batches hoặc cuộn tới bảng FEFO đã nạp cùng sample. Chỉ Product_ID, Batch_ID, Dynamic_Expiry_Date và FEFO rank. Đối chiếu mã lô với batch ở phần sensor/regression. Không upload file khác; ghi nhớ lô hạng 1.
 
-“Inventory là loại dữ liệu khác với sensor và regression. Mỗi dòng ghi một lô của một sản phẩm, kèm ngày hết hạn được cung cấp trong Dynamic_Expiry_Date. App dùng ngày này để xếp FEFO trong từng sản phẩm: hạn sớm hơn được ưu tiên trước. Những lô có cùng hạn được cùng hạng.
+“Inventory được gắn với sensor theo cùng Batch_ID và được giữ khi kiểm chứng regression. Mỗi dòng ghi một lô của một sản phẩm, kèm ngày hết hạn được cung cấp trong Dynamic_Expiry_Date. App dùng ngày này để xếp FEFO trong từng sản phẩm: hạn sớm hơn được ưu tiên trước. Những lô có cùng hạn được cùng hạng.
 
-Ở luồng hiện tại, app không tính lại hạn dùng từ sensor hoặc từ scores XGBoost. Tên cột Dynamic_Expiry_Date mô tả giá trị đầu vào; người cung cấp dữ liệu chịu trách nhiệm về nguồn và cách xác định ngày đó. Chuyển sang inventory cũng thay nguồn vận hành của phiên, nên chúng em hoàn tất workflow trước khi đổi dataset lần nữa.”
+Ở luồng hiện tại, app không tính lại hạn dùng từ sensor hoặc từ scores XGBoost. Tên cột Dynamic_Expiry_Date mô tả giá trị đầu vào; người cung cấp dữ liệu chịu trách nhiệm về nguồn và cách xác định ngày đó. Inventory này đã được gắn cùng sensor. Kiểm chứng vừa rồi giữ nguyên nguồn, nên Dashboard và workflow vẫn có cùng lịch sử nhiệt và thông tin lô.”
 
 **Thao tác 2:** QA → Batches → View details đúng lô hạng 1 → Approve → Confirm action. Log out và đăng nhập Warehouse Staff trong cùng tab.
 
@@ -123,7 +123,7 @@ Kết quả dự báo, kết luận tương đương selector và quyết địn
 ## Xử lý khi demo chậm hoặc lỗi
 
 - Backend chậm: nói “Yêu cầu đang chờ backend trả về”; dùng kết quả chạy thử đã lưu và ghi rõ nguồn. Không giới thiệu kết quả cũ là response của lần bấm hiện tại.
-- Hai XGBoost không chạy được: chuyển Regression sample và nói “Đây là cặp scores đã lưu từ hai model nghiên cứu, được dùng để minh họa bước kiểm chứng”. Sau đó chạy mục 3; không cần chạy backend để dùng regression CSV.
+- Hai XGBoost không chạy được: chuyển scores mẫu liên kết và nói “Đây là cặp scores đã lưu từ hai model nghiên cứu, được dùng để minh họa bước kiểm chứng”. Sau đó chạy mục 3; không cần chạy backend để dùng regression CSV.
 - Checker chậm: dùng certificate đã chuẩn bị để giải thích kết quả và phạm vi. Không kết luận PASS cho lượt đang chờ.
 - Nếu rút ngắn buổi demo: bỏ What-if, chỉ chạy backend horizon 6 giờ, chỉ demo một lô FEFO và một nhánh Approve → Queue → Dispatch.
 - Không nhập sẵn lời khẳng định sample chắc chắn DIVERGENT hoặc chắc chắn có cảnh báo. Luôn đọc đúng kết quả đang hiển thị.
